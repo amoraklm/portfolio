@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ali Portfolio | Branding, Packaging & Web Design</title>
+  <meta name="description" content="Portfolio of Ali – a designer specializing in luxury branding, packaging and web design. See selected projects." />
+  <meta property="og:title" content="Ali Portfolio" />
+  <meta property="og:description" content="Luxury branding, packaging & web design portfolio." />
+  <meta property="og:image" content="https://amoraklm.github.io/portfolio/images/og-preview.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Montserrat & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">علی</h1>
+      <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- Filter Buttons -->
+  <section class="filter-section">
+    <div class="container filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Branding">Branding</button>
+      <button class="filter-btn" data-filter="Packaging">Packaging</button>
+      <button class="filter-btn" data-filter="Web Design">Web Design</button>
+    </div>
+  </section>
+
+  <!-- Project Grid -->
+  <main class="project-grid container" id="projectGrid">
+    <!-- کارت‌ها با جاوااسکریپت درج می‌شوند -->
+  </main>
+
+  <!-- Contact Form -->
+  <section class="contact-section">
+    <div class="container contact-container">
+      <h2>Contact Me</h2>
+      <form id="contactForm" action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+        <p id="formFeedback" class="form-feedback"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Close">✕</button>
+      <img src="" alt="" id="lightboxImage" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
