@@ -1,6 +1,9 @@
 // ===== DATA =====
 const projects = [
   { id:1, title:"Resa Saffon", category:"Packing", image:"images/project1.jpg", alt:"Packing project" },
+  { id:1, title:"Event Poster", category:"Poster", image:"images/project2.jpg", alt:"Poster project" },
+  { id:1, title:"Bonaft", category:"Logo", image:"images/project3.jpg", alt:"Logo project" },
+
 ];
 
 // ===== DOM =====
