@@ -1,1 +1,284 @@
+/* ===== CSS Custom Properties (Light/ Dark) ===== */
+:root {
+  --bg: #F8F9FA;
+  --text: #1A2A40;
+  --accent: #C5A86D;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --shadow: 0 4px 20px rgba(0,0,0,0.05);
+  --overlay: rgba(0,0,0,0.8);
+}
 
+html.dark {
+  --bg: #1A2A40;
+  --text: #f1f5f9;
+  --card-bg: #0f172a;
+  --border: #334155;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ===== Header ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background-color: rgba(248, 249, 250, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+html.dark .site-header {
+  background-color: rgba(26, 42, 64, 0.85);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+.dark-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+.dark-toggle:hover {
+  background-color: var(--border);
+}
+
+/* ===== Filter Buttons ===== */
+.filter-section {
+  padding: 3rem 0 1rem;
+}
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.filter-btn {
+  padding: 0.6rem 1.8rem;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: var(--accent);
+  color: white;
+}
+html.dark .filter-btn.active,
+html.dark .filter-btn:hover {
+  color: var(--bg);
+}
+
+/* ===== Project Grid ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0 4rem;
+}
+@media (max-width: 1024px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .project-grid { grid-template-columns: 1fr; }
+}
+
+/* Project Card */
+.project-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.project-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card-inner {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.card-inner:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+.card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.card-inner:hover img {
+  transform: scale(1.05);
+}
+.card-text {
+  text-align: center;
+  padding: 1.2rem 0.5rem;
+}
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.card-category {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-top: 0.25rem;
+}
+
+/* ===== Contact Form ===== */
+.contact-section {
+  background-color: var(--card-bg);
+  padding: 4rem 0;
+}
+.contact-container {
+  max-width: 600px;
+}
+.contact-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+#contactForm input:focus,
+#contactForm textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(197, 168, 109, 0.2);
+}
+.submit-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.submit-btn:hover { opacity: 0.9; }
+.form-feedback {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Lightbox ===== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  backdrop-filter: blur(6px);
+}
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 2;
+  animation: scaleUp 0.3s ease;
+}
+.lightbox.active .lightbox-content {
+  animation: scaleUp 0.3s ease forwards;
+}
+.lightbox-close {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  color: white;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 1rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
