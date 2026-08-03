@@ -1,9 +1,6 @@
 // ===== DATA =====
 const projects = [
-  { id:1, title:"Luxe Brand Identity", category:"Branding", image:"images/project1.jpg", alt:"Branding project" },
-  { id:2, title:"Organic Honey Packaging", category:"Packaging", image:"images/project2.jpg", alt:"Packaging design" },
-  { id:3, title:"Minimal Web UI", category:"Web Design", image:"images/project3.jpg", alt:"Web design" },
-  { id:4, title:"Fashion Editorial", category:"Branding", image:"images/project4.jpg", alt:"Branding" },
+  { id:1, title:"Resa Saffon", category:"Packing", image:"images/project1.jpg", alt:"Packing project" },
 ];
 
 // ===== DOM =====
