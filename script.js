@@ -10,6 +10,8 @@ const projects = [
   { id:8, title:"Advieh-Khaneh", category:"Packing", image:"images/project8.jpg", alt:"Packing project" },
   { id:9, title:"Daya Foundation", category:"Logo", image:"images/project9.jpg", alt:"Logo project" },
   { id:10, title:"Luminous Shadows", category:"Book cover", image:"images/project10.jpg", alt:"Book cover project" },
+  { id:11, title:"City campaign", category:"Poster", image:"images/project11.jpg", alt:"Poster project" },
+  { id:12, title:"Shahpasand", category:"Packing", image:"images/project12.jpg", alt:"Packing project" },
 
 ];
 
