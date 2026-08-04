@@ -6,6 +6,9 @@ const projects = [
   { id:4, title:"Raising awareness", category:"Poster", image:"images/project4.jpg", alt:"Poster project" },
   { id:5, title:"Foolad-e-Zharf", category:"Packing", image:"images/project5.jpg", alt:"Packing project" },
   { id:6, title:"Kermana", category:"Logo", image:"images/project6.jpg", alt:"Logo project" },
+  { id:7, title:"Naagok", category:"Poster", image:"images/project7.jpg", alt:"Poster project" },
+  { id:8, title:"Advieh-Khaneh", category:"Packing", image:"images/project8.jpg", alt:"Packing project" },
+  { id:9, title:"Daya Foundation", category:"Logo", image:"images/project9.jpg", alt:"Logo project" },
 
 ];
 
