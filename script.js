@@ -9,6 +9,7 @@ const projects = [
   { id:7, title:"Naagok", category:"Poster", image:"images/project7.jpg", alt:"Poster project" },
   { id:8, title:"Advieh-Khaneh", category:"Packing", image:"images/project8.jpg", alt:"Packing project" },
   { id:9, title:"Daya Foundation", category:"Logo", image:"images/project9.jpg", alt:"Logo project" },
+  { id:10, title:"Luminous Shadows", category:"Book cover", image:"images/project10.jpg", alt:"Book cover project" },
 
 ];
 
