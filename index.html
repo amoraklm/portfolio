@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,239 +7,882 @@
 
   <title>Ali | Graphic Designer & Digital Creative</title>
 
-  <meta
-    name="description"
-    content="Ali is a graphic designer and digital creative specializing in branding, social media design, packaging, and digital experiences."
-  />
+<meta
+ name="description"
+ content="Ali is a multidisciplinary designer focused on brand identity, packaging, digital design, UI/UX, and creative web experiences."
+/>
 
-  <meta
-    name="keywords"
-    content="Ali, Graphic Designer, Branding, Packaging Design, Social Media Design, UI Design, Digital Creative"
-  />
+<meta
+ name="keywords"
+ content="Ali, Graphic Designer, Brand Identity, Packaging Design, UI UX, Web Design, Digital Design, Portfolio"
+/>
 
   <meta name="author" content="Ali" />
-  <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Ali | Graphic Designer & Digital Creative" />
+
+  <meta property="og:title" content="Ali — Graphic Designer & Digital Creative" />
   <meta
     property="og:description"
-    content="Graphic design, branding, packaging, and digital creative work by Ali."
+    content="Selected work across branding, packaging, posters, digital design, UI/UX and web."
   />
   <meta
     property="og:image"
     content="https://amoraklm.github.io/portfolio/images/og-preview.jpg"
   />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://amoraklm.github.io/portfolio/" />
-
-  <!-- Canonical -->
-  <link
-    rel="canonical"
-    href="https://amoraklm.github.io/portfolio/"
+  <meta
+    property="og:url"
+    content="https://amoraklm.github.io/portfolio/"
   />
+  <meta property="og:type" content="website" />
+
+  <!-- Theme / Browser -->
+
+  <meta name="theme-color" content="#E8ECF1" />
 
   <!-- Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap"
     rel="stylesheet"
   />
 
   <!-- Styles -->
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+  <!-- =========================================================
+       CUSTOM CURSOR
+       ========================================================= -->
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true">
+    <span class="cursor-label"></span>
+  </div>
+
+  <!-- =========================================================
+       SCROLL PROGRESS
+       ========================================================= -->
+
+  <div
+    class="scroll-progress"
+    id="scrollProgress"
+    aria-hidden="true"
+  ></div>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+
   <header class="header" id="header">
-    <div class="container header-inner">
 
-      <a href="#" class="logo" aria-label="Ali home">
-        ALI<span class="dot">.</span>
-      </a>
+```
+<div class="container header-inner">
 
-      <nav class="nav" aria-label="Main navigation">
+  <a
+    href="#top"
+    class="logo magnetic"
+    data-cursor="Home"
+    aria-label="Ali Portfolio Home"
+  >
+    ALI<span class="dot">.</span>
+  </a>
 
-        <a href="#about" class="nav-link">
-          About
-        </a>
+  <nav class="nav" aria-label="Primary navigation">
 
-        <a href="#skills" class="nav-link">
-          Skills
-        </a>
+    <a
+      href="#projects"
+      class="nav-link"
+      data-cursor="Work"
+    >
+      Work
+    </a>
 
-        <a href="#projects" class="nav-link">
-          Work
-        </a>
+    <a
+      href="#about"
+      class="nav-link"
+      data-cursor="About"
+    >
+      About
+    </a>
 
-        <a href="#contact" class="nav-link">
-          Contact
-        </a>
+    <a
+      href="#process"
+      class="nav-link"
+      data-cursor="Process"
+    >
+      Process
+    </a>
 
-        <button
-          id="themeToggle"
-          class="theme-btn"
-          type="button"
-          aria-label="Switch theme"
-          title="Switch theme"
-        >
-          🌙
-        </button>
+    <a
+      href="#contact"
+      class="nav-link"
+      data-cursor="Contact"
+    >
+      Contact
+    </a>
 
-      </nav>
+    <a
+      href="cv.pdf"
+      class="nav-link resume-link"
+      target="_blank"
+      rel="noopener"
+      data-cursor="Resume"
+    >
+      Resume
+    </a>
 
-    </div>
+    <button
+      id="themeToggle"
+      class="theme-btn magnetic"
+      type="button"
+      aria-label="Switch theme"
+      data-cursor="Theme"
+    >
+      🌙
+    </button>
+
+  </nav>
+
+</div>
+```
+
   </header>
 
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
 
-  <!-- ================= HERO ================= -->
-  <main>
+  <main id="top">
 
-    <section class="hero" id="home">
+```
+<!-- =======================================================
+     HERO
+     ======================================================= -->
+<section class="hero" id="hero">
 
-      <div class="hero-bg-shapes" aria-hidden="true">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-      </div>
+  <div
+    class="hero-bg-shapes"
+    aria-hidden="true"
+  >
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
 
-      <div class="container hero-content">
+  <div class="container hero-content">
 
-        <p class="pre-title">
-          Graphic Designer &amp; Digital Creative
-        </p>
+    <div class="availability-badge">
+      <span class="availability-dot"></span>
+      Available for opportunities
+    </div>
 
-        <h1 class="hero-title">
-          Designing
-          <span class="gold">Visuals</span>
-          <br />
-          That Communicate
-        </h1>
+    <p class="pre-title">
+      — Graphic Designer & Digital Creative
+    </p>
 
-        <p class="hero-sub">
-          I create thoughtful visual identities, packaging, social media
-          designs, and digital experiences that turn ideas into clear,
-          memorable communication.
-        </p>
+    <h1 class="hero-title">
+      I Craft
+      <span class="gold">Premium</span>
+      <br />
+      Brand Experiences
+    </h1>
 
-        <div class="hero-cta">
+    <p class="hero-sub">
+      Turning ideas into clear, strategic, and visually compelling
+      identities across branding, packaging, digital design, UI/UX,
+      and web.
+    </p>
 
-          <a
-            href="#projects"
-            class="cta-btn neumorph"
-          >
-            View My Work
-          </a>
+    <div class="hero-cta">
 
-          <a
-            href="https://jobvision.ir/cv/36197544-144336"
-            class="cta-btn neumorph outlined"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Resume
-          </a>
+      <a
+        href="#projects"
+        class="cta-btn neumorph magnetic"
+        data-cursor="Explore"
+      >
+        View My Work
+      </a>
 
+      <a
+        href="cv.pdf"
+        class="cta-btn neumorph outlined magnetic"
+        target="_blank"
+        rel="noopener"
+        data-cursor="Resume"
+      >
+        Download CV
+      </a>
+
+    </div>
+
+    <div class="hero-meta">
+
+      <span>
+        Based in Qom, Iran
+      </span>
+
+      <span class="meta-separator">•</span>
+
+      <span>
+        Open to Remote Opportunities
+      </span>
+
+    </div>
+
+  </div>
+
+  <a
+    href="#services"
+    class="scroll-indicator"
+    aria-label="Scroll to services"
+  >
+    <span>Scroll to explore</span>
+    <span class="scroll-arrow">↓</span>
+  </a>
+
+</section>
+
+
+<!-- =======================================================
+     WHAT I DO
+     ======================================================= -->
+<section
+  id="services"
+  class="section services-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <p class="section-eyebrow">
+        WHAT I DO
+      </p>
+
+      <h2 class="section-title">
+        Design with
+        <span class="gold">purpose.</span>
+      </h2>
+
+      <p class="section-subtitle">
+        A multidisciplinary approach combining visual design,
+        strategic thinking, and digital execution.
+      </p>
+
+    </div>
+
+
+    <div class="services-grid reveal-stagger">
+
+      <article class="service-card glass-card">
+
+        <span class="service-number">01</span>
+
+        <div class="service-icon">
+          ✦
         </div>
 
-      </div>
-    </section>
+        <h3>
+          Brand Identity
+        </h3>
 
+        <p>
+          Building visual identities that create recognition,
+          consistency, and a clear brand presence.
+        </p>
 
-    <!-- ================= ABOUT ================= -->
-    <section
-      id="about"
-      class="section about-section"
-    >
-
-      <div class="container">
-
-        <div class="glass-card about-card">
-
-          <div class="about-text">
-
-            <h2 class="section-title">
-              About <span class="gold">Me</span>
-            </h2>
-
-            <p>
-              I’m Ali, a graphic designer focused on branding, packaging,
-              social media design, and digital visual experiences.
-            </p>
-
-            <p>
-              My approach combines visual clarity, strong composition,
-              purposeful typography, and attention to detail. I aim to
-              create work that is not only visually appealing, but also
-              communicates a clear idea and supports the purpose behind it.
-            </p>
-
-            <div class="about-stats">
-
-              <div class="stat">
-                <strong>Branding</strong>
-                <span>Visual Identity</span>
-              </div>
-
-              <div class="stat">
-                <strong>Digital</strong>
-                <span>Creative Design</span>
-              </div>
-
-              <div class="stat">
-                <strong>Visual</strong>
-                <span>Communication</span>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="about-image neumorph-avatar">
-
-            <img
-              src="images/profile.jpg"
-              alt="Portrait of Ali, graphic designer"
-              loading="lazy"
-            />
-
-          </div>
-
+        <div class="service-tags">
+          <span>Logo</span>
+          <span>Visual System</span>
+          <span>Guidelines</span>
         </div>
 
-      </div>
-
-    </section>
+      </article>
 
 
-    <!-- ================= SKILLS ================= -->
-    <section
-      id="skills"
-      class="section skills-section"
-    >
+      <article class="service-card glass-card">
 
-      <div class="container">
+        <span class="service-number">02</span>
+
+        <div class="service-icon">
+          ◈
+        </div>
+
+        <h3>
+          Packaging Design
+        </h3>
+
+        <p>
+          Designing packaging systems that balance visual impact,
+          hierarchy, usability, and production requirements.
+        </p>
+
+        <div class="service-tags">
+          <span>Packaging</span>
+          <span>Mockups</span>
+          <span>Print</span>
+        </div>
+
+      </article>
+
+
+      <article class="service-card glass-card">
+
+        <span class="service-number">03</span>
+
+        <div class="service-icon">
+          ◇
+        </div>
+
+        <h3>
+          Digital Design
+        </h3>
+
+        <p>
+          Creating visual content for digital products, campaigns,
+          social media, presentations, and online communication.
+        </p>
+
+        <div class="service-tags">
+          <span>Social</span>
+          <span>Campaigns</span>
+          <span>Digital</span>
+        </div>
+
+      </article>
+
+
+      <article class="service-card glass-card">
+
+        <span class="service-number">04</span>
+
+        <div class="service-icon">
+          ⌘
+        </div>
+
+        <h3>
+          UI / UX Design
+        </h3>
+
+        <p>
+          Designing interfaces with a focus on clarity,
+          hierarchy, usability, interaction, and visual consistency.
+        </p>
+
+        <div class="service-tags">
+          <span>UI</span>
+          <span>UX</span>
+          <span>Figma</span>
+        </div>
+
+      </article>
+
+
+      <article class="service-card glass-card">
+
+        <span class="service-number">05</span>
+
+        <div class="service-icon">
+          &lt;/&gt;
+        </div>
+
+        <h3>
+          Web Design
+        </h3>
+
+        <p>
+          Translating visual systems into responsive,
+          polished, and functional web experiences.
+        </p>
+
+        <div class="service-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+      </article>
+
+
+      <article class="service-card glass-card">
+
+        <span class="service-number">06</span>
+
+        <div class="service-icon">
+          AI
+        </div>
+
+        <h3>
+          AI-Assisted Creative
+        </h3>
+
+        <p>
+          Using modern AI tools to accelerate ideation,
+          exploration, production, and creative workflows.
+        </p>
+
+        <div class="service-tags">
+          <span>AI Tools</span>
+          <span>Ideation</span>
+          <span>Workflow</span>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     ABOUT
+     ======================================================= -->
+<section
+  id="about"
+  class="section about-section"
+>
+
+  <div class="container">
+
+    <div class="glass-card about-card reveal">
+
+      <div class="about-text">
+
+        <p class="section-eyebrow">
+          ABOUT ME
+        </p>
 
         <h2 class="section-title">
-          Core <span class="gold">Skills</span>
+          Less noise,
+          <span class="gold">more meaning.</span>
         </h2>
+
+        <p>
+          I’m Ali, a multidisciplinary designer focused on
+          creating clear and purposeful visual experiences.
+          My work spans brand identity, packaging, digital
+          design, UI/UX, and web.
+        </p>
+
+        <p>
+          I approach each project by understanding the problem
+          first, defining the visual direction, and then turning
+          the strategy into a polished and usable design system.
+        </p>
+
+
+        <div class="about-stats">
+
+          <div class="stat">
+            <strong>12+</strong>
+            <span>Selected Projects</span>
+          </div>
+
+          <div class="stat">
+            <strong>6</strong>
+            <span>Core Disciplines</span>
+          </div>
+
+          <div class="stat">
+            <strong>∞</strong>
+            <span>Ideas to Explore</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="about-image">
+
+        <div class="neumorph-avatar">
+
+          <img
+            src="images/profile.jpg"
+            alt="Portrait of Ali"
+            loading="lazy"
+          />
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     DESIGN PRINCIPLES
+     ======================================================= -->
+<section
+  class="section principles-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <p class="section-eyebrow">
+        DESIGN PRINCIPLES
+      </p>
+
+      <h2 class="section-title">
+        How I
+        <span class="gold">think.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="principles-grid reveal-stagger">
+
+      <article class="principle-card">
+
+        <span class="principle-number">
+          01
+        </span>
+
+        <h3>
+          Clarity over complexity.
+        </h3>
+
+        <p>
+          Every visual element should have a reason to exist.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <span class="principle-number">
+          02
+        </span>
+
+        <h3>
+          Purpose before decoration.
+        </h3>
+
+        <p>
+          Design should solve a communication problem before
+          trying to impress visually.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <span class="principle-number">
+          03
+        </span>
+
+        <h3>
+          Consistency creates recognition.
+        </h3>
+
+        <p>
+          Strong systems outperform isolated visual decisions.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     FEATURED WORK
+     ======================================================= -->
+<section
+  id="projects"
+  class="section projects-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <p class="section-eyebrow">
+        SELECTED WORK
+      </p>
+
+      <h2 class="section-title">
+        Featured
+        <span class="gold">Projects</span>
+      </h2>
+
+      <p class="section-subtitle">
+        A selection of visual design projects across branding,
+        packaging, posters, and digital communication.
+      </p>
+
+    </div>
+
+
+    <!-- Project filters -->
+
+    <div
+      class="filter-bar"
+      role="group"
+      aria-label="Project filters"
+    >
+
+      <button
+        class="filter-btn active"
+        data-filter="all"
+        type="button"
+      >
+        All
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Packing"
+        type="button"
+      >
+        Packaging
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Poster"
+        type="button"
+      >
+        Posters
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Logo"
+        type="button"
+      >
+        Logos
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Business card"
+        type="button"
+      >
+        Business Cards
+      </button>
+
+      <button
+        class="filter-btn"
+        data-filter="Book cover"
+        type="button"
+      >
+        Editorial
+      </button>
+
+    </div>
+
+
+    <!-- Projects injected by script.js -->
+
+    <div
+      class="project-grid"
+      id="projectGrid"
+    ></div>
+
+
+    <div class="projects-note reveal">
+
+      <span>
+        More selected work available on request.
+      </span>
+
+      <a
+        href="#contact"
+        class="text-link"
+        data-cursor="Contact"
+      >
+        Let's talk →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     PROCESS
+     ======================================================= -->
+<section
+  id="process"
+  class="section process-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <p class="section-eyebrow">
+        MY PROCESS
+      </p>
+
+      <h2 class="section-title">
+        From problem
+        <span class="gold">to solution.</span>
+      </h2>
+
+      <p class="section-subtitle">
+        A structured process keeps creative decisions aligned
+        with the actual goal of the project.
+      </p>
+
+    </div>
+
+
+    <div class="process-grid reveal-stagger">
+
+      <article class="process-step">
+
+        <div class="process-step-top">
+          <span class="process-number">01</span>
+          <span class="process-line"></span>
+        </div>
+
+        <h3>
+          Discover
+        </h3>
+
+        <p>
+          Understand the brand, audience, problem, requirements,
+          and desired outcome.
+        </p>
+
+      </article>
+
+
+      <article class="process-step">
+
+        <div class="process-step-top">
+          <span class="process-number">02</span>
+          <span class="process-line"></span>
+        </div>
+
+        <h3>
+          Strategy
+        </h3>
+
+        <p>
+          Define the creative direction, visual language,
+          hierarchy, and communication priorities.
+        </p>
+
+      </article>
+
+
+      <article class="process-step">
+
+        <div class="process-step-top">
+          <span class="process-number">03</span>
+          <span class="process-line"></span>
+        </div>
+
+        <h3>
+          Design
+        </h3>
+
+        <p>
+          Explore concepts, refine the strongest direction,
+          and develop the final visual system.
+        </p>
+
+      </article>
+
+
+      <article class="process-step">
+
+        <div class="process-step-top">
+          <span class="process-number">04</span>
+          <span class="process-line"></span>
+        </div>
+
+        <h3>
+          Deliver
+        </h3>
+
+        <p>
+          Prepare polished, consistent, and production-ready
+          assets for the required platforms.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     SKILLS & TOOLS
+     ======================================================= -->
+<section
+  id="skills"
+  class="section skills-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <p class="section-eyebrow">
+        SKILLS & TOOLS
+      </p>
+
+      <h2 class="section-title">
+        Tools I use to
+        <span class="gold">build.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="skills-tools-layout">
+
+
+      <!-- Core skills -->
+
+      <div class="skills-column reveal">
+
+        <h3 class="subsection-title">
+          Core Skills
+        </h3>
+
 
         <div class="skills-grid">
 
           <div class="skill-item">
 
-            <span class="skill-label">
-              Graphic Design
-            </span>
+            <div class="skill-label">
+              <span>Brand Strategy</span>
+            </div>
 
             <div class="skill-bar neumorph-inset">
               <div
                 class="skill-fill"
-                data-width="95%"
                 style="width: 95%"
               ></div>
             </div>
@@ -248,48 +892,13 @@
 
           <div class="skill-item">
 
-            <span class="skill-label">
-              Branding
-            </span>
-
-            <div class="skill-bar neumorph-inset">
-              <div
-                class="skill-fill"
-                data-width="92%"
-                style="width: 92%"
-              ></div>
+            <div class="skill-label">
+              <span>UI / UX Design</span>
             </div>
 
-          </div>
-
-
-          <div class="skill-item">
-
-            <span class="skill-label">
-              Packaging Design
-            </span>
-
             <div class="skill-bar neumorph-inset">
               <div
                 class="skill-fill"
-                data-width="88%"
-                style="width: 88%"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="skill-item">
-
-            <span class="skill-label">
-              Social Media Design
-            </span>
-
-            <div class="skill-bar neumorph-inset">
-              <div
-                class="skill-fill"
-                data-width="90%"
                 style="width: 90%"
               ></div>
             </div>
@@ -299,14 +908,45 @@
 
           <div class="skill-item">
 
-            <span class="skill-label">
-              UI Design
-            </span>
+            <div class="skill-label">
+              <span>Packaging</span>
+            </div>
 
             <div class="skill-bar neumorph-inset">
               <div
                 class="skill-fill"
-                data-width="80%"
+                style="width: 88%"
+              ></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-item">
+
+            <div class="skill-label">
+              <span>Digital Design</span>
+            </div>
+
+            <div class="skill-bar neumorph-inset">
+              <div
+                class="skill-fill"
+                style="width: 85%"
+              ></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-item">
+
+            <div class="skill-label">
+              <span>Front-end Development</span>
+            </div>
+
+            <div class="skill-bar neumorph-inset">
+              <div
+                class="skill-fill"
                 style="width: 80%"
               ></div>
             </div>
@@ -316,15 +956,14 @@
 
           <div class="skill-item">
 
-            <span class="skill-label">
-              Front-end
-            </span>
+            <div class="skill-label">
+              <span>Creative Direction</span>
+            </div>
 
             <div class="skill-bar neumorph-inset">
               <div
                 class="skill-fill"
-                data-width="72%"
-                style="width: 72%"
+                style="width: 82%"
               ></div>
             </div>
 
@@ -334,271 +973,687 @@
 
       </div>
 
-    </section>
+
+      <!-- Tools -->
+
+      <div class="tools-column reveal">
+
+        <h3 class="subsection-title">
+          Tools & Technologies
+        </h3>
 
 
-    <!-- ================= PROJECTS ================= -->
-    <section
-      id="projects"
-      class="section projects-section"
-    >
+        <div class="tools-grid">
 
-      <div class="container">
+          <div class="tool-chip">
+            <span>Ps</span>
+            Photoshop
+          </div>
 
-        <h2 class="section-title">
-          Selected <span class="gold">Work</span>
-        </h2>
+          <div class="tool-chip">
+            <span>Ai</span>
+            Illustrator
+          </div>
 
-        <p class="section-subtitle">
-          A selection of visual design projects across branding,
-          packaging, posters, and digital communication.
-        </p>
+          <div class="tool-chip">
+            <span>Fi</span>
+            Figma
+          </div>
 
+          <div class="tool-chip">
+            <span>Pr</span>
+            Premiere Pro
+          </div>
 
-        <div
-          class="filter-bar"
-          role="tablist"
-          aria-label="Project categories"
-        >
+          <div class="tool-chip">
+            <span>Ae</span>
+            After Effects
+          </div>
 
-          <button
-            class="filter-btn active"
-            data-filter="all"
-            type="button"
-          >
-            All
-          </button>
+          <div class="tool-chip">
+            <span>H</span>
+            HTML
+          </div>
 
-          <button
-            class="filter-btn"
-            data-filter="Branding"
-            type="button"
-          >
-            Branding
-          </button>
+          <div class="tool-chip">
+            <span>C</span>
+            CSS
+          </div>
 
-          <button
-            class="filter-btn"
-            data-filter="Packaging"
-            type="button"
-          >
-            Packaging
-          </button>
+          <div class="tool-chip">
+            <span>JS</span>
+            JavaScript
+          </div>
 
-          <button
-            class="filter-btn"
-            data-filter="Poster"
-            type="button"
-          >
-            Poster
-          </button>
+          <div class="tool-chip">
+            <span>Git</span>
+            GitHub
+          </div>
 
-          <button
-            class="filter-btn"
-            data-filter="Digital"
-            type="button"
-          >
-            Digital
-          </button>
-
-        </div>
-
-
-        <div
-          class="project-grid"
-          id="projectGrid"
-          aria-live="polite"
-        >
-          <!-- Projects injected via JavaScript -->
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= CONTACT ================= -->
-    <section
-      id="contact"
-      class="section contact-section"
-    >
-
-      <div class="container">
-
-        <div class="glass-card contact-card">
-
-          <h2 class="section-title">
-            Let's <span class="gold">Talk</span>
-          </h2>
-
-          <p class="section-subtitle">
-            Have a project, collaboration, or opportunity in mind?
-            Send me a message.
-          </p>
-
-
-          <form
-            id="contactForm"
-            action="https://formspree.io/f/{YOUR_FORM_ID}"
-            method="POST"
-          >
-
-            <div class="form-group">
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                autocomplete="name"
-                required
-                class="neumorph-input"
-                aria-label="Your name"
-              />
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                autocomplete="email"
-                required
-                class="neumorph-input"
-                aria-label="Your email"
-              />
-
-            </div>
-
-
-            <textarea
-              name="message"
-              placeholder="Tell me about your project or opportunity..."
-              rows="5"
-              required
-              class="neumorph-input"
-              aria-label="Your message"
-            ></textarea>
-
-
-            <button
-              type="submit"
-              class="cta-btn neumorph submit-btn"
-            >
-              Send Message
-            </button>
-
-
-            <p
-              id="formFeedback"
-              class="form-feedback"
-              aria-live="polite"
-            ></p>
-
-          </form>
+          <div class="tool-chip">
+            <span>AI</span>
+            AI Tools
+          </div>
 
         </div>
 
       </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-
-    <div class="container footer-inner">
-
-      <a
-        href="#"
-        class="footer-logo"
-        aria-label="Ali home"
-      >
-        ALI<span class="dot">.</span>
-      </a>
-
-
-      <p class="footer-text">
-        © 2026 Ali. All rights reserved.
-      </p>
-
-
-      <div class="social-links">
-
-        <!-- Replace # with your real profile URLs -->
-
-        <a
-          href="#"
-          class="social-link"
-          aria-label="LinkedIn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          in
-        </a>
-
-        <a
-          href="#"
-          class="social-link"
-          aria-label="Behance"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Be
-        </a>
-
-        <a
-          href="https://github.com/amoraklm"
-          class="social-link"
-          aria-label="GitHub"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gh
-        </a>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <!-- ================= LIGHTBOX ================= -->
-  <div
-    class="lightbox"
-    id="lightbox"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Project preview"
-  >
-
-    <div
-      class="lightbox-backdrop"
-      aria-hidden="true"
-    ></div>
-
-    <div class="lightbox-content">
-
-      <button
-        class="lightbox-close"
-        type="button"
-        aria-label="Close project preview"
-      >
-        ✕
-      </button>
-
-      <img
-        src=""
-        alt=""
-        id="lightboxImg"
-      />
 
     </div>
 
   </div>
 
+</section>
 
-  <!-- ================= SCRIPT ================= -->
+
+<!-- =======================================================
+     EXPERIENCE
+     ======================================================= -->
+<section
+  id="experience"
+  class="section experience-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <p class="section-eyebrow">
+        EXPERIENCE
+      </p>
+
+      <h2 class="section-title">
+        Background &
+        <span class="gold">experience.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="experience-layout">
+
+
+      <div class="experience-card glass-card reveal">
+
+        <div class="experience-header">
+
+          <div>
+
+            <span class="experience-type">
+              DESIGN
+            </span>
+
+            <h3>
+              Freelance / Independent Designer
+            </h3>
+
+          </div>
+
+          <span class="experience-date">
+            Present
+          </span>
+
+        </div>
+
+        <p>
+          Working across visual identity, packaging, digital
+          communication, UI/UX, and web design projects.
+        </p>
+
+        <div class="experience-tags">
+          <span>Branding</span>
+          <span>Packaging</span>
+          <span>Digital</span>
+          <span>UI/UX</span>
+        </div>
+
+      </div>
+
+
+      <div class="experience-card glass-card reveal">
+
+        <div class="experience-header">
+
+          <div>
+
+            <span class="experience-type">
+              EDUCATION
+            </span>
+
+            <h3>
+              Law Student
+            </h3>
+
+          </div>
+
+          <span class="experience-date">
+            2026 —
+          </span>
+
+        </div>
+
+        <p>
+          Studying law while developing a multidisciplinary
+          professional path across design, technology, and
+          digital products.
+        </p>
+
+        <div class="experience-tags">
+          <span>Law</span>
+          <span>Research</span>
+          <span>Strategy</span>
+          <span>Technology</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     WHY WORK WITH ME
+     ======================================================= -->
+<section
+  class="section strengths-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <p class="section-eyebrow">
+        WHY WORK WITH ME
+      </p>
+
+      <h2 class="section-title">
+        More than
+        <span class="gold">visuals.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="strengths-grid reveal-stagger">
+
+      <article class="strength-card">
+
+        <span class="strength-icon">
+          ◎
+        </span>
+
+        <h3>
+          Strategic Thinking
+        </h3>
+
+        <p>
+          Design decisions start with the problem, audience,
+          and intended outcome.
+        </p>
+
+      </article>
+
+
+      <article class="strength-card">
+
+        <span class="strength-icon">
+          ◉
+        </span>
+
+        <h3>
+          Attention to Detail
+        </h3>
+
+        <p>
+          From typography and spacing to final production,
+          details are treated as part of the system.
+        </p>
+
+      </article>
+
+
+      <article class="strength-card">
+
+        <span class="strength-icon">
+          ↗
+        </span>
+
+        <h3>
+          Multidisciplinary
+        </h3>
+
+        <p>
+          Combining design, UI/UX, web development, and
+          modern AI-assisted workflows.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     TESTIMONIALS
+     ======================================================= -->
+<section
+  id="testimonials"
+  class="section testimonials-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <p class="section-eyebrow">
+        CLIENT FEEDBACK
+      </p>
+
+      <h2 class="section-title">
+        What people
+        <span class="gold">say.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="testimonials-grid reveal-stagger">
+
+
+      <!--
+        Replace these placeholders with real testimonials only.
+        Do not publish fabricated client feedback.
+      -->
+
+      <article class="testimonial-card glass-card">
+
+        <div class="testimonial-quote">
+          “
+        </div>
+
+        <p>
+          Add a real client or collaborator testimonial here.
+          Keep it short, specific, and focused on the quality
+          of the work or collaboration.
+        </p>
+
+        <div class="testimonial-author">
+
+          <strong>
+            Client Name
+          </strong>
+
+          <span>
+            Role / Company
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <article class="testimonial-card glass-card">
+
+        <div class="testimonial-quote">
+          “
+        </div>
+
+        <p>
+          Add another verified testimonial describing a real
+          project outcome, communication quality, or delivery.
+        </p>
+
+        <div class="testimonial-author">
+
+          <strong>
+            Client Name
+          </strong>
+
+          <span>
+            Role / Company
+          </span>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     HIRING CTA
+     ======================================================= -->
+<section
+  class="section hiring-section"
+>
+
+  <div class="container">
+
+    <div class="hiring-card glass-card reveal">
+
+      <div class="hiring-content">
+
+        <p class="section-eyebrow">
+          OPEN TO OPPORTUNITIES
+        </p>
+
+        <h2>
+          Looking for a
+          <span class="gold">designer?</span>
+        </h2>
+
+        <p>
+          I’m open to full-time roles, freelance projects,
+          collaborations, and creative opportunities.
+        </p>
+
+      </div>
+
+
+      <div class="hiring-actions">
+
+        <a
+          href="#contact"
+          class="cta-btn neumorph magnetic"
+          data-cursor="Contact"
+        >
+          Contact Me
+        </a>
+
+        <a
+          href="cv.pdf"
+          class="cta-btn neumorph outlined magnetic"
+          target="_blank"
+          rel="noopener"
+          data-cursor="Resume"
+        >
+          View Resume
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+     ======================================================= -->
+<section
+  id="contact"
+  class="section contact-section"
+>
+
+  <div class="container">
+
+    <div class="glass-card contact-card reveal">
+
+      <div class="contact-intro">
+
+        <p class="section-eyebrow">
+          GET IN TOUCH
+        </p>
+
+        <h2 class="section-title">
+          Let's
+          <span class="gold">Talk.</span>
+        </h2>
+
+        <p>
+          Have a project, collaboration, or opportunity in mind?
+          Send me a message.
+        </p>
+
+      </div>
+
+
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/{YOUR_FORM_ID}"
+        method="POST"
+      >
+
+        <div class="form-group">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            autocomplete="name"
+            required
+            class="neumorph-input"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            autocomplete="email"
+            required
+            class="neumorph-input"
+          />
+
+        </div>
+
+
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          class="neumorph-input contact-subject"
+        />
+
+
+        <textarea
+          name="message"
+          placeholder="Tell me about your project..."
+          rows="6"
+          required
+          class="neumorph-input"
+        ></textarea>
+
+
+        <button
+          type="submit"
+          class="cta-btn neumorph submit-btn magnetic"
+          data-cursor="Send"
+        >
+          Send Message
+        </button>
+
+
+        <p
+          id="formFeedback"
+          class="form-feedback"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+```
+
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer class="footer">
+
+```
+<div class="container footer-inner">
+
+  <a
+    href="#top"
+    class="footer-logo"
+    data-cursor="Home"
+  >
+    ALI<span class="dot">.</span>
+  </a>
+
+
+  <p class="footer-text">
+    © 2026 Ali. All rights reserved.
+  </p>
+
+
+  <div class="footer-links">
+
+    <a
+      href="#projects"
+      data-cursor="Work"
+    >
+      Work
+    </a>
+
+    <a
+      href="#about"
+      data-cursor="About"
+    >
+      About
+    </a>
+
+    <a
+      href="#contact"
+      data-cursor="Contact"
+    >
+      Contact
+    </a>
+
+  </div>
+
+
+  <div class="social-links">
+
+    <!-- Replace # with real profiles when available -->
+
+    <a
+      href="#"
+      aria-label="LinkedIn"
+      target="_blank"
+      rel="noopener"
+      class="social-link"
+      data-cursor="LinkedIn"
+    >
+      in
+    </a>
+
+    <a
+      href="#"
+      aria-label="Behance"
+      target="_blank"
+      rel="noopener"
+      class="social-link"
+      data-cursor="Behance"
+    >
+      Be
+    </a>
+
+    <a
+      href="#"
+      aria-label="GitHub"
+      target="_blank"
+      rel="noopener"
+      class="social-link"
+      data-cursor="GitHub"
+    >
+      Git
+    </a>
+
+  </div>
+
+</div>
+```
+
+  </footer>
+
+  <!-- =========================================================
+       LIGHTBOX
+       ========================================================= -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+  >
+
+```
+<div
+  class="lightbox-backdrop"
+  aria-hidden="true"
+></div>
+
+
+<div
+  class="lightbox-content"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Project image preview"
+>
+
+  <button
+    class="lightbox-close"
+    type="button"
+    aria-label="Close image preview"
+    data-cursor="Close"
+  >
+    ✕
+  </button>
+
+
+  <img
+    src=""
+    alt=""
+    id="lightboxImg"
+  />
+
+</div>
+```
+
+  </div>
+
+  <!-- =========================================================
+       SCROLL TO TOP
+       ========================================================= -->
+
+<button
+id="scrollTopBtn"
+class="scroll-top-btn magnetic"
+type="button"
+aria-label="Scroll to top"
+data-cursor="Top"
+
+>
+
+```
+↑
+```
+
+  </button>
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
   <script src="script.js"></script>
 
 </body>
