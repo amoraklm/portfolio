@@ -1,6 +1,7 @@
 /* =========================================================
    ALI PORTFOLIO — PREMIUM DESIGN SYSTEM
-   Neumorphism + Glassmorphism + Luxury Editorial Style
+   Neumorphism + Glassmorphism + Editorial UI/UX
+   Custom Cursor + Scrollbar + Motion + Responsive
    ========================================================= */
 
 
@@ -9,22 +10,29 @@
    ========================================================= */
 
 :root {
-  /* ---------- Light Theme ---------- */
+  /* ---------- Core ---------- */
   --bg: #e8ecf1;
   --surface: #f0f2f5;
+  --surface-soft: #e5e9ee;
 
   --text-primary: #1a2a40;
   --text-secondary: #4a5568;
   --text-muted: #718096;
 
-  --gold: #c5a86d;
-  --gold-hover: #d4b97a;
-  --gold-dark: #a88b4a;
-
   --white: #ffffff;
   --black: #0f172a;
 
-  /* ---------- Neumorphism Shadows ---------- */
+  /* ---------- Accent ---------- */
+  --gold: #c5a86d;
+  --gold-hover: #d4b97a;
+  --gold-dark: #a88b4a;
+  --gold-soft: rgba(197, 168, 109, 0.12);
+
+  /* ---------- Footer ---------- */
+  --footer-bg: #0a0e17;
+  --footer-text: #94a3b8;
+
+  /* ---------- Neumorphism ---------- */
   --neu-shadow-1: 8px 8px 16px #d1d5db;
   --neu-shadow-2: -8px -8px 16px #ffffff;
 
@@ -37,26 +45,31 @@
   --neu-shadow-hover-1: 12px 12px 24px #c8ccd0;
   --neu-shadow-hover-2: -12px -12px 24px #ffffff;
 
-  /* ---------- Glassmorphism ---------- */
+  /* ---------- Glass ---------- */
   --glass-bg: rgba(255, 255, 255, 0.55);
   --glass-bg-strong: rgba(255, 255, 255, 0.75);
   --glass-border: rgba(255, 255, 255, 0.4);
   --glass-blur: blur(20px);
-
-  /* ---------- Footer ---------- */
-  --footer-bg: #0a0e17;
-  --footer-text: #94a3b8;
-
-  /* ---------- Transitions ---------- */
-  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* ---------- Radius ---------- */
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 28px;
   --radius-xl: 50px;
+
+  /* ---------- Motion ---------- */
+  --transition-fast: 0.18s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- Layout ---------- */
+  --container-width: 1240px;
+  --header-height: 72px;
+
+  /* ---------- Cursor ---------- */
+  --cursor-size: 10px;
+  --cursor-ring-size: 34px;
 }
 
 
@@ -67,6 +80,7 @@
 html.dark {
   --bg: #121b2b;
   --surface: #1a2a40;
+  --surface-soft: #16243a;
 
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
@@ -91,7 +105,7 @@ html.dark {
 
 
 /* =========================================================
-   3. RESET & BASE
+   3. RESET
    ========================================================= */
 
 *,
@@ -106,10 +120,11 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: 90px;
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg);
   color: var(--text-primary);
   line-height: 1.7;
@@ -121,7 +136,7 @@ body {
     color 0.5s ease;
 }
 
-body.lightbox-open {
+body.menu-open {
   overflow: hidden;
 }
 
@@ -137,11 +152,6 @@ h6 {
   letter-spacing: -0.02em;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 button,
 input,
 textarea {
@@ -152,32 +162,144 @@ button {
   border: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 img {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
 ::selection {
-  background: rgba(197, 168, 109, 0.25);
-  color: var(--text-primary);
+  background: var(--gold);
+  color: var(--white);
 }
 
 
 /* =========================================================
-   4. CONTAINER & GENERAL SECTIONS
+   4. CUSTOM SCROLLBAR
+   ========================================================= */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--gold-hover),
+    var(--gold-dark)
+  );
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+
+/* =========================================================
+   5. CUSTOM CURSOR
+   ========================================================= */
+
+.custom-cursor,
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.custom-cursor {
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  background: var(--gold);
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.custom-cursor-ring {
+  width: var(--cursor-ring-size);
+  height: var(--cursor-ring-size);
+  border: 1px solid rgba(197, 168, 109, 0.65);
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+body.cursor-ready .custom-cursor,
+body.cursor-ready .custom-cursor-ring {
+  opacity: 1;
+}
+
+body.cursor-hover .custom-cursor {
+  width: 16px;
+  height: 16px;
+  background: var(--gold-hover);
+}
+
+body.cursor-hover .custom-cursor-ring {
+  width: 52px;
+  height: 52px;
+  border-color: var(--gold);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+
+/* =========================================================
+   6. CONTAINER & GLOBAL UTILITIES
    ========================================================= */
 
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
 .section {
-  padding: 5rem 0;
   position: relative;
+  padding: 5rem 0;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.gold-bg {
+  background-color: var(--gold);
+}
+
+.text-center {
+  text-align: center;
 }
 
 .section-title {
@@ -189,36 +311,17 @@ img {
 }
 
 .section-subtitle {
-  display: block;
-  width: 100%;
   max-width: 680px;
-
-  margin: -1.5rem auto 3rem;
-
+  margin: -2rem auto 3rem;
   text-align: center;
-
-  font-family: "Inter", sans-serif;
-  font-size: 1.05rem;
-  font-weight: 400;
-  line-height: 1.8;
-  letter-spacing: 0;
-
   color: var(--text-secondary);
-
-  opacity: 0.92;
-}
-
-.gold {
-  color: var(--gold);
-}
-
-.gold-bg {
-  background-color: var(--gold);
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 
 /* =========================================================
-   5. NEUMORPHISM
+   7. NEUMORPHISM
    ========================================================= */
 
 .neumorph {
@@ -227,7 +330,6 @@ img {
     var(--neu-shadow-1),
     var(--neu-shadow-2);
   border-radius: var(--radius-lg);
-
   transition:
     box-shadow var(--transition-smooth),
     transform var(--transition-smooth);
@@ -237,7 +339,6 @@ img {
   box-shadow:
     var(--neu-shadow-hover-1),
     var(--neu-shadow-hover-2);
-
   transform: translateY(-2px);
 }
 
@@ -245,16 +346,16 @@ img {
   box-shadow:
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2);
-
   transform: translateY(0);
 }
 
 
 /* =========================================================
-   6. NEUMORPHIC BUTTON
+   8. BUTTONS
    ========================================================= */
 
-.neumorph-btn {
+.neumorph-btn,
+.cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -276,94 +377,68 @@ img {
     var(--neu-shadow-1),
     var(--neu-shadow-2);
 
-  transition: all var(--transition-bounce);
+  transition:
+    transform var(--transition-bounce),
+    box-shadow var(--transition-smooth),
+    color var(--transition-smooth),
+    background-color var(--transition-smooth);
 
   user-select: none;
   position: relative;
   overflow: hidden;
 }
 
-.neumorph-btn::before {
+.neumorph-btn::before,
+.cta-btn::before {
   content: "";
-
   position: absolute;
-  top: 0;
-  left: -100%;
-
-  width: 100%;
-  height: 100%;
+  inset: 0;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      rgba(197, 168, 109, 0.1),
+      rgba(197, 168, 109, 0.12),
       transparent
     );
 
-  transition: left 0.5s ease;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
-.neumorph-btn:hover {
-  box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2);
-
+.neumorph-btn:hover,
+.cta-btn:hover {
   color: var(--gold);
-  transform: translateY(-1px);
-}
+  transform: translateY(-3px);
 
-.neumorph-btn:hover::before {
-  left: 100%;
-}
-
-.neumorph-btn:active {
   box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2);
+    var(--neu-shadow-hover-1),
+    var(--neu-shadow-hover-2);
+}
 
+.neumorph-btn:hover::before,
+.cta-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.neumorph-btn:active,
+.cta-btn:active {
   transform: scale(0.97);
-}
-
-
-/* =========================================================
-   7. GOLD BUTTON
-   ========================================================= */
-
-.neumorph-btn.gold-btn {
-  background: var(--gold);
-  color: var(--white);
-
   box-shadow:
-    4px 4px 12px rgba(197, 168, 109, 0.3),
-    -4px -4px 12px rgba(197, 168, 109, 0.1);
+    var(--neu-shadow-inset-1),
+    var(--neu-shadow-inset-2);
 }
 
-.neumorph-btn.gold-btn:hover {
-  background: var(--gold-hover);
-  color: var(--white);
-
-  box-shadow:
-    inset 4px 4px 8px rgba(0, 0, 0, 0.2),
-    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
-}
-
-
-/* =========================================================
-   8. OUTLINED BUTTON
-   ========================================================= */
-
-.neumorph-btn.outlined {
+.neumorph-btn.outlined,
+.cta-btn.outlined {
   background: transparent;
-
   box-shadow: none;
-
   border: 2px solid var(--gold);
-
   color: var(--gold);
 }
 
-.neumorph-btn.outlined:hover {
+.neumorph-btn.outlined:hover,
+.cta-btn.outlined:hover {
   background: var(--gold);
   color: var(--white);
 
@@ -373,88 +448,7 @@ img {
 
 
 /* =========================================================
-   9. NEUMORPHIC INPUT
-   ========================================================= */
-
-.neumorph-input {
-  width: 100%;
-
-  padding: 1rem 1.25rem;
-
-  border-radius: var(--radius-md);
-
-  border: none;
-
-  background: var(--surface);
-  color: var(--text-primary);
-
-  font-size: 1rem;
-  font-family: "Inter", sans-serif;
-
-  box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2);
-
-  transition: all var(--transition-smooth);
-
-  outline: none;
-}
-
-.neumorph-input:focus {
-  box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2),
-    0 0 0 3px rgba(197, 168, 109, 0.4);
-}
-
-.neumorph-input::placeholder {
-  color: var(--text-muted);
-  opacity: 0.85;
-}
-
-
-/* =========================================================
-   10. AVATAR
-   ========================================================= */
-
-.neumorph-avatar {
-  width: 280px;
-  height: 280px;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-  overflow: hidden;
-
-  background: var(--surface);
-
-  box-shadow:
-    var(--neu-shadow-1),
-    var(--neu-shadow-2);
-
-  padding: 10px;
-
-  transition: all var(--transition-smooth);
-}
-
-.neumorph-avatar:hover {
-  box-shadow:
-    var(--neu-shadow-hover-1),
-    var(--neu-shadow-hover-2);
-}
-
-.neumorph-avatar img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-}
-
-
-/* =========================================================
-   11. GLASSMORPHISM
+   9. GLASSMORPHISM
    ========================================================= */
 
 .glass-card {
@@ -472,14 +466,19 @@ img {
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.08);
 
-  transition: all var(--transition-smooth);
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth),
+    background-color var(--transition-smooth);
 }
 
 .glass-card:hover {
+  background: var(--glass-bg-strong);
+
   box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.12);
 
-  background: var(--glass-bg-strong);
+  transform: translateY(-3px);
 }
 
 .glass-card-strong {
@@ -497,12 +496,11 @@ img {
 
 
 /* =========================================================
-   12. HEADER
+   10. HEADER
    ========================================================= */
 
 .header {
   position: fixed;
-
   top: 0;
   left: 0;
 
@@ -517,37 +515,38 @@ img {
 
   border-bottom: 1px solid var(--glass-border);
 
-  transition: all var(--transition-smooth);
+  transition:
+    box-shadow var(--transition-smooth),
+    background-color var(--transition-smooth);
 }
 
 .header.scrolled {
   box-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.06);
+    0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 .header-inner {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
-  height: 72px;
+  min-height: var(--header-height);
+}
+
+.logo,
+.footer-logo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .logo {
-  font-family: "Montserrat", sans-serif;
-
-  font-weight: 700;
   font-size: 1.8rem;
-
-  color: var(--text-primary);
-
-  letter-spacing: -0.02em;
-
   transition: color var(--transition-smooth);
 }
 
-.logo .dot {
+.logo .dot,
+.footer-logo .dot {
   color: var(--gold);
 }
 
@@ -557,21 +556,19 @@ img {
 
 .nav {
   display: flex;
-
   align-items: center;
-
   gap: 2.5rem;
 }
 
 .nav-link {
+  position: relative;
+
+  padding: 0.5rem 0;
+
   font-size: 0.95rem;
   font-weight: 500;
 
   color: var(--text-secondary);
-
-  padding: 0.5rem 0;
-
-  position: relative;
 
   transition: color var(--transition-smooth);
 }
@@ -581,89 +578,75 @@ img {
 
   position: absolute;
 
-  bottom: 0;
   left: 0;
+  bottom: 0;
 
   width: 0;
   height: 2px;
 
-  background: var(--gold);
-
   border-radius: 2px;
+
+  background: var(--gold);
 
   transition: width var(--transition-smooth);
 }
 
-.nav-link:hover {
-  color: var(--text-primary);
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
+.nav-link:hover,
 .nav-link.active {
   color: var(--gold);
 }
 
+.nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
-  background: var(--gold);
 }
 
-
-/* =========================================================
-   13. THEME BUTTON
-   ========================================================= */
-
 .theme-btn {
-  background: var(--surface);
-
-  border: none;
-
   width: 44px;
   height: 44px;
 
   border-radius: 50%;
 
-  font-size: 1.2rem;
-
-  cursor: pointer;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
 
+  background: var(--surface);
   color: var(--text-primary);
+
+  cursor: pointer;
+
+  font-size: 1.1rem;
 
   box-shadow:
     var(--neu-shadow-sm-1),
     var(--neu-shadow-sm-2);
 
-  transition: all var(--transition-bounce);
+  transition:
+    transform var(--transition-bounce),
+    box-shadow var(--transition-smooth),
+    color var(--transition-smooth);
 }
 
 .theme-btn:hover {
+  color: var(--gold);
+
   box-shadow:
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2);
-
-  color: var(--gold);
 
   transform: rotate(15deg);
 }
 
 
 /* =========================================================
-   14. HERO
+   11. HERO
    ========================================================= */
 
 .hero {
   min-height: 100vh;
 
   display: flex;
-
   align-items: center;
 
   position: relative;
@@ -675,11 +658,9 @@ img {
 
 .hero-bg-shapes {
   position: absolute;
-
   inset: 0;
 
   pointer-events: none;
-
   z-index: 0;
 }
 
@@ -691,6 +672,8 @@ img {
   opacity: 0.12;
 
   filter: blur(80px);
+
+  pointer-events: none;
 }
 
 .shape-1 {
@@ -734,49 +717,16 @@ img {
     floatShape3 12s ease-in-out infinite;
 }
 
-@keyframes floatShape1 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate(-30px, 30px) scale(1.05);
-  }
-}
-
-@keyframes floatShape2 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate(20px, -20px) scale(1.08);
-  }
-}
-
-@keyframes floatShape3 {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  50% {
-    transform: translate(-50%, -50%) scale(1.15);
-  }
-}
-
 .hero-content {
   position: relative;
-
   z-index: 2;
 
-  text-align: center;
-
-  max-width: 800px;
+  width: 100%;
+  max-width: 850px;
 
   margin: 0 auto;
+
+  text-align: center;
 }
 
 .pre-title {
@@ -787,7 +737,6 @@ img {
   letter-spacing: 5px;
 
   font-size: 0.85rem;
-
   font-weight: 600;
 
   color: var(--gold);
@@ -817,7 +766,6 @@ img {
 
 .hero-title .gold {
   position: relative;
-
   display: inline-block;
 }
 
@@ -826,8 +774,8 @@ img {
 
   position: absolute;
 
-  bottom: 5px;
   left: 0;
+  bottom: 5px;
 
   width: 100%;
   height: 8px;
@@ -840,13 +788,14 @@ img {
 }
 
 .hero-sub {
+  max-width: 650px;
+
+  margin:
+    0 auto 2.5rem;
+
   font-size: 1.2rem;
 
   color: var(--text-secondary);
-
-  max-width: 550px;
-
-  margin: 0 auto 2.5rem;
 
   animation:
     fadeInUp 0.8s ease 0.4s forwards;
@@ -857,9 +806,10 @@ img {
 .hero-cta {
   display: flex;
 
-  gap: 1.25rem;
-
   justify-content: center;
+  align-items: center;
+
+  gap: 1.25rem;
 
   flex-wrap: wrap;
 
@@ -869,97 +819,90 @@ img {
   opacity: 0;
 }
 
-.cta-btn {
-  display: inline-flex;
 
+/* =========================================================
+   12. HERO DECORATIVE SCROLL INDICATOR
+   ========================================================= */
+
+.scroll-indicator {
+  position: absolute;
+
+  bottom: 2rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 
-  min-height: 54px;
+  gap: 0.5rem;
 
-  padding: 0.9rem 1.8rem;
+  color: var(--text-muted);
 
-  font-weight: 600;
+  font-size: 0.7rem;
 
-  color: var(--text-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 
-  cursor: pointer;
+  opacity: 0.8;
 }
 
-.cta-btn.outlined {
-  background: transparent;
+.scroll-indicator-line {
+  width: 1px;
+  height: 42px;
 
-  color: var(--gold);
+  background: linear-gradient(
+    to bottom,
+    var(--gold),
+    transparent
+  );
 
-  border: 2px solid var(--gold);
-
-  box-shadow: none;
-}
-
-.cta-btn.outlined:hover {
-  background: var(--gold);
-
-  color: var(--white);
-
-  box-shadow:
-    4px 4px 12px rgba(197, 168, 109, 0.3);
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0);
-  }
+  animation:
+    scrollLine 1.8s ease-in-out infinite;
 }
 
 
 /* =========================================================
-   15. ABOUT
+   13. ABOUT
    ========================================================= */
 
 .about-card {
   display: flex;
 
-  gap: 4rem;
-
   align-items: center;
+
+  gap: 4rem;
 
   flex-wrap: wrap;
 }
 
 .about-text {
   flex: 1;
-
   min-width: 300px;
 }
 
 .about-text .section-title {
   text-align: left;
-
   margin-bottom: 1.5rem;
 }
 
 .about-text p {
-  font-size: 1.05rem;
-
-  color: var(--text-secondary);
-
   margin-bottom: 2rem;
 
+  font-size: 1.05rem;
+
   line-height: 1.8;
+
+  color: var(--text-secondary);
 }
 
 .about-stats {
   display: flex;
 
   gap: 2.5rem;
+
+  flex-wrap: wrap;
 }
 
 .stat {
@@ -969,13 +912,13 @@ img {
 .stat strong {
   display: block;
 
+  font-family: "Montserrat", sans-serif;
+
   font-size: 2.2rem;
 
   font-weight: 700;
 
   color: var(--gold);
-
-  font-family: "Montserrat", sans-serif;
 }
 
 .stat span {
@@ -992,9 +935,47 @@ img {
   flex: 0 0 auto;
 }
 
+.neumorph-avatar {
+  width: 280px;
+  height: 280px;
+
+  padding: 10px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: var(--surface);
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+}
+
+.neumorph-avatar:hover {
+  transform: scale(1.02);
+
+  box-shadow:
+    var(--neu-shadow-hover-1),
+    var(--neu-shadow-hover-2);
+}
+
+.neumorph-avatar img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
 
 /* =========================================================
-   16. SKILLS
+   14. SKILLS
    ========================================================= */
 
 .skills-grid {
@@ -1017,43 +998,44 @@ img {
   display: flex;
 
   justify-content: space-between;
-
   align-items: center;
-
-  font-weight: 500;
 
   margin-bottom: 0.75rem;
 
   color: var(--text-primary);
+
+  font-weight: 500;
 }
 
 .skill-percent {
-  font-size: 0.85rem;
-
   color: var(--gold);
+
+  font-size: 0.85rem;
 
   font-weight: 600;
 }
 
 .skill-bar {
-  height: 12px;
-
-  border-radius: 20px;
+  position: relative;
 
   width: 100%;
+  height: 12px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
 
   background: var(--surface);
 
   box-shadow:
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2);
-
-  overflow: hidden;
-
-  position: relative;
 }
 
 .skill-fill {
+  position: relative;
+
+  width: 0;
   height: 100%;
 
   border-radius: 20px;
@@ -1066,12 +1048,8 @@ img {
       var(--gold-hover)
     );
 
-  width: 0;
-
   transition:
     width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-  position: relative;
 }
 
 .skill-fill::after {
@@ -1085,33 +1063,21 @@ img {
   width: 20px;
   height: 100%;
 
-  background: rgba(255, 255, 255, 0.3);
-
   border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.3);
 }
 
 
 /* =========================================================
-   17. PROJECTS
+   15. PROJECT FILTERS
    ========================================================= */
-
-.projects-section {
-  position: relative;
-}
-
-.projects-section .section-title {
-  margin-bottom: 1.5rem;
-}
-
-.projects-section .section-subtitle {
-  margin-top: 0;
-  margin-bottom: 2.5rem;
-}
 
 .filter-bar {
   display: flex;
 
   justify-content: center;
+  align-items: center;
 
   gap: 1rem;
 
@@ -1125,48 +1091,52 @@ img {
 
   border-radius: var(--radius-xl);
 
-  border: none;
-
   background: var(--surface);
 
   color: var(--text-secondary);
+
+  cursor: pointer;
 
   font-weight: 500;
 
   font-size: 0.9rem;
 
-  cursor: pointer;
+  letter-spacing: 0.3px;
 
   box-shadow:
     var(--neu-shadow-sm-1),
     var(--neu-shadow-sm-2);
 
-  transition: all var(--transition-bounce);
-
-  letter-spacing: 0.3px;
+  transition:
+    transform var(--transition-bounce),
+    box-shadow var(--transition-smooth),
+    color var(--transition-smooth);
 }
 
 .filter-btn:hover {
+  color: var(--gold);
+
+  transform: translateY(-2px);
+
   box-shadow:
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2);
-
-  color: var(--gold);
-
-  transform: translateY(-1px);
 }
 
 .filter-btn.active {
-  box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2);
-
   color: var(--gold);
 
   font-weight: 600;
 
-  background: var(--surface);
+  box-shadow:
+    var(--neu-shadow-inset-1),
+    var(--neu-shadow-inset-2);
 }
+
+
+/* =========================================================
+   16. PROJECT GRID
+   ========================================================= */
 
 .project-grid {
   display: grid;
@@ -1194,6 +1164,12 @@ img {
 }
 
 .card-inner {
+  position: relative;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
   border-radius: var(--radius-lg);
 
   background: var(--surface);
@@ -1202,44 +1178,39 @@ img {
     var(--neu-shadow-1),
     var(--neu-shadow-2);
 
-  overflow: hidden;
-
-  cursor: pointer;
-
-  transition: all var(--transition-bounce);
-
-  position: relative;
+  transition:
+    transform var(--transition-bounce),
+    box-shadow var(--transition-smooth);
 }
 
 .card-inner::before {
   content: "";
 
   position: absolute;
-
   inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
 
   background:
     linear-gradient(
       135deg,
-      rgba(197, 168, 109, 0.05),
+      rgba(197, 168, 109, 0.06),
       transparent
     );
 
   opacity: 0;
 
   transition: opacity var(--transition-smooth);
-
-  z-index: 1;
-
-  pointer-events: none;
 }
 
 .card-inner:hover {
-  box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2);
+  transform: translateY(-7px);
 
-  transform: translateY(-6px);
+  box-shadow:
+    var(--neu-shadow-hover-1),
+    var(--neu-shadow-hover-2);
 }
 
 .card-inner:hover::before {
@@ -1247,13 +1218,7 @@ img {
 }
 
 .card-inner:active {
-  transform: scale(0.98);
-}
-
-.card-inner:focus-visible {
-  outline: 3px solid var(--gold);
-
-  outline-offset: 5px;
+  transform: scale(0.985);
 }
 
 .card-img-wrapper {
@@ -1273,7 +1238,8 @@ img {
   object-fit: cover;
 
   transition:
-    transform 0.6s ease;
+    transform 0.6s ease,
+    filter 0.4s ease;
 }
 
 .card-inner:hover .card-img {
@@ -1282,15 +1248,14 @@ img {
 
 .card-overlay {
   position: absolute;
-
   inset: 0;
-
-  background: rgba(26, 42, 64, 0.4);
 
   display: flex;
 
   align-items: center;
   justify-content: center;
+
+  background: rgba(26, 42, 64, 0.42);
 
   opacity: 0;
 
@@ -1306,18 +1271,17 @@ img {
   width: 56px;
   height: 56px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 50%;
 
   background: var(--white);
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
+  color: var(--text-primary);
 
   font-size: 1.4rem;
-
-  color: var(--text-primary);
 
   box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.15);
@@ -1331,33 +1295,33 @@ img {
 }
 
 .card-body {
-  padding: 1.5rem;
-
-  text-align: center;
-
   position: relative;
 
   z-index: 2;
+
+  padding: 1.5rem;
+
+  text-align: center;
 
   background: var(--surface);
 }
 
 .card-title {
-  font-family: "Montserrat", sans-serif;
+  margin-bottom: 0.3rem;
 
-  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 
   font-size: 1.15rem;
 
-  color: var(--text-primary);
+  font-weight: 600;
 
-  margin-bottom: 0.3rem;
+  color: var(--text-primary);
 }
 
 .card-cat {
-  font-size: 0.85rem;
-
   color: var(--gold);
+
+  font-size: 0.85rem;
 
   font-weight: 500;
 
@@ -1366,12 +1330,8 @@ img {
 
 
 /* =========================================================
-   18. CONTACT
+   17. CONTACT
    ========================================================= */
-
-.contact-section {
-  position: relative;
-}
 
 .contact-card {
   max-width: 700px;
@@ -1380,14 +1340,12 @@ img {
 }
 
 .contact-card .section-title {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .contact-card .section-subtitle {
-  max-width: 580px;
-
-  margin:
-    -0.25rem auto 2rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .form-group {
@@ -1398,16 +1356,56 @@ img {
   margin-bottom: 1.25rem;
 }
 
-.form-group .neumorph-input {
-  flex: 1;
+.neumorph-input,
+input.neumorph-inset,
+textarea.neumorph-inset {
+  width: 100%;
+
+  padding: 1rem 1.25rem;
+
+  border: none;
+
+  outline: none;
+
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+
+  color: var(--text-primary);
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 1rem;
+
+  box-shadow:
+    var(--neu-shadow-inset-1),
+    var(--neu-shadow-inset-2);
+
+  transition:
+    box-shadow var(--transition-smooth),
+    transform var(--transition-smooth);
 }
 
-textarea.neumorph-input {
+.neumorph-input:focus,
+input.neumorph-inset:focus,
+textarea.neumorph-inset:focus {
+  box-shadow:
+    var(--neu-shadow-inset-1),
+    var(--neu-shadow-inset-2),
+    0 0 0 3px rgba(197, 168, 109, 0.35);
+}
+
+.neumorph-input::placeholder,
+input.neumorph-inset::placeholder,
+textarea.neumorph-inset::placeholder {
+  color: var(--text-muted);
+}
+
+textarea.neumorph-input,
+textarea.neumorph-inset {
   resize: vertical;
 
   min-height: 140px;
-
-  margin-bottom: 0;
 }
 
 .submit-btn {
@@ -1415,45 +1413,39 @@ textarea.neumorph-input {
 
   margin-top: 0.5rem;
 
-  font-size: 1.05rem;
-
   padding: 1.1rem 2rem;
 
-  cursor: pointer;
+  font-size: 1.05rem;
 }
 
 .form-feedback {
-  text-align: center;
+  min-height: 24px;
 
   margin-top: 1rem;
+
+  text-align: center;
 
   font-size: 0.9rem;
 
   font-weight: 500;
-
-  min-height: 24px;
-
-  color: var(--text-secondary);
-
-  transition:
-    color var(--transition-smooth);
 }
 
 
 /* =========================================================
-   19. FOOTER
+   18. FOOTER
    ========================================================= */
 
 .footer {
+  position: relative;
+
+  padding:
+    4rem 0 2rem;
+
+  overflow: hidden;
+
   background: var(--footer-bg);
 
   color: var(--footer-text);
-
-  padding: 4rem 0 2rem;
-
-  position: relative;
-
-  overflow: hidden;
 }
 
 .footer::before {
@@ -1479,6 +1471,9 @@ textarea.neumorph-input {
 }
 
 .footer-inner {
+  position: relative;
+  z-index: 1;
+
   display: flex;
 
   flex-direction: column;
@@ -1486,29 +1481,14 @@ textarea.neumorph-input {
   align-items: center;
 
   gap: 1.5rem;
-
-  position: relative;
-
-  z-index: 1;
 }
 
 .footer-logo {
-  font-family: "Montserrat", sans-serif;
-
-  font-weight: 700;
-
   font-size: 2rem;
 
   color: var(--white);
 
-  letter-spacing: -0.02em;
-
-  transition:
-    color var(--transition-smooth);
-}
-
-.footer-logo .dot {
-  color: var(--gold);
+  transition: color var(--transition-smooth);
 }
 
 .footer-logo:hover {
@@ -1518,28 +1498,27 @@ textarea.neumorph-input {
 .footer-text {
   font-size: 0.9rem;
 
-  color: var(--footer-text);
-
   text-align: center;
+
+  color: var(--footer-text);
 }
 
 .footer-nav {
   display: flex;
 
+  justify-content: center;
+
   gap: 2rem;
 
   flex-wrap: wrap;
-
-  justify-content: center;
 }
 
 .footer-nav a {
-  font-size: 0.9rem;
-
   color: var(--footer-text);
 
-  transition:
-    color var(--transition-smooth);
+  font-size: 0.9rem;
+
+  transition: color var(--transition-smooth);
 }
 
 .footer-nav a:hover {
@@ -1552,39 +1531,41 @@ textarea.neumorph-input {
   gap: 1.25rem;
 }
 
-.social-links a {
+.social-links a,
+.social-link {
   width: 44px;
   height: 44px;
 
-  border-radius: 50%;
-
-  background:
-    rgba(255, 255, 255, 0.05);
-
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  font-size: 1.1rem;
+  border-radius: 50%;
 
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   color: var(--footer-text);
 
-  transition:
-    all var(--transition-bounce);
+  font-size: 1rem;
 
-  border: 1px solid
-    rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+
+  transition:
+    transform var(--transition-bounce),
+    background-color var(--transition-smooth),
+    color var(--transition-smooth),
+    border-color var(--transition-smooth);
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-link:hover {
   background: var(--gold);
 
-  color: var(--white);
-
   border-color: var(--gold);
+
+  color: var(--white);
 
   transform: translateY(-3px);
 
@@ -1594,12 +1575,11 @@ textarea.neumorph-input {
 
 
 /* =========================================================
-   20. LIGHTBOX
+   19. LIGHTBOX
    ========================================================= */
 
 .lightbox {
   position: fixed;
-
   inset: 0;
 
   z-index: 9999;
@@ -1610,7 +1590,6 @@ textarea.neumorph-input {
   justify-content: center;
 
   opacity: 0;
-
   visibility: hidden;
 
   transition:
@@ -1620,22 +1599,19 @@ textarea.neumorph-input {
 
 .lightbox.active {
   opacity: 1;
-
   visibility: visible;
 }
 
 .lightbox-backdrop {
   position: absolute;
-
   inset: 0;
 
-  background:
-    rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+
+  background: rgba(0, 0, 0, 0.85);
 
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-
-  cursor: pointer;
 }
 
 .lightbox-content {
@@ -1647,22 +1623,19 @@ textarea.neumorph-input {
   max-height: 90vh;
 
   animation:
-    lightboxIn 0.4s
-    cubic-bezier(0.34, 1.56, 0.64, 1);
+    lightboxIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
+.lightbox-content img {
+  max-width: 85vw;
+  max-height: 85vh;
 
-    transform: scale(0.9);
-  }
+  object-fit: contain;
 
-  to {
-    opacity: 1;
+  border-radius: var(--radius-md);
 
-    transform: scale(1);
-  }
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4);
 }
 
 .lightbox-close {
@@ -1671,33 +1644,32 @@ textarea.neumorph-input {
   top: -16px;
   right: -16px;
 
+  z-index: 3;
+
   width: 48px;
   height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border-radius: 50%;
 
   background: var(--white);
 
-  border: none;
+  color: var(--text-primary);
 
   font-size: 1.3rem;
 
   cursor: pointer;
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  color: var(--text-primary);
-
   box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.2);
 
   transition:
-    all var(--transition-bounce);
-
-  z-index: 3;
+    transform var(--transition-bounce),
+    background-color var(--transition-smooth),
+    color var(--transition-smooth);
 }
 
 .lightbox-close:hover {
@@ -1708,27 +1680,12 @@ textarea.neumorph-input {
   transform: rotate(90deg);
 
   box-shadow:
-    0 12px 28px
-      rgba(197, 168, 109, 0.4);
-}
-
-.lightbox-content img {
-  max-width: 85vw;
-
-  max-height: 85vh;
-
-  border-radius: var(--radius-md);
-
-  box-shadow:
-    0 30px 80px
-      rgba(0, 0, 0, 0.4);
-
-  object-fit: contain;
+    0 12px 28px rgba(197, 168, 109, 0.4);
 }
 
 
 /* =========================================================
-   21. SCROLL REVEAL
+   20. SCROLL REVEAL
    ========================================================= */
 
 .reveal {
@@ -1738,8 +1695,7 @@ textarea.neumorph-input {
 
   transition:
     opacity 0.8s ease,
-    transform 0.8s
-      cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal.revealed {
@@ -1774,86 +1730,156 @@ textarea.neumorph-input {
 
 
 /* =========================================================
-   22. SCROLL TO TOP
+   21. SCROLL TO TOP
    ========================================================= */
 
 .scroll-top-btn {
   position: fixed;
 
-  bottom: 30px;
   right: 30px;
+  bottom: 30px;
+
+  z-index: 900;
 
   width: 50px;
   height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
 
   border-radius: 50%;
 
   background: var(--surface);
 
-  border: none;
+  color: var(--text-primary);
 
   cursor: pointer;
 
   font-size: 1.3rem;
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  color: var(--text-primary);
-
   box-shadow:
     var(--neu-shadow-1),
     var(--neu-shadow-2);
 
-  transition:
-    all var(--transition-bounce);
-
-  z-index: 900;
-
   opacity: 0;
-
   visibility: hidden;
 
   transform: translateY(20px);
+
+  transition:
+    opacity var(--transition-smooth),
+    visibility var(--transition-smooth),
+    transform var(--transition-bounce),
+    box-shadow var(--transition-smooth),
+    color var(--transition-smooth);
 }
 
 .scroll-top-btn.visible {
   opacity: 1;
-
   visibility: visible;
 
   transform: translateY(0);
 }
 
 .scroll-top-btn:hover {
+  color: var(--gold);
+
   box-shadow:
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2);
-
-  color: var(--gold);
 }
 
 
 /* =========================================================
-   23. ERROR / SUCCESS STATES
+   22. FOCUS STATES
    ========================================================= */
 
-.form-feedback.success {
-  color: #198754;
+:focus-visible {
+  outline: 3px solid var(--gold);
+
+  outline-offset: 3px;
+
+  border-radius: 5px;
 }
 
-.form-feedback.error {
-  color: #dc3545;
+
+/* =========================================================
+   23. ANIMATIONS
+   ========================================================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-html.dark .form-feedback.success {
-  color: #6ee7a8;
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-html.dark .form-feedback.error {
-  color: #ff8585;
+@keyframes floatShape1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-30px, 30px) scale(1.05);
+  }
+}
+
+@keyframes floatShape2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(20px, -20px) scale(1.08);
+  }
+}
+
+@keyframes floatShape3 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+@keyframes scrollLine {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(0.7);
+    transform-origin: top;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
 }
 
 
@@ -1863,8 +1889,7 @@ html.dark .form-feedback.error {
 
 @media (max-width: 1024px) {
   .project-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-card {
@@ -1882,12 +1907,16 @@ html.dark .form-feedback.error {
    ========================================================= */
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+  }
+
   .header-inner {
-    height: 64px;
+    min-height: 64px;
   }
 
   .nav {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .nav-link {
@@ -1895,8 +1924,6 @@ html.dark .form-feedback.error {
   }
 
   .hero {
-    min-height: 90vh;
-
     padding-top: 90px;
   }
 
@@ -1912,22 +1939,6 @@ html.dark .form-feedback.error {
     padding: 3.5rem 0;
   }
 
-  .section-title {
-    margin-bottom: 2rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.95rem;
-
-    line-height: 1.7;
-
-    padding:
-      0 1rem;
-
-    margin:
-      -0.75rem auto 2.5rem;
-  }
-
   .about-card {
     flex-direction: column-reverse;
 
@@ -1936,6 +1947,7 @@ html.dark .form-feedback.error {
 
   .about-text {
     min-width: 0;
+    width: 100%;
   }
 
   .about-text .section-title {
@@ -1944,11 +1956,6 @@ html.dark .form-feedback.error {
 
   .about-stats {
     justify-content: center;
-  }
-
-  .neumorph-avatar {
-    width: 230px;
-    height: 230px;
   }
 
   .skills-grid {
@@ -1973,14 +1980,8 @@ html.dark .form-feedback.error {
     padding: 2rem;
   }
 
-  .contact-card .section-subtitle {
-    margin:
-      -0.5rem auto 2rem;
-  }
-
   .footer {
-    padding:
-      3rem 0 1.5rem;
+    padding: 3rem 0 1.5rem;
   }
 
   .footer-nav {
@@ -1988,11 +1989,15 @@ html.dark .form-feedback.error {
   }
 
   .scroll-top-btn {
-    bottom: 20px;
     right: 20px;
+    bottom: 20px;
 
     width: 44px;
     height: 44px;
+  }
+
+  .scroll-indicator {
+    display: none;
   }
 }
 
@@ -2003,26 +2008,20 @@ html.dark .form-feedback.error {
 
 @media (max-width: 480px) {
   .container {
-    padding:
-      0 1rem;
+    padding: 0 1rem;
   }
 
   .nav {
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .nav-link {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
   }
 
-  .hero {
-    padding-top: 80px;
-  }
-
-  .pre-title {
-    font-size: 0.72rem;
-
-    letter-spacing: 3px;
+  .theme-btn {
+    width: 40px;
+    height: 40px;
   }
 
   .hero-title {
@@ -2036,17 +2035,12 @@ html.dark .form-feedback.error {
   .hero-cta {
     flex-direction: column;
 
-    align-items: center;
-  }
+    align-items: stretch;
 
-  .cta-btn {
     width: 100%;
-
-    text-align: center;
-
-    justify-content: center;
   }
 
+  .cta-btn,
   .neumorph-btn {
     width: 100%;
 
@@ -2057,27 +2051,26 @@ html.dark .form-feedback.error {
 
   .about-stats {
     gap: 1.5rem;
-
-    flex-wrap: wrap;
   }
 
   .stat strong {
     font-size: 1.8rem;
   }
 
+  .neumorph-avatar {
+    width: 230px;
+    height: 230px;
+  }
+
   .filter-bar {
-    gap: 0.75rem;
+    gap: 0.65rem;
   }
 
   .filter-btn {
     padding:
-      0.65rem 1.2rem;
+      0.6rem 1.2rem;
 
     font-size: 0.82rem;
-  }
-
-  .glass-card {
-    padding: 1.5rem;
   }
 
   .lightbox-close {
@@ -2090,15 +2083,14 @@ html.dark .form-feedback.error {
     font-size: 1.1rem;
   }
 
-  .lightbox-content img {
-    max-width: 92vw;
-    max-height: 85vh;
+  .glass-card {
+    padding: 1.5rem;
   }
 }
 
 
 /* =========================================================
-   27. ACCESSIBILITY
+   27. ACCESSIBILITY — REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2106,7 +2098,6 @@ html.dark .form-feedback.error {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-
     animation-iteration-count: 1 !important;
 
     transition-duration: 0.01ms !important;
@@ -2115,17 +2106,9 @@ html.dark .form-feedback.error {
   }
 }
 
-:focus-visible {
-  outline: 3px solid var(--gold);
-
-  outline-offset: 2px;
-
-  border-radius: 4px;
-}
-
 
 /* =========================================================
-   28. PRINT STYLES
+   28. PRINT
    ========================================================= */
 
 @media print {
@@ -2133,26 +2116,26 @@ html.dark .form-feedback.error {
   .lightbox,
   .scroll-top-btn,
   .theme-btn,
-  .filter-bar {
+  .filter-bar,
+  .custom-cursor,
+  .custom-cursor-ring {
     display: none !important;
   }
 
   body {
-    background: white;
-
-    color: black;
+    background: #ffffff;
+    color: #000000;
   }
 
   .project-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 1rem;
   }
 
   .card-inner {
-    box-shadow: none;
-
     border: 1px solid #ddd;
+
+    box-shadow: none;
   }
 }
