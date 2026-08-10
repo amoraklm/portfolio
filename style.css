@@ -1,6 +1,6 @@
 /* =========================================================
    ALI PORTFOLIO — PREMIUM DESIGN SYSTEM
-   Version: 2026 (Complete & Fixed)
+   Version: 2026 (Complete & Fixed – Final)
    Neumorphism + Glassmorphism + Editorial UI
    ========================================================= */
 
@@ -181,7 +181,21 @@ img {
 }
 
 /* =========================================================
-   05. ACCESSIBILITY
+   05. SECTION EYEBROW (WHAT I DO, DESIGN PRINCIPLES …)
+   ========================================================= */
+.section-eyebrow {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* =========================================================
+   06. ACCESSIBILITY
    ========================================================= */
 :focus-visible {
   outline: 3px solid var(--gold);
@@ -190,7 +204,7 @@ img {
 }
 
 /* =========================================================
-   06. HEADER
+   07. HEADER
    ========================================================= */
 .header {
   position: fixed;
@@ -296,7 +310,7 @@ img {
 }
 
 /* =========================================================
-   07. HERO
+   08. HERO
    ========================================================= */
 .hero {
   position: relative;
@@ -408,7 +422,7 @@ img {
   gap: 1.25rem;
 }
 
-/* Availability badge & scroll indicator (new) */
+/* Availability badge */
 .availability-badge {
   display: inline-flex;
   align-items: center;
@@ -440,18 +454,27 @@ img {
   margin: 0 0.5rem;
 }
 
+/* =========================================================
+   08B. SCROLL INDICATOR (fixed positioning)
+   ========================================================= */
 .scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 3rem;
   color: var(--text-muted);
   font-size: 0.8rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: color var(--transition);
+  z-index: 2;
+  margin-top: 0; /* remove any previous margin */
+  width: max-content;
 }
 
 .scroll-indicator:hover {
@@ -469,7 +492,7 @@ img {
 }
 
 /* =========================================================
-   08. BUTTONS
+   09. BUTTONS
    ========================================================= */
 .cta-btn,
 .neumorph-btn {
@@ -518,7 +541,7 @@ img {
 }
 
 /* =========================================================
-   09. GLASS CARDS
+   10. GLASS CARDS
    ========================================================= */
 .glass-card {
   background: var(--glass-bg);
@@ -546,7 +569,7 @@ img {
 }
 
 /* =========================================================
-   10. ABOUT
+   11. ABOUT
    ========================================================= */
 .about-card {
   display: flex;
@@ -630,7 +653,7 @@ img {
 }
 
 /* =========================================================
-   11. WHAT I DO
+   12. WHAT I DO
    ========================================================= */
 .what-i-do-section,
 .services-section {
@@ -694,7 +717,7 @@ img {
   line-height: 1.8;
 }
 
-/* New service sub-elements */
+/* service sub-elements */
 .service-number {
   position: absolute;
   top: 1.5rem;
@@ -730,7 +753,7 @@ img {
 }
 
 /* =========================================================
-   12. DESIGN PRINCIPLES (new classes)
+   13. DESIGN PRINCIPLES
    ========================================================= */
 .principles-section {
   position: relative;
@@ -828,33 +851,6 @@ img {
   color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.8;
-}
-
-/* =========================================================
-   13. EDITORIAL TEXT BLOCKS
-   ========================================================= */
-.design-principle-section p,
-.principles-section p,
-.process-section p,
-.my-process-section p,
-.experience-section p,
-.skills-tools-section p,
-.skills-section p,
-.feedback-section p,
-.client-feedback-section p {
-  color: var(--text-secondary);
-}
-
-.design-principle-section > .container > p,
-.principles-section > .container > p,
-.process-section > .container > p,
-.my-process-section > .container > p,
-.experience-section > .container > p {
-  max-width: 700px;
-  margin: -1.5rem auto 3rem;
-  text-align: center;
-  font-size: 1rem;
-  line-height: 1.9;
 }
 
 /* =========================================================
@@ -998,7 +994,7 @@ img {
   font-weight: 600;
 }
 
-/* new tool chip style */
+/* tool chip (new) */
 .tool-chip {
   min-height: 100px;
   display: flex;
@@ -1197,7 +1193,7 @@ img {
 }
 
 /* =========================================================
-   18. EXPERIENCE (new classes)
+   18. EXPERIENCE
    ========================================================= */
 .experience-layout {
   display: flex;
@@ -1318,7 +1314,7 @@ img {
 }
 
 /* =========================================================
-   19. WHY WORK WITH ME (strengths)
+   19. WHY WORK WITH ME (STRENGTHS)
    ========================================================= */
 .why-work-grid,
 .why-me-grid {
@@ -1484,7 +1480,6 @@ img {
   font-size: 0.75rem;
 }
 
-/* testimonial author (new class) */
 .testimonial-author strong {
   display: block;
   color: var(--text-primary);
@@ -1498,7 +1493,6 @@ img {
   font-size: 0.75rem;
 }
 
-/* hide any extra quote div if present */
 .testimonial-quote {
   display: none;
 }
@@ -1586,7 +1580,7 @@ img {
 }
 
 /* =========================================================
-   22. LIGHTBOX (new navigation buttons)
+   22. LIGHTBOX
    ========================================================= */
 .lightbox {
   position: fixed;
@@ -1819,7 +1813,6 @@ img {
   color: var(--gold);
 }
 
-/* footer-links (new class) */
 .footer-links {
   display: flex;
   justify-content: center;
@@ -1950,37 +1943,6 @@ html {
   mix-blend-mode: difference;
 }
 
-/* =========================================================
-   FIX: SCROLL INDICATOR POSITION
-   ========================================================= */
-.hero {
-  position: relative; /* already relative, but ensure it is */
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 0; /* override previous margin */
-  z-index: 2;
-  width: max-content; /* avoid stretching */
-}
-
-/* =========================================================
-   FIX: SECTION EYEBROW (WHAT I DO, DESIGN PRINCIPLES …)
-   ========================================================= */
-.section-eyebrow {
-  display: block;
-  margin-bottom: 0.8rem;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-align: center;
-}
-
 .custom-cursor.visible {
   opacity: 1;
 }
@@ -2074,6 +2036,10 @@ html {
   .hiring-actions {
     justify-content: center;
   }
+
+  .scroll-indicator {
+    bottom: 2rem;
+  }
 }
 
 /* =========================================================
@@ -2159,6 +2125,11 @@ html {
 
   .lightbox-prev { left: -10px; }
   .lightbox-next { right: -10px; }
+
+  .scroll-indicator {
+    bottom: 1.5rem;
+    font-size: 0.7rem;
+  }
 }
 
 /* =========================================================
