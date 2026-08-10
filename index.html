@@ -1,160 +1,607 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ali | Premium Design Portfolio</title>
-  <meta name="description" content="Ali is a multidisciplinary designer crafting premium brands, packaging, and digital experiences. Explore the work." />
-  <meta property="og:title" content="Ali – Premium Design Portfolio" />
-  <meta property="og:description" content="Branding, Packaging & Web Design with a luxury touch." />
-  <meta property="og:image" content="https://amoraklm.github.io/portfolio/images/og-preview.jpg" />
+
+  <title>Ali | Graphic Designer & Digital Creative</title>
+
+  <meta
+    name="description"
+    content="Ali is a graphic designer and digital creative specializing in branding, social media design, packaging, and digital experiences."
+  />
+
+  <meta
+    name="keywords"
+    content="Ali, Graphic Designer, Branding, Packaging Design, Social Media Design, UI Design, Digital Creative"
+  />
+
+  <meta name="author" content="Ali" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ali | Graphic Designer & Digital Creative" />
+  <meta
+    property="og:description"
+    content="Graphic design, branding, packaging, and digital creative work by Ali."
+  />
+  <meta
+    property="og:image"
+    content="https://amoraklm.github.io/portfolio/images/og-preview.jpg"
+  />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amoraklm.github.io/portfolio/" />
+
+  <!-- Canonical -->
+  <link
+    rel="canonical"
+    href="https://amoraklm.github.io/portfolio/"
+  />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <!-- ===== HEADER (Glassmorphism) ===== -->
+
+  <!-- ================= HEADER ================= -->
   <header class="header" id="header">
     <div class="container header-inner">
-      <a href="#" class="logo">ALI<span class="dot">.</span></a>
-      <nav class="nav">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Work</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <button id="themeToggle" class="theme-btn" aria-label="Switch theme">🌓</button>
+
+      <a href="#" class="logo" aria-label="Ali home">
+        ALI<span class="dot">.</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+
+        <a href="#about" class="nav-link">
+          About
+        </a>
+
+        <a href="#skills" class="nav-link">
+          Skills
+        </a>
+
+        <a href="#projects" class="nav-link">
+          Work
+        </a>
+
+        <a href="#contact" class="nav-link">
+          Contact
+        </a>
+
+        <button
+          id="themeToggle"
+          class="theme-btn"
+          type="button"
+          aria-label="Switch theme"
+          title="Switch theme"
+        >
+          🌙
+        </button>
+
       </nav>
+
     </div>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero">
-    <div class="hero-bg-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-    </div>
-    <div class="container hero-content">
-      <p class="pre-title">— Creative Designer</p>
-      <h1 class="hero-title">I Craft <span class="gold">Premium</span><br>Brand Experiences</h1>
-      <p class="hero-sub">Turning visions into iconic identities that elevate your business.</p>
-      <div class="hero-cta">
-        <a href="#projects" class="cta-btn neumorph">View My Work</a>
-        <a href="#" class="cta-btn neumorph outlined">Download CV</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== ABOUT (Glass Card) ===== -->
-  <section id="about" class="section about-section">
-    <div class="container">
-      <div class="glass-card about-card">
-        <div class="about-text">
-          <h2 class="section-title">About <span class="gold">Me</span></h2>
-          <p>I’m Ali, a designer with 6+ years of experience specialising in brand identity, packaging, and digital design. My philosophy: less noise, more meaning. I help businesses stand out through strategic, visually compelling design that speaks to their audience.</p>
-          <div class="about-stats">
-            <div class="stat"><strong>50+</strong><span>Projects</span></div>
-            <div class="stat"><strong>30</strong><span>Clients</span></div>
-            <div class="stat"><strong>6</strong><span>Years Exp.</span></div>
-          </div>
-        </div>
-        <div class="about-image neumorph-avatar">
-          <img src="images/profile.jpg" alt="Ali portrait" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ================= HERO ================= -->
+  <main>
 
-  <!-- ===== SKILLS ===== -->
-  <section class="section skills-section">
-    <div class="container">
-      <h2 class="section-title">Core <span class="gold">Skills</span></h2>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <span class="skill-label">Brand Strategy</span>
-          <div class="skill-bar neumorph-inset">
-            <div class="skill-fill" style="width: 95%"></div>
-          </div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-label">UI/UX Design</span>
-          <div class="skill-bar neumorph-inset">
-            <div class="skill-fill" style="width: 90%"></div>
-          </div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-label">Packaging</span>
-          <div class="skill-bar neumorph-inset">
-            <div class="skill-fill" style="width: 88%"></div>
-          </div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-label">Front‑end Dev</span>
-          <div class="skill-bar neumorph-inset">
-            <div class="skill-fill" style="width: 80%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section class="hero" id="home">
 
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects" class="section projects-section">
-    <div class="container">
-      <h2 class="section-title">Selected <span class="gold">Work</span></h2>
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="Packing">Packing</button>
-        <button class="filter-btn" data-filter="Poster">Poster</button>
-        <button class="filter-btn" data-filter="Logo">Logo</button>
-        <button class="filter-btn" data-filter="Business card">Business card</button>
+      <div class="hero-bg-shapes" aria-hidden="true">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
       </div>
-      <div class="project-grid" id="projectGrid">
-        <!-- injected via JS -->
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="section contact-section">
-    <div class="container">
-      <div class="glass-card contact-card">
-        <h2 class="section-title">Let's <span class="gold">Talk</span></h2>
-        <form id="contactForm" action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required class="neumorph-inset" />
-            <input type="email" name="email" placeholder="Your Email" required class="neumorph-inset" />
+      <div class="container hero-content">
+
+        <p class="pre-title">
+          Graphic Designer &amp; Digital Creative
+        </p>
+
+        <h1 class="hero-title">
+          Designing
+          <span class="gold">Visuals</span>
+          <br />
+          That Communicate
+        </h1>
+
+        <p class="hero-sub">
+          I create thoughtful visual identities, packaging, social media
+          designs, and digital experiences that turn ideas into clear,
+          memorable communication.
+        </p>
+
+        <div class="hero-cta">
+
+          <a
+            href="#projects"
+            class="cta-btn neumorph"
+          >
+            View My Work
+          </a>
+
+          <a
+            href="https://jobvision.ir/cv/36197544-144336"
+            class="cta-btn neumorph outlined"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Resume
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+    <section
+      id="about"
+      class="section about-section"
+    >
+
+      <div class="container">
+
+        <div class="glass-card about-card">
+
+          <div class="about-text">
+
+            <h2 class="section-title">
+              About <span class="gold">Me</span>
+            </h2>
+
+            <p>
+              I’m Ali, a graphic designer focused on branding, packaging,
+              social media design, and digital visual experiences.
+            </p>
+
+            <p>
+              My approach combines visual clarity, strong composition,
+              purposeful typography, and attention to detail. I aim to
+              create work that is not only visually appealing, but also
+              communicates a clear idea and supports the purpose behind it.
+            </p>
+
+            <div class="about-stats">
+
+              <div class="stat">
+                <strong>Branding</strong>
+                <span>Visual Identity</span>
+              </div>
+
+              <div class="stat">
+                <strong>Digital</strong>
+                <span>Creative Design</span>
+              </div>
+
+              <div class="stat">
+                <strong>Visual</strong>
+                <span>Communication</span>
+              </div>
+
+            </div>
+
           </div>
-          <textarea name="message" placeholder="Tell me about your project..." rows="5" required class="neumorph-inset"></textarea>
-          <button type="submit" class="cta-btn neumorph submit-btn">Send Message</button>
-          <p id="formFeedback" class="form-feedback"></p>
-        </form>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== FOOTER ===== -->
+          <div class="about-image neumorph-avatar">
+
+            <img
+              src="images/profile.jpg"
+              alt="Portrait of Ali, graphic designer"
+              loading="lazy"
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SKILLS ================= -->
+    <section
+      id="skills"
+      class="section skills-section"
+    >
+
+      <div class="container">
+
+        <h2 class="section-title">
+          Core <span class="gold">Skills</span>
+        </h2>
+
+        <div class="skills-grid">
+
+          <div class="skill-item">
+
+            <span class="skill-label">
+              Graphic Design
+            </span>
+
+            <div class="skill-bar neumorph-inset">
+              <div
+                class="skill-fill"
+                data-width="95%"
+                style="width: 95%"
+              ></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-item">
+
+            <span class="skill-label">
+              Branding
+            </span>
+
+            <div class="skill-bar neumorph-inset">
+              <div
+                class="skill-fill"
+                data-width="92%"
+                style="width: 92%"
+              ></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-item">
+
+            <span class="skill-label">
+              Packaging Design
+            </span>
+
+            <div class="skill-bar neumorph-inset">
+              <div
+                class="skill-fill"
+                data-width="88%"
+                style="width: 88%"
+              ></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-item">
+
+            <span class="skill-label">
+              Social Media Design
+            </span>
+
+            <div class="skill-bar neumorph-inset">
+              <div
+                class="skill-fill"
+                data-width="90%"
+                style="width: 90%"
+              ></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-item">
+
+            <span class="skill-label">
+              UI Design
+            </span>
+
+            <div class="skill-bar neumorph-inset">
+              <div
+                class="skill-fill"
+                data-width="80%"
+                style="width: 80%"
+              ></div>
+            </div>
+
+          </div>
+
+
+          <div class="skill-item">
+
+            <span class="skill-label">
+              Front-end
+            </span>
+
+            <div class="skill-bar neumorph-inset">
+              <div
+                class="skill-fill"
+                data-width="72%"
+                style="width: 72%"
+              ></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+    <section
+      id="projects"
+      class="section projects-section"
+    >
+
+      <div class="container">
+
+        <h2 class="section-title">
+          Selected <span class="gold">Work</span>
+        </h2>
+
+        <p class="section-subtitle">
+          A selection of visual design projects across branding,
+          packaging, posters, and digital communication.
+        </p>
+
+
+        <div
+          class="filter-bar"
+          role="tablist"
+          aria-label="Project categories"
+        >
+
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            type="button"
+          >
+            All
+          </button>
+
+          <button
+            class="filter-btn"
+            data-filter="Branding"
+            type="button"
+          >
+            Branding
+          </button>
+
+          <button
+            class="filter-btn"
+            data-filter="Packaging"
+            type="button"
+          >
+            Packaging
+          </button>
+
+          <button
+            class="filter-btn"
+            data-filter="Poster"
+            type="button"
+          >
+            Poster
+          </button>
+
+          <button
+            class="filter-btn"
+            data-filter="Digital"
+            type="button"
+          >
+            Digital
+          </button>
+
+        </div>
+
+
+        <div
+          class="project-grid"
+          id="projectGrid"
+          aria-live="polite"
+        >
+          <!-- Projects injected via JavaScript -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+    <section
+      id="contact"
+      class="section contact-section"
+    >
+
+      <div class="container">
+
+        <div class="glass-card contact-card">
+
+          <h2 class="section-title">
+            Let's <span class="gold">Talk</span>
+          </h2>
+
+          <p class="section-subtitle">
+            Have a project, collaboration, or opportunity in mind?
+            Send me a message.
+          </p>
+
+
+          <form
+            id="contactForm"
+            action="https://formspree.io/f/{YOUR_FORM_ID}"
+            method="POST"
+          >
+
+            <div class="form-group">
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                autocomplete="name"
+                required
+                class="neumorph-input"
+                aria-label="Your name"
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                autocomplete="email"
+                required
+                class="neumorph-input"
+                aria-label="Your email"
+              />
+
+            </div>
+
+
+            <textarea
+              name="message"
+              placeholder="Tell me about your project or opportunity..."
+              rows="5"
+              required
+              class="neumorph-input"
+              aria-label="Your message"
+            ></textarea>
+
+
+            <button
+              type="submit"
+              class="cta-btn neumorph submit-btn"
+            >
+              Send Message
+            </button>
+
+
+            <p
+              id="formFeedback"
+              class="form-feedback"
+              aria-live="polite"
+            ></p>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
   <footer class="footer">
+
     <div class="container footer-inner">
-      <a href="#" class="footer-logo">ALI<span class="dot">.</span></a>
-      <p class="footer-text">© 2026 Ali. All rights reserved. Designed with passion.</p>
+
+      <a
+        href="#"
+        class="footer-logo"
+        aria-label="Ali home"
+      >
+        ALI<span class="dot">.</span>
+      </a>
+
+
+      <p class="footer-text">
+        © 2026 Ali. All rights reserved.
+      </p>
+
+
       <div class="social-links">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Behance">Be</a>
-        <a href="#" aria-label="Dribbble">Dr</a>
+
+        <!-- Replace # with your real profile URLs -->
+
+        <a
+          href="#"
+          class="social-link"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          in
+        </a>
+
+        <a
+          href="#"
+          class="social-link"
+          aria-label="Behance"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Be
+        </a>
+
+        <a
+          href="https://github.com/amoraklm"
+          class="social-link"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Gh
+        </a>
+
       </div>
+
     </div>
+
   </footer>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-backdrop"></div>
+
+  <!-- ================= LIGHTBOX ================= -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Project preview"
+  >
+
+    <div
+      class="lightbox-backdrop"
+      aria-hidden="true"
+    ></div>
+
     <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="Close">✕</button>
-      <img src="" alt="" id="lightboxImg" />
+
+      <button
+        class="lightbox-close"
+        type="button"
+        aria-label="Close project preview"
+      >
+        ✕
+      </button>
+
+      <img
+        src=""
+        alt=""
+        id="lightboxImg"
+      />
+
     </div>
+
   </div>
 
+
+  <!-- ================= SCRIPT ================= -->
   <script src="script.js"></script>
+
 </body>
 </html>
+```
