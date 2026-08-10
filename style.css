@@ -1,111 +1,112 @@
 /* =========================================================
    ALI PORTFOLIO — PREMIUM DESIGN SYSTEM
-   Neumorphism + Glassmorphism + Editorial UI/UX
-   Custom Cursor + Scrollbar + Motion + Responsive
+   Version: 2026
+   Neumorphism + Glassmorphism + Editorial UI
    ========================================================= */
 
 
 /* =========================================================
-   1. CSS CUSTOM PROPERTIES
+   01. DESIGN TOKENS
    ========================================================= */
 
 :root {
-  /* ---------- Core ---------- */
+  /* Core */
   --bg: #e8ecf1;
   --surface: #f0f2f5;
-  --surface-soft: #e5e9ee;
+  --surface-2: #e5e9ee;
+  --text-primary: #172236;
+  --text-secondary: #4b586b;
+  --text-muted: #7b8798;
 
-  --text-primary: #1a2a40;
-  --text-secondary: #4a5568;
-  --text-muted: #718096;
-
-  --white: #ffffff;
-  --black: #0f172a;
-
-  /* ---------- Accent ---------- */
+  /* Accent */
   --gold: #c5a86d;
   --gold-hover: #d4b97a;
   --gold-dark: #a88b4a;
   --gold-soft: rgba(197, 168, 109, 0.12);
+  --gold-border: rgba(197, 168, 109, 0.28);
 
-  /* ---------- Footer ---------- */
+  /* Basic */
+  --white: #ffffff;
+  --black: #0f172a;
   --footer-bg: #0a0e17;
   --footer-text: #94a3b8;
 
-  /* ---------- Neumorphism ---------- */
-  --neu-shadow-1: 8px 8px 16px #d1d5db;
-  --neu-shadow-2: -8px -8px 16px #ffffff;
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.56);
+  --glass-bg-strong: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-blur: blur(22px);
 
-  --neu-shadow-inset-1: inset 6px 6px 12px #d1d5db;
+  /* Neumorphism */
+  --neu-shadow-1: 8px 8px 18px #d0d5dc;
+  --neu-shadow-2: -8px -8px 18px #ffffff;
+
+  --neu-shadow-sm-1: 4px 4px 10px #d0d5dc;
+  --neu-shadow-sm-2: -4px -4px 10px #ffffff;
+
+  --neu-shadow-hover-1: 12px 12px 26px #c9ced5;
+  --neu-shadow-hover-2: -12px -12px 26px #ffffff;
+
+  --neu-shadow-inset-1: inset 6px 6px 12px #d0d5dc;
   --neu-shadow-inset-2: inset -6px -6px 12px #ffffff;
 
-  --neu-shadow-sm-1: 4px 4px 8px #d1d5db;
-  --neu-shadow-sm-2: -4px -4px 8px #ffffff;
+  /* Layout */
+  --container: 1240px;
+  --header-height: 72px;
 
-  --neu-shadow-hover-1: 12px 12px 24px #c8ccd0;
-  --neu-shadow-hover-2: -12px -12px 24px #ffffff;
-
-  /* ---------- Glass ---------- */
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-bg-strong: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-blur: blur(20px);
-
-  /* ---------- Radius ---------- */
+  /* Radius */
+  --radius-xs: 8px;
   --radius-sm: 12px;
-  --radius-md: 20px;
+  --radius-md: 18px;
   --radius-lg: 28px;
   --radius-xl: 50px;
 
-  /* ---------- Motion ---------- */
-  --transition-fast: 0.18s ease;
-  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Motion */
+  --ease:
+    cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* ---------- Layout ---------- */
-  --container-width: 1240px;
-  --header-height: 72px;
+  --ease-bounce:
+    cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* ---------- Cursor ---------- */
-  --cursor-size: 10px;
-  --cursor-ring-size: 34px;
+  --transition-fast: 0.2s var(--ease);
+  --transition: 0.3s var(--ease);
+  --transition-slow: 0.6s var(--ease);
 }
 
 
 /* =========================================================
-   2. DARK THEME
+   02. DARK THEME
    ========================================================= */
 
 html.dark {
-  --bg: #121b2b;
-  --surface: #1a2a40;
-  --surface-soft: #16243a;
+  --bg: #101927;
+  --surface: #182538;
+  --surface-2: #1c2c42;
 
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
+  --text-primary: #f4f7fb;
+  --text-secondary: #c7d0dc;
+  --text-muted: #91a0b2;
 
-  --neu-shadow-1: 8px 8px 16px #0a111d;
-  --neu-shadow-2: -8px -8px 16px #1e3350;
-
-  --neu-shadow-inset-1: inset 6px 6px 12px #0a111d;
-  --neu-shadow-inset-2: inset -6px -6px 12px #1e3350;
-
-  --neu-shadow-sm-1: 4px 4px 8px #0a111d;
-  --neu-shadow-sm-2: -4px -4px 8px #1e3350;
-
-  --neu-shadow-hover-1: 12px 12px 24px #080e18;
-  --neu-shadow-hover-2: -12px -12px 24px #223a58;
-
-  --glass-bg: rgba(26, 42, 64, 0.6);
-  --glass-bg-strong: rgba(26, 42, 64, 0.8);
+  --glass-bg: rgba(24, 37, 56, 0.64);
+  --glass-bg-strong: rgba(24, 37, 56, 0.84);
   --glass-border: rgba(255, 255, 255, 0.08);
+
+  --neu-shadow-1: 8px 8px 18px #0a111c;
+  --neu-shadow-2: -8px -8px 18px #20334d;
+
+  --neu-shadow-sm-1: 4px 4px 10px #0a111c;
+  --neu-shadow-sm-2: -4px -4px 10px #20334d;
+
+  --neu-shadow-hover-1: 12px 12px 26px #080e17;
+  --neu-shadow-hover-2: -12px -12px 26px #263d59;
+
+  --neu-shadow-inset-1: inset 6px 6px 12px #0a111c;
+  --neu-shadow-inset-2: inset -6px -6px 12px #20334d;
 }
 
 
 /* =========================================================
-   3. RESET
+   03. RESET
    ========================================================= */
 
 *,
@@ -118,25 +119,39 @@ html.dark {
 
 html {
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-padding-top: 90px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--bg);
+  width: 100%;
+  min-height: 100vh;
+
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: var(--bg);
   color: var(--text-primary);
-  line-height: 1.7;
-  font-weight: 400;
+
   font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+
   overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   transition:
     background-color 0.5s ease,
     color 0.5s ease;
 }
 
-body.menu-open {
+body.lightbox-open {
   overflow: hidden;
 }
 
@@ -149,7 +164,16 @@ h6 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+}
+
+p {
+  max-width: 75ch;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 button,
@@ -162,15 +186,9 @@ button {
   border: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 img {
   display: block;
   max-width: 100%;
-  height: auto;
 }
 
 ::selection {
@@ -180,331 +198,70 @@ img {
 
 
 /* =========================================================
-   4. CUSTOM SCROLLBAR
-   ========================================================= */
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--gold) var(--bg);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    var(--gold-hover),
-    var(--gold-dark)
-  );
-  border-radius: 999px;
-  border: 2px solid var(--bg);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
-}
-
-
-/* =========================================================
-   5. CUSTOM CURSOR
-   ========================================================= */
-
-.custom-cursor,
-.custom-cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
-
-.custom-cursor {
-  width: var(--cursor-size);
-  height: var(--cursor-size);
-  background: var(--gold);
-  transition:
-    width 0.2s ease,
-    height 0.2s ease,
-    background 0.2s ease,
-    opacity 0.2s ease;
-}
-
-.custom-cursor-ring {
-  width: var(--cursor-ring-size);
-  height: var(--cursor-ring-size);
-  border: 1px solid rgba(197, 168, 109, 0.65);
-  transition:
-    width 0.25s ease,
-    height 0.25s ease,
-    border-color 0.25s ease,
-    opacity 0.25s ease;
-}
-
-body.cursor-ready .custom-cursor,
-body.cursor-ready .custom-cursor-ring {
-  opacity: 1;
-}
-
-body.cursor-hover .custom-cursor {
-  width: 16px;
-  height: 16px;
-  background: var(--gold-hover);
-}
-
-body.cursor-hover .custom-cursor-ring {
-  width: 52px;
-  height: 52px;
-  border-color: var(--gold);
-}
-
-@media (pointer: coarse) {
-  .custom-cursor,
-  .custom-cursor-ring {
-    display: none !important;
-  }
-}
-
-
-/* =========================================================
-   6. CONTAINER & GLOBAL UTILITIES
+   04. CONTAINER / LAYOUT
    ========================================================= */
 
 .container {
   width: 100%;
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
 
 .section {
   position: relative;
-  padding: 5rem 0;
+  padding: 6rem 0;
+  overflow: hidden;
 }
 
+.section-title {
+  margin-bottom: 3rem;
+
+  text-align: center;
+
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.section-title .gold,
 .gold {
   color: var(--gold);
 }
 
-.gold-bg {
-  background-color: var(--gold);
-}
-
-.text-center {
-  text-align: center;
-}
-
-.section-title {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 700;
-  margin-bottom: 3rem;
-  text-align: center;
-  letter-spacing: -0.03em;
-}
-
 .section-subtitle {
   max-width: 680px;
-  margin: -2rem auto 3rem;
-  text-align: center;
+  margin: -1.5rem auto 3rem;
+
   color: var(--text-secondary);
+
+  text-align: center;
   font-size: 1.05rem;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 
 /* =========================================================
-   7. NEUMORPHISM
+   05. ACCESSIBILITY
    ========================================================= */
 
-.neumorph {
-  background: var(--surface);
-  box-shadow:
-    var(--neu-shadow-1),
-    var(--neu-shadow-2);
-  border-radius: var(--radius-lg);
-  transition:
-    box-shadow var(--transition-smooth),
-    transform var(--transition-smooth);
-}
-
-.neumorph:hover {
-  box-shadow:
-    var(--neu-shadow-hover-1),
-    var(--neu-shadow-hover-2);
-  transform: translateY(-2px);
-}
-
-.neumorph:active {
-  box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2);
-  transform: translateY(0);
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 6px;
 }
 
 
 /* =========================================================
-   8. BUTTONS
-   ========================================================= */
-
-.neumorph-btn,
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  padding: 1rem 2rem;
-
-  border-radius: var(--radius-xl);
-
-  font-weight: 600;
-  font-size: 1rem;
-
-  cursor: pointer;
-
-  background: var(--surface);
-  color: var(--text-primary);
-
-  box-shadow:
-    var(--neu-shadow-1),
-    var(--neu-shadow-2);
-
-  transition:
-    transform var(--transition-bounce),
-    box-shadow var(--transition-smooth),
-    color var(--transition-smooth),
-    background-color var(--transition-smooth);
-
-  user-select: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.neumorph-btn::before,
-.cta-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(197, 168, 109, 0.12),
-      transparent
-    );
-
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.neumorph-btn:hover,
-.cta-btn:hover {
-  color: var(--gold);
-  transform: translateY(-3px);
-
-  box-shadow:
-    var(--neu-shadow-hover-1),
-    var(--neu-shadow-hover-2);
-}
-
-.neumorph-btn:hover::before,
-.cta-btn:hover::before {
-  transform: translateX(100%);
-}
-
-.neumorph-btn:active,
-.cta-btn:active {
-  transform: scale(0.97);
-  box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2);
-}
-
-.neumorph-btn.outlined,
-.cta-btn.outlined {
-  background: transparent;
-  box-shadow: none;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-}
-
-.neumorph-btn.outlined:hover,
-.cta-btn.outlined:hover {
-  background: var(--gold);
-  color: var(--white);
-
-  box-shadow:
-    4px 4px 12px rgba(197, 168, 109, 0.3);
-}
-
-
-/* =========================================================
-   9. GLASSMORPHISM
-   ========================================================= */
-
-.glass-card {
-  background: var(--glass-bg);
-
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-
-  border: 1px solid var(--glass-border);
-
-  border-radius: var(--radius-lg);
-
-  padding: 3rem;
-
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.08);
-
-  transition:
-    transform var(--transition-smooth),
-    box-shadow var(--transition-smooth),
-    background-color var(--transition-smooth);
-}
-
-.glass-card:hover {
-  background: var(--glass-bg-strong);
-
-  box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.12);
-
-  transform: translateY(-3px);
-}
-
-.glass-card-strong {
-  background: var(--glass-bg-strong);
-
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-
-  border: 1px solid rgba(197, 168, 109, 0.2);
-
-  border-radius: var(--radius-lg);
-
-  padding: 2.5rem;
-}
-
-
-/* =========================================================
-   10. HEADER
+   06. HEADER
    ========================================================= */
 
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0 0 auto 0;
 
   width: 100%;
+  height: var(--header-height);
 
   z-index: 1000;
 
@@ -516,33 +273,35 @@ body.cursor-hover .custom-cursor-ring {
   border-bottom: 1px solid var(--glass-border);
 
   transition:
-    box-shadow var(--transition-smooth),
-    background-color var(--transition-smooth);
+    background-color var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 
 .header.scrolled {
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.08);
+    0 8px 30px rgba(0, 0, 0, 0.07);
 }
 
 .header-inner {
+  height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  min-height: var(--header-height);
 }
 
 .logo,
 .footer-logo {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .logo {
   font-size: 1.8rem;
-  transition: color var(--transition-smooth);
+  color: var(--text-primary);
+  transition: color var(--transition);
 }
 
 .logo .dot,
@@ -557,7 +316,7 @@ body.cursor-hover .custom-cursor-ring {
 .nav {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2.4rem;
 }
 
 .nav-link {
@@ -565,19 +324,18 @@ body.cursor-hover .custom-cursor-ring {
 
   padding: 0.5rem 0;
 
-  font-size: 0.95rem;
-  font-weight: 500;
-
   color: var(--text-secondary);
 
-  transition: color var(--transition-smooth);
+  font-size: 0.92rem;
+  font-weight: 500;
+
+  transition: color var(--transition);
 }
 
 .nav-link::after {
   content: "";
 
   position: absolute;
-
   left: 0;
   bottom: 0;
 
@@ -588,7 +346,7 @@ body.cursor-hover .custom-cursor-ring {
 
   background: var(--gold);
 
-  transition: width var(--transition-smooth);
+  transition: width var(--transition);
 }
 
 .nav-link:hover,
@@ -605,27 +363,25 @@ body.cursor-hover .custom-cursor-ring {
   width: 44px;
   height: 44px;
 
-  border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border-radius: 50%;
 
   background: var(--surface);
   color: var(--text-primary);
 
   cursor: pointer;
 
-  font-size: 1.1rem;
-
   box-shadow:
     var(--neu-shadow-sm-1),
     var(--neu-shadow-sm-2);
 
   transition:
-    transform var(--transition-bounce),
-    box-shadow var(--transition-smooth),
-    color var(--transition-smooth);
+    transform 0.4s var(--ease-bounce),
+    box-shadow var(--transition),
+    color var(--transition);
 }
 
 .theme-btn:hover {
@@ -635,25 +391,25 @@ body.cursor-hover .custom-cursor-ring {
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2);
 
-  transform: rotate(15deg);
+  transform: rotate(12deg);
 }
 
 
 /* =========================================================
-   11. HERO
+   07. HERO
    ========================================================= */
 
 .hero {
+  position: relative;
+
   min-height: 100vh;
 
   display: flex;
   align-items: center;
 
-  position: relative;
+  padding-top: calc(var(--header-height) + 2rem);
 
   overflow: hidden;
-
-  padding-top: 80px;
 }
 
 .hero-bg-shapes {
@@ -662,6 +418,8 @@ body.cursor-hover .custom-cursor-ring {
 
   pointer-events: none;
   z-index: 0;
+
+  overflow: hidden;
 }
 
 .shape {
@@ -680,41 +438,38 @@ body.cursor-hover .custom-cursor-ring {
   width: 500px;
   height: 500px;
 
+  top: -160px;
+  right: -120px;
+
   background: var(--gold);
 
-  top: -150px;
-  right: -100px;
-
-  animation:
-    floatShape1 8s ease-in-out infinite;
+  animation: floatShape1 8s ease-in-out infinite;
 }
 
 .shape-2 {
-  width: 350px;
-  height: 350px;
+  width: 360px;
+  height: 360px;
+
+  bottom: -130px;
+  left: -100px;
 
   background: var(--gold-dark);
 
-  bottom: -100px;
-  left: -80px;
-
-  animation:
-    floatShape2 10s ease-in-out infinite;
+  animation: floatShape2 10s ease-in-out infinite;
 }
 
 .shape-3 {
-  width: 200px;
-  height: 200px;
-
-  background: var(--gold-hover);
+  width: 220px;
+  height: 220px;
 
   top: 50%;
   left: 50%;
 
+  background: var(--gold-hover);
+
   transform: translate(-50%, -50%);
 
-  animation:
-    floatShape3 12s ease-in-out infinite;
+  animation: floatShape3 12s ease-in-out infinite;
 }
 
 .hero-content {
@@ -722,9 +477,9 @@ body.cursor-hover .custom-cursor-ring {
   z-index: 2;
 
   width: 100%;
-  max-width: 850px;
+  max-width: 900px;
 
-  margin: 0 auto;
+  margin-inline: auto;
 
   text-align: center;
 }
@@ -732,36 +487,23 @@ body.cursor-hover .custom-cursor-ring {
 .pre-title {
   display: inline-block;
 
-  text-transform: uppercase;
-
-  letter-spacing: 5px;
-
-  font-size: 0.85rem;
-  font-weight: 600;
+  margin-bottom: 1.4rem;
 
   color: var(--gold);
 
-  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 
-  animation:
-    fadeInUp 0.8s ease forwards;
-
-  opacity: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
 .hero-title {
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-
-  font-weight: 700;
-
-  line-height: 1.15;
-
   margin-bottom: 1.5rem;
 
-  animation:
-    fadeInUp 0.8s ease 0.2s forwards;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
 
-  opacity: 0;
+  line-height: 1.1;
 }
 
 .hero-title .gold {
@@ -775,14 +517,14 @@ body.cursor-hover .custom-cursor-ring {
   position: absolute;
 
   left: 0;
-  bottom: 5px;
+  right: 0;
+  bottom: 4px;
 
-  width: 100%;
   height: 8px;
 
-  background: rgba(197, 168, 109, 0.25);
+  border-radius: 5px;
 
-  border-radius: 4px;
+  background: rgba(197, 168, 109, 0.25);
 
   z-index: -1;
 }
@@ -790,88 +532,153 @@ body.cursor-hover .custom-cursor-ring {
 .hero-sub {
   max-width: 650px;
 
-  margin:
-    0 auto 2.5rem;
-
-  font-size: 1.2rem;
+  margin: 0 auto 2.5rem;
 
   color: var(--text-secondary);
 
-  animation:
-    fadeInUp 0.8s ease 0.4s forwards;
-
-  opacity: 0;
+  font-size: 1.12rem;
+  line-height: 1.9;
 }
 
 .hero-cta {
   display: flex;
-
   justify-content: center;
-  align-items: center;
-
-  gap: 1.25rem;
-
   flex-wrap: wrap;
-
-  animation:
-    fadeInUp 0.8s ease 0.6s forwards;
-
-  opacity: 0;
+  gap: 1.25rem;
 }
 
 
 /* =========================================================
-   12. HERO DECORATIVE SCROLL INDICATOR
+   08. BUTTONS
    ========================================================= */
 
-.scroll-indicator {
-  position: absolute;
+.cta-btn,
+.neumorph-btn {
+  position: relative;
 
-  bottom: 2rem;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
 
-  gap: 0.5rem;
+  min-height: 54px;
 
-  color: var(--text-muted);
+  padding: 0.95rem 1.8rem;
 
-  font-size: 0.7rem;
+  border-radius: var(--radius-xl);
 
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  background: var(--surface);
+  color: var(--text-primary);
 
-  opacity: 0.8;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+
+  transition:
+    transform 0.35s var(--ease-bounce),
+    box-shadow var(--transition),
+    color var(--transition),
+    background var(--transition);
 }
 
-.scroll-indicator-line {
-  width: 1px;
-  height: 42px;
+.cta-btn:hover,
+.neumorph-btn:hover {
+  color: var(--gold);
 
-  background: linear-gradient(
-    to bottom,
-    var(--gold),
-    transparent
-  );
+  transform: translateY(-2px);
 
-  animation:
-    scrollLine 1.8s ease-in-out infinite;
+  box-shadow:
+    var(--neu-shadow-hover-1),
+    var(--neu-shadow-hover-2);
+}
+
+.cta-btn:active,
+.neumorph-btn:active {
+  transform: translateY(0) scale(0.98);
+
+  box-shadow:
+    var(--neu-shadow-inset-1),
+    var(--neu-shadow-inset-2);
+}
+
+.cta-btn.outlined,
+.neumorph-btn.outlined {
+  background: transparent;
+
+  border: 1.5px solid var(--gold);
+
+  color: var(--gold);
+
+  box-shadow: none;
+}
+
+.cta-btn.outlined:hover,
+.neumorph-btn.outlined:hover {
+  background: var(--gold);
+  color: var(--white);
+
+  box-shadow:
+    4px 4px 15px rgba(197, 168, 109, 0.28);
 }
 
 
 /* =========================================================
-   13. ABOUT
+   09. GLASS CARDS
+   ========================================================= */
+
+.glass-card {
+  background: var(--glass-bg);
+
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: var(--radius-lg);
+
+  padding: 3rem;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.07);
+
+  transition:
+    background var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-strong);
+
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card-strong {
+  background: var(--glass-bg-strong);
+
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+
+  border: 1px solid rgba(197, 168, 109, 0.2);
+
+  border-radius: var(--radius-lg);
+
+  padding: 2.5rem;
+}
+
+
+/* =========================================================
+   10. ABOUT
    ========================================================= */
 
 .about-card {
   display: flex;
-
   align-items: center;
-
   gap: 4rem;
 
   flex-wrap: wrap;
@@ -883,51 +690,52 @@ body.cursor-hover .custom-cursor-ring {
 }
 
 .about-text .section-title {
-  text-align: left;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
-.about-text p {
+.about-text > p {
   margin-bottom: 2rem;
 
-  font-size: 1.05rem;
-
-  line-height: 1.8;
-
   color: var(--text-secondary);
+
+  font-size: 1.02rem;
+  line-height: 1.9;
 }
 
 .about-stats {
   display: flex;
-
+  align-items: center;
   gap: 2.5rem;
-
   flex-wrap: wrap;
 }
 
 .stat {
+  min-width: 80px;
   text-align: center;
 }
 
 .stat strong {
   display: block;
 
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 2.2rem;
-
-  font-weight: 700;
-
   color: var(--gold);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.1rem;
+  line-height: 1;
 }
 
 .stat span {
-  font-size: 0.85rem;
+  display: block;
+
+  margin-top: 0.5rem;
 
   color: var(--text-muted);
 
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
 
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
@@ -952,12 +760,12 @@ body.cursor-hover .custom-cursor-ring {
     var(--neu-shadow-2);
 
   transition:
-    transform var(--transition-smooth),
-    box-shadow var(--transition-smooth);
+    transform 0.4s var(--ease-bounce),
+    box-shadow var(--transition);
 }
 
 .neumorph-avatar:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
 
   box-shadow:
     var(--neu-shadow-hover-1),
@@ -975,17 +783,297 @@ body.cursor-hover .custom-cursor-ring {
 
 
 /* =========================================================
-   14. SKILLS
+   11. WHAT I DO
+   ========================================================= */
+
+.what-i-do-section,
+.services-section {
+  position: relative;
+}
+
+.what-i-do-grid,
+.services-grid,
+.service-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.5rem;
+
+  margin-top: 3rem;
+}
+
+.what-i-do-card,
+.service-card {
+  position: relative;
+
+  min-height: 240px;
+
+  padding: 2rem;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--surface);
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s var(--ease-bounce),
+    box-shadow var(--transition);
+}
+
+.what-i-do-card::before,
+.service-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 3px;
+  height: 0;
+
+  background: var(--gold);
+
+  transition: height 0.4s var(--ease);
+}
+
+.what-i-do-card:hover,
+.service-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    var(--neu-shadow-hover-1),
+    var(--neu-shadow-hover-2);
+}
+
+.what-i-do-card:hover::before,
+.service-card:hover::before {
+  height: 100%;
+}
+
+.what-i-do-card h3,
+.service-card h3 {
+  margin-bottom: 0.75rem;
+
+  font-size: 1.2rem;
+}
+
+.what-i-do-card p,
+.service-card p {
+  color: var(--text-secondary);
+
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   12. DESIGN PRINCIPLE
+   ========================================================= */
+
+.design-principle-section,
+.principles-section {
+  position: relative;
+}
+
+.principles-list,
+.design-principles {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  gap: 1rem;
+}
+
+.principle-item,
+.principle {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 72px 1fr;
+
+  gap: 1.5rem;
+
+  align-items: start;
+
+  padding: 1.7rem;
+
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+
+  box-shadow:
+    var(--neu-shadow-sm-1),
+    var(--neu-shadow-sm-2);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.principle-item:hover,
+.principle:hover {
+  transform: translateX(5px);
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+}
+
+.principle-number {
+  color: var(--gold);
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+}
+
+.principle-item h3,
+.principle h3 {
+  margin-bottom: 0.4rem;
+
+  font-size: 1.1rem;
+}
+
+.principle-item p,
+.principle p {
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   13. EDITORIAL TEXT BLOCKS
+   Fixes raw / unstyled text presentation.
+   ========================================================= */
+
+.design-principle-section p,
+.principles-section p,
+.process-section p,
+.my-process-section p,
+.experience-section p,
+.skills-tools-section p,
+.skills-section p,
+.feedback-section p,
+.client-feedback-section p {
+  color: var(--text-secondary);
+}
+
+.design-principle-section > .container > p,
+.principles-section > .container > p,
+.process-section > .container > p,
+.my-process-section > .container > p,
+.experience-section > .container > p {
+  max-width: 700px;
+
+  margin: -1.5rem auto 3rem;
+
+  text-align: center;
+
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   14. PROCESS
+   ========================================================= */
+
+.process-grid,
+.process-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 1.25rem;
+
+  margin-top: 3rem;
+}
+
+.process-step {
+  position: relative;
+
+  padding: 2rem 1.5rem;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--surface);
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+
+  transition:
+    transform 0.4s var(--ease-bounce),
+    box-shadow var(--transition);
+}
+
+.process-step:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    var(--neu-shadow-hover-1),
+    var(--neu-shadow-hover-2);
+}
+
+.process-number {
+  display: block;
+
+  margin-bottom: 1.25rem;
+
+  color: var(--gold);
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.process-step h3 {
+  margin-bottom: 0.7rem;
+
+  font-size: 1.15rem;
+}
+
+.process-step p {
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   15. SKILLS & TOOLS
    ========================================================= */
 
 .skills-grid {
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
   gap: 2rem;
 
-  max-width: 800px;
+  max-width: 850px;
 
   margin: 0 auto;
 }
@@ -996,30 +1084,28 @@ body.cursor-hover .custom-cursor-ring {
 
 .skill-label {
   display: flex;
-
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.7rem;
 
   color: var(--text-primary);
 
-  font-weight: 500;
+  font-size: 0.94rem;
+  font-weight: 600;
 }
 
 .skill-percent {
   color: var(--gold);
 
-  font-size: 0.85rem;
-
-  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .skill-bar {
-  position: relative;
-
   width: 100%;
-  height: 12px;
+  height: 10px;
+
+  position: relative;
 
   overflow: hidden;
 
@@ -1033,12 +1119,11 @@ body.cursor-hover .custom-cursor-ring {
 }
 
 .skill-fill {
-  position: relative;
-
-  width: 0;
   height: 100%;
 
-  border-radius: 20px;
+  width: 0;
+
+  border-radius: inherit;
 
   background:
     linear-gradient(
@@ -1049,45 +1134,103 @@ body.cursor-hover .custom-cursor-ring {
     );
 
   transition:
-    width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width 1.4s var(--ease);
 }
 
-.skill-fill::after {
-  content: "";
+.tools-grid,
+.skills-tools-grid {
+  display: grid;
 
-  position: absolute;
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
 
-  top: 0;
-  right: 0;
+  gap: 1rem;
 
-  width: 20px;
-  height: 100%;
+  max-width: 950px;
 
-  border-radius: 20px;
+  margin: 3rem auto 0;
+}
 
-  background: rgba(255, 255, 255, 0.3);
+.tool-item,
+.skill-tool {
+  min-height: 110px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  padding: 1rem;
+
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+
+  box-shadow:
+    var(--neu-shadow-sm-1),
+    var(--neu-shadow-sm-2);
+
+  text-align: center;
+
+  transition:
+    transform 0.35s var(--ease-bounce),
+    box-shadow var(--transition),
+    color var(--transition);
+}
+
+.tool-item:hover,
+.skill-tool:hover {
+  color: var(--gold);
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+}
+
+.tool-icon,
+.skill-tool-icon {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  color: var(--gold);
+}
+
+.tool-name,
+.skill-tool-name {
+  color: var(--text-secondary);
+
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 
 /* =========================================================
-   15. PROJECT FILTERS
+   16. PROJECTS
    ========================================================= */
+
+.projects-section {
+  position: relative;
+}
 
 .filter-bar {
   display: flex;
-
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 
-  gap: 1rem;
+  gap: 0.8rem;
 
   margin-bottom: 3rem;
-
-  flex-wrap: wrap;
 }
 
 .filter-btn {
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 1.6rem;
 
   border-radius: var(--radius-xl);
 
@@ -1095,54 +1238,39 @@ body.cursor-hover .custom-cursor-ring {
 
   color: var(--text-secondary);
 
-  cursor: pointer;
-
+  font-size: 0.88rem;
   font-weight: 500;
 
-  font-size: 0.9rem;
-
-  letter-spacing: 0.3px;
+  cursor: pointer;
 
   box-shadow:
     var(--neu-shadow-sm-1),
     var(--neu-shadow-sm-2);
 
   transition:
-    transform var(--transition-bounce),
-    box-shadow var(--transition-smooth),
-    color var(--transition-smooth);
+    transform 0.3s var(--ease-bounce),
+    box-shadow var(--transition),
+    color var(--transition);
 }
 
-.filter-btn:hover {
-  color: var(--gold);
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    var(--neu-shadow-inset-1),
-    var(--neu-shadow-inset-2);
-}
-
+.filter-btn:hover,
 .filter-btn.active {
   color: var(--gold);
 
-  font-weight: 600;
-
   box-shadow:
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2);
 }
 
-
-/* =========================================================
-   16. PROJECT GRID
-   ========================================================= */
+.filter-btn:active {
+  transform: scale(0.96);
+}
 
 .project-grid {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fill, minmax(340px, 1fr));
+    repeat(auto-fill, minmax(300px, 1fr));
 
   gap: 2.5rem;
 }
@@ -1150,11 +1278,11 @@ body.cursor-hover .custom-cursor-ring {
 .project-card {
   opacity: 0;
 
-  transform: translateY(50px);
+  transform: translateY(35px);
 
   transition:
     opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform 0.7s var(--ease-bounce);
 }
 
 .project-card.revealed {
@@ -1168,57 +1296,27 @@ body.cursor-hover .custom-cursor-ring {
 
   overflow: hidden;
 
-  cursor: pointer;
-
   border-radius: var(--radius-lg);
 
   background: var(--surface);
+
+  cursor: pointer;
 
   box-shadow:
     var(--neu-shadow-1),
     var(--neu-shadow-2);
 
   transition:
-    transform var(--transition-bounce),
-    box-shadow var(--transition-smooth);
-}
-
-.card-inner::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(197, 168, 109, 0.06),
-      transparent
-    );
-
-  opacity: 0;
-
-  transition: opacity var(--transition-smooth);
+    transform 0.4s var(--ease-bounce),
+    box-shadow var(--transition);
 }
 
 .card-inner:hover {
-  transform: translateY(-7px);
+  transform: translateY(-6px);
 
   box-shadow:
     var(--neu-shadow-hover-1),
     var(--neu-shadow-hover-2);
-}
-
-.card-inner:hover::before {
-  opacity: 1;
-}
-
-.card-inner:active {
-  transform: scale(0.985);
 }
 
 .card-img-wrapper {
@@ -1238,12 +1336,11 @@ body.cursor-hover .custom-cursor-ring {
   object-fit: cover;
 
   transition:
-    transform 0.6s ease,
-    filter 0.4s ease;
+    transform 0.65s ease;
 }
 
 .card-inner:hover .card-img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .card-overlay {
@@ -1251,16 +1348,15 @@ body.cursor-hover .custom-cursor-ring {
   inset: 0;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  background: rgba(26, 42, 64, 0.42);
+  background: rgba(18, 29, 46, 0.44);
 
   opacity: 0;
 
   transition:
-    opacity var(--transition-smooth);
+    opacity var(--transition);
 }
 
 .card-inner:hover .card-overlay {
@@ -1281,25 +1377,21 @@ body.cursor-hover .custom-cursor-ring {
 
   color: var(--text-primary);
 
-  font-size: 1.4rem;
-
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.15);
+    0 8px 24px rgba(0, 0, 0, 0.18);
+
+  transform: scale(0.85);
 
   transition:
-    transform var(--transition-bounce);
+    transform 0.35s var(--ease-bounce);
 }
 
 .card-inner:hover .card-overlay-icon {
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 .card-body {
-  position: relative;
-
-  z-index: 2;
-
-  padding: 1.5rem;
+  padding: 1.4rem 1.5rem;
 
   text-align: center;
 
@@ -1309,273 +1401,414 @@ body.cursor-hover .custom-cursor-ring {
 .card-title {
   margin-bottom: 0.3rem;
 
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 1.15rem;
-
-  font-weight: 600;
-
   color: var(--text-primary);
+
+  font-size: 1.08rem;
 }
 
 .card-cat {
   color: var(--gold);
 
-  font-size: 0.85rem;
-
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 600;
 
   letter-spacing: 0.5px;
 }
 
 
 /* =========================================================
-   17. CONTACT
+   17. SELECTED WORK FOOTNOTE
    ========================================================= */
 
-.contact-card {
-  max-width: 700px;
+.selected-work-note,
+.projects-note,
+.work-note {
+  margin: 2rem auto 0;
+
+  color: var(--text-muted);
+
+  text-align: center;
+
+  font-size: 0.9rem;
+}
+
+.selected-work-note a,
+.projects-note a,
+.work-note a {
+  color: var(--gold);
+
+  font-weight: 600;
+
+  transition: color var(--transition);
+}
+
+.selected-work-note a:hover,
+.projects-note a:hover,
+.work-note a:hover {
+  color: var(--gold-hover);
+}
+
+
+/* =========================================================
+   18. EXPERIENCE
+   ========================================================= */
+
+.experience-list {
+  max-width: 900px;
 
   margin: 0 auto;
+
+  display: grid;
+
+  gap: 1rem;
+}
+
+.experience-item {
+  display: grid;
+
+  grid-template-columns:
+    150px 1fr;
+
+  gap: 2rem;
+
+  padding: 1.8rem;
+
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+
+  box-shadow:
+    var(--neu-shadow-sm-1),
+    var(--neu-shadow-sm-2);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.experience-item:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+}
+
+.experience-date {
+  color: var(--gold);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.experience-content h3 {
+  margin-bottom: 0.35rem;
+
+  font-size: 1.08rem;
+}
+
+.experience-content p {
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   19. WHY WORK WITH ME
+   ========================================================= */
+
+.why-work-grid,
+.why-me-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.5rem;
+
+  max-width: 1050px;
+
+  margin: 0 auto;
+}
+
+.why-work-card,
+.why-me-card {
+  padding: 2rem;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--surface);
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+
+  transition:
+    transform 0.4s var(--ease-bounce),
+    box-shadow var(--transition);
+}
+
+.why-work-card:hover,
+.why-me-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    var(--neu-shadow-hover-1),
+    var(--neu-shadow-hover-2);
+}
+
+.why-work-icon,
+.why-me-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1.2rem;
+
+  border-radius: 50%;
+
+  background: var(--gold-soft);
+
+  color: var(--gold);
+
+  font-size: 1.2rem;
+}
+
+.why-work-card h3,
+.why-me-card h3 {
+  margin-bottom: 0.65rem;
+
+  font-size: 1.05rem;
+}
+
+.why-work-card p,
+.why-me-card p {
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   20. CLIENT FEEDBACK
+   ========================================================= */
+
+.feedback-grid,
+.testimonials-grid,
+.client-feedback-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.5rem;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+.feedback-card,
+.testimonial-card,
+.client-feedback-card {
+  position: relative;
+
+  padding: 2rem;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--surface);
+
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+
+  transition:
+    transform 0.4s var(--ease-bounce),
+    box-shadow var(--transition);
+}
+
+.feedback-card::before,
+.testimonial-card::before,
+.client-feedback-card::before {
+  content: "“";
+
+  position: absolute;
+
+  top: 0.8rem;
+  right: 1.5rem;
+
+  color: var(--gold);
+
+  opacity: 0.3;
+
+  font-family: Georgia, serif;
+  font-size: 4rem;
+
+  line-height: 1;
+}
+
+.feedback-card:hover,
+.testimonial-card:hover,
+.client-feedback-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    var(--neu-shadow-hover-1),
+    var(--neu-shadow-hover-2);
+}
+
+.feedback-card p,
+.testimonial-card p,
+.client-feedback-card p {
+  margin-bottom: 1.3rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+
+.feedback-author {
+  color: var(--text-primary);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.feedback-role {
+  display: block;
+
+  margin-top: 0.15rem;
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   21. CONTACT / GET IN TOUCH
+   ========================================================= */
+
+.contact-section {
+  padding-bottom: 7rem;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  text-align: center;
 }
 
 .contact-card .section-title {
   margin-bottom: 1rem;
 }
 
-.contact-card .section-subtitle {
-  margin-top: 0;
-  margin-bottom: 2rem;
+.contact-card > p,
+.contact-intro {
+  max-width: 600px;
+
+  margin: 0 auto 2.3rem;
+
+  color: var(--text-secondary);
+
+  font-size: 1rem;
+  line-height: 1.85;
 }
 
 .form-group {
   display: flex;
 
-  gap: 1.25rem;
+  gap: 1.2rem;
 
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-group > * {
+  flex: 1;
 }
 
 .neumorph-input,
-input.neumorph-inset,
-textarea.neumorph-inset {
+.contact-card input,
+.contact-card textarea {
   width: 100%;
 
-  padding: 1rem 1.25rem;
+  padding: 1rem 1.2rem;
 
-  border: none;
+  border: 0;
+  border-radius: var(--radius-md);
 
   outline: none;
-
-  border-radius: var(--radius-md);
 
   background: var(--surface);
 
   color: var(--text-primary);
-
-  font-family: "Inter", sans-serif;
-
-  font-size: 1rem;
 
   box-shadow:
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2);
 
   transition:
-    box-shadow var(--transition-smooth),
-    transform var(--transition-smooth);
+    box-shadow var(--transition);
 }
 
 .neumorph-input:focus,
-input.neumorph-inset:focus,
-textarea.neumorph-inset:focus {
+.contact-card input:focus,
+.contact-card textarea:focus {
   box-shadow:
     var(--neu-shadow-inset-1),
     var(--neu-shadow-inset-2),
-    0 0 0 3px rgba(197, 168, 109, 0.35);
+    0 0 0 3px rgba(197, 168, 109, 0.25);
 }
 
 .neumorph-input::placeholder,
-input.neumorph-inset::placeholder,
-textarea.neumorph-inset::placeholder {
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
   color: var(--text-muted);
 }
 
-textarea.neumorph-input,
-textarea.neumorph-inset {
+.contact-card textarea {
   resize: vertical;
 
-  min-height: 140px;
+  min-height: 150px;
+
+  margin-bottom: 0.8rem;
 }
 
 .submit-btn {
   width: 100%;
 
-  margin-top: 0.5rem;
-
-  padding: 1.1rem 2rem;
-
-  font-size: 1.05rem;
+  margin-top: 0.4rem;
 }
 
 .form-feedback {
   min-height: 24px;
 
-  margin-top: 1rem;
+  margin-top: 0.8rem;
+
+  color: var(--text-muted);
 
   text-align: center;
 
-  font-size: 0.9rem;
-
-  font-weight: 500;
+  font-size: 0.85rem;
 }
 
 
 /* =========================================================
-   18. FOOTER
-   ========================================================= */
-
-.footer {
-  position: relative;
-
-  padding:
-    4rem 0 2rem;
-
-  overflow: hidden;
-
-  background: var(--footer-bg);
-
-  color: var(--footer-text);
-}
-
-.footer::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--gold),
-      transparent
-    );
-
-  opacity: 0.5;
-}
-
-.footer-inner {
-  position: relative;
-  z-index: 1;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  gap: 1.5rem;
-}
-
-.footer-logo {
-  font-size: 2rem;
-
-  color: var(--white);
-
-  transition: color var(--transition-smooth);
-}
-
-.footer-logo:hover {
-  color: var(--gold);
-}
-
-.footer-text {
-  font-size: 0.9rem;
-
-  text-align: center;
-
-  color: var(--footer-text);
-}
-
-.footer-nav {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 2rem;
-
-  flex-wrap: wrap;
-}
-
-.footer-nav a {
-  color: var(--footer-text);
-
-  font-size: 0.9rem;
-
-  transition: color var(--transition-smooth);
-}
-
-.footer-nav a:hover {
-  color: var(--gold);
-}
-
-.social-links {
-  display: flex;
-
-  gap: 1.25rem;
-}
-
-.social-links a,
-.social-link {
-  width: 44px;
-  height: 44px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.05);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  color: var(--footer-text);
-
-  font-size: 1rem;
-
-  font-weight: 600;
-
-  transition:
-    transform var(--transition-bounce),
-    background-color var(--transition-smooth),
-    color var(--transition-smooth),
-    border-color var(--transition-smooth);
-}
-
-.social-links a:hover,
-.social-link:hover {
-  background: var(--gold);
-
-  border-color: var(--gold);
-
-  color: var(--white);
-
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 8px 20px rgba(197, 168, 109, 0.3);
-}
-
-
-/* =========================================================
-   19. LIGHTBOX
+   22. LIGHTBOX
    ========================================================= */
 
 .lightbox {
@@ -1585,7 +1818,6 @@ textarea.neumorph-inset {
   z-index: 9999;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -1593,8 +1825,8 @@ textarea.neumorph-inset {
   visibility: hidden;
 
   transition:
-    opacity 0.4s ease,
-    visibility 0.4s ease;
+    opacity 0.35s ease,
+    visibility 0.35s ease;
 }
 
 .lightbox.active {
@@ -1606,24 +1838,20 @@ textarea.neumorph-inset {
   position: absolute;
   inset: 0;
 
-  cursor: pointer;
-
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.86);
 
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
+
+  cursor: pointer;
 }
 
 .lightbox-content {
   position: relative;
-
   z-index: 2;
 
   max-width: 90vw;
   max-height: 90vh;
-
-  animation:
-    lightboxIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .lightbox-content img {
@@ -1635,16 +1863,14 @@ textarea.neumorph-inset {
   border-radius: var(--radius-md);
 
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.4);
+    0 30px 80px rgba(0, 0, 0, 0.45);
 }
 
 .lightbox-close {
   position: absolute;
 
-  top: -16px;
-  right: -16px;
-
-  z-index: 3;
+  top: -18px;
+  right: -18px;
 
   width: 48px;
   height: 48px;
@@ -1659,43 +1885,39 @@ textarea.neumorph-inset {
 
   color: var(--text-primary);
 
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 
   cursor: pointer;
 
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.2);
+    0 8px 25px rgba(0, 0, 0, 0.22);
 
   transition:
-    transform var(--transition-bounce),
-    background-color var(--transition-smooth),
-    color var(--transition-smooth);
+    transform 0.4s var(--ease-bounce),
+    background var(--transition),
+    color var(--transition);
 }
 
 .lightbox-close:hover {
   background: var(--gold);
-
   color: var(--white);
 
   transform: rotate(90deg);
-
-  box-shadow:
-    0 12px 28px rgba(197, 168, 109, 0.4);
 }
 
 
 /* =========================================================
-   20. SCROLL REVEAL
+   23. SCROLL REVEAL
    ========================================================= */
 
 .reveal {
   opacity: 0;
 
-  transform: translateY(40px);
+  transform: translateY(35px);
 
   transition:
     opacity 0.8s ease,
-    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform 0.8s var(--ease-bounce);
 }
 
 .reveal.revealed {
@@ -1730,7 +1952,7 @@ textarea.neumorph-inset {
 
 
 /* =========================================================
-   21. SCROLL TO TOP
+   24. SCROLL TO TOP
    ========================================================= */
 
 .scroll-top-btn {
@@ -1748,8 +1970,6 @@ textarea.neumorph-inset {
   align-items: center;
   justify-content: center;
 
-  border: none;
-
   border-radius: 50%;
 
   background: var(--surface);
@@ -1758,23 +1978,20 @@ textarea.neumorph-inset {
 
   cursor: pointer;
 
-  font-size: 1.3rem;
-
-  box-shadow:
-    var(--neu-shadow-1),
-    var(--neu-shadow-2);
-
   opacity: 0;
   visibility: hidden;
 
   transform: translateY(20px);
 
+  box-shadow:
+    var(--neu-shadow-1),
+    var(--neu-shadow-2);
+
   transition:
-    opacity var(--transition-smooth),
-    visibility var(--transition-smooth),
-    transform var(--transition-bounce),
-    box-shadow var(--transition-smooth),
-    color var(--transition-smooth);
+    opacity var(--transition),
+    visibility var(--transition),
+    transform 0.4s var(--ease-bounce),
+    color var(--transition);
 }
 
 .scroll-top-btn.visible {
@@ -1794,20 +2011,298 @@ textarea.neumorph-inset {
 
 
 /* =========================================================
-   22. FOCUS STATES
+   25. FOOTER
+   Fixed overflow / spacing / horizontal scroll protection.
    ========================================================= */
 
-:focus-visible {
-  outline: 3px solid var(--gold);
+.footer {
+  position: relative;
 
-  outline-offset: 3px;
+  width: 100%;
 
-  border-radius: 5px;
+  margin: 0;
+  padding: 4.5rem 0 2rem;
+
+  background: var(--footer-bg);
+  color: var(--footer-text);
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+.footer::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+  opacity: 0.55;
+
+  pointer-events: none;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1.4rem;
+
+  text-align: center;
+}
+
+.footer-logo {
+  display: inline-block;
+
+  color: var(--white);
+
+  font-size: 2rem;
+
+  transition: color var(--transition);
+}
+
+.footer-logo:hover {
+  color: var(--gold);
+}
+
+.footer-text {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: var(--footer-text);
+
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 1.5rem;
+
+  width: 100%;
+}
+
+.footer-nav a {
+  color: var(--footer-text);
+
+  font-size: 0.85rem;
+
+  transition: color var(--transition);
+}
+
+.footer-nav a:hover {
+  color: var(--gold);
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.8rem;
+
+  width: 100%;
+}
+
+.social-links a,
+.social-link {
+  width: 44px;
+  height: 44px;
+
+  flex: 0 0 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--footer-text);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  transition:
+    transform 0.35s var(--ease-bounce),
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.social-links a:hover,
+.social-link:hover {
+  background: var(--gold);
+
+  border-color: var(--gold);
+
+  color: var(--white);
+
+  transform: translateY(-4px);
 }
 
 
 /* =========================================================
-   23. ANIMATIONS
+   26. FOOTER SCROLL BUG PROTECTION
+   ========================================================= */
+
+footer,
+footer *,
+.footer,
+.footer * {
+  max-width: 100%;
+}
+
+.footer .container {
+  overflow: visible;
+}
+
+.footer img {
+  max-width: 100%;
+}
+
+.footer a {
+  word-break: break-word;
+}
+
+.footer::after {
+  content: "";
+
+  position: absolute;
+
+  inset: auto 0 0 0;
+
+  height: 1px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   27. CUSTOM SCROLLBAR
+   ========================================================= */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--gold-hover),
+    var(--gold-dark)
+  );
+
+  border: 2px solid var(--bg);
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg);
+}
+
+
+/* =========================================================
+   28. CUSTOM CURSOR SUPPORT
+   ========================================================= */
+
+.custom-cursor {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 18px;
+  height: 18px;
+
+  z-index: 10000;
+
+  pointer-events: none;
+
+  border: 1px solid var(--gold);
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+
+  opacity: 0;
+
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.visible {
+  opacity: 1;
+}
+
+.custom-cursor.hover {
+  width: 42px;
+  height: 42px;
+
+  background: rgba(197, 168, 109, 0.15);
+
+  border-color: var(--gold);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+
+/* =========================================================
+   29. ANIMATIONS
    ========================================================= */
 
 @keyframes fadeInUp {
@@ -1819,18 +2314,6 @@ textarea.neumorph-inset {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 
@@ -1867,76 +2350,116 @@ textarea.neumorph-inset {
   }
 }
 
-@keyframes scrollLine {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scaleY(0.7);
-    transform-origin: top;
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
   }
 
-  50% {
+  to {
     opacity: 1;
-    transform: scaleY(1);
-    transform-origin: top;
+    transform: scale(1);
   }
 }
 
 
 /* =========================================================
-   24. RESPONSIVE — TABLET
+   30. RESPONSIVE — TABLET
    ========================================================= */
 
 @media (max-width: 1024px) {
+
+  .section {
+    padding: 5rem 0;
+  }
+
   .project-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
   .about-card {
     gap: 2.5rem;
   }
 
-  .section-title {
-    font-size: 2.2rem;
+  .process-grid,
+  .process-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .what-i-do-grid,
+  .services-grid,
+  .service-grid,
+  .why-work-grid,
+  .why-me-grid,
+  .feedback-grid,
+  .testimonials-grid,
+  .client-feedback-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .tools-grid,
+  .skills-tools-grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
   }
 }
 
 
 /* =========================================================
-   25. RESPONSIVE — MOBILE
+   31. RESPONSIVE — MOBILE
    ========================================================= */
 
 @media (max-width: 768px) {
+
   :root {
     --header-height: 64px;
   }
 
-  .header-inner {
-    min-height: 64px;
-  }
-
-  .nav {
-    gap: 1.25rem;
-  }
-
-  .nav-link {
-    font-size: 0.85rem;
-  }
-
-  .hero {
-    padding-top: 90px;
-  }
-
-  .hero-title {
-    font-size: 2.4rem;
-  }
-
-  .hero-sub {
-    font-size: 1rem;
+  .container {
+    padding-inline: 1.2rem;
   }
 
   .section {
-    padding: 3.5rem 0;
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    margin-bottom: 2.2rem;
+
+    font-size: 2.1rem;
+  }
+
+  .header-inner {
+    height: 64px;
+  }
+
+  .nav {
+    gap: 1.2rem;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+  }
+
+  .hero {
+    min-height: 90vh;
+
+    padding-top: calc(var(--header-height) + 1.5rem);
+  }
+
+  .hero-title {
+    font-size: 2.45rem;
+  }
+
+  .hero-sub {
+    font-size: 0.98rem;
+  }
+
+  .hero-cta {
+    gap: 1rem;
   }
 
   .about-card {
@@ -1958,34 +2481,78 @@ textarea.neumorph-inset {
     justify-content: center;
   }
 
+  .neumorph-avatar {
+    width: 230px;
+    height: 230px;
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
 
-    gap: 1.5rem;
+    gap: 1.3rem;
   }
 
   .project-grid {
     grid-template-columns: 1fr;
 
-    max-width: 450px;
+    max-width: 480px;
 
-    margin: 0 auto;
+    margin-inline: auto;
   }
 
   .form-group {
     flex-direction: column;
+
+    gap: 1rem;
   }
 
   .glass-card {
-    padding: 2rem;
+    padding: 2rem 1.4rem;
   }
 
-  .footer {
-    padding: 3rem 0 1.5rem;
+  .principle-item,
+  .principle {
+    grid-template-columns: 50px 1fr;
+
+    gap: 1rem;
+
+    padding: 1.35rem;
   }
 
-  .footer-nav {
-    gap: 1.25rem;
+  .experience-item {
+    grid-template-columns: 1fr;
+
+    gap: 0.6rem;
+  }
+
+  .what-i-do-grid,
+  .services-grid,
+  .service-grid,
+  .why-work-grid,
+  .why-me-grid,
+  .feedback-grid,
+  .testimonials-grid,
+  .client-feedback-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 520px;
+
+    margin-inline: auto;
+  }
+
+  .process-grid,
+  .process-list {
+    grid-template-columns: 1fr;
+
+    max-width: 520px;
+
+    margin-inline: auto;
+  }
+
+  .tools-grid,
+  .skills-tools-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
   }
 
   .scroll-top-btn {
@@ -1996,19 +2563,20 @@ textarea.neumorph-inset {
     height: 44px;
   }
 
-  .scroll-indicator {
-    display: none;
+  .footer {
+    padding: 3.5rem 0 1.8rem;
   }
 }
 
 
 /* =========================================================
-   26. RESPONSIVE — SMALL MOBILE
+   32. RESPONSIVE — SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 480px) {
+
   .container {
-    padding: 0 1rem;
+    padding-inline: 1rem;
   }
 
   .nav {
@@ -2029,48 +2597,54 @@ textarea.neumorph-inset {
   }
 
   .hero-sub {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+
+    line-height: 1.8;
   }
 
   .hero-cta {
     flex-direction: column;
 
     align-items: stretch;
-
-    width: 100%;
   }
 
   .cta-btn,
   .neumorph-btn {
     width: 100%;
-
-    text-align: center;
-
-    justify-content: center;
   }
 
   .about-stats {
-    gap: 1.5rem;
+    gap: 1.3rem;
   }
 
   .stat strong {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
-  .neumorph-avatar {
-    width: 230px;
-    height: 230px;
+  .tools-grid,
+  .skills-tools-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
   .filter-bar {
-    gap: 0.65rem;
+    gap: 0.6rem;
   }
 
   .filter-btn {
-    padding:
-      0.6rem 1.2rem;
+    padding: 0.62rem 1.1rem;
 
-    font-size: 0.82rem;
+    font-size: 0.8rem;
+  }
+
+  .lightbox-content {
+    max-width: 94vw;
+    max-height: 90vh;
+  }
+
+  .lightbox-content img {
+    max-width: 92vw;
+    max-height: 82vh;
   }
 
   .lightbox-close {
@@ -2080,62 +2654,80 @@ textarea.neumorph-inset {
     width: 40px;
     height: 40px;
 
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
-  .glass-card {
-    padding: 1.5rem;
+  .footer-text {
+    font-size: 0.76rem;
   }
 }
 
 
 /* =========================================================
-   27. ACCESSIBILITY — REDUCED MOTION
+   33. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-
     transition-duration: 0.01ms !important;
-
     scroll-behavior: auto !important;
   }
 }
 
 
 /* =========================================================
-   28. PRINT
+   34. PRINT
    ========================================================= */
 
 @media print {
+
+  html,
+  body {
+    background: #ffffff;
+
+    color: #000000;
+  }
+
   .header,
   .lightbox,
   .scroll-top-btn,
   .theme-btn,
   .filter-bar,
-  .custom-cursor,
-  .custom-cursor-ring {
+  .custom-cursor {
     display: none !important;
   }
 
-  body {
-    background: #ffffff;
-    color: #000000;
+  .section {
+    padding: 2rem 0;
   }
 
   .project-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
 
     gap: 1rem;
   }
 
-  .card-inner {
-    border: 1px solid #ddd;
-
+  .card-inner,
+  .glass-card,
+  .process-step,
+  .why-work-card,
+  .feedback-card {
     box-shadow: none;
+
+    border: 1px solid #ddd;
+  }
+
+  .footer {
+    margin-top: 2rem;
+
+    background: #ffffff;
+
+    color: #000000;
   }
 }
