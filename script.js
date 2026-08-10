@@ -1,20 +1,20 @@
-"use strict";
-
 /* =========================================================
-   ALI PORTFOLIO
-   Main JavaScript
+   ALI PORTFOLIO — PREMIUM INTERACTION SYSTEM
+   Version: 2.0
+   Vanilla JavaScript
    ========================================================= */
 
+'use strict';
 
 /* =========================================================
-   PROJECT DATA
+   1. PROJECT DATA
    ========================================================= */
 
 const projects = [
   {
     id: 1,
     title: "Resa Saffon",
-    category: "Packaging",
+    category: "Packing",
     image: "images/project1.jpg",
     alt: "Resa Saffon packaging design"
   },
@@ -28,9 +28,9 @@ const projects = [
   {
     id: 3,
     title: "Bonaft",
-    category: "Branding",
+    category: "Logo",
     image: "images/project3.jpg",
-    alt: "Bonaft branding and logo design"
+    alt: "Bonaft logo design"
   },
   {
     id: 4,
@@ -42,16 +42,16 @@ const projects = [
   {
     id: 5,
     title: "Foolad-e-Zharf",
-    category: "Packaging",
+    category: "Packing",
     image: "images/project5.jpg",
     alt: "Foolad-e-Zharf packaging design"
   },
   {
     id: 6,
     title: "Kermana",
-    category: "Branding",
+    category: "Logo",
     image: "images/project6.jpg",
-    alt: "Kermana logo and branding design"
+    alt: "Kermana logo design"
   },
   {
     id: 7,
@@ -63,23 +63,23 @@ const projects = [
   {
     id: 8,
     title: "Advieh-Khaneh",
-    category: "Packaging",
+    category: "Packing",
     image: "images/project8.jpg",
     alt: "Advieh-Khaneh packaging design"
   },
   {
     id: 9,
     title: "Daya Foundation",
-    category: "Branding",
+    category: "Logo",
     image: "images/project9.jpg",
-    alt: "Daya Foundation branding and logo design"
+    alt: "Daya Foundation logo design"
   },
   {
     id: 10,
     title: "Luminous Shadows",
-    category: "Digital",
+    category: "Book Cover",
     image: "images/project10.jpg",
-    alt: "Luminous Shadows digital cover design"
+    alt: "Luminous Shadows book cover"
   },
   {
     id: 11,
@@ -91,7 +91,7 @@ const projects = [
   {
     id: 12,
     title: "Shahpasand",
-    category: "Packaging",
+    category: "Packing",
     image: "images/project12.jpg",
     alt: "Shahpasand packaging design"
   }
@@ -99,64 +99,81 @@ const projects = [
 
 
 /* =========================================================
-   DOM ELEMENTS
+   2. DOM REFERENCES
    ========================================================= */
 
-const grid = document.getElementById("projectGrid");
-const filterBtns = document.querySelectorAll(".filter-btn");
+const grid = document.getElementById('projectGrid');
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-const lightboxClose = document.querySelector(".lightbox-close");
-const lightboxBackdrop = document.querySelector(".lightbox-backdrop");
+const filterBtns = document.querySelectorAll('.filter-btn');
 
-const themeToggle = document.getElementById("themeToggle");
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
 
-const contactForm = document.getElementById("contactForm");
-const formFeedback = document.getElementById("formFeedback");
+const themeToggle = document.getElementById('themeToggle');
 
-const header = document.getElementById("header");
+const contactForm = document.getElementById('contactForm');
+const formFeedback = document.getElementById('formFeedback');
 
-const navLinks = document.querySelectorAll(".nav-link");
+const header = document.getElementById('header');
 
-const skillsSection = document.querySelector(".skills-section");
-const skillBars = document.querySelectorAll(".skill-fill");
+const navLinks = document.querySelectorAll('.nav-link');
+
+const sections = document.querySelectorAll('section[id]');
 
 
 /* =========================================================
-   PROJECT RENDERING
+   3. GLOBAL STATE
    ========================================================= */
 
-function renderProjects(filter = "all") {
+let currentFilter = 'all';
+let currentProjectIndex = -1;
+
+let projectObserver = null;
+let revealObserver = null;
+let skillsObserver = null;
+
+let isLightboxOpen = false;
+
+
+/* =========================================================
+   4. PROJECT RENDERING
+   ========================================================= */
+
+function renderProjects(filter = 'all') {
 
   if (!grid) return;
 
-  grid.innerHTML = "";
+  currentFilter = filter;
+
+  grid.innerHTML = '';
 
   const filteredProjects =
-    filter === "all"
+    filter === 'all'
       ? projects
       : projects.filter(project => project.category === filter);
 
-  if (filteredProjects.length === 0) {
+  if (!filteredProjects.length) {
 
     grid.innerHTML = `
-      <div class="project-empty">
-        <p>No projects found in this category.</p>
+      <div class="projects-empty">
+        <div class="projects-empty-icon">○</div>
+        <h3>No projects found</h3>
+        <p>There are no projects in this category yet.</p>
       </div>
     `;
 
     return;
   }
 
-
   filteredProjects.forEach((project, index) => {
 
-    const card = document.createElement("article");
+    const card = document.createElement('article');
 
-    card.className = "project-card";
+    card.className = 'project-card';
 
-    card.style.transitionDelay = `${index * 0.08}s`;
+    card.dataset.projectId = project.id;
+
+    card.style.transitionDelay = `${Math.min(index * 0.08, 0.5)}s`;
 
     card.innerHTML = `
       <div
@@ -172,14 +189,12 @@ function renderProjects(filter = "all") {
             src="${project.image}"
             alt="${escapeHTML(project.alt)}"
             class="card-img"
-            loading="lazy"
-          />
+            loading="${index < 3 ? 'eager' : 'lazy'}"
+            decoding="async"
+          >
 
           <div class="card-overlay">
-            <div
-              class="card-overlay-icon"
-              aria-hidden="true"
-            >
+            <div class="card-overlay-icon" aria-hidden="true">
               +
             </div>
           </div>
@@ -201,38 +216,34 @@ function renderProjects(filter = "all") {
       </div>
     `;
 
+    const inner = card.querySelector('.card-inner');
 
-    const cardInner = card.querySelector(".card-inner");
-
-
-    cardInner.addEventListener("click", () => {
-      openLightbox(
-        project.image,
-        project.title
+    inner.addEventListener('click', () => {
+      const realIndex = projects.findIndex(
+        item => item.id === project.id
       );
+
+      openLightbox(project.image, realIndex);
     });
 
+    inner.addEventListener('keydown', event => {
 
-    cardInner.addEventListener("keydown", event => {
-
-      if (event.key === "Enter" || event.key === " ") {
+      if (event.key === 'Enter' || event.key === ' ') {
 
         event.preventDefault();
 
-        openLightbox(
-          project.image,
-          project.title
+        const realIndex = projects.findIndex(
+          item => item.id === project.id
         );
 
+        openLightbox(project.image, realIndex);
       }
 
     });
 
-
     grid.appendChild(card);
 
   });
-
 
   observeProjectCards();
 
@@ -240,34 +251,32 @@ function renderProjects(filter = "all") {
 
 
 /* =========================================================
-   HTML ESCAPE
+   5. HTML ESCAPE
    ========================================================= */
 
 function escapeHTML(value) {
 
   return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 
 }
 
 
 /* =========================================================
-   PROJECT SCROLL REVEAL
+   6. PROJECT REVEAL ANIMATION
    ========================================================= */
 
-let projectObserver = null;
-
-
 function observeProjectCards() {
+
+  if (!grid) return;
 
   if (projectObserver) {
     projectObserver.disconnect();
   }
-
 
   projectObserver = new IntersectionObserver(
     entries => {
@@ -276,7 +285,7 @@ function observeProjectCards() {
 
         if (entry.isIntersecting) {
 
-          entry.target.classList.add("revealed");
+          entry.target.classList.add('revealed');
 
           projectObserver.unobserve(entry.target);
 
@@ -287,76 +296,74 @@ function observeProjectCards() {
     },
     {
       threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px"
+      rootMargin: '0px 0px -40px 0px'
     }
   );
 
-
   document
-    .querySelectorAll(".project-card")
-    .forEach(card => {
-
-      projectObserver.observe(card);
-
-    });
+    .querySelectorAll('.project-card')
+    .forEach(card => projectObserver.observe(card));
 
 }
 
 
 /* =========================================================
-   PROJECT FILTERS
+   7. FILTER SYSTEM
    ========================================================= */
 
-filterBtns.forEach(button => {
+function initializeFilters() {
 
-  button.addEventListener("click", () => {
+  filterBtns.forEach(button => {
 
-    filterBtns.forEach(btn => {
-      btn.classList.remove("active");
+    button.addEventListener('click', () => {
+
+      const filter = button.dataset.filter || 'all';
+
+      filterBtns.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      });
+
+      button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
+
+      renderProjects(filter);
+
     });
-
-
-    button.classList.add("active");
-
-
-    const filter = button.dataset.filter || "all";
-
-
-    renderProjects(filter);
 
   });
 
-});
+}
 
 
 /* =========================================================
-   LIGHTBOX
+   8. LIGHTBOX
    ========================================================= */
 
-let lastFocusedElement = null;
-
-
-function openLightbox(src, title = "Project preview") {
+function openLightbox(src, projectIndex = -1) {
 
   if (!lightbox || !lightboxImg) return;
 
-
-  lastFocusedElement = document.activeElement;
-
+  currentProjectIndex = projectIndex;
 
   lightboxImg.src = src;
-  lightboxImg.alt = `${title} preview`;
 
+  lightboxImg.alt =
+    projectIndex >= 0 && projects[projectIndex]
+      ? projects[projectIndex].alt
+      : 'Project preview';
 
-  lightbox.classList.add("active");
+  lightbox.classList.add('active');
 
+  lightbox.setAttribute('aria-hidden', 'false');
 
-  document.body.style.overflow = "hidden";
+  document.body.classList.add('lightbox-open');
 
+  document.body.style.overflow = 'hidden';
 
-  if (lightboxClose) {
-    lightboxClose.focus();
-  }
+  isLightboxOpen = true;
+
+  updateLightboxNavigation();
 
 }
 
@@ -365,348 +372,330 @@ function closeLightbox() {
 
   if (!lightbox) return;
 
+  lightbox.classList.remove('active');
 
-  lightbox.classList.remove("active");
+  lightbox.setAttribute('aria-hidden', 'true');
+
+  document.body.classList.remove('lightbox-open');
+
+  document.body.style.overflow = '';
+
+  isLightboxOpen = false;
+
+  currentProjectIndex = -1;
+
+}
 
 
-  document.body.style.overflow = "";
+function showNextProject() {
+
+  if (!projects.length) return;
+
+  let nextIndex = currentProjectIndex + 1;
+
+  if (nextIndex >= projects.length) {
+    nextIndex = 0;
+  }
+
+  currentProjectIndex = nextIndex;
+
+  updateLightboxImage();
+
+}
 
 
-  setTimeout(() => {
+function showPreviousProject() {
 
-    if (lightboxImg) {
-      lightboxImg.src = "";
-      lightboxImg.alt = "";
-    }
+  if (!projects.length) return;
 
-  }, 300);
+  let previousIndex = currentProjectIndex - 1;
 
+  if (previousIndex < 0) {
+    previousIndex = projects.length - 1;
+  }
+
+  currentProjectIndex = previousIndex;
+
+  updateLightboxImage();
+
+}
+
+
+function updateLightboxImage() {
 
   if (
-    lastFocusedElement &&
-    typeof lastFocusedElement.focus === "function"
+    currentProjectIndex < 0 ||
+    !projects[currentProjectIndex]
   ) {
-
-    lastFocusedElement.focus();
-
-  }
-
-}
-
-
-if (lightboxClose) {
-  lightboxClose.addEventListener(
-    "click",
-    closeLightbox
-  );
-}
-
-
-if (lightboxBackdrop) {
-  lightboxBackdrop.addEventListener(
-    "click",
-    closeLightbox
-  );
-}
-
-
-/* =========================================================
-   KEYBOARD CONTROLS
-   ========================================================= */
-
-document.addEventListener("keydown", event => {
-
-  if (event.key === "Escape") {
-    closeLightbox();
-  }
-
-});
-
-
-/* =========================================================
-   DARK MODE
-   ========================================================= */
-
-const THEME_KEY = "ali-portfolio-theme";
-
-
-function setTheme(mode) {
-
-  const isDark = mode === "dark";
-
-
-  document.documentElement.classList.toggle(
-    "dark",
-    isDark
-  );
-
-
-  localStorage.setItem(
-    THEME_KEY,
-    isDark ? "dark" : "light"
-  );
-
-
-  if (themeToggle) {
-
-    themeToggle.textContent =
-      isDark ? "☀️" : "🌙";
-
-
-    themeToggle.setAttribute(
-      "aria-label",
-      isDark
-        ? "Switch to light theme"
-        : "Switch to dark theme"
-    );
-
-  }
-
-}
-
-
-function getInitialTheme() {
-
-  const savedTheme =
-    localStorage.getItem(THEME_KEY);
-
-
-  if (
-    savedTheme === "dark" ||
-    savedTheme === "light"
-  ) {
-
-    return savedTheme;
-
-  }
-
-
-  if (
-    window.matchMedia &&
-    window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches
-  ) {
-
-    return "dark";
-
-  }
-
-
-  return "light";
-
-}
-
-
-if (themeToggle) {
-
-  themeToggle.addEventListener(
-    "click",
-    () => {
-
-      const isDark =
-        document.documentElement.classList.contains(
-          "dark"
-        );
-
-
-      setTheme(
-        isDark ? "light" : "dark"
-      );
-
-    }
-  );
-
-}
-
-
-setTheme(getInitialTheme());
-
-
-/* =========================================================
-   SKILL BAR ANIMATION
-   ========================================================= */
-
-function animateSkillBars() {
-
-  skillBars.forEach(bar => {
-
-    const targetWidth =
-      bar.dataset.width ||
-      bar.style.width ||
-      "0%";
-
-
-    bar.style.width = "0%";
-
-
-    requestAnimationFrame(() => {
-
-      requestAnimationFrame(() => {
-
-        bar.style.width = targetWidth;
-
-      });
-
-    });
-
-  });
-
-}
-
-
-if (skillsSection && skillBars.length) {
-
-  const skillsObserver =
-    new IntersectionObserver(
-      entries => {
-
-        if (entries[0].isIntersecting) {
-
-          animateSkillBars();
-
-          skillsObserver.unobserve(
-            skillsSection
-          );
-
-        }
-
-      },
-      {
-        threshold: 0.25
-      }
-    );
-
-
-  skillsObserver.observe(
-    skillsSection
-  );
-
-}
-
-
-/* =========================================================
-   HEADER SCROLL EFFECT
-   ========================================================= */
-
-function updateHeader() {
-
-  if (!header) return;
-
-
-  if (window.scrollY > 30) {
-
-    header.classList.add("scrolled");
-
-  } else {
-
-    header.classList.remove("scrolled");
-
-  }
-
-}
-
-
-window.addEventListener(
-  "scroll",
-  updateHeader,
-  { passive: true }
-);
-
-
-updateHeader();
-
-
-/* =========================================================
-   ACTIVE NAVIGATION
-   ========================================================= */
-
-const sections = document.querySelectorAll(
-  "main section[id]"
-);
-
-
-function updateActiveNav() {
-
-  if (!sections.length || !navLinks.length) {
     return;
   }
 
+  const project = projects[currentProjectIndex];
 
-  const scrollPosition =
-    window.scrollY + 140;
+  if (!lightboxImg) return;
+
+  lightboxImg.style.opacity = '0';
+
+  setTimeout(() => {
+
+    lightboxImg.src = project.image;
+    lightboxImg.alt = project.alt;
+
+    requestAnimationFrame(() => {
+      lightboxImg.style.opacity = '1';
+    });
+
+  }, 120);
+
+  updateLightboxNavigation();
+
+}
 
 
-  let currentSection = "";
+function updateLightboxNavigation() {
+
+  if (!lightbox) return;
+
+  const previousButton =
+    lightbox.querySelector('.lightbox-prev');
+
+  const nextButton =
+    lightbox.querySelector('.lightbox-next');
+
+  if (previousButton) {
+    previousButton.disabled = projects.length <= 1;
+  }
+
+  if (nextButton) {
+    nextButton.disabled = projects.length <= 1;
+  }
+
+}
 
 
-  sections.forEach(section => {
+/* =========================================================
+   9. LIGHTBOX CONTROLS
+   ========================================================= */
 
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
+function initializeLightbox() {
 
+  if (!lightbox) return;
 
-    if (
-      scrollPosition >= top &&
-      scrollPosition < top + height
-    ) {
+  const closeButton =
+    lightbox.querySelector('.lightbox-close');
 
-      currentSection =
-        section.getAttribute("id");
+  const backdrop =
+    lightbox.querySelector('.lightbox-backdrop');
 
+  const previousButton =
+    lightbox.querySelector('.lightbox-prev');
+
+  const nextButton =
+    lightbox.querySelector('.lightbox-next');
+
+  if (closeButton) {
+    closeButton.addEventListener('click', closeLightbox);
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeLightbox);
+  }
+
+  if (previousButton) {
+    previousButton.addEventListener(
+      'click',
+      showPreviousProject
+    );
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener(
+      'click',
+      showNextProject
+    );
+  }
+
+  document.addEventListener('keydown', event => {
+
+    if (!isLightboxOpen) return;
+
+    if (event.key === 'Escape') {
+      closeLightbox();
     }
 
-  });
+    if (event.key === 'ArrowRight') {
+      showNextProject();
+    }
 
-
-  navLinks.forEach(link => {
-
-    const href =
-      link.getAttribute("href");
-
-
-    link.classList.toggle(
-      "active",
-      href === `#${currentSection}`
-    );
+    if (event.key === 'ArrowLeft') {
+      showPreviousProject();
+    }
 
   });
 
 }
 
 
-window.addEventListener(
-  "scroll",
-  updateActiveNav,
-  { passive: true }
-);
+/* =========================================================
+   10. SCROLL PROGRESS
+   ========================================================= */
 
+function initializeScrollProgress() {
 
-updateActiveNav();
+  let progressBar =
+    document.querySelector('.scroll-progress');
+
+  if (!progressBar) {
+
+    progressBar = document.createElement('div');
+
+    progressBar.className = 'scroll-progress';
+
+    progressBar.setAttribute(
+      'aria-hidden',
+      'true'
+    );
+
+    document.body.prepend(progressBar);
+
+  }
+
+  const updateProgress = () => {
+
+    const scrollTop =
+      window.scrollY || window.pageYOffset;
+
+    const documentHeight =
+      document.documentElement.scrollHeight -
+      window.innerHeight;
+
+    const progress =
+      documentHeight > 0
+        ? (scrollTop / documentHeight) * 100
+        : 0;
+
+    progressBar.style.width = `${progress}%`;
+
+  };
+
+  window.addEventListener(
+    'scroll',
+    updateProgress,
+    { passive: true }
+  );
+
+  updateProgress();
+
+}
 
 
 /* =========================================================
-   GENERAL SCROLL REVEAL
+   11. HEADER SCROLL STATE
    ========================================================= */
 
-function setupGeneralReveal() {
+function initializeHeader() {
 
-  const elements = document.querySelectorAll(
-    ".about-card, .skills-grid, .contact-card, .section-title, .section-subtitle"
+  if (!header) return;
+
+  const updateHeader = () => {
+
+    if (window.scrollY > 30) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
+  };
+
+  window.addEventListener(
+    'scroll',
+    updateHeader,
+    { passive: true }
   );
 
+  updateHeader();
+
+}
+
+
+/* =========================================================
+   12. ACTIVE NAVIGATION
+   ========================================================= */
+
+function initializeActiveNavigation() {
+
+  if (!sections.length || !navLinks.length) return;
+
+  const sectionObserver =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (!entry.isIntersecting) return;
+
+          const id = entry.target.id;
+
+          navLinks.forEach(link => {
+
+            const href =
+              link.getAttribute('href');
+
+            const isActive =
+              href === `#${id}`;
+
+            link.classList.toggle(
+              'active',
+              isActive
+            );
+
+            if (isActive) {
+              link.setAttribute(
+                'aria-current',
+                'page'
+              );
+            } else {
+              link.removeAttribute(
+                'aria-current'
+              );
+            }
+
+          });
+
+        });
+
+      },
+      {
+        rootMargin: '-35% 0px -55% 0px',
+        threshold: 0
+      }
+    );
+
+  sections.forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+}
+
+
+/* =========================================================
+   13. GENERIC REVEAL SYSTEM
+   ========================================================= */
+
+function initializeRevealAnimations() {
+
+  const elements =
+    document.querySelectorAll(
+      '.reveal, .glass-card, .section-title, .skills-grid'
+    );
 
   if (!elements.length) return;
 
+  if (revealObserver) {
+    revealObserver.disconnect();
+  }
 
-  elements.forEach(element => {
-
-    element.classList.add("reveal");
-
-  });
-
-
-  const revealObserver =
+  revealObserver =
     new IntersectionObserver(
       entries => {
 
@@ -714,9 +703,7 @@ function setupGeneralReveal() {
 
           if (entry.isIntersecting) {
 
-            entry.target.classList.add(
-              "revealed"
-            );
+            entry.target.classList.add('revealed');
 
             revealObserver.unobserve(
               entry.target
@@ -728,15 +715,20 @@ function setupGeneralReveal() {
 
       },
       {
-        threshold: 0.12,
-        rootMargin: "0px 0px -30px 0px"
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
       }
     );
 
-
   elements.forEach(element => {
 
-    revealObserver.observe(element);
+    if (
+      !element.classList.contains(
+        'project-card'
+      )
+    ) {
+      revealObserver.observe(element);
+    }
 
   });
 
@@ -744,127 +736,622 @@ function setupGeneralReveal() {
 
 
 /* =========================================================
-   CONTACT FORM
+   14. SKILLS ANIMATION
    ========================================================= */
 
-if (contactForm) {
+function initializeSkills() {
+
+  const skillsSection =
+    document.querySelector('.skills-section');
+
+  const skillBars =
+    document.querySelectorAll('.skill-fill');
+
+  if (!skillsSection || !skillBars.length) return;
+
+  skillsObserver =
+    new IntersectionObserver(
+      entries => {
+
+        if (!entries[0].isIntersecting) {
+          return;
+        }
+
+        skillBars.forEach(bar => {
+
+          const width =
+            bar.dataset.width ||
+            bar.style.width;
+
+          if (width) {
+
+            bar.style.setProperty(
+              '--skill-width',
+              width
+            );
+
+            requestAnimationFrame(() => {
+              bar.style.width = width;
+            });
+
+          }
+
+        });
+
+        skillsObserver.unobserve(
+          skillsSection
+        );
+
+      },
+      {
+        threshold: 0.3
+      }
+    );
+
+  skillsObserver.observe(skillsSection);
+
+}
+
+
+/* =========================================================
+   15. DARK MODE
+   ========================================================= */
+
+function setTheme(mode) {
+
+  const root =
+    document.documentElement;
+
+  if (mode === 'dark') {
+
+    root.classList.add('dark');
+
+    localStorage.setItem(
+      'theme',
+      'dark'
+    );
+
+    if (themeToggle) {
+
+      themeToggle.innerHTML = '☀️';
+
+      themeToggle.setAttribute(
+        'aria-label',
+        'Switch to light theme'
+      );
+
+    }
+
+  } else {
+
+    root.classList.remove('dark');
+
+    localStorage.setItem(
+      'theme',
+      'light'
+    );
+
+    if (themeToggle) {
+
+      themeToggle.innerHTML = '🌙';
+
+      themeToggle.setAttribute(
+        'aria-label',
+        'Switch to dark theme'
+      );
+
+    }
+
+  }
+
+}
+
+
+function initializeTheme() {
+
+  if (themeToggle) {
+
+    themeToggle.addEventListener(
+      'click',
+      () => {
+
+        const isDark =
+          document.documentElement
+            .classList
+            .contains('dark');
+
+        setTheme(
+          isDark
+            ? 'light'
+            : 'dark'
+        );
+
+      }
+    );
+
+  }
+
+  const savedTheme =
+    localStorage.getItem('theme');
+
+  const prefersDark =
+    window.matchMedia &&
+    window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
+
+  if (
+    savedTheme === 'dark' ||
+    (!savedTheme && prefersDark)
+  ) {
+    setTheme('dark');
+  } else {
+    setTheme('light');
+  }
+
+}
+
+
+/* =========================================================
+   16. CUSTOM CURSOR
+   ========================================================= */
+
+function initializeCustomCursor() {
+
+  const supportsFinePointer =
+    window.matchMedia &&
+    window.matchMedia(
+      '(pointer: fine)'
+    ).matches;
+
+  if (!supportsFinePointer) return;
+
+  let cursor =
+    document.querySelector('.custom-cursor');
+
+  let follower =
+    document.querySelector('.custom-cursor-follower');
+
+  if (!cursor) {
+
+    cursor =
+      document.createElement('div');
+
+    cursor.className =
+      'custom-cursor';
+
+    cursor.setAttribute(
+      'aria-hidden',
+      'true'
+    );
+
+    document.body.appendChild(cursor);
+
+  }
+
+  if (!follower) {
+
+    follower =
+      document.createElement('div');
+
+    follower.className =
+      'custom-cursor-follower';
+
+    follower.setAttribute(
+      'aria-hidden',
+      'true'
+    );
+
+    document.body.appendChild(follower);
+
+  }
+
+  let mouseX = -100;
+  let mouseY = -100;
+
+  let followerX = -100;
+  let followerY = -100;
+
+  let animationFrame = null;
+
+  const updateCursor = () => {
+
+    cursor.style.transform =
+      `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+
+    followerX +=
+      (mouseX - followerX) * 0.18;
+
+    followerY +=
+      (mouseY - followerY) * 0.18;
+
+    follower.style.transform =
+      `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
+
+    animationFrame =
+      requestAnimationFrame(
+        updateCursor
+      );
+
+  };
+
+  document.addEventListener(
+    'mousemove',
+    event => {
+
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+      document.body.classList.add(
+        'cursor-visible'
+      );
+
+    },
+    { passive: true }
+  );
+
+  const interactiveSelector =
+    'a, button, input, textarea, select, [role="button"], .card-inner';
+
+  document.addEventListener(
+    'mouseover',
+    event => {
+
+      const target =
+        event.target.closest(
+          interactiveSelector
+        );
+
+      if (target) {
+
+        document.body.classList.add(
+          'cursor-hover'
+        );
+
+      }
+
+    }
+  );
+
+  document.addEventListener(
+    'mouseout',
+    event => {
+
+      const target =
+        event.target.closest(
+          interactiveSelector
+        );
+
+      if (
+        target &&
+        !target.contains(event.relatedTarget)
+      ) {
+
+        document.body.classList.remove(
+          'cursor-hover'
+        );
+
+      }
+
+    }
+  );
+
+  document.addEventListener(
+    'mousedown',
+    () => {
+      document.body.classList.add(
+        'cursor-click'
+      );
+    }
+  );
+
+  document.addEventListener(
+    'mouseup',
+    () => {
+      document.body.classList.remove(
+        'cursor-click'
+      );
+    }
+  );
+
+  document.addEventListener(
+    'mouseleave',
+    () => {
+      document.body.classList.remove(
+        'cursor-visible'
+      );
+    }
+  );
+
+  updateCursor();
+
+}
+
+
+/* =========================================================
+   17. MAGNETIC BUTTON EFFECT
+   ========================================================= */
+
+function initializeMagneticButtons() {
+
+  const supportsFinePointer =
+    window.matchMedia &&
+    window.matchMedia(
+      '(pointer: fine)'
+    ).matches;
+
+  if (!supportsFinePointer) return;
+
+  const elements =
+    document.querySelectorAll(
+      '.cta-btn, .theme-btn, .filter-btn'
+    );
+
+  elements.forEach(element => {
+
+    element.addEventListener(
+      'mousemove',
+      event => {
+
+        const rect =
+          element.getBoundingClientRect();
+
+        const x =
+          event.clientX -
+          rect.left -
+          rect.width / 2;
+
+        const y =
+          event.clientY -
+          rect.top -
+          rect.height / 2;
+
+        const strength =
+          element.classList.contains(
+            'filter-btn'
+          )
+            ? 0.08
+            : 0.15;
+
+        element.style.transform =
+          `translate(${x * strength}px, ${y * strength}px)`;
+
+      }
+    );
+
+    element.addEventListener(
+      'mouseleave',
+      () => {
+
+        element.style.transform = '';
+
+      }
+    );
+
+  });
+
+}
+
+
+/* =========================================================
+   18. SMOOTH ANCHOR SCROLL
+   ========================================================= */
+
+function initializeSmoothScroll() {
+
+  document.addEventListener(
+    'click',
+    event => {
+
+      const link =
+        event.target.closest(
+          'a[href^="#"]'
+        );
+
+      if (!link) return;
+
+      const targetId =
+        link.getAttribute('href');
+
+      if (
+        !targetId ||
+        targetId === '#'
+      ) {
+        return;
+      }
+
+      const target =
+        document.querySelector(targetId);
+
+      if (!target) return;
+
+      event.preventDefault();
+
+      const headerHeight =
+        header
+          ? header.offsetHeight
+          : 0;
+
+      const targetPosition =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight -
+        15;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   19. SCROLL TO TOP BUTTON
+   ========================================================= */
+
+function initializeScrollTop() {
+
+  let button =
+    document.querySelector(
+      '.scroll-top-btn'
+    );
+
+  if (!button) {
+
+    button =
+      document.createElement('button');
+
+    button.className =
+      'scroll-top-btn';
+
+    button.type = 'button';
+
+    button.innerHTML = '↑';
+
+    button.setAttribute(
+      'aria-label',
+      'Scroll to top'
+    );
+
+    document.body.appendChild(button);
+
+  }
+
+  const updateButton = () => {
+
+    button.classList.toggle(
+      'visible',
+      window.scrollY > 600
+    );
+
+  };
+
+  window.addEventListener(
+    'scroll',
+    updateButton,
+    { passive: true }
+  );
+
+  button.addEventListener(
+    'click',
+    () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+
+    }
+  );
+
+  updateButton();
+
+}
+
+
+/* =========================================================
+   20. CONTACT FORM
+   ========================================================= */
+
+function initializeContactForm() {
+
+  if (!contactForm) return;
 
   contactForm.addEventListener(
-    "submit",
+    'submit',
     async event => {
 
       event.preventDefault();
 
+      const form =
+        event.currentTarget;
 
-      if (!formFeedback) return;
+      const data =
+        new FormData(form);
 
+      if (formFeedback) {
 
-      const form = event.currentTarget;
+        formFeedback.textContent =
+          'Sending...';
 
+        formFeedback.removeAttribute(
+          'data-status'
+        );
+
+      }
 
       const submitButton =
         form.querySelector(
           'button[type="submit"]'
         );
 
-
-      const formAction =
-        form.getAttribute("action");
-
-
-      if (
-        !formAction ||
-        formAction.includes("{YOUR_FORM_ID}")
-      ) {
-
-        formFeedback.textContent =
-          "Contact form is not configured yet.";
-
-
-        formFeedback.style.color =
-          "var(--gold-dark)";
-
-
-        return;
-
-      }
-
-
-      const formData =
-        new FormData(form);
-
-
-      formFeedback.textContent =
-        "Sending...";
-
-
-      formFeedback.style.color =
-        "var(--text-secondary)";
-
+      const originalButtonText =
+        submitButton
+          ? submitButton.textContent
+          : '';
 
       if (submitButton) {
 
         submitButton.disabled = true;
 
-        submitButton.setAttribute(
-          "aria-busy",
-          "true"
-        );
+        submitButton.textContent =
+          'Sending...';
 
       }
-
 
       try {
 
         const response =
           await fetch(
-            formAction,
+            form.action,
             {
-              method: "POST",
-              body: formData,
+              method: 'POST',
+              body: data,
               headers: {
                 Accept:
-                  "application/json"
+                  'application/json'
               }
             }
           );
 
-
         if (!response.ok) {
-
           throw new Error(
-            "Request failed"
+            'Form submission failed'
           );
+        }
+
+        if (formFeedback) {
+
+          formFeedback.textContent =
+            'Message sent successfully.';
+
+          formFeedback.dataset.status =
+            'success';
 
         }
 
-
-        formFeedback.textContent =
-          "Message sent successfully.";
-
-
-        formFeedback.style.color =
-          "green";
-
-
         form.reset();
-
 
       } catch (error) {
 
         console.error(
-          "Contact form error:",
+          'Contact form error:',
           error
         );
 
+        if (formFeedback) {
 
-        formFeedback.textContent =
-          "Something went wrong. Please try again.";
+          formFeedback.textContent =
+            'Something went wrong. Please try again.';
 
+          formFeedback.dataset.status =
+            'error';
 
-        formFeedback.style.color =
-          "red";
-
+        }
 
       } finally {
 
@@ -872,9 +1359,8 @@ if (contactForm) {
 
           submitButton.disabled = false;
 
-          submitButton.removeAttribute(
-            "aria-busy"
-          );
+          submitButton.textContent =
+            originalButtonText;
 
         }
 
@@ -887,71 +1373,261 @@ if (contactForm) {
 
 
 /* =========================================================
-   IMAGE ERROR HANDLING
+   21. IMAGE ERROR HANDLING
    ========================================================= */
 
-document.addEventListener(
-  "error",
-  event => {
+function initializeImageFallbacks() {
 
-    const element =
-      event.target;
+  document.addEventListener(
+    'error',
+    event => {
 
+      const image =
+        event.target;
 
-    if (
-      element &&
-      element.tagName === "IMG"
-    ) {
+      if (
+        image &&
+        image.tagName === 'IMG'
+      ) {
 
-      element.classList.add(
-        "image-error"
-      );
+        image.classList.add(
+          'image-error'
+        );
 
-    }
+      }
 
-  },
-  true
-);
+    },
+    true
+  );
+
+}
 
 
 /* =========================================================
-   SYSTEM THEME CHANGE
+   22. PAGE LOAD ANIMATION
    ========================================================= */
 
-if (
-  window.matchMedia
-) {
+function initializePageLoad() {
 
-  const mediaQuery =
-    window.matchMedia(
-      "(prefers-color-scheme: dark)"
+  document.body.classList.add(
+    'page-loading'
+  );
+
+  window.addEventListener(
+    'load',
+    () => {
+
+      requestAnimationFrame(() => {
+
+        document.body.classList.remove(
+          'page-loading'
+        );
+
+        document.body.classList.add(
+          'page-loaded'
+        );
+
+      });
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   23. PARALLAX EFFECT
+   ========================================================= */
+
+function initializeParallax() {
+
+  const shapes =
+    document.querySelectorAll(
+      '.hero-bg-shapes .shape'
     );
 
+  if (!shapes.length) return;
 
-  mediaQuery.addEventListener(
-    "change",
+  const supportsFinePointer =
+    window.matchMedia &&
+    window.matchMedia(
+      '(pointer: fine)'
+    ).matches;
+
+  if (!supportsFinePointer) return;
+
+  let ticking = false;
+
+  window.addEventListener(
+    'scroll',
+    () => {
+
+      if (ticking) return;
+
+      window.requestAnimationFrame(() => {
+
+        const scrollY =
+          window.scrollY;
+
+        shapes.forEach(
+          (shape, index) => {
+
+            const speed =
+              0.03 + index * 0.015;
+
+            shape.style.translate =
+              `0 ${scrollY * speed}px`;
+
+          }
+        );
+
+        ticking = false;
+
+      });
+
+      ticking = true;
+
+    },
+    { passive: true }
+  );
+
+}
+
+
+/* =========================================================
+   24. CARD TILT EFFECT
+   ========================================================= */
+
+function initializeCardTilt() {
+
+  const supportsFinePointer =
+    window.matchMedia &&
+    window.matchMedia(
+      '(pointer: fine)'
+    ).matches;
+
+  if (!supportsFinePointer) return;
+
+  document.addEventListener(
+    'mousemove',
     event => {
 
-      const savedTheme =
-        localStorage.getItem(
-          THEME_KEY
+      const card =
+        event.target.closest(
+          '.card-inner'
         );
 
+      if (!card) return;
 
-      /*
-       * Only follow the operating-system
-       * theme if the user has not manually
-       * selected a theme.
-       */
+      const rect =
+        card.getBoundingClientRect();
 
-      if (!savedTheme) {
+      const x =
+        event.clientX - rect.left;
 
-        setTheme(
-          event.matches
-            ? "dark"
-            : "light"
+      const y =
+        event.clientY - rect.top;
+
+      const centerX =
+        rect.width / 2;
+
+      const centerY =
+        rect.height / 2;
+
+      const rotateX =
+        ((y - centerY) / centerY) * -2;
+
+      const rotateY =
+        ((x - centerX) / centerX) * 2;
+
+      card.style.transform =
+        `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+
+    },
+    { passive: true }
+  );
+
+  document.addEventListener(
+    'mouseout',
+    event => {
+
+      const card =
+        event.target.closest(
+          '.card-inner'
         );
 
+      if (!card) return;
+
+      if (
+        event.relatedTarget &&
+        card.contains(event.relatedTarget)
+      ) {
+        return;
+      }
+
+      card.style.transform = '';
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   25. KEYBOARD ACCESSIBILITY
+   ========================================================= */
+
+function initializeAccessibility() {
+
+  document.addEventListener(
+    'keydown',
+    event => {
+
+      if (
+        event.key === 'Tab'
+      ) {
+        document.body.classList.add(
+          'keyboard-user'
+        );
+      }
+
+    }
+  );
+
+  document.addEventListener(
+    'mousedown',
+    () => {
+
+      document.body.classList.remove(
+        'keyboard-user'
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   26. DOCUMENT VISIBILITY
+   ========================================================= */
+
+function initializeVisibilityHandling() {
+
+  document.addEventListener(
+    'visibilitychange',
+    () => {
+
+      if (
+        document.hidden
+      ) {
+        document.body.classList.add(
+          'page-hidden'
+        );
+      } else {
+        document.body.classList.remove(
+          'page-hidden'
+        );
       }
 
     }
@@ -961,98 +1637,69 @@ if (
 
 
 /* =========================================================
-   SMOOTH ANCHOR SCROLL
+   27. INITIALIZATION
    ========================================================= */
 
-document.addEventListener(
-  "click",
-  event => {
+function initializePortfolio() {
 
-    const link =
-      event.target.closest(
-        'a[href^="#"]'
-      );
+  renderProjects('all');
 
+  initializeFilters();
 
-    if (!link) return;
+  initializeLightbox();
 
+  initializeHeader();
 
-    const targetId =
-      link.getAttribute("href");
+  initializeActiveNavigation();
 
+  initializeRevealAnimations();
 
-    if (
-      !targetId ||
-      targetId === "#"
-    ) {
+  initializeSkills();
 
-      return;
+  initializeTheme();
 
-    }
+  initializeCustomCursor();
 
+  initializeMagneticButtons();
 
-    const target =
-      document.querySelector(
-        targetId
-      );
+  initializeSmoothScroll();
 
+  initializeScrollProgress();
 
-    if (!target) return;
+  initializeScrollTop();
 
+  initializeContactForm();
 
-    event.preventDefault();
+  initializeImageFallbacks();
 
+  initializePageLoad();
 
-    const headerHeight =
-      header
-        ? header.offsetHeight
-        : 0;
+  initializeParallax();
 
+  initializeCardTilt();
 
-    const targetPosition =
-      target.getBoundingClientRect().top +
-      window.scrollY -
-      headerHeight -
-      20;
+  initializeAccessibility();
 
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth"
-    });
-
-  }
-);
-
-
-/* =========================================================
-   INITIALIZATION
-   ========================================================= */
-
-function initPortfolio() {
-
-  renderProjects("all");
-
-  setupGeneralReveal();
-
-  updateHeader();
-
-  updateActiveNav();
+  initializeVisibilityHandling();
 
 }
 
 
+/* =========================================================
+   28. START APPLICATION
+   ========================================================= */
+
 if (
-  document.readyState === "loading"
+  document.readyState === 'loading'
 ) {
 
   document.addEventListener(
-    "DOMContentLoaded",
-    initPortfolio
+    'DOMContentLoaded',
+    initializePortfolio
   );
 
 } else {
 
-  initPortfolio();
+  initializePortfolio();
 
 }
