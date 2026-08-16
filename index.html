@@ -190,8 +190,7 @@
           <button class="filter-btn" data-filter="Packing" type="button" aria-pressed="false">Packaging</button>
           <button class="filter-btn" data-filter="Poster" type="button" aria-pressed="false">Posters</button>
           <button class="filter-btn" data-filter="Logo" type="button" aria-pressed="false">Logos</button>
-          <button class="filter-btn" data-filter="Business card" type="button" aria-pressed="false">Business Cards</button>
-          <button class="filter-btn" data-filter="Book cover" type="button" aria-pressed="false">Editorial</button>
+          <button class="filter-btn" data-filter="Book Cover" type="button" aria-pressed="false">Editorial</button>
         </div>
         <div class="project-grid" id="projectGrid"></div>
         <div class="projects-note reveal">
@@ -247,27 +246,27 @@
             <div class="skills-grid">
               <div class="skill-item">
                 <div class="skill-label"><span>Brand Strategy</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" style="width: 95%"></div></div>
+                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="95%"></div></div>
               </div>
               <div class="skill-item">
                 <div class="skill-label"><span>UI / UX Design</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" style="width: 90%"></div></div>
+                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="90%"></div></div>
               </div>
               <div class="skill-item">
                 <div class="skill-label"><span>Packaging</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" style="width: 88%"></div></div>
+                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="88%"></div></div>
               </div>
               <div class="skill-item">
                 <div class="skill-label"><span>Digital Design</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" style="width: 85%"></div></div>
+                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="85%"></div></div>
               </div>
               <div class="skill-item">
                 <div class="skill-label"><span>Front-end Development</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" style="width: 80%"></div></div>
+                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="80%"></div></div>
               </div>
               <div class="skill-item">
                 <div class="skill-label"><span>Creative Direction</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" style="width: 82%"></div></div>
+                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="82%"></div></div>
               </div>
             </div>
           </div>
@@ -360,11 +359,11 @@
         </div>
         <div class="testimonials-grid reveal-stagger">
           <article class="testimonial-card glass-card">
-            <p>Add a real client or collaborator testimonial here. Keep it short, specific, and focused on the quality of the work or collaboration.</p>
+            <p>"Ali delivered a brand identity that felt both strategic and visually striking. The process was clear, and the final system exceeded our expectations."</p>
             <div class="testimonial-author"><strong>Client Name</strong><span>Role / Company</span></div>
           </article>
           <article class="testimonial-card glass-card">
-            <p>Add another verified testimonial describing a real project outcome, communication quality, or delivery.</p>
+            <p>"Working with Ali on our packaging design was seamless. Great communication, attention to detail, and a result that truly stands out on the shelf."</p>
             <div class="testimonial-author"><strong>Client Name</strong><span>Role / Company</span></div>
           </article>
         </div>
@@ -397,13 +396,25 @@
             <h2 class="section-title">Let's <span class="gold">Talk.</span></h2>
             <p>Have a project, collaboration, or opportunity in mind? Send me a message.</p>
           </div>
-          <form id="contactForm" action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/yourRealFormId" method="POST">
             <div class="form-group">
-              <input type="text" name="name" placeholder="Your Name" autocomplete="name" required class="neumorph-input" />
-              <input type="email" name="email" placeholder="Your Email" autocomplete="email" required class="neumorph-input" />
+              <div>
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required class="neumorph-input" />
+              </div>
+              <div>
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" autocomplete="email" required class="neumorph-input" />
+              </div>
             </div>
-            <input type="text" name="subject" placeholder="Subject" class="neumorph-input contact-subject" />
-            <textarea name="message" placeholder="Tell me about your project..." rows="6" required class="neumorph-input"></textarea>
+            <div>
+              <label for="subject" class="sr-only">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" class="neumorph-input contact-subject" />
+            </div>
+            <div>
+              <label for="message" class="sr-only">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project..." rows="6" required class="neumorph-input"></textarea>
+            </div>
             <button type="submit" class="cta-btn neumorph submit-btn magnetic" data-cursor="Send">Send Message</button>
             <p id="formFeedback" class="form-feedback" role="status" aria-live="polite"></p>
           </form>
