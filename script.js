@@ -1,6 +1,6 @@
 /* =========================================================
    ALI PORTFOLIO — PREMIUM INTERACTION SYSTEM
-   Version: 2.0 (Fixed & Complete)
+   Version: 3.0 (Fixed & Complete)
    Vanilla JavaScript
    ========================================================= */
 
@@ -121,6 +121,7 @@ let projectObserver = null;
 let revealObserver = null;
 let skillsObserver = null;
 let isLightboxOpen = false;
+let lastFocusedElement = null;
 
 
 /* =========================================================
@@ -264,15 +265,26 @@ function initializeFilters() {
    ========================================================= */
 function openLightbox(src, projectIndex = -1) {
   if (!lightbox || !lightboxImg) return;
+  
+  // Store last focused element
+  lastFocusedElement = document.activeElement;
+  
   currentProjectIndex = projectIndex;
   lightboxImg.src = src;
   lightboxImg.alt = projectIndex >= 0 && projects[projectIndex] ? projects[projectIndex].alt : 'Project preview';
+  lightboxImg.style.opacity = '1';
   lightbox.classList.add('active');
   lightbox.setAttribute('aria-hidden', 'false');
   document.body.classList.add('lightbox-open');
   document.body.style.overflow = 'hidden';
   isLightboxOpen = true;
   updateLightboxNavigation();
+  
+  // Focus on close button for accessibility
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  if (closeBtn) {
+    setTimeout(() => closeBtn.focus(), 100);
+  }
 }
 
 function closeLightbox() {
@@ -283,6 +295,11 @@ function closeLightbox() {
   document.body.style.overflow = '';
   isLightboxOpen = false;
   currentProjectIndex = -1;
+  
+  // Restore focus
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    setTimeout(() => lastFocusedElement.focus(), 100);
+  }
 }
 
 function showNextProject() {
@@ -346,9 +363,29 @@ function initializeLightbox() {
 
   document.addEventListener('keydown', event => {
     if (!isLightboxOpen) return;
-    if (event.key === 'Escape') closeLightbox();
-    if (event.key === 'ArrowRight') showNextProject();
-    if (event.key === 'ArrowLeft') showPreviousProject();
+    
+    if (event.key === 'Escape') {
+      closeLightbox();
+    } else if (event.key === 'ArrowRight') {
+      showNextProject();
+    } else if (event.key === 'ArrowLeft') {
+      showPreviousProject();
+    } else if (event.key === 'Tab') {
+      // Simple focus trap
+      const focusableElements = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusableElements.length === 0) return;
+      
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
   });
 }
 
@@ -462,15 +499,14 @@ function initializeSkills() {
 
   skillsObserver = new IntersectionObserver(entries => {
     if (!entries[0].isIntersecting) return;
+    
     skillBars.forEach(bar => {
-      const width = bar.dataset.width || bar.style.width;
-      if (width) {
-        bar.style.setProperty('--skill-width', width);
-        requestAnimationFrame(() => {
-          bar.style.width = width;
-        });
-      }
+      const width = bar.dataset.width || '0%';
+      requestAnimationFrame(() => {
+        bar.style.width = width;
+      });
     });
+    
     skillsObserver.unobserve(skillsSection);
   }, {
     threshold: 0.3
@@ -549,23 +585,26 @@ function initializeCustomCursor() {
   document.addEventListener('mousemove', event => {
     mouseX = event.clientX;
     mouseY = event.clientY;
-    document.body.classList.add('cursor-visible');
+    cursor.classList.add('visible');
   }, { passive: true });
 
   const interactiveSelector = 'a, button, input, textarea, select, [role="button"], .card-inner';
+  
   document.addEventListener('mouseover', event => {
     if (event.target.closest(interactiveSelector)) {
-      document.body.classList.add('cursor-hover');
+      cursor.classList.add('hover');
     }
   });
+  
   document.addEventListener('mouseout', event => {
     if (event.target.closest(interactiveSelector) && !event.target.contains(event.relatedTarget)) {
-      document.body.classList.remove('cursor-hover');
+      cursor.classList.remove('hover');
     }
   });
-  document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
-  document.addEventListener('mouseup', () => document.body.classList.remove('cursor-click'));
-  document.addEventListener('mouseleave', () => document.body.classList.remove('cursor-visible'));
+  
+  document.addEventListener('mousedown', () => cursor.classList.add('click'));
+  document.addEventListener('mouseup', () => cursor.classList.remove('click'));
+  document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
 
   updateCursor();
 }
@@ -807,7 +846,24 @@ function initializeVisibilityHandling() {
 
 
 /* =========================================================
-   27. INITIALIZATION
+   27. RESIZE HANDLER
+   ========================================================= */
+function initializeResizeHandler() {
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Recalculate any layout-dependent features if needed
+      if (isLightboxOpen) {
+        updateLightboxNavigation();
+      }
+    }, 250);
+  }, { passive: true });
+}
+
+
+/* =========================================================
+   28. INITIALIZATION
    ========================================================= */
 function initializePortfolio() {
   renderProjects('all');
@@ -830,11 +886,12 @@ function initializePortfolio() {
   initializeCardTilt();
   initializeAccessibility();
   initializeVisibilityHandling();
+  initializeResizeHandler();
 }
 
 
 /* =========================================================
-   28. START APPLICATION
+   29. START APPLICATION
    ========================================================= */
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializePortfolio);
