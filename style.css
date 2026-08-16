@@ -181,7 +181,7 @@ img {
 }
 
 /* =========================================================
-   05. SECTION EYEBROW (WHAT I DO, DESIGN PRINCIPLES …)
+   05. SECTION EYEBROW
    ========================================================= */
 .section-eyebrow {
   display: block;
@@ -201,6 +201,18 @@ img {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
   border-radius: 6px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* =========================================================
@@ -422,7 +434,6 @@ img {
   gap: 1.25rem;
 }
 
-/* Availability badge */
 .availability-badge {
   display: inline-flex;
   align-items: center;
@@ -455,7 +466,7 @@ img {
 }
 
 /* =========================================================
-   08B. SCROLL INDICATOR (fixed positioning)
+   08B. SCROLL INDICATOR
    ========================================================= */
 .scroll-indicator {
   position: absolute;
@@ -473,7 +484,6 @@ img {
   letter-spacing: 1px;
   transition: color var(--transition);
   z-index: 2;
-  margin-top: 0; /* remove any previous margin */
   width: max-content;
 }
 
@@ -557,15 +567,6 @@ img {
 .glass-card:hover {
   background: var(--glass-bg-strong);
   box-shadow: 0 28px 65px rgba(0, 0, 0, 0.1);
-}
-
-.glass-card-strong {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(197, 168, 109, 0.2);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
 }
 
 /* =========================================================
@@ -655,21 +656,13 @@ img {
 /* =========================================================
    12. WHAT I DO
    ========================================================= */
-.what-i-do-section,
-.services-section {
-  position: relative;
-}
-
-.what-i-do-grid,
-.services-grid,
-.service-grid {
+.services-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
   margin-top: 3rem;
 }
 
-.what-i-do-card,
 .service-card {
   position: relative;
   min-height: 240px;
@@ -681,7 +674,6 @@ img {
   transition: transform 0.4s var(--ease-bounce), box-shadow var(--transition);
 }
 
-.what-i-do-card::before,
 .service-card::before {
   content: "";
   position: absolute;
@@ -693,31 +685,26 @@ img {
   transition: height 0.4s var(--ease);
 }
 
-.what-i-do-card:hover,
 .service-card:hover {
   transform: translateY(-7px);
   box-shadow: var(--neu-shadow-hover-1), var(--neu-shadow-hover-2);
 }
 
-.what-i-do-card:hover::before,
 .service-card:hover::before {
   height: 100%;
 }
 
-.what-i-do-card h3,
 .service-card h3 {
   margin-bottom: 0.75rem;
   font-size: 1.2rem;
 }
 
-.what-i-do-card p,
 .service-card p {
   color: var(--text-secondary);
   font-size: 0.94rem;
   line-height: 1.8;
 }
 
-/* service sub-elements */
 .service-number {
   position: absolute;
   top: 1.5rem;
@@ -755,10 +742,6 @@ img {
 /* =========================================================
    13. DESIGN PRINCIPLES
    ========================================================= */
-.principles-section {
-  position: relative;
-}
-
 .principles-grid {
   max-width: 900px;
   margin: 0 auto;
@@ -784,7 +767,7 @@ img {
   box-shadow: var(--neu-shadow-1), var(--neu-shadow-2);
 }
 
-.principle-card .principle-number {
+.principle-number {
   color: var(--gold);
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
@@ -803,61 +786,10 @@ img {
   line-height: 1.8;
 }
 
-/* keep old principle classes for backward compatibility */
-.principles-list,
-.design-principles {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  gap: 1rem;
-}
-
-.principle-item,
-.principle {
-  position: relative;
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 1.5rem;
-  align-items: start;
-  padding: 1.7rem;
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  box-shadow: var(--neu-shadow-sm-1), var(--neu-shadow-sm-2);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.principle-item:hover,
-.principle:hover {
-  transform: translateX(5px);
-  box-shadow: var(--neu-shadow-1), var(--neu-shadow-2);
-}
-
-.principle-number {
-  color: var(--gold);
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.principle-item h3,
-.principle h3 {
-  margin-bottom: 0.4rem;
-  font-size: 1.1rem;
-}
-
-.principle-item p,
-.principle p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.8;
-}
-
 /* =========================================================
    14. PROCESS
    ========================================================= */
-.process-grid,
-.process-list {
+.process-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
@@ -902,12 +834,28 @@ img {
 /* =========================================================
    15. SKILLS & TOOLS
    ========================================================= */
+.skills-tools-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.skills-column,
+.tools-column {
+  min-width: 0;
+}
+
+.subsection-title {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+}
+
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
-  max-width: 850px;
-  margin: 0 auto;
 }
 
 .skill-item {
@@ -922,11 +870,6 @@ img {
   color: var(--text-primary);
   font-size: 0.94rem;
   font-weight: 600;
-}
-
-.skill-percent {
-  color: var(--gold);
-  font-size: 0.8rem;
 }
 
 .skill-bar {
@@ -947,54 +890,12 @@ img {
   transition: width 1.4s var(--ease);
 }
 
-.tools-grid,
-.skills-tools-grid {
+.tools-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  max-width: 950px;
-  margin: 3rem auto 0;
 }
 
-.tool-item,
-.skill-tool {
-  min-height: 110px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  padding: 1rem;
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  box-shadow: var(--neu-shadow-sm-1), var(--neu-shadow-sm-2);
-  text-align: center;
-  transition: transform 0.35s var(--ease-bounce), box-shadow var(--transition), color var(--transition);
-}
-
-.tool-item:hover,
-.skill-tool:hover {
-  color: var(--gold);
-  transform: translateY(-5px);
-  box-shadow: var(--neu-shadow-1), var(--neu-shadow-2);
-}
-
-.tool-icon,
-.skill-tool-icon {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--gold);
-}
-
-.tool-name,
-.skill-tool-name {
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-/* tool chip (new) */
 .tool-chip {
   min-height: 100px;
   display: flex;
@@ -1029,10 +930,6 @@ img {
 /* =========================================================
    16. PROJECTS
    ========================================================= */
-.projects-section {
-  position: relative;
-}
-
 .filter-bar {
   display: flex;
   align-items: center;
@@ -1169,26 +1066,21 @@ img {
 /* =========================================================
    17. SELECTED WORK FOOTNOTE
    ========================================================= */
-.selected-work-note,
-.projects-note,
-.work-note {
+.projects-note {
   margin: 2rem auto 0;
   color: var(--text-muted);
   text-align: center;
   font-size: 0.9rem;
 }
 
-.selected-work-note a,
-.projects-note a,
-.work-note a {
+.projects-note a {
   color: var(--gold);
   font-weight: 600;
+  margin-left: 0.5rem;
   transition: color var(--transition);
 }
 
-.selected-work-note a:hover,
-.projects-note a:hover,
-.work-note a:hover {
+.projects-note a:hover {
   color: var(--gold-hover);
 }
 
@@ -1270,104 +1162,9 @@ img {
   font-weight: 600;
 }
 
-/* keep old experience classes */
-.experience-list {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  gap: 1rem;
-}
-
-.experience-item {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 2rem;
-  padding: 1.8rem;
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  box-shadow: var(--neu-shadow-sm-1), var(--neu-shadow-sm-2);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.experience-item:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--neu-shadow-1), var(--neu-shadow-2);
-}
-
-.experience-date {
-  color: var(--gold);
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.experience-content h3 {
-  margin-bottom: 0.35rem;
-  font-size: 1.08rem;
-}
-
-.experience-content p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
 /* =========================================================
    19. WHY WORK WITH ME (STRENGTHS)
    ========================================================= */
-.why-work-grid,
-.why-me-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  max-width: 1050px;
-  margin: 0 auto;
-}
-
-.why-work-card,
-.why-me-card {
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--neu-shadow-1), var(--neu-shadow-2);
-  transition: transform 0.4s var(--ease-bounce), box-shadow var(--transition);
-}
-
-.why-work-card:hover,
-.why-me-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--neu-shadow-hover-1), var(--neu-shadow-hover-2);
-}
-
-.why-work-icon,
-.why-me-icon {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.2rem;
-  border-radius: 50%;
-  background: var(--gold-soft);
-  color: var(--gold);
-  font-size: 1.2rem;
-}
-
-.why-work-card h3,
-.why-me-card h3 {
-  margin-bottom: 0.65rem;
-  font-size: 1.05rem;
-}
-
-.why-work-card p,
-.why-me-card p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-/* new strength cards */
 .strengths-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1416,19 +1213,15 @@ img {
 /* =========================================================
    20. CLIENT FEEDBACK / TESTIMONIALS
    ========================================================= */
-.feedback-grid,
-.testimonials-grid,
-.client-feedback-grid {
+.testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.feedback-card,
-.testimonial-card,
-.client-feedback-card {
+.testimonial-card {
   position: relative;
   padding: 2rem;
   border-radius: var(--radius-lg);
@@ -1437,9 +1230,7 @@ img {
   transition: transform 0.4s var(--ease-bounce), box-shadow var(--transition);
 }
 
-.feedback-card::before,
-.testimonial-card::before,
-.client-feedback-card::before {
+.testimonial-card::before {
   content: "“";
   position: absolute;
   top: 0.8rem;
@@ -1451,33 +1242,16 @@ img {
   line-height: 1;
 }
 
-.feedback-card:hover,
-.testimonial-card:hover,
-.client-feedback-card:hover {
+.testimonial-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--neu-shadow-hover-1), var(--neu-shadow-hover-2);
 }
 
-.feedback-card p,
-.testimonial-card p,
-.client-feedback-card p {
+.testimonial-card p {
   margin-bottom: 1.3rem;
   color: var(--text-secondary);
   font-size: 0.92rem;
   line-height: 1.85;
-}
-
-.feedback-author {
-  color: var(--text-primary);
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.feedback-role {
-  display: block;
-  margin-top: 0.15rem;
-  color: var(--text-muted);
-  font-size: 0.75rem;
 }
 
 .testimonial-author strong {
@@ -1491,10 +1265,6 @@ img {
   display: block;
   color: var(--text-muted);
   font-size: 0.75rem;
-}
-
-.testimonial-quote {
-  display: none;
 }
 
 /* =========================================================
@@ -1515,7 +1285,6 @@ img {
   margin-bottom: 1rem;
 }
 
-.contact-card > p,
 .contact-intro {
   max-width: 600px;
   margin: 0 auto 2.3rem;
@@ -1530,8 +1299,9 @@ img {
   margin-bottom: 1.2rem;
 }
 
-.form-group > * {
+.form-group > div {
   flex: 1;
+  min-width: 0;
 }
 
 .neumorph-input,
@@ -1579,6 +1349,14 @@ img {
   font-size: 0.85rem;
 }
 
+.form-feedback[data-status="success"] {
+  color: #2ecc71;
+}
+
+.form-feedback[data-status="error"] {
+  color: #e74c3c;
+}
+
 /* =========================================================
    22. LIGHTBOX
    ========================================================= */
@@ -1621,6 +1399,7 @@ img {
   object-fit: contain;
   border-radius: var(--radius-md);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  transition: opacity 0.15s ease;
 }
 
 .lightbox-close {
@@ -1654,6 +1433,7 @@ img {
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: none;
   color: white;
   font-size: 2rem;
@@ -1664,7 +1444,7 @@ img {
   justify-content: center;
   border-radius: 50%;
   cursor: pointer;
-  transition: background var(--transition), color var(--transition);
+  transition: background var(--transition), color var(--transition), opacity var(--transition);
   z-index: 3;
 }
 
@@ -1680,6 +1460,13 @@ img {
 .lightbox-next:hover {
   background: var(--gold);
   color: white;
+}
+
+.lightbox-prev:disabled,
+.lightbox-next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* =========================================================
@@ -1795,24 +1582,6 @@ img {
   line-height: 1.7;
 }
 
-.footer-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-.footer-nav a {
-  color: var(--footer-text);
-  font-size: 0.85rem;
-  transition: color var(--transition);
-}
-
-.footer-nav a:hover {
-  color: var(--gold);
-}
-
 .footer-links {
   display: flex;
   justify-content: center;
@@ -1839,7 +1608,6 @@ img {
   width: 100%;
 }
 
-.social-links a,
 .social-link {
   width: 44px;
   height: 44px;
@@ -1856,7 +1624,6 @@ img {
   transition: transform 0.35s var(--ease-bounce), background var(--transition), border-color var(--transition), color var(--transition);
 }
 
-.social-links a:hover,
 .social-link:hover {
   background: var(--gold);
   border-color: var(--gold);
@@ -2000,32 +1767,19 @@ html {
 
   .about-card { gap: 2.5rem; }
 
-  .process-grid,
-  .process-list {
+  .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .what-i-do-grid,
   .services-grid,
-  .service-grid,
-  .why-work-grid,
-  .why-me-grid,
-  .feedback-grid,
-  .testimonials-grid,
-  .client-feedback-grid,
-  .strengths-grid {
+  .strengths-grid,
+  .testimonials-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .tools-grid,
-  .skills-tools-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .principles-grid,
-  .principles-list,
-  .design-principles {
-    max-width: 100%;
+  .skills-tools-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
   .hiring-card {
@@ -2067,7 +1821,7 @@ html {
   .about-stats { justify-content: center; }
   .neumorph-avatar { width: 230px; height: 230px; }
 
-  .skills-grid { grid-template-columns: 1fr; gap: 1.3rem; }
+  .skills-grid { gap: 1.3rem; }
 
   .project-grid {
     grid-template-columns: 1fr;
@@ -2078,40 +1832,28 @@ html {
   .form-group { flex-direction: column; gap: 1rem; }
   .glass-card { padding: 2rem 1.4rem; }
 
-  .principle-card,
-  .principle-item,
-  .principle {
+  .principle-card {
     grid-template-columns: 50px 1fr;
     gap: 1rem;
     padding: 1.35rem;
   }
 
-  .experience-item { grid-template-columns: 1fr; gap: 0.6rem; }
-
-  .what-i-do-grid,
   .services-grid,
-  .service-grid,
-  .why-work-grid,
-  .why-me-grid,
-  .feedback-grid,
-  .testimonials-grid,
-  .client-feedback-grid,
-  .strengths-grid {
+  .strengths-grid,
+  .testimonials-grid {
     grid-template-columns: 1fr;
     max-width: 520px;
     margin-inline: auto;
   }
 
-  .process-grid,
-  .process-list {
+  .process-grid {
     grid-template-columns: 1fr;
     max-width: 520px;
     margin-inline: auto;
   }
 
-  .tools-grid,
-  .skills-tools-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .tools-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .scroll-top-btn {
@@ -2150,8 +1892,7 @@ html {
   .about-stats { gap: 1.3rem; }
   .stat strong { font-size: 1.7rem; }
 
-  .tools-grid,
-  .skills-tools-grid {
+  .tools-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2184,9 +1925,51 @@ html {
    ========================================================= */
 @media print {
   html, body { background: #ffffff; color: #000000; }
-  .header, .lightbox, .scroll-top-btn, .theme-btn, .filter-bar, .custom-cursor { display: none !important; }
+  .header, .lightbox, .scroll-top-btn, .theme-btn, .filter-bar, .custom-cursor, .scroll-progress { display: none !important; }
   .section { padding: 2rem 0; }
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .card-inner, .glass-card, .process-step, .why-work-card, .feedback-card { box-shadow: none; border: 1px solid #ddd; }
+  .card-inner, .glass-card, .process-step, .strength-card, .testimonial-card, .experience-card { box-shadow: none; border: 1px solid #ddd; }
   .footer { margin-top: 2rem; background: #ffffff; color: #000000; }
+}
+
+/* =========================================================
+   35. SCROLL PROGRESS BAR
+   ========================================================= */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-hover));
+  z-index: 1001;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* =========================================================
+   36. PAGE LOAD / HIDDEN STATES
+   ========================================================= */
+.page-loading {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.page-loaded {
+  opacity: 1;
+}
+
+.page-hidden {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.image-error {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+.keyboard-user :focus {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
 }
