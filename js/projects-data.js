@@ -1,27 +1,22 @@
+```js
 "use strict";
 
-/*
- * =========================================================
- * PORTFOLIO PROJECT DATABASE
- * =========================================================
- *
- * Single Source of Truth
- *
- * برای اضافه کردن پروژه جدید فقط یک object
- * به انتهای این آرایه اضافه کنید.
- *
- * id:
- * شناسه یکتا برای آدرس project.html?id=...
- *
- * featured:
- * true  -> نمایش در صفحه اصلی
- * false -> فقط در صفحه پروژه‌ها
- *
- * type:
- * concept -> پروژه مفهومی
- * legacy  -> پروژه‌های قبلی
- * client  -> پروژه واقعی مشتری
- */
+/* =========================================================
+   ALI TORKAMAN — PORTFOLIO PROJECT DATABASE
+   Single Source of Truth
+   =========================================================
+   
+   برای اضافه کردن پروژه جدید:
+   فقط یک object جدید به انتهای آرایه PROJECTS اضافه کنید.
+
+   type:
+   concept -> پروژه مفهومی
+   client  -> پروژه واقعی مشتری
+
+   featured:
+   true  -> نمایش در صفحه اصلی
+   false -> فقط در صفحه پروژه‌ها
+   ========================================================= */
 
 const PROJECTS = [
 
@@ -233,470 +228,52 @@ const PROJECTS = [
             "Packaging Visual",
             "Campaign Design"
         ]
-    },
-
-
-    /* =====================================================
-       06 — RESA SAFFON
-       ===================================================== */
-
-    {
-        id: "resa-saffon",
-
-        title: "Resa Saffon",
-
-        category: "packaging",
-        categoryLabel: "بسته‌بندی",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "پروژه طراحی بسته‌بندی.",
-
-        description:
-            "پروژه‌ای در زمینه طراحی بسته‌بندی.",
-
-        cover:
-            "images/project1.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Packaging Design"
-        ]
-    },
-
-
-    /* =====================================================
-       07 — EVENT POSTER
-       ===================================================== */
-
-    {
-        id: "event-poster",
-
-        title: "Event Poster",
-
-        category: "poster",
-        categoryLabel: "پوستر",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی پوستر رویداد.",
-
-        description:
-            "پروژه طراحی پوستر با تمرکز بر ترکیب‌بندی، تایپوگرافی و ایجاد نقطه تمرکز بصری.",
-
-        cover:
-            "images/project2.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Poster Design",
-            "Visual Composition"
-        ]
-    },
-
-
-    /* =====================================================
-       08 — BONAFT
-       ===================================================== */
-
-    {
-        id: "bonaft",
-
-        title: "Bonaft",
-
-        category: "branding",
-        categoryLabel: "هویت بصری",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی لوگو و هویت بصری.",
-
-        description:
-            "پروژه طراحی لوگو و توسعه هویت بصری برند.",
-
-        cover:
-            "images/project3.jpg",
-
-        tools: [
-            "Illustrator",
-            "Photoshop"
-        ],
-
-        services: [
-            "Logo Design",
-            "Visual Identity"
-        ]
-    },
-
-
-    /* =====================================================
-       09 — RAISING AWARENESS
-       ===================================================== */
-
-    {
-        id: "raising-awareness",
-
-        title: "Raising Awareness",
-
-        category: "poster",
-        categoryLabel: "پوستر",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی پوستر مفهومی.",
-
-        description:
-            "پروژه طراحی پوستر مفهومی با تمرکز بر انتقال پیام از طریق تصویر و ترکیب‌بندی.",
-
-        cover:
-            "images/project4.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Conceptual Poster",
-            "Visual Communication"
-        ]
-    },
-
-
-    /* =====================================================
-       10 — FOOLAD-E-ZHARF
-       ===================================================== */
-
-    {
-        id: "foolad-e-zharf",
-
-        title: "Foolad-e-Zharf",
-
-        category: "packaging",
-        categoryLabel: "بسته‌بندی",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی بسته‌بندی.",
-
-        description:
-            "پروژه طراحی بسته‌بندی محصول.",
-
-        cover:
-            "images/project5.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Packaging Design"
-        ]
-    },
-
-
-    /* =====================================================
-       11 — KERMANA
-       ===================================================== */
-
-    {
-        id: "kermana",
-
-        title: "Kermana",
-
-        category: "branding",
-        categoryLabel: "هویت بصری",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی لوگو و هویت بصری.",
-
-        description:
-            "پروژه طراحی لوگو و هویت بصری.",
-
-        cover:
-            "images/project6.jpg",
-
-        tools: [
-            "Illustrator"
-        ],
-
-        services: [
-            "Logo Design",
-            "Brand Identity"
-        ]
-    },
-
-
-    /* =====================================================
-       12 — NAAGOK
-       ===================================================== */
-
-    {
-        id: "naagok",
-
-        title: "Naagok",
-
-        category: "poster",
-        categoryLabel: "پوستر",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی پوستر.",
-
-        description:
-            "پروژه طراحی پوستر با تمرکز بر تصویرسازی و ترکیب‌بندی.",
-
-        cover:
-            "images/project7.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Poster Design"
-        ]
-    },
-
-
-    /* =====================================================
-       13 — ADVIEH-KHANЕH
-       ===================================================== */
-
-    {
-        id: "advieh-khaneh",
-
-        title: "Advieh-Khaneh",
-
-        category: "packaging",
-        categoryLabel: "بسته‌بندی",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی بسته‌بندی محصول.",
-
-        description:
-            "پروژه طراحی بسته‌بندی برای محصول.",
-
-        cover:
-            "images/project8.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Packaging Design"
-        ]
-    },
-
-
-    /* =====================================================
-       14 — DAYA FOUNDATION
-       ===================================================== */
-
-    {
-        id: "daya-foundation",
-
-        title: "Daya Foundation",
-
-        category: "branding",
-        categoryLabel: "هویت بصری",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی لوگو.",
-
-        description:
-            "پروژه طراحی لوگو برای یک مجموعه / بنیاد.",
-
-        cover:
-            "images/project9.jpg",
-
-        tools: [
-            "Illustrator"
-        ],
-
-        services: [
-            "Logo Design",
-            "Identity Design"
-        ]
-    },
-
-
-    /* =====================================================
-       15 — LUMINOUS SHADOWS
-       ===================================================== */
-
-    {
-        id: "luminous-shadows",
-
-        title: "Luminous Shadows",
-
-        category: "editorial",
-        categoryLabel: "ادیتوریال",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی جلد کتاب.",
-
-        description:
-            "پروژه طراحی جلد کتاب با تمرکز بر تصویرسازی مفهومی و ترکیب‌بندی.",
-
-        cover:
-            "images/project10.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Book Cover Design",
-            "Editorial Design"
-        ]
-    },
-
-
-    /* =====================================================
-       16 — CITY CAMPAIGN
-       ===================================================== */
-
-    {
-        id: "city-campaign",
-
-        title: "City Campaign",
-
-        category: "poster",
-        categoryLabel: "کمپین شهری",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی کمپین شهری.",
-
-        description:
-            "پروژه طراحی یک کمپین شهری با تمرکز بر ارتباط بصری و انتقال پیام.",
-
-        cover:
-            "images/project11.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Campaign Design",
-            "Poster Design"
-        ]
-    },
-
-
-    /* =====================================================
-       17 — SHAHPASAND
-       ===================================================== */
-
-    {
-        id: "shahpasand",
-
-        title: "Shahpasand",
-
-        category: "packaging",
-        categoryLabel: "بسته‌بندی",
-
-        type: "legacy",
-        typeLabel: "پروژه قبلی",
-
-        year: "",
-
-        featured: false,
-
-        shortDescription:
-            "طراحی بسته‌بندی.",
-
-        description:
-            "پروژه طراحی بسته‌بندی محصول.",
-
-        cover:
-            "images/project12.jpg",
-
-        tools: [
-            "Photoshop"
-        ],
-
-        services: [
-            "Packaging Design"
-        ]
     }
 
 ];
+
+/*
+=========================================================
+   آینده:
+   پروژه‌های جدید فقط به انتهای آرایه PROJECTS اضافه شوند.
+   
+   نمونه:
+
+   {
+       id: "new-project",
+
+       title: "NEW PROJECT",
+
+       category: "advertising",
+       categoryLabel: "تبلیغات",
+
+       type: "concept",
+       typeLabel: "پروژه مفهومی",
+
+       year: "2026",
+
+       featured: true,
+
+       shortDescription:
+           "توضیح کوتاه پروژه.",
+
+       description:
+           "توضیح کامل پروژه.",
+
+       cover:
+           "images/projects/new-project/cover.webp",
+
+       tools: [
+           "Photoshop",
+           "AI-assisted"
+       ],
+
+       services: [
+           "Art Direction",
+           "Advertising Design"
+       ]
+   }
+
+=========================================================
+*/
+```
