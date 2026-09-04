@@ -1,459 +1,3633 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ali | Graphic Designer & Digital Creative</title>
-  <meta name="description" content="Ali is a multidisciplinary designer focused on brand identity, packaging, digital design, UI/UX, and creative web experiences." />
-  <meta name="keywords" content="Ali, Graphic Designer, Brand Identity, Packaging Design, UI UX, Web Design, Digital Design, Portfolio" />
-  <meta name="author" content="Ali" />
-  <meta property="og:title" content="Ali — Graphic Designer & Digital Creative" />
-  <meta property="og:description" content="Selected work across branding, packaging, posters, digital design, UI/UX and web." />
-  <meta property="og:image" content="https://amoraklm.github.io/portfolio/images/og-preview.jpg" />
-  <meta property="og:url" content="https://amoraklm.github.io/portfolio/" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#E8ECF1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        علی ترکمن | طراح گرافیک
+    </title>
+
+    <meta
+        name="description"
+        content="پورتفولیو علی ترکمن؛ طراح گرافیک با تمرکز بر تبلیغات، هویت بصری، بسته‌بندی و طراحی دیجیتال."
+    >
+
+    <meta
+        name="author"
+        content="علی ترکمن"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#E8ECF1"
+    >
+
+    <link
+        rel="canonical"
+        href="https://amoraklm.github.io/portfolio/"
+    >
+
+
+    <!-- =========================================================
+         OPEN GRAPH
+         ========================================================= -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:locale"
+        content="fa_IR"
+    >
+
+    <meta
+        property="og:site_name"
+        content="علی ترکمن | طراح گرافیک"
+    >
+
+    <meta
+        property="og:title"
+        content="علی ترکمن | طراح گرافیک"
+    >
+
+    <meta
+        property="og:description"
+        content="منتخبی از پروژه‌های طراحی گرافیک در زمینه تبلیغات، هویت بصری، بسته‌بندی و طراحی دیجیتال."
+    >
+
+    <meta
+        property="og:image"
+        content="https://amoraklm.github.io/portfolio/images/og-preview.jpg"
+    >
+
+    <meta
+        property="og:url"
+        content="https://amoraklm.github.io/portfolio/"
+    >
+
+
+    <!-- =========================================================
+         FONTS
+         ========================================================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================================
+         EXISTING DESIGN SYSTEM
+         ========================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <!-- =========================================================
+         RTL + NEW LAYOUT OVERRIDES
+         ========================================================= -->
+
+    <style>
+
+        html {
+            direction: rtl;
+        }
+
+
+        body {
+            font-family:
+                "Vazirmatn",
+                "Inter",
+                Tahoma,
+                Arial,
+                sans-serif;
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .logo,
+        .footer-logo {
+            font-family:
+                "Vazirmatn",
+                "Montserrat",
+                Tahoma,
+                Arial,
+                sans-serif;
+        }
+
+
+        .container {
+            direction: rtl;
+        }
+
+
+        .hero-content,
+        .section-heading {
+            direction: rtl;
+        }
+
+
+        .hero-title {
+            letter-spacing: -0.035em;
+        }
+
+
+        .hero-sub,
+        .section-subtitle,
+        .about-text p,
+        .process-step p,
+        .strength-card p,
+        .experience-card p,
+        .contact-intro p {
+            margin-inline-start: auto;
+            margin-inline-end: auto;
+        }
+
+
+        .nav {
+            direction: rtl;
+        }
+
+
+        .nav-link::after {
+            right: 0;
+            left: auto;
+        }
+
+
+        .header-inner,
+        .footer-inner {
+            direction: rtl;
+        }
+
+
+        .hero-meta {
+            direction: rtl;
+        }
+
+
+        .hero-cta {
+            direction: rtl;
+        }
+
+
+        .section-eyebrow {
+            direction: ltr;
+        }
+
+
+        /* =====================================================
+           FEATURED PROJECTS
+           ===================================================== */
+
+        .projects-section .filter-bar {
+            display: none;
+        }
+
+
+        .project-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+            gap: 1.5rem;
+        }
+
+
+        .project-grid .project-card {
+            min-width: 0;
+        }
+
+
+        .project-grid .card-inner {
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+
+        .project-grid .card-img-wrapper {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+
+        .project-grid .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .project-grid .card-body {
+            direction: rtl;
+            text-align: right;
+        }
+
+
+        .featured-project-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+
+        .featured-project-type {
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+
+        .featured-project-year {
+            color: var(--text-muted);
+            font-family: "Inter", sans-serif;
+            font-size: 0.72rem;
+        }
+
+
+        .featured-project-note {
+            margin-top: 0.6rem;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            line-height: 1.8;
+        }
+
+
+        .projects-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+
+        .projects-actions .cta-btn {
+            min-width: 190px;
+        }
+
+
+        /* =====================================================
+           PROJECT MODAL
+           ===================================================== */
+
+        .project-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2200;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 24px;
+
+            background:
+                rgba(
+                    8,
+                    11,
+                    17,
+                    0.82
+                );
+
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease;
+        }
+
+
+        .project-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+
+        body.project-modal-open {
+            overflow: hidden;
+        }
+
+
+        .project-modal-dialog {
+            position: relative;
+
+            width:
+                min(
+                    1180px,
+                    100%
+                );
+
+            max-height:
+                calc(100vh - 48px);
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.55fr)
+                minmax(300px, 0.8fr);
+
+            overflow: hidden;
+
+            border-radius:
+                28px;
+
+            background:
+                var(--surface);
+
+            box-shadow:
+                0 30px 100px
+                rgba(0, 0, 0, 0.30);
+
+            transform:
+                translateY(12px)
+                scale(0.985);
+
+            transition:
+                transform 0.28s ease;
+        }
+
+
+        .project-modal.is-open
+        .project-modal-dialog {
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+
+        .project-modal-visual {
+            min-height: 0;
+            min-width: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: auto;
+
+            background:
+                #0E1117;
+        }
+
+
+        .project-modal-visual img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            max-height:
+                calc(
+                    100vh - 48px
+                );
+
+            object-fit: contain;
+        }
+
+
+        .project-modal-info {
+            min-width: 0;
+            overflow: auto;
+
+            padding:
+                34px 30px 30px;
+
+            background:
+                var(--surface);
+
+            text-align: right;
+        }
+
+
+        .project-modal-close {
+            position: absolute;
+
+            top: 14px;
+            left: 14px;
+
+            z-index: 5;
+
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    10,
+                    12,
+                    17,
+                    0.78
+                );
+
+            color: #fff;
+
+            font-family: "Inter", sans-serif;
+            font-size: 1.25rem;
+
+            cursor: pointer;
+
+            backdrop-filter:
+                blur(10px);
+        }
+
+
+        .project-modal-close:hover {
+            background:
+                rgba(
+                    10,
+                    12,
+                    17,
+                    0.95
+                );
+        }
+
+
+        .project-modal-eyebrow {
+            margin-bottom: 8px;
+
+            color: var(--gold);
+
+            font-family:
+                "Inter",
+                sans-serif;
+
+            font-size: 0.68rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            direction: ltr;
+            text-align: left;
+        }
+
+
+        .project-modal-title {
+            font-size:
+                clamp(
+                    1.7rem,
+                    3vw,
+                    2.5rem
+                );
+
+            line-height: 1.25;
+        }
+
+
+        .project-modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            margin-top: 14px;
+        }
+
+
+        .project-modal-tag {
+            display: inline-flex;
+
+            align-items: center;
+
+            min-height: 30px;
+
+            padding:
+                4px 10px;
+
+            border:
+                1px solid
+                var(--gold-border);
+
+            border-radius:
+                7px;
+
+            background:
+                var(--gold-soft);
+
+            color:
+                var(--gold-dark);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                600;
+        }
+
+
+        .project-modal-description {
+            margin-top: 22px;
+
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.88rem;
+
+            line-height:
+                2;
+        }
+
+
+        .project-modal-section {
+            margin-top: 24px;
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                var(--gold-border);
+        }
+
+
+        .project-modal-section h3 {
+            margin-bottom: 10px;
+
+            font-size: 0.82rem;
+        }
+
+
+        .project-modal-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+
+        .project-modal-tool {
+            padding:
+                5px 9px;
+
+            border:
+                1px solid
+                var(--gold-border);
+
+            border-radius: 6px;
+
+            color:
+                var(--text-secondary);
+
+            background:
+                var(--surface-2);
+
+            font-family:
+                "Inter",
+                sans-serif;
+
+            font-size:
+                0.66rem;
+        }
+
+
+        .project-modal-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+            margin-top: 28px;
+        }
+
+
+        .project-modal-action {
+            min-height: 44px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                8px 15px;
+
+            border-radius:
+                10px;
+
+            cursor: pointer;
+
+            font-size:
+                0.76rem;
+
+            font-weight:
+                600;
+        }
+
+
+        .project-modal-action.primary {
+            background:
+                var(--gold);
+
+            color:
+                #FFFFFF;
+        }
+
+
+        .project-modal-action.secondary {
+            background:
+                var(--surface);
+
+            border:
+                1px solid
+                var(--gold-border);
+
+            color:
+                var(--text-primary);
+        }
+
+
+        /* =====================================================
+           HIDE DEPRECATED ELEMENTS
+           ===================================================== */
+
+        .legacy-filter-bar,
+        .coming-soon-card,
+        .testimonials-section {
+            display: none !important;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .project-grid {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+
+
+            .project-modal-dialog {
+                grid-template-columns:
+                    minmax(0, 1.25fr)
+                    minmax(280px, 0.8fr);
+            }
+
+        }
+
+
+        @media (max-width: 760px) {
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .project-modal {
+                padding: 10px;
+            }
+
+
+            .project-modal-dialog {
+                width: 100%;
+
+                max-height:
+                    calc(100vh - 20px);
+
+                grid-template-columns: 1fr;
+
+                grid-template-rows:
+                    minmax(0, auto)
+                    minmax(0, 1fr);
+
+                border-radius: 20px;
+            }
+
+
+            .project-modal-visual {
+                max-height: 43vh;
+            }
+
+
+            .project-modal-visual img {
+                max-height: 43vh;
+            }
+
+
+            .project-modal-info {
+                padding:
+                    24px 18px 20px;
+            }
+
+
+            .project-modal-actions {
+                flex-direction:
+                    column;
+            }
+
+
+            .project-modal-action {
+                width: 100%;
+            }
+
+        }
+
+
+        @media (max-width: 560px) {
+
+            .hero-title {
+                font-size:
+                    clamp(
+                        2.35rem,
+                        12vw,
+                        3.5rem
+                    );
+            }
+
+
+            .hero-sub {
+                font-size:
+                    0.96rem;
+            }
+
+
+            .hero-cta {
+                flex-direction:
+                    column;
+            }
+
+
+            .hero-cta .cta-btn {
+                width:
+                    100%;
+            }
+
+
+            .project-grid {
+                gap:
+                    1rem;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
 
-  <!-- SCROLL PROGRESS -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- HEADER -->
-  <header class="header" id="header">
-    <div class="container header-inner">
-      <a href="#top" class="logo magnetic" data-cursor="Home" aria-label="Ali Portfolio Home">ALI<span class="dot">.</span></a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#projects" class="nav-link" data-cursor="Work">Work</a>
-        <a href="#about" class="nav-link" data-cursor="About">About</a>
-        <a href="#process" class="nav-link" data-cursor="Process">Process</a>
-        <a href="#contact" class="nav-link" data-cursor="Contact">Contact</a>
-        <a href="cv.pdf" class="nav-link resume-link" target="_blank" rel="noopener" data-cursor="Resume">Resume</a>
-        <button id="themeToggle" class="theme-btn magnetic" type="button" aria-label="Switch theme" data-cursor="Theme">🌙</button>
-      </nav>
+    <!-- =========================================================
+         SCROLL PROGRESS
+         ========================================================= -->
+
+    <div
+        class="scroll-progress"
+        id="scrollProgress"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
+    <header
+        class="header"
+        id="header"
+    >
+
+        <div class="container header-inner">
+
+
+            <a
+                href="#top"
+                class="logo"
+                aria-label="صفحه اصلی علی ترکمن"
+            >
+                ALI<span class="dot">.</span>
+            </a>
+
+
+            <nav
+                class="nav"
+                aria-label="ناوبری اصلی"
+            >
+
+                <a
+                    href="#projects"
+                    class="nav-link"
+                >
+                    پروژه‌ها
+                </a>
+
+                <a
+                    href="#about"
+                    class="nav-link"
+                >
+                    درباره من
+                </a>
+
+                <a
+                    href="#process"
+                    class="nav-link"
+                >
+                    فرآیند
+                </a>
+
+                <a
+                    href="projects.html"
+                    class="nav-link"
+                >
+                    همه پروژه‌ها
+                </a>
+
+                <a
+                    href="#contact"
+                    class="nav-link"
+                >
+                    تماس
+                </a>
+
+                <a
+                    href="cv.pdf"
+                    class="nav-link resume-link"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    رزومه
+                </a>
+
+
+                <button
+                    id="themeToggle"
+                    class="theme-btn"
+                    type="button"
+                    aria-label="تغییر حالت نمایش"
+                    title="تغییر حالت نمایش"
+                >
+                    ☾
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+
+    <main id="top">
+
+
+        <!-- =====================================================
+             HERO
+             ===================================================== -->
+
+        <section
+            class="hero"
+            id="hero"
+        >
+
+            <div
+                class="hero-bg-shapes"
+                aria-hidden="true"
+            >
+
+                <div class="shape shape-1"></div>
+
+                <div class="shape shape-2"></div>
+
+                <div class="shape shape-3"></div>
+
+            </div>
+
+
+            <div class="container hero-content">
+
+
+                <div class="availability-badge">
+
+                    <span class="availability-dot"></span>
+
+                    آماده همکاری
+
+                </div>
+
+
+                <p class="pre-title">
+                    طراح گرافیک
+                </p>
+
+
+                <h1 class="hero-title">
+
+                    ایده‌ها را به
+                    <span class="gold">
+                        تجربه‌های بصری
+                    </span>
+                    تبدیل می‌کنم.
+
+                </h1>
+
+
+                <p class="hero-sub">
+
+                    تمرکز من روی طراحی تبلیغاتی،
+                    هویت بصری، بسته‌بندی و طراحی دیجیتال است؛
+                    با رویکردی استراتژیک، دقیق و نتیجه‌محور.
+
+                </p>
+
+
+                <div class="hero-cta">
+
+
+                    <a
+                        href="#projects"
+                        class="cta-btn neumorph"
+                    >
+                        مشاهده نمونه‌کارها
+                    </a>
+
+
+                    <a
+                        href="cv.pdf"
+                        class="cta-btn neumorph outlined"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        مشاهده رزومه
+                    </a>
+
+                </div>
+
+
+                <div class="hero-meta">
+
+                    <span>
+                        قم، ایران
+                    </span>
+
+                    <span class="meta-separator">
+                        •
+                    </span>
+
+                    <span>
+                        آماده همکاری ریموت
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#services"
+                class="scroll-indicator"
+                aria-label="رفتن به خدمات"
+            >
+
+                <span>
+                    برای مشاهده بیشتر اسکرول کنید
+                </span>
+
+                <span class="scroll-arrow">
+                    ↓
+                </span>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SERVICES
+             ===================================================== -->
+
+        <section
+            id="services"
+            class="section services-section"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading reveal">
+
+                    <p class="section-eyebrow">
+                        WHAT I DO
+                    </p>
+
+                    <h2 class="section-title">
+
+                        طراحی با
+                        <span class="gold">
+                            هدف.
+                        </span>
+
+                    </h2>
+
+                    <p class="section-subtitle">
+
+                        ترکیبی از تفکر بصری، نگاه استراتژیک
+                        و اجرای دیجیتال.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="services-grid reveal-stagger"
+                >
+
+
+                    <article class="service-card glass-card">
+
+                        <span class="service-number">
+                            01
+                        </span>
+
+                        <div class="service-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            هویت بصری
+                        </h3>
+
+                        <p>
+                            طراحی سیستم‌های بصری برای ایجاد
+                            شناخت، انسجام و شخصیت مشخص برند.
+                        </p>
+
+                        <div class="service-tags">
+                            <span>Logo</span>
+                            <span>Visual System</span>
+                            <span>Guidelines</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card glass-card">
+
+                        <span class="service-number">
+                            02
+                        </span>
+
+                        <div class="service-icon">
+                            ◈
+                        </div>
+
+                        <h3>
+                            بسته‌بندی
+                        </h3>
+
+                        <p>
+                            طراحی بسته‌بندی با تمرکز بر تأثیرگذاری،
+                            سلسله‌مراتب بصری، کاربرد و ارائه محصول.
+                        </p>
+
+                        <div class="service-tags">
+                            <span>Packaging</span>
+                            <span>Mockup</span>
+                            <span>Print</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card glass-card">
+
+                        <span class="service-number">
+                            03
+                        </span>
+
+                        <div class="service-icon">
+                            ◇
+                        </div>
+
+                        <h3>
+                            طراحی تبلیغاتی
+                        </h3>
+
+                        <p>
+                            ساخت ویژوال‌های تبلیغاتی برای کمپین‌ها،
+                            محصولات، شبکه‌های اجتماعی و ارتباطات دیجیتال.
+                        </p>
+
+                        <div class="service-tags">
+                            <span>Campaigns</span>
+                            <span>Advertising</span>
+                            <span>Digital</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card glass-card">
+
+                        <span class="service-number">
+                            04
+                        </span>
+
+                        <div class="service-icon">
+                            ⌘
+                        </div>
+
+                        <h3>
+                            طراحی دیجیتال
+                        </h3>
+
+                        <p>
+                            طراحی بصری برای محصولات دیجیتال،
+                            رابط‌های کاربری و محتوای آنلاین.
+                        </p>
+
+                        <div class="service-tags">
+                            <span>UI</span>
+                            <span>Figma</span>
+                            <span>Digital</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card glass-card">
+
+                        <span class="service-number">
+                            05
+                        </span>
+
+                        <div class="service-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <h3>
+                            طراحی وب
+                        </h3>
+
+                        <p>
+                            تبدیل زبان بصری به تجربه‌های وب
+                            واکنش‌گرا و کاربردی.
+                        </p>
+
+                        <div class="service-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="service-card glass-card">
+
+                        <span class="service-number">
+                            06
+                        </span>
+
+                        <div class="service-icon">
+                            AI
+                        </div>
+
+                        <h3>
+                            خلاقیت با کمک AI
+                        </h3>
+
+                        <p>
+                            استفاده از ابزارهای هوش مصنوعی برای
+                            ایده‌پردازی، اکتشاف و سرعت‌بخشی به workflow طراحی.
+                        </p>
+
+                        <div class="service-tags">
+                            <span>AI Tools</span>
+                            <span>Ideation</span>
+                            <span>Workflow</span>
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ABOUT
+             ===================================================== -->
+
+        <section
+            id="about"
+            class="section about-section"
+        >
+
+            <div class="container">
+
+
+                <div
+                    class="glass-card about-card reveal"
+                >
+
+
+                    <div class="about-text">
+
+                        <p class="section-eyebrow">
+                            ABOUT ME
+                        </p>
+
+
+                        <h2 class="section-title">
+
+                            کمتر شلوغی،
+                            <span class="gold">
+                                بیشتر معنا.
+                            </span>
+
+                        </h2>
+
+
+                        <p>
+
+                            من علی ترکمن هستم؛ طراح گرافیک
+                            با تمرکز روی تبلیغات، هویت بصری،
+                            بسته‌بندی و طراحی دیجیتال.
+
+                        </p>
+
+
+                        <p>
+
+                            در هر پروژه ابتدا مسئله و هدف ارتباطی
+                            را بررسی می‌کنم، سپس مسیر بصری را تعریف
+                            کرده و آن را به یک خروجی منسجم و کاربردی
+                            تبدیل می‌کنم.
+
+                        </p>
+
+
+                        <p>
+
+                            سه اصل اصلی کار من:
+                            وضوح، هدفمندی و انسجام.
+
+                        </p>
+
+
+                        <div class="about-stats">
+
+                            <div class="stat">
+
+                                <strong>
+                                    ۵+
+                                </strong>
+
+                                <span>
+                                    سال تجربه عملی با Photoshop
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <strong>
+                                    ۵
+                                </strong>
+
+                                <span>
+                                    پروژه منتخب جدید
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <strong>
+                                    ∞
+                                </strong>
+
+                                <span>
+                                    فضای رشد و ایده
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-image">
+
+                        <div class="neumorph-avatar">
+
+                            <img
+                                src="images/profile.jpg"
+                                alt="علی ترکمن"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FEATURED WORK
+             ===================================================== -->
+
+        <section
+            id="projects"
+            class="section projects-section"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading reveal">
+
+                    <p class="section-eyebrow">
+                        SELECTED WORK
+                    </p>
+
+                    <h2 class="section-title">
+
+                        پروژه‌های
+                        <span class="gold">
+                            منتخب
+                        </span>
+
+                    </h2>
+
+
+                    <p class="section-subtitle">
+
+                        منتخبی از پروژه‌های تبلیغاتی،
+                        بسته‌بندی و طراحی دیجیتال.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="project-grid"
+                    id="projectGrid"
+                ></div>
+
+
+                <div class="projects-actions reveal">
+
+                    <a
+                        href="projects.html"
+                        class="cta-btn neumorph"
+                    >
+                        مشاهده همه پروژه‌ها
+                    </a>
+
+                </div>
+
+
+                <div class="projects-note reveal">
+
+                    <span>
+                        برای مشاهده مجموعه کامل پروژه‌ها،
+                        وارد صفحه پروژه‌ها شوید.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROCESS
+             ===================================================== -->
+
+        <section
+            id="process"
+            class="section process-section"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading reveal">
+
+                    <p class="section-eyebrow">
+                        MY PROCESS
+                    </p>
+
+                    <h2 class="section-title">
+
+                        از مسئله
+                        <span class="gold">
+                            تا راه‌حل.
+                        </span>
+
+                    </h2>
+
+
+                    <p class="section-subtitle">
+
+                        یک فرآیند مشخص باعث می‌شود
+                        تصمیم‌های خلاقانه در جهت هدف پروژه حرکت کنند.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="process-grid reveal-stagger"
+                >
+
+
+                    <article class="process-step">
+
+                        <div class="process-step-top">
+
+                            <span class="process-number">
+                                01
+                            </span>
+
+                            <span class="process-line"></span>
+
+                        </div>
+
+                        <h3>
+                            شناخت
+                        </h3>
+
+                        <p>
+                            شناخت برند، مخاطب، مسئله،
+                            محدودیت‌ها و هدف نهایی.
+                        </p>
+
+                    </article>
+
+
+                    <article class="process-step">
+
+                        <div class="process-step-top">
+
+                            <span class="process-number">
+                                02
+                            </span>
+
+                            <span class="process-line"></span>
+
+                        </div>
+
+                        <h3>
+                            استراتژی
+                        </h3>
+
+                        <p>
+                            تعریف مسیر خلاقانه،
+                            زبان بصری، سلسله‌مراتب و پیام.
+                        </p>
+
+                    </article>
+
+
+                    <article class="process-step">
+
+                        <div class="process-step-top">
+
+                            <span class="process-number">
+                                03
+                            </span>
+
+                            <span class="process-line"></span>
+
+                        </div>
+
+                        <h3>
+                            طراحی
+                        </h3>
+
+                        <p>
+                            ایده‌پردازی، انتخاب مسیر مناسب
+                            و توسعه خروجی نهایی.
+                        </p>
+
+                    </article>
+
+
+                    <article class="process-step">
+
+                        <div class="process-step-top">
+
+                            <span class="process-number">
+                                04
+                            </span>
+
+                            <span class="process-line"></span>
+
+                        </div>
+
+                        <h3>
+                            تحویل
+                        </h3>
+
+                        <p>
+                            آماده‌سازی خروجی‌های نهایی
+                            متناسب با بستر موردنظر.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             EXPERIENCE
+             ===================================================== -->
+
+        <section
+            id="experience"
+            class="section experience-section"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading reveal">
+
+                    <p class="section-eyebrow">
+                        EXPERIENCE
+                    </p>
+
+
+                    <h2 class="section-title">
+
+                        پیشینه و
+                        <span class="gold">
+                            تجربه.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="experience-layout"
+                >
+
+
+                    <div
+                        class="experience-card glass-card reveal"
+                    >
+
+                        <div
+                            class="experience-header"
+                        >
+
+                            <div>
+
+                                <span
+                                    class="experience-type"
+                                >
+                                    DESIGN
+                                </span>
+
+                                <h3>
+                                    طراح مستقل / فریلنس
+                                </h3>
+
+                            </div>
+
+
+                            <span
+                                class="experience-date"
+                            >
+                                حال حاضر
+                            </span>
+
+                        </div>
+
+
+                        <p>
+
+                            فعالیت در زمینه طراحی تبلیغاتی،
+                            هویت بصری، بسته‌بندی، طراحی دیجیتال
+                            و پروژه‌های خلاقانه.
+
+                        </p>
+
+
+                        <div
+                            class="experience-tags"
+                        >
+
+                            <span>
+                                Branding
+                            </span>
+
+                            <span>
+                                Advertising
+                            </span>
+
+                            <span>
+                                Packaging
+                            </span>
+
+                            <span>
+                                Digital
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        class="experience-card glass-card reveal"
+                    >
+
+                        <div
+                            class="experience-header"
+                        >
+
+                            <div>
+
+                                <span
+                                    class="experience-type"
+                                >
+                                    EDUCATION
+                                </span>
+
+                                <h3>
+                                    دانشجوی حقوق
+                                </h3>
+
+                            </div>
+
+
+                            <span
+                                class="experience-date"
+                            >
+                                ۲۰۲۶ —
+                            </span>
+
+                        </div>
+
+
+                        <p>
+
+                            تحصیل حقوق در کنار توسعه مسیر
+                            حرفه‌ای در طراحی، فناوری و محصولات دیجیتال.
+
+                        </p>
+
+
+                        <div
+                            class="experience-tags"
+                        >
+
+                            <span>
+                                Law
+                            </span>
+
+                            <span>
+                                Research
+                            </span>
+
+                            <span>
+                                Strategy
+                            </span>
+
+                            <span>
+                                Technology
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             STRENGTHS
+             ===================================================== -->
+
+        <section class="section strengths-section">
+
+            <div class="container">
+
+
+                <div class="section-heading reveal">
+
+                    <p class="section-eyebrow">
+                        WHY WORK WITH ME
+                    </p>
+
+
+                    <h2 class="section-title">
+
+                        فراتر از
+                        <span class="gold">
+                            تصویر.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="strengths-grid reveal-stagger"
+                >
+
+
+                    <article class="strength-card">
+
+                        <span class="strength-icon">
+                            ◎
+                        </span>
+
+                        <h3>
+                            تفکر استراتژیک
+                        </h3>
+
+                        <p>
+                            تصمیم‌های طراحی از مسئله،
+                            مخاطب و هدف شروع می‌شوند.
+                        </p>
+
+                    </article>
+
+
+                    <article class="strength-card">
+
+                        <span class="strength-icon">
+                            ◉
+                        </span>
+
+                        <h3>
+                            توجه به جزئیات
+                        </h3>
+
+                        <p>
+                            تایپوگرافی، فاصله‌ها، ترکیب‌بندی
+                            و جزئیات خروجی بخشی از سیستم طراحی هستند.
+                        </p>
+
+                    </article>
+
+
+                    <article class="strength-card">
+
+                        <span class="strength-icon">
+                            ↗
+                        </span>
+
+                        <h3>
+                            چندرشته‌ای
+                        </h3>
+
+                        <p>
+                            ترکیب طراحی گرافیک، طراحی دیجیتال،
+                            وب و workflowهای مدرن مبتنی بر AI.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             HIRING CTA
+             ===================================================== -->
+
+        <section class="section hiring-section">
+
+            <div class="container">
+
+
+                <div
+                    class="hiring-card glass-card reveal"
+                >
+
+
+                    <div
+                        class="hiring-content"
+                    >
+
+                        <p class="section-eyebrow">
+                            OPEN TO OPPORTUNITIES
+                        </p>
+
+
+                        <h2>
+
+                            دنبال
+                            <span class="gold">
+                                طراح
+                            </span>
+                            هستید؟
+
+                        </h2>
+
+
+                        <p>
+
+                            برای موقعیت‌های شغلی،
+                            پروژه‌های فریلنسری و همکاری‌های خلاقانه
+                            آماده همکاری هستم.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="hiring-actions">
+
+                        <a
+                            href="#contact"
+                            class="cta-btn neumorph"
+                        >
+                            تماس با من
+                        </a>
+
+
+                        <a
+                            href="cv.pdf"
+                            class="cta-btn neumorph outlined"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            مشاهده رزومه
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CONTACT
+             ===================================================== -->
+
+        <section
+            id="contact"
+            class="section contact-section"
+        >
+
+            <div class="container">
+
+
+                <div
+                    class="glass-card contact-card reveal"
+                >
+
+
+                    <div class="contact-intro">
+
+                        <p class="section-eyebrow">
+                            GET IN TOUCH
+                        </p>
+
+
+                        <h2 class="section-title">
+
+                            بیایید
+                            <span class="gold">
+                                صحبت کنیم.
+                            </span>
+
+                        </h2>
+
+
+                        <p>
+
+                            برای فرصت شغلی،
+                            پروژه یا همکاری می‌توانید
+                            از طریق ایمیل با من در ارتباط باشید.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-direct">
+
+                        <a
+                            href="mailto:YOUR_REAL_EMAIL@example.com"
+                            class="cta-btn neumorph"
+                        >
+                            ایمیل
+                        </a>
+
+
+                        <a
+                            href="projects.html"
+                            class="cta-btn neumorph outlined"
+                        >
+                            مشاهده پروژه‌ها
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         PROJECT MODAL
+         ========================================================= -->
+
+    <div
+        class="project-modal"
+        id="projectModal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="projectModalTitle"
+    >
+
+        <div
+            class="project-modal-dialog"
+            role="document"
+        >
+
+
+            <button
+                type="button"
+                class="project-modal-close"
+                id="projectModalClose"
+                aria-label="بستن پیش‌نمایش"
+            >
+                ×
+            </button>
+
+
+            <div
+                class="project-modal-visual"
+                id="projectModalVisual"
+            >
+
+                <img
+                    id="projectModalImage"
+                    src=""
+                    alt=""
+                >
+
+            </div>
+
+
+            <div class="project-modal-info">
+
+
+                <p
+                    class="project-modal-eyebrow"
+                    id="projectModalEyebrow"
+                >
+                    PROJECT
+                </p>
+
+
+                <h2
+                    class="project-modal-title"
+                    id="projectModalTitle"
+                ></h2>
+
+
+                <div
+                    class="project-modal-meta"
+                    id="projectModalMeta"
+                ></div>
+
+
+                <p
+                    class="project-modal-description"
+                    id="projectModalDescription"
+                ></p>
+
+
+                <section
+                    class="project-modal-section"
+                    id="projectModalToolsSection"
+                >
+
+                    <h3>
+                        ابزارها
+                    </h3>
+
+
+                    <div
+                        class="project-modal-tools"
+                        id="projectModalTools"
+                    ></div>
+
+                </section>
+
+
+                <section
+                    class="project-modal-section"
+                    id="projectModalServicesSection"
+                >
+
+                    <h3>
+                        حوزه‌های کار
+                    </h3>
+
+
+                    <div
+                        class="project-modal-tools"
+                        id="projectModalServices"
+                    ></div>
+
+                </section>
+
+
+                <div class="project-modal-actions">
+
+
+                    <button
+                        type="button"
+                        class="project-modal-action primary"
+                        id="projectModalFullImage"
+                    >
+                        مشاهده تصویر کامل
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="project-modal-action secondary"
+                        id="projectModalSecondaryClose"
+                    >
+                        بستن
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-  </header>
 
-  <main id="top">
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero-bg-shapes" aria-hidden="true">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-      </div>
-      <div class="container hero-content">
-        <div class="availability-badge">
-          <span class="availability-dot"></span>
-          Available for opportunities
-        </div>
-        <p class="pre-title">— Graphic Designer & Digital Creative</p>
-        <h1 class="hero-title">I Craft <span class="gold">Premium</span><br />Brand Experiences</h1>
-        <p class="hero-sub">Turning ideas into clear, strategic, and visually compelling identities across branding, packaging, digital design, UI/UX, and web.</p>
-        <div class="hero-cta">
-          <a href="#projects" class="cta-btn neumorph magnetic" data-cursor="Explore">View My Work</a>
-          <a href="cv.pdf" class="cta-btn neumorph outlined magnetic" target="_blank" rel="noopener" data-cursor="Resume">Download CV</a>
-        </div>
-        <div class="hero-meta">
-          <span>Based in Qom, Iran</span>
-          <span class="meta-separator">•</span>
-          <span>Open to Remote Opportunities</span>
-        </div>
-      </div>
-      <a href="#services" class="scroll-indicator" aria-label="Scroll to services">
-        <span>Scroll to explore</span>
-        <span class="scroll-arrow">↓</span>
-      </a>
-    </section>
 
-    <!-- WHAT I DO -->
-    <section id="services" class="section services-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow">WHAT I DO</p>
-          <h2 class="section-title">Design with <span class="gold">purpose.</span></h2>
-          <p class="section-subtitle">A multidisciplinary approach combining visual design, strategic thinking, and digital execution.</p>
-        </div>
-        <div class="services-grid reveal-stagger">
-          <article class="service-card glass-card">
-            <span class="service-number">01</span>
-            <div class="service-icon">✦</div>
-            <h3>Brand Identity</h3>
-            <p>Building visual identities that create recognition, consistency, and a clear brand presence.</p>
-            <div class="service-tags"><span>Logo</span><span>Visual System</span><span>Guidelines</span></div>
-          </article>
-          <article class="service-card glass-card">
-            <span class="service-number">02</span>
-            <div class="service-icon">◈</div>
-            <h3>Packaging Design</h3>
-            <p>Designing packaging systems that balance visual impact, hierarchy, usability, and production requirements.</p>
-            <div class="service-tags"><span>Packaging</span><span>Mockups</span><span>Print</span></div>
-          </article>
-          <article class="service-card glass-card">
-            <span class="service-number">03</span>
-            <div class="service-icon">◇</div>
-            <h3>Digital Design</h3>
-            <p>Creating visual content for digital products, campaigns, social media, presentations, and online communication.</p>
-            <div class="service-tags"><span>Social</span><span>Campaigns</span><span>Digital</span></div>
-          </article>
-          <article class="service-card glass-card">
-            <span class="service-number">04</span>
-            <div class="service-icon">⌘</div>
-            <h3>UI / UX Design</h3>
-            <p>Designing interfaces with a focus on clarity, hierarchy, usability, interaction, and visual consistency.</p>
-            <div class="service-tags"><span>UI</span><span>UX</span><span>Figma</span></div>
-          </article>
-          <article class="service-card glass-card">
-            <span class="service-number">05</span>
-            <div class="service-icon">&lt;/&gt;</div>
-            <h3>Web Design</h3>
-            <p>Translating visual systems into responsive, polished, and functional web experiences.</p>
-            <div class="service-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          </article>
-          <article class="service-card glass-card">
-            <span class="service-number">06</span>
-            <div class="service-icon">AI</div>
-            <h3>AI-Assisted Creative</h3>
-            <p>Using modern AI tools to accelerate ideation, exploration, production, and creative workflows.</p>
-            <div class="service-tags"><span>AI Tools</span><span>Ideation</span><span>Workflow</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
 
-    <!-- ABOUT -->
-    <section id="about" class="section about-section">
-      <div class="container">
-        <div class="glass-card about-card reveal">
-          <div class="about-text">
-            <p class="section-eyebrow">ABOUT ME</p>
-            <h2 class="section-title">Less noise, <span class="gold">more meaning.</span></h2>
-            <p>I'm Ali, a multidisciplinary designer focused on creating clear and purposeful visual experiences. My work spans brand identity, packaging, digital design, UI/UX, and web.</p>
-            <p>I approach each project by understanding the problem first, defining the visual direction, and then turning the strategy into a polished and usable design system. I design with three core principles: clarity, purpose, and consistency — every visual element must have a reason to exist.</p>
-            <div class="about-stats">
-              <div class="stat"><strong>12+</strong><span>Selected Projects</span></div>
-              <div class="stat"><strong>6</strong><span>Core Disciplines</span></div>
-              <div class="stat"><strong>∞</strong><span>Ideas to Explore</span></div>
+    <footer class="footer">
+
+        <div class="container footer-inner">
+
+
+            <a
+                href="#top"
+                class="footer-logo"
+            >
+                ALI<span class="dot">.</span>
+            </a>
+
+
+            <p class="footer-text">
+                © ۱۴۰۵ علی ترکمن
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="#projects">
+                    پروژه‌ها
+                </a>
+
+                <a href="#about">
+                    درباره من
+                </a>
+
+                <a href="#contact">
+                    تماس
+                </a>
+
             </div>
-          </div>
-          <div class="about-image">
-            <div class="neumorph-avatar">
-              <img src="images/profile.jpg" alt="Portrait of Ali" loading="lazy" />
+
+
+            <div class="social-links">
+
+
+                <!--
+                    این لینک‌ها را بعداً با آدرس واقعی
+                    شبکه‌های اجتماعی جایگزین می‌کنیم.
+                -->
+
+                <a
+                    href="#"
+                    aria-label="LinkedIn"
+                    class="social-link"
+                >
+                    in
+                </a>
+
+
+                <a
+                    href="#"
+                    aria-label="Behance"
+                    class="social-link"
+                >
+                    Be
+                </a>
+
+
+                <a
+                    href="https://github.com/amoraklm/portfolio"
+                    aria-label="GitHub"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-link"
+                >
+                    Git
+                </a>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- FEATURED WORK -->
-    <section id="projects" class="section projects-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow">SELECTED WORK</p>
-          <h2 class="section-title">Featured <span class="gold">Projects</span></h2>
-          <p class="section-subtitle">A selection of visual design projects across branding, packaging, posters, and digital communication.</p>
-        </div>
-        <div class="filter-bar" role="group" aria-label="Project filters">
-          <button class="filter-btn active" data-filter="all" type="button" aria-pressed="true">All</button>
-          <button class="filter-btn" data-filter="Packing" type="button" aria-pressed="false">Packaging</button>
-          <button class="filter-btn" data-filter="Poster" type="button" aria-pressed="false">Posters</button>
-          <button class="filter-btn" data-filter="Logo" type="button" aria-pressed="false">Logos</button>
-          <button class="filter-btn" data-filter="Book Cover" type="button" aria-pressed="false">Editorial</button>
-        </div>
-        <div class="project-grid" id="projectGrid"></div>
-
-        <!-- COMING SOON -->
-        <div class="coming-soon-card reveal" data-delay="0.15">
-          <div class="coming-soon-glow" aria-hidden="true"></div>
-          <div class="coming-soon-inner">
-            <div class="coming-soon-icon">✦</div>
-            <div class="coming-soon-content">
-              <p class="coming-soon-eyebrow">NEW WORK IN PROGRESS</p>
-              <h3>Something exceptional is being prepared.</h3>
-              <p class="coming-soon-text">
-                More selected projects are on the way — currently being finalized and will be uploaded here soon.
-              </p>
-            </div>
-            <div class="coming-soon-status">
-              <div class="status-dots" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-              <span class="status-label">Uploading soon</span>
-            </div>
-          </div>
-          <div class="coming-soon-progress" aria-hidden="true">
-            <div class="coming-soon-progress-bar"></div>
-          </div>
         </div>
 
-        <div class="projects-note reveal">
-          <span>More selected work available on request.</span>
-          <a href="#contact" class="text-link" data-cursor="Contact">Let's talk →</a>
-        </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- PROCESS -->
-    <section id="process" class="section process-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow">MY PROCESS</p>
-          <h2 class="section-title">From problem <span class="gold">to solution.</span></h2>
-          <p class="section-subtitle">A structured process keeps creative decisions aligned with the actual goal of the project.</p>
-        </div>
-        <div class="process-grid reveal-stagger">
-          <article class="process-step">
-            <div class="process-step-top"><span class="process-number">01</span><span class="process-line"></span></div>
-            <h3>Discover</h3>
-            <p>Understand the brand, audience, problem, requirements, and desired outcome.</p>
-          </article>
-          <article class="process-step">
-            <div class="process-step-top"><span class="process-number">02</span><span class="process-line"></span></div>
-            <h3>Strategy</h3>
-            <p>Define the creative direction, visual language, hierarchy, and communication priorities.</p>
-          </article>
-          <article class="process-step">
-            <div class="process-step-top"><span class="process-number">03</span><span class="process-line"></span></div>
-            <h3>Design</h3>
-            <p>Explore concepts, refine the strongest direction, and develop the final visual system.</p>
-          </article>
-          <article class="process-step">
-            <div class="process-step-top"><span class="process-number">04</span><span class="process-line"></span></div>
-            <h3>Deliver</h3>
-            <p>Prepare polished, consistent, and production-ready assets for the required platforms.</p>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <!-- SKILLS & TOOLS -->
-    <section id="skills" class="section skills-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow">SKILLS & TOOLS</p>
-          <h2 class="section-title">Tools I use to <span class="gold">build.</span></h2>
-        </div>
-        <div class="skills-tools-layout">
-          <div class="skills-column reveal">
-            <h3 class="subsection-title">Core Skills</h3>
-            <div class="skills-grid">
-              <div class="skill-item">
-                <div class="skill-label"><span>Brand Strategy</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="95%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label"><span>UI / UX Design</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="90%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label"><span>Packaging</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="88%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label"><span>Digital Design</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="85%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label"><span>Front-end Development</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="80%"></div></div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label"><span>Creative Direction</span></div>
-                <div class="skill-bar neumorph-inset"><div class="skill-fill" data-width="82%"></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="tools-column reveal">
-            <h3 class="subsection-title">Tools & Technologies</h3>
-            <div class="tools-grid">
-              <div class="tool-chip"><span>Ps</span> Photoshop</div>
-              <div class="tool-chip"><span>Ai</span> Illustrator</div>
-              <div class="tool-chip"><span>Fi</span> Figma</div>
-              <div class="tool-chip"><span>Pr</span> Premiere Pro</div>
-              <div class="tool-chip"><span>Ae</span> After Effects</div>
-              <div class="tool-chip"><span>H</span> HTML</div>
-              <div class="tool-chip"><span>C</span> CSS</div>
-              <div class="tool-chip"><span>JS</span> JavaScript</div>
-              <div class="tool-chip"><span>Git</span> GitHub</div>
-              <div class="tool-chip"><span>AI</span> AI Tools</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section experience-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow">EXPERIENCE</p>
-          <h2 class="section-title">Background & <span class="gold">experience.</span></h2>
-        </div>
-        <div class="experience-layout">
-          <div class="experience-card glass-card reveal">
-            <div class="experience-header">
-              <div>
-                <span class="experience-type">DESIGN</span>
-                <h3>Freelance / Independent Designer</h3>
-              </div>
-              <span class="experience-date">Present</span>
-            </div>
-            <p>Working across visual identity, packaging, digital communication, UI/UX, and web design projects.</p>
-            <div class="experience-tags"><span>Branding</span><span>Packaging</span><span>Digital</span><span>UI/UX</span></div>
-          </div>
-          <div class="experience-card glass-card reveal">
-            <div class="experience-header">
-              <div>
-                <span class="experience-type">EDUCATION</span>
-                <h3>Law Student</h3>
-              </div>
-              <span class="experience-date">2026 —</span>
-            </div>
-            <p>Studying law while developing a multidisciplinary professional path across design, technology, and digital products.</p>
-            <div class="experience-tags"><span>Law</span><span>Research</span><span>Strategy</span><span>Technology</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- =========================================================
+         CENTRAL PROJECT DATABASE
+         ========================================================= -->
 
-    <!-- WHY WORK WITH ME -->
-    <section class="section strengths-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow">WHY WORK WITH ME</p>
-          <h2 class="section-title">More than <span class="gold">visuals.</span></h2>
-        </div>
-        <div class="strengths-grid reveal-stagger">
-          <article class="strength-card">
-            <span class="strength-icon">◎</span>
-            <h3>Strategic Thinking</h3>
-            <p>Design decisions start with the problem, audience, and intended outcome.</p>
-          </article>
-          <article class="strength-card">
-            <span class="strength-icon">◉</span>
-            <h3>Attention to Detail</h3>
-            <p>From typography and spacing to final production, details are treated as part of the system.</p>
-          </article>
-          <article class="strength-card">
-            <span class="strength-icon">↗</span>
-            <h3>Multidisciplinary</h3>
-            <p>Combining design, UI/UX, web development, and modern AI-assisted workflows.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    <script src="js/projects-data.js"></script>
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section testimonials-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow">CLIENT FEEDBACK</p>
-          <h2 class="section-title">What people <span class="gold">say.</span></h2>
-        </div>
-        <div class="testimonials-grid reveal-stagger">
-          <article class="testimonial-card glass-card">
-            <p>"Ali delivered a brand identity that felt both strategic and visually striking. The process was clear, and the final system exceeded our expectations."</p>
-            <div class="testimonial-author"><strong>Client Name</strong><span>Role / Company</span></div>
-          </article>
-          <article class="testimonial-card glass-card">
-            <p>"Working with Ali on our packaging design was seamless. Great communication, attention to detail, and a result that truly stands out on the shelf."</p>
-            <div class="testimonial-author"><strong>Client Name</strong><span>Role / Company</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <!-- HIRING CTA -->
-    <section class="section hiring-section">
-      <div class="container">
-        <div class="hiring-card glass-card reveal">
-          <div class="hiring-content">
-            <p class="section-eyebrow">OPEN TO OPPORTUNITIES</p>
-            <h2>Looking for a <span class="gold">designer?</span></h2>
-            <p>I'm open to full-time roles, freelance projects, collaborations, and creative opportunities.</p>
-          </div>
-          <div class="hiring-actions">
-            <a href="#contact" class="cta-btn neumorph magnetic" data-cursor="Contact">Contact Me</a>
-            <a href="cv.pdf" class="cta-btn neumorph outlined magnetic" target="_blank" rel="noopener" data-cursor="Resume">View Resume</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <div class="glass-card contact-card reveal">
-          <div class="contact-intro">
-            <p class="section-eyebrow">GET IN TOUCH</p>
-            <h2 class="section-title">Let's <span class="gold">Talk.</span></h2>
-            <p>Have a project, collaboration, or opportunity in mind? Send me a message.</p>
-          </div>
-          <form id="contactForm" action="https://formspree.io/f/yourRealFormId" method="POST">
-            <div class="form-group">
-              <div>
-                <label for="name" class="sr-only">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required class="neumorph-input" />
-              </div>
-              <div>
-                <label for="email" class="sr-only">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your Email" autocomplete="email" required class="neumorph-input" />
-              </div>
-            </div>
-            <div>
-              <label for="subject" class="sr-only">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="Subject" class="neumorph-input contact-subject" />
-            </div>
-            <div>
-              <label for="message" class="sr-only">Message</label>
-              <textarea id="message" name="message" placeholder="Tell me about your project..." rows="6" required class="neumorph-input"></textarea>
-            </div>
-            <button type="submit" class="cta-btn neumorph submit-btn magnetic" data-cursor="Send">Send Message</button>
-            <p id="formFeedback" class="form-feedback" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
+    <!-- =========================================================
+         HOMEPAGE APPLICATION
+         ========================================================= -->
 
-  </main>
+    <script>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="#top" class="footer-logo" data-cursor="Home">ALI<span class="dot">.</span></a>
-      <p class="footer-text">© 2026 Ali. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#projects" data-cursor="Work">Work</a>
-        <a href="#about" data-cursor="About">About</a>
-        <a href="#contact" data-cursor="Contact">Contact</a>
-      </div>
-      <div class="social-links">
-        <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener" class="social-link" data-cursor="LinkedIn">in</a>
-        <a href="#" aria-label="Behance" target="_blank" rel="noopener" class="social-link" data-cursor="Behance">Be</a>
-        <a href="#" aria-label="GitHub" target="_blank" rel="noopener" class="social-link" data-cursor="GitHub">Git</a>
-      </div>
-    </div>
-  </footer>
+        "use strict";
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-backdrop" aria-hidden="true"></div>
-    <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Project image preview">
-      <button class="lightbox-close" type="button" aria-label="Close image preview" data-cursor="Close">✕</button>
-      <button class="lightbox-prev" type="button" aria-label="Previous image">‹</button>
-      <img src="" alt="" id="lightboxImg" />
-      <button class="lightbox-next" type="button" aria-label="Next image">›</button>
-    </div>
-  </div>
 
-  <!-- SCROLL TO TOP -->
-  <button id="scrollTopBtn" class="scroll-top-btn magnetic" type="button" aria-label="Scroll to top" data-cursor="Top">↑</button>
+        /* =========================================================
+           DOM
+           ========================================================= */
 
-  <script src="script.js"></script>
+        const projectGrid =
+            document.getElementById(
+                "projectGrid"
+            );
+
+
+        const projectModal =
+            document.getElementById(
+                "projectModal"
+            );
+
+
+        const projectModalClose =
+            document.getElementById(
+                "projectModalClose"
+            );
+
+
+        const projectModalSecondaryClose =
+            document.getElementById(
+                "projectModalSecondaryClose"
+            );
+
+
+        const projectModalImage =
+            document.getElementById(
+                "projectModalImage"
+            );
+
+
+        const projectModalVisual =
+            document.getElementById(
+                "projectModalVisual"
+            );
+
+
+        const projectModalEyebrow =
+            document.getElementById(
+                "projectModalEyebrow"
+            );
+
+
+        const projectModalTitle =
+            document.getElementById(
+                "projectModalTitle"
+            );
+
+
+        const projectModalMeta =
+            document.getElementById(
+                "projectModalMeta"
+            );
+
+
+        const projectModalDescription =
+            document.getElementById(
+                "projectModalDescription"
+            );
+
+
+        const projectModalTools =
+            document.getElementById(
+                "projectModalTools"
+            );
+
+
+        const projectModalServices =
+            document.getElementById(
+                "projectModalServices"
+            );
+
+
+        const projectModalToolsSection =
+            document.getElementById(
+                "projectModalToolsSection"
+            );
+
+
+        const projectModalServicesSection =
+            document.getElementById(
+                "projectModalServicesSection"
+            );
+
+
+        const projectModalFullImage =
+            document.getElementById(
+                "projectModalFullImage"
+            );
+
+
+        const themeToggle =
+            document.getElementById(
+                "themeToggle"
+            );
+
+
+        const header =
+            document.getElementById(
+                "header"
+            );
+
+
+
+        /* =========================================================
+           PROJECT ACCESS
+           ========================================================= */
+
+        function getProjects() {
+
+            if (
+                typeof PROJECTS ===
+                "undefined"
+            ) {
+
+                console.error(
+                    "PROJECTS database was not loaded."
+                );
+
+                return [];
+
+            }
+
+
+            if (
+                !Array.isArray(
+                    PROJECTS
+                )
+            ) {
+
+                return [];
+
+            }
+
+
+            return PROJECTS;
+
+        }
+
+
+
+        /* =========================================================
+           HTML ESCAPE
+           ========================================================= */
+
+        function escapeHtml(
+            value
+        ) {
+
+            return String(
+                value ?? ""
+            )
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+
+        /* =========================================================
+           FEATURED PROJECTS
+           ========================================================= */
+
+        function getFeaturedProjects() {
+
+            const projects =
+                getProjects();
+
+
+            const featured =
+                projects.filter(
+                    project =>
+                        project.featured === true
+                );
+
+
+            /*
+             * Only the strongest featured projects
+             * appear on the homepage.
+             *
+             * The complete collection remains
+             * available on projects.html.
+             */
+
+            return featured.slice(
+                0,
+                6
+            );
+
+        }
+
+
+
+        /* =========================================================
+           RENDER FEATURED
+           ========================================================= */
+
+        function renderFeaturedProjects() {
+
+            if (!projectGrid) {
+
+                return;
+
+            }
+
+
+            const projects =
+                getFeaturedProjects();
+
+
+            projectGrid.innerHTML =
+                "";
+
+
+            if (
+                !projects.length
+            ) {
+
+                projectGrid.innerHTML = `
+
+                    <div
+                        class="projects-empty"
+                        style="grid-column:1/-1;text-align:center;padding:3rem;"
+                    >
+
+                        <h3>
+                            پروژه‌ای برای نمایش وجود ندارد.
+                        </h3>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            projects.forEach(
+                project => {
+
+                    const card =
+                        document.createElement(
+                            "article"
+                        );
+
+
+                    card.className =
+                        "project-card reveal";
+
+
+                    const title =
+                        escapeHtml(
+                            project.title
+                        );
+
+
+                    const cover =
+                        escapeHtml(
+                            project.cover ||
+                            ""
+                        );
+
+
+                    const category =
+                        escapeHtml(
+                            project.categoryLabel ||
+                            ""
+                        );
+
+
+                    const type =
+                        escapeHtml(
+                            project.typeLabel ||
+                            ""
+                        );
+
+
+                    const description =
+                        escapeHtml(
+                            project.shortDescription ||
+                            project.description ||
+                            ""
+                        );
+
+
+                    const year =
+                        escapeHtml(
+                            project.year ||
+                            ""
+                        );
+
+
+                    card.innerHTML = `
+
+                        <div
+                            class="card-inner"
+                            tabindex="0"
+                            role="button"
+                            aria-label="مشاهده پیش‌نمایش پروژه ${title}"
+                            data-project-id="${escapeHtml(project.id)}"
+                        >
+
+                            <div class="card-img-wrapper">
+
+                                <img
+                                    src="${cover}"
+                                    alt="${title} — ${category}"
+                                    class="card-img"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
+
+
+                                <div class="card-overlay">
+
+                                    <div
+                                        class="card-overlay-icon"
+                                        aria-hidden="true"
+                                    >
+                                        +
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="card-body">
+
+                                <h3 class="card-title">
+                                    ${title}
+                                </h3>
+
+
+                                <div class="featured-project-meta">
+
+                                    <span
+                                        class="featured-project-type"
+                                    >
+                                        ${type}
+                                    </span>
+
+
+                                    ${
+                                        year
+                                            ? `
+                                                <span
+                                                    class="featured-project-year"
+                                                >
+                                                    ${year}
+                                                </span>
+                                              `
+                                            : ""
+                                    }
+
+                                </div>
+
+
+                                <p
+                                    class="featured-project-note"
+                                >
+                                    ${description}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    const image =
+                        card.querySelector(
+                            ".card-img"
+                        );
+
+
+                    if (image) {
+
+                        image.addEventListener(
+                            "error",
+                            () => {
+
+                                image.style.display =
+                                    "none";
+
+                                const wrapper =
+                                    image.closest(
+                                        ".card-img-wrapper"
+                                    );
+
+                                if (wrapper) {
+
+                                    wrapper.style.display =
+                                        "grid";
+
+                                    wrapper.style.placeItems =
+                                        "center";
+
+                                    wrapper.innerHTML += `
+
+                                        <span
+                                            style="
+                                                padding:20px;
+                                                color:var(--gold);
+                                                font-weight:700;
+                                            "
+                                        >
+                                            ${title}
+                                        </span>
+
+                                    `;
+
+                                }
+
+                            },
+                            {
+                                once: true
+                            }
+                        );
+
+                    }
+
+
+                    const inner =
+                        card.querySelector(
+                            ".card-inner"
+                        );
+
+
+                    inner.addEventListener(
+                        "click",
+                        () => {
+
+                            openProjectModal(
+                                project.id
+                            );
+
+                        }
+                    );
+
+
+                    inner.addEventListener(
+                        "keydown",
+                        event => {
+
+                            if (
+                                event.key ===
+                                    "Enter" ||
+                                event.key ===
+                                    " "
+                            ) {
+
+                                event.preventDefault();
+
+
+                                openProjectModal(
+                                    project.id
+                                );
+
+                            }
+
+                        }
+                    );
+
+
+                    projectGrid.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+
+
+            initializeReveals();
+
+        }
+
+
+
+        /* =========================================================
+           OPEN MODAL
+           ========================================================= */
+
+        function openProjectModal(
+            projectId
+        ) {
+
+            const project =
+                getProjects().find(
+                    item =>
+                        String(
+                            item.id
+                        ) ===
+                        String(
+                            projectId
+                        )
+                );
+
+
+            if (!project) {
+
+                return;
+
+            }
+
+
+            projectModalEyebrow.textContent =
+                project.type ===
+                "concept"
+                    ? "CONCEPT PROJECT"
+                    : "PROJECT";
+
+
+            projectModalTitle.textContent =
+                project.title ||
+                "";
+
+
+            projectModalDescription.textContent =
+                project.description ||
+                project.shortDescription ||
+                "";
+
+
+            projectModalImage.style.display =
+                "block";
+
+
+            projectModalImage.src =
+                project.cover ||
+                "";
+
+
+            projectModalImage.alt =
+                `${project.title || ""} — ${
+                    project.categoryLabel || ""
+                }`;
+
+
+            projectModalMeta.innerHTML =
+                "";
+
+
+            [
+                project.categoryLabel,
+                project.typeLabel
+            ]
+                .filter(Boolean)
+                .forEach(
+                    item => {
+
+                        const tag =
+                            document.createElement(
+                                "span"
+                            );
+
+
+                        tag.className =
+                            "project-modal-tag";
+
+
+                        tag.textContent =
+                            item;
+
+
+                        projectModalMeta.appendChild(
+                            tag
+                        );
+
+                    }
+                );
+
+
+            projectModalTools.innerHTML =
+                "";
+
+
+            const tools =
+                Array.isArray(
+                    project.tools
+                )
+                    ? project.tools
+                    : [];
+
+
+            tools.forEach(
+                tool => {
+
+                    const item =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    item.className =
+                        "project-modal-tool";
+
+
+                    item.textContent =
+                        tool;
+
+
+                    projectModalTools.appendChild(
+                        item
+                    );
+
+                }
+            );
+
+
+            projectModalToolsSection.style.display =
+                tools.length
+                    ? ""
+                    : "none";
+
+
+            projectModalServices.innerHTML =
+                "";
+
+
+            const services =
+                Array.isArray(
+                    project.services
+                )
+                    ? project.services
+                    : [];
+
+
+            services.forEach(
+                service => {
+
+                    const item =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    item.className =
+                        "project-modal-tool";
+
+
+                    item.textContent =
+                        service;
+
+
+                    projectModalServices.appendChild(
+                        item
+                    );
+
+                }
+            );
+
+
+            projectModalServicesSection.style.display =
+                services.length
+                    ? ""
+                    : "none";
+
+
+            projectModalImage.onerror =
+                () => {
+
+                    projectModalImage.style.display =
+                        "none";
+
+
+                    projectModalVisual.innerHTML = `
+
+                        <div
+                            style="
+                                color:#fff;
+                                padding:40px;
+                                text-align:center;
+                            "
+                        >
+
+                            <strong>
+                                ${escapeHtml(project.title)}
+                            </strong>
+
+                            <p
+                                style="
+                                    margin-top:8px;
+                                    color:rgba(255,255,255,.65);
+                                    font-size:.8rem;
+                                "
+                            >
+                                تصویر پروژه پیدا نشد.
+                            </p>
+
+                        </div>
+
+                    `;
+
+                };
+
+
+            projectModal.classList.add(
+                "is-open"
+            );
+
+
+            projectModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            document.body.classList.add(
+                "project-modal-open"
+            );
+
+
+            projectModalClose.focus();
+
+        }
+
+
+
+        /* =========================================================
+           CLOSE MODAL
+           ========================================================= */
+
+        function closeProjectModal() {
+
+            projectModal.classList.remove(
+                "is-open"
+            );
+
+
+            projectModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+
+            document.body.classList.remove(
+                "project-modal-open"
+            );
+
+
+            /*
+             * Restore the modal image container
+             * after a broken image fallback.
+             */
+
+            if (
+                !projectModalVisual.contains(
+                    projectModalImage
+                )
+            ) {
+
+                projectModalVisual.innerHTML =
+                    "";
+
+                projectModalVisual.appendChild(
+                    projectModalImage
+                );
+
+            }
+
+        }
+
+
+
+        /* =========================================================
+           MODAL EVENTS
+           ========================================================= */
+
+        projectModalClose.addEventListener(
+            "click",
+            closeProjectModal
+        );
+
+
+        projectModalSecondaryClose.addEventListener(
+            "click",
+            closeProjectModal
+        );
+
+
+        projectModal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target ===
+                    projectModal
+                ) {
+
+                    closeProjectModal();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key ===
+                        "Escape" &&
+                    projectModal.classList.contains(
+                        "is-open"
+                    )
+                ) {
+
+                    closeProjectModal();
+
+                }
+
+            }
+        );
+
+
+        projectModalFullImage.addEventListener(
+            "click",
+            () => {
+
+                const source =
+                    projectModalImage.src;
+
+
+                if (
+                    source
+                ) {
+
+                    window.open(
+                        source,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================================
+           THEME
+           ========================================================= */
+
+        function applyTheme(
+            theme
+        ) {
+
+            if (
+                theme === "dark"
+            ) {
+
+                document.documentElement
+                    .classList.add(
+                        "dark"
+                    );
+
+
+                if (
+                    themeToggle
+                ) {
+
+                    themeToggle.textContent =
+                        "☀";
+
+                }
+
+            } else {
+
+                document.documentElement
+                    .classList.remove(
+                        "dark"
+                    );
+
+
+                if (
+                    themeToggle
+                ) {
+
+                    themeToggle.textContent =
+                        "☾";
+
+                }
+
+            }
+
+        }
+
+
+        function initializeTheme() {
+
+            const saved =
+                localStorage.getItem(
+                    "portfolio-theme"
+                );
+
+
+            if (
+                saved === "dark"
+            ) {
+
+                applyTheme(
+                    "dark"
+                );
+
+                return;
+
+            }
+
+
+            if (
+                saved === "light"
+            ) {
+
+                applyTheme(
+                    "light"
+                );
+
+                return;
+
+            }
+
+
+            const systemDark =
+                window.matchMedia &&
+                window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
+
+
+            applyTheme(
+                systemDark
+                    ? "dark"
+                    : "light"
+            );
+
+        }
+
+
+        themeToggle?.addEventListener(
+            "click",
+            () => {
+
+                const current =
+                    document.documentElement
+                        .classList.contains(
+                            "dark"
+                        )
+                        ? "dark"
+                        : "light";
+
+
+                const next =
+                    current ===
+                        "dark"
+                        ? "light"
+                        : "dark";
+
+
+                localStorage.setItem(
+                    "portfolio-theme",
+                    next
+                );
+
+
+                applyTheme(
+                    next
+                );
+
+            }
+        );
+
+
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        function initializeHeader() {
+
+            if (!header) {
+
+                return;
+
+            }
+
+
+            const update =
+                () => {
+
+                    header.classList.toggle(
+                        "scrolled",
+                        window.scrollY > 30
+                    );
+
+                };
+
+
+            window.addEventListener(
+                "scroll",
+                update,
+                {
+                    passive: true
+                }
+            );
+
+
+            update();
+
+        }
+
+
+
+        /* =========================================================
+           SCROLL PROGRESS
+           ========================================================= */
+
+        function initializeScrollProgress() {
+
+            const bar =
+                document.getElementById(
+                    "scrollProgress"
+                );
+
+
+            if (!bar) {
+
+                return;
+
+            }
+
+
+            const update =
+                () => {
+
+                    const scrollTop =
+                        window.scrollY ||
+                        window.pageYOffset;
+
+
+                    const height =
+                        document.documentElement
+                            .scrollHeight -
+                        window.innerHeight;
+
+
+                    const progress =
+                        height > 0
+                            ? (
+                                scrollTop /
+                                height
+                            ) * 100
+                            : 0;
+
+
+                    bar.style.width =
+                        `${progress}%`;
+
+                };
+
+
+            window.addEventListener(
+                "scroll",
+                update,
+                {
+                    passive: true
+                }
+            );
+
+
+            update();
+
+        }
+
+
+
+        /* =========================================================
+           REVEAL ANIMATIONS
+           ========================================================= */
+
+        let revealObserver =
+            null;
+
+
+        function initializeReveals() {
+
+            const elements =
+                document.querySelectorAll(
+                    ".reveal, .glass-card"
+                );
+
+
+            if (
+                !elements.length
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                !("IntersectionObserver"
+                    in window)
+            ) {
+
+                elements.forEach(
+                    element => {
+
+                        element.classList.add(
+                            "revealed"
+                        );
+
+                    }
+                );
+
+                return;
+
+            }
+
+
+            if (
+                revealObserver
+            ) {
+
+                revealObserver.disconnect();
+
+            }
+
+
+            revealObserver =
+                new IntersectionObserver(
+                    entries => {
+
+                        entries.forEach(
+                            entry => {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    entry.target.classList.add(
+                                        "revealed"
+                                    );
+
+
+                                    revealObserver.unobserve(
+                                        entry.target
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    },
+                    {
+                        threshold:
+                            0.08,
+
+                        rootMargin:
+                            "0px 0px -40px 0px"
+                    }
+                );
+
+
+            elements.forEach(
+                element => {
+
+                    revealObserver.observe(
+                        element
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================================================
+           ACTIVE NAVIGATION
+           ========================================================= */
+
+        function initializeNavigation() {
+
+            const navLinks =
+                document.querySelectorAll(
+                    ".nav-link"
+                );
+
+
+            const sections =
+                document.querySelectorAll(
+                    "section[id]"
+                );
+
+
+            if (
+                !sections.length ||
+                !navLinks.length ||
+                !("IntersectionObserver"
+                    in window)
+            ) {
+
+                return;
+
+            }
+
+
+            const map =
+                new Map();
+
+
+            navLinks.forEach(
+                link => {
+
+                    const href =
+                        link.getAttribute(
+                            "href"
+                        );
+
+
+                    if (
+                        href &&
+                        href.startsWith("#")
+                    ) {
+
+                        map.set(
+                            href.substring(1),
+                            link
+                        );
+
+                    }
+
+                }
+            );
+
+
+            const observer =
+                new IntersectionObserver(
+                    entries => {
+
+                        entries.forEach(
+                            entry => {
+
+                                if (
+                                    !entry.isIntersecting
+                                ) {
+
+                                    return;
+
+                                }
+
+
+                                const link =
+                                    map.get(
+                                        entry.target.id
+                                    );
+
+
+                                if (!link) {
+
+                                    return;
+
+                                }
+
+
+                                map.forEach(
+                                    item => {
+
+                                        item.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+                                );
+
+
+                                link.classList.add(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+                    },
+                    {
+                        rootMargin:
+                            "-35% 0px -55% 0px",
+
+                        threshold: 0
+                    }
+                );
+
+
+            sections.forEach(
+                section => {
+
+                    observer.observe(
+                        section
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================================================
+           INITIALIZE
+           ========================================================= */
+
+        initializeTheme();
+
+        initializeHeader();
+
+        initializeScrollProgress();
+
+        renderFeaturedProjects();
+
+        initializeReveals();
+
+        initializeNavigation();
+
+    </script>
+
 </body>
+
 </html>
