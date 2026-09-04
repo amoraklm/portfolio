@@ -1323,22 +1323,27 @@
         }
 
 
-        .work-grid {
-            display:
-                grid;
+/* =====================================================
+   SELECTED WORK GRID
+   ===================================================== */
 
-            grid-template-columns:
-                repeat(
-                    12,
-                    minmax(
-                        0,
-                        1fr
-                    )
-                );
+.work-grid {
+    display:
+        grid;
 
-            gap:
-                18px;
-        }
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        18px;
+}
+
 
 
         .work-card {
@@ -1365,16 +1370,17 @@
         }
 
 
-        .work-card.large {
-            grid-column:
-                span 7;
-        }
+/* =====================================================
+   EQUAL WORK CARDS
+   ===================================================== */
 
+.work-card,
+.work-card.large,
+.work-card.small {
+    grid-column:
+        auto;
+}
 
-        .work-card.small {
-            grid-column:
-                span 5;
-        }
 
 
         .work-card:hover {
@@ -1448,10 +1454,34 @@
 }
 
 
-.work-card.small
 .work-image-wrap {
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
     aspect-ratio:
         4 / 3;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        10px;
+
+    background:
+        var(--surface-soft);
+
+    border-bottom:
+        1px solid
+        var(--border);
 }
 
 
