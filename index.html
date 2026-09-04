@@ -2666,163 +2666,213 @@
         }
 
 
-        /* =====================================================
-           MODAL
-           ===================================================== */
+/* =====================================================
+   PROJECT MODAL
+   ===================================================== */
 
-        .project-modal {
-            position:
-                fixed;
+.project-modal {
+    position:
+        fixed;
 
-            inset:
-                0;
+    inset:
+        0;
 
-            z-index:
-                3000;
+    z-index:
+        3000;
 
-            display:
-                flex;
+    display:
+        flex;
 
-            align-items:
-                center;
+    align-items:
+        center;
 
-            justify-content:
-                center;
+    justify-content:
+        center;
 
-            padding:
-                20px;
+    padding:
+        20px;
 
-            background:
-                rgba(
-                    12,
-                    12,
-                    11,
-                    0.84
-                );
+    background:
+        rgba(
+            12,
+            12,
+            11,
+            0.84
+        );
 
-            opacity:
-                0;
+    opacity:
+        0;
 
-            visibility:
-                hidden;
+    visibility:
+        hidden;
 
-            pointer-events:
-                none;
+    pointer-events:
+        none;
 
-            transition:
-                opacity 0.25s ease,
-                visibility 0.25s ease;
-        }
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
 
-
-        .project-modal.open {
-            opacity:
-                1;
-
-            visibility:
-                visible;
-
-            pointer-events:
-                auto;
-        }
+    overscroll-behavior:
+        contain;
+}
 
 
-        .modal-dialog {
-            position:
-                relative;
+.project-modal.open {
+    opacity:
+        1;
 
-            width:
-                min(
-                    1180px,
-                    100%
-                );
+    visibility:
+        visible;
 
-            max-height:
-                calc(
-                    100vh - 40px
-                );
-
-            display:
-                grid;
-
-            grid-template-columns:
-                minmax(
-                    0,
-                    1.55fr
-                )
-                minmax(
-                    300px,
-                    0.8fr
-                );
-
-            overflow:
-                hidden;
-
-            border-radius:
-                var(--radius-lg);
-
-            background:
-                var(--surface);
-
-            box-shadow:
-                var(--shadow-lg);
-
-            transform:
-                translateY(14px)
-                scale(0.985);
-
-            transition:
-                transform 0.28s ease;
-        }
+    pointer-events:
+        auto;
+}
 
 
-        .project-modal.open
-        .modal-dialog {
-            transform:
-                translateY(0)
-                scale(1);
-        }
+
+/* =====================================================
+   MODAL DIALOG
+   ===================================================== */
+
+.modal-dialog {
+    position:
+        relative;
+
+    width:
+        min(
+            1180px,
+            100%
+        );
+
+    max-height:
+        calc(
+            100vh - 40px
+        );
+
+    display:
+        grid;
+
+    /*
+     * ستون تصویر تا حد امکان بر اساس
+     * اندازه واقعی Artwork شکل می‌گیرد.
+     */
+    grid-template-columns:
+        minmax(
+            0,
+            max-content
+        )
+        minmax(
+            300px,
+            0.8fr
+        );
+
+    align-items:
+        stretch;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        var(--surface);
+
+    box-shadow:
+        var(--shadow-lg);
+
+    transform:
+        translateY(14px)
+        scale(0.985);
+
+    transition:
+        transform 0.28s ease;
+}
 
 
-        .modal-visual {
-            min-width:
-                0;
-
-            min-height:
-                0;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            overflow:
-                auto;
-
-            background:
-                #0F0F0D;
-        }
+.project-modal.open
+.modal-dialog {
+    transform:
+        translateY(0)
+        scale(1);
+}
 
 
-        .modal-visual img {
-            width:
-                100%;
 
-            height:
-                auto;
+/* =====================================================
+   MODAL VISUAL
+   ===================================================== */
 
-            max-height:
-                calc(
-                    100vh - 40px
-                );
+.modal-visual {
+    min-width:
+        0;
 
-            object-fit:
-                contain;
-        }
+    min-height:
+        0;
+
+    width:
+        fit-content;
+
+    max-width:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--surface-soft);
+
+    border-left:
+        1px solid
+        var(--border);
+}
+
+
+.modal-visual img {
+    display:
+        block;
+
+    width:
+        auto;
+
+    height:
+        auto;
+
+    max-width:
+        100%;
+
+    max-height:
+        calc(
+            100vh - 40px
+        );
+
+    object-fit:
+        contain;
+
+    object-position:
+        center;
+
+    background:
+        #0F0F0D;
+
+    transition:
+        opacity 0.2s ease;
+}
+
 
 
         .modal-info {
