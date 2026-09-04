@@ -45,7 +45,7 @@ const PROJECTS = [
             "NOVA یک کانسپت کمپین تبلیغاتی برای یک برند فشن فرضی است. تمرکز پروژه روی ایجاد یک زبان تصویری مینیمال، کنترل‌شده و مناسب تبلیغات مدرن بوده است.",
 
         cover:
-            "images/NOVA_AW2026_V2.webp",
+            "images/001.webp",
 
         tools: [
             "Photoshop",
@@ -87,7 +87,7 @@ const PROJECTS = [
             "VANTA یک کانسپت کمپین تبلیغاتی برای یک هدفون بی‌سیم پریمیوم است. طراحی بر نمایش محصول، کنترل نور و ایجاد حس تکنولوژیک و لوکس تمرکز دارد.",
 
         cover:
-            "images/projects/vanta/cover.webp",
+            "images/002.webp",
 
         tools: [
             "Photoshop",
@@ -129,7 +129,7 @@ const PROJECTS = [
             "ROAST یک کانسپت تبلیغاتی برای یک برند غذایی فرضی است که تلاش می‌کند از طریق تصویرسازی محصول، کنتراست، نور و ترکیب‌بندی، توجه مخاطب را جلب کند.",
 
         cover:
-            "images/projects/roast/cover.webp",
+            "images/003.webp",
 
         tools: [
             "Photoshop",
@@ -171,7 +171,7 @@ const PROJECTS = [
             "NEXA یک کانسپت برای معرفی یک محصول مالی دیجیتال است. هدف اصلی پروژه ایجاد ارتباط میان تکنولوژی، سادگی استفاده و حس اعتماد در یک سیستم بصری یکپارچه بوده است.",
 
         cover:
-            "images/projects/nexa/cover.webp",
+            "images/004.webp",
 
         tools: [
             "Photoshop",
