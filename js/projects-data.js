@@ -45,7 +45,7 @@ const PROJECTS = [
             "NOVA یک کانسپت کمپین تبلیغاتی برای یک برند فشن فرضی است. تمرکز پروژه روی ایجاد یک زبان تصویری مینیمال، کنترل‌شده و مناسب تبلیغات مدرن بوده است.",
 
         cover:
-            "images/NOVA_AW2026_V2.png",
+            "images/NOVA_AW2026_V2.webp",
 
         tools: [
             "Photoshop",
@@ -214,7 +214,7 @@ const PROJECTS = [
             "NOIR یک کانسپت کمپین برای یک محصول Cold Brew است که بر ایجاد شخصیت بصری متمایز، فضای تیره و تمرکز حداکثری روی محصول تأکید دارد.",
 
         cover:
-            "images/005.png",
+            "images/005.webp",
 
         tools: [
             "Photoshop",
