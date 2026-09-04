@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -8,7 +10,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>پروژه‌ها | علی ترکمن</title>
+    <title>
+        پروژه‌ها | علی ترکمن
+    </title>
 
     <meta
         name="description"
@@ -34,6 +38,7 @@
         rel="canonical"
         href="https://amoraklm.github.io/portfolio/projects.html"
     >
+
 
     <!-- =========================================================
          OPEN GRAPH
@@ -68,6 +73,7 @@
         property="og:url"
         content="https://amoraklm.github.io/portfolio/projects.html"
     >
+
 
     <!-- =========================================================
          FONTS
@@ -104,6 +110,8 @@
 
             --surface-soft: #F4F2ED;
 
+            --surface-soft-2: #ECE9E2;
+
             --text: #181818;
 
             --text-secondary: #66645F;
@@ -121,6 +129,9 @@
 
             --border-strong: #D9D2C7;
 
+            --overlay:
+                rgba(16, 16, 14, 0.82);
+
             --shadow-sm:
                 0 1px 3px rgba(20, 20, 20, 0.04);
 
@@ -128,7 +139,7 @@
                 0 8px 24px rgba(20, 20, 20, 0.06);
 
             --shadow-lg:
-                0 18px 50px rgba(20, 20, 20, 0.08);
+                0 18px 60px rgba(20, 20, 20, 0.12);
 
             --radius-sm: 8px;
 
@@ -173,6 +184,8 @@
 
             --surface-soft: #22221E;
 
+            --surface-soft-2: #2A2924;
+
             --text: #F0EFEB;
 
             --text-secondary: #B0AEA7;
@@ -189,6 +202,9 @@
             --border: #2D2C28;
 
             --border-strong: #3A3934;
+
+            --overlay:
+                rgba(0, 0, 0, 0.88);
 
             --shadow-sm:
                 0 1px 3px rgba(0, 0, 0, 0.22);
@@ -209,33 +225,44 @@
         *::before,
         *::after {
             box-sizing: border-box;
+
             margin: 0;
+
             padding: 0;
         }
 
 
         html {
+
             scroll-behavior: smooth;
+
             -webkit-text-size-adjust: 100%;
         }
 
 
         body {
+
             min-height: 100vh;
 
             overflow-x: hidden;
 
-            background: var(--bg);
+            background:
+                var(--bg);
 
-            color: var(--text);
+            color:
+                var(--text);
 
-            font-family: var(--font-fa);
+            font-family:
+                var(--font-fa);
 
-            line-height: 1.8;
+            line-height:
+                1.8;
 
-            -webkit-font-smoothing: antialiased;
+            -webkit-font-smoothing:
+                antialiased;
 
-            text-rendering: optimizeLegibility;
+            text-rendering:
+                optimizeLegibility;
 
             transition:
                 background-color 0.25s ease,
@@ -243,78 +270,108 @@
         }
 
 
+        body.modal-open {
+
+            overflow: hidden;
+        }
+
+
         a {
-            color: inherit;
-            text-decoration: none;
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
         }
 
 
         button,
         input,
         select {
+
             font: inherit;
         }
 
 
         button {
-            border: 0;
+
+            border:
+                0;
         }
 
 
         img {
-            display: block;
 
-            width: 100%;
+            display:
+                block;
 
-            max-width: 100%;
+            max-width:
+                100%;
         }
 
 
         ::selection {
-            background: var(--accent);
-            color: #FFFFFF;
+
+            background:
+                var(--accent);
+
+            color:
+                #FFFFFF;
         }
 
 
         :focus-visible {
-            outline: none;
 
-            box-shadow: var(--focus-ring);
+            outline:
+                none;
+
+            box-shadow:
+                var(--focus-ring);
         }
 
 
         .container {
+
             width:
                 min(
-                    100% - 48px,
+                    calc(100% - 48px),
                     var(--container)
                 );
 
-            margin-inline: auto;
+            margin-inline:
+                auto;
         }
 
 
         .sr-only {
-            position: absolute;
 
-            width: 1px;
-            height: 1px;
+            position:
+                absolute;
 
-            padding: 0;
-            margin: -1px;
+            width:
+                1px;
 
-            overflow: hidden;
+            height:
+                1px;
 
-            clip: rect(
-                0,
-                0,
-                0,
-                0
-            );
+            padding:
+                0;
 
-            white-space: nowrap;
+            margin:
+                -1px;
 
-            border: 0;
+            overflow:
+                hidden;
+
+            clip:
+                rect(0, 0, 0, 0);
+
+            white-space:
+                nowrap;
+
+            border:
+                0;
         }
 
 
@@ -324,13 +381,17 @@
 
         .site-header {
 
-            position: sticky;
+            position:
+                sticky;
 
-            top: 0;
+            top:
+                0;
 
-            z-index: 1000;
+            z-index:
+                1000;
 
-            height: var(--header-height);
+            height:
+                var(--header-height);
 
             background:
                 color-mix(
@@ -352,90 +413,121 @@
 
         .site-header-inner {
 
-            height: 100%;
+            height:
+                100%;
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
-            gap: 28px;
+            gap:
+                28px;
         }
 
 
         .brand {
 
-            display: inline-flex;
+            display:
+                inline-flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 10px;
+            gap:
+                10px;
 
-            flex-shrink: 0;
+            flex-shrink:
+                0;
 
-            font-weight: 800;
+            font-weight:
+                800;
         }
 
 
         .brand-mark {
 
-            width: 38px;
-            height: 38px;
+            width:
+                38px;
 
-            display: grid;
+            height:
+                38px;
 
-            place-items: center;
+            display:
+                grid;
 
-            border-radius: 10px;
+            place-items:
+                center;
 
-            background: var(--text);
+            border-radius:
+                10px;
 
-            color: var(--accent);
+            background:
+                var(--text);
 
-            font-family: var(--font-en);
+            color:
+                var(--accent);
 
-            font-size: 0.78rem;
+            font-family:
+                var(--font-en);
 
-            font-weight: 700;
+            font-size:
+                0.78rem;
 
-            letter-spacing: -0.04em;
+            font-weight:
+                700;
+
+            letter-spacing:
+                -0.04em;
         }
 
 
         .brand-name {
 
-            font-size: 1rem;
+            font-size:
+                1rem;
 
-            font-weight: 700;
+            font-weight:
+                700;
         }
 
 
         .main-nav {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 4px;
+            gap:
+                4px;
         }
 
 
         .main-nav a {
 
-            position: relative;
+            position:
+                relative;
 
             padding:
                 9px 13px;
 
-            border-radius: 8px;
+            border-radius:
+                8px;
 
             color:
                 var(--text-secondary);
 
-            font-size: 0.86rem;
+            font-size:
+                0.86rem;
 
-            font-weight: 500;
+            font-weight:
+                500;
 
             transition:
                 color var(--transition),
@@ -446,30 +538,39 @@
         .main-nav a:hover,
         .main-nav a.active {
 
-            color: var(--text);
+            color:
+                var(--text);
 
-            background: var(--surface-soft);
+            background:
+                var(--surface-soft);
         }
 
 
         .main-nav a.active::after {
 
-            content: "";
+            content:
+                "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            right: 50%;
+            right:
+                50%;
 
-            bottom: 2px;
+            bottom:
+                2px;
 
-            width: 18px;
+            width:
+                18px;
 
-            height: 2px;
+            height:
+                2px;
 
             transform:
                 translateX(50%);
 
-            border-radius: 999px;
+            border-radius:
+                999px;
 
             background:
                 var(--accent);
@@ -478,34 +579,45 @@
 
         .header-actions {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 9px;
+            gap:
+                9px;
         }
 
 
         .icon-btn {
 
-            width: 40px;
-            height: 40px;
+            width:
+                40px;
 
-            display: grid;
+            height:
+                40px;
 
-            place-items: center;
+            display:
+                grid;
+
+            place-items:
+                center;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
-            background: transparent;
+            background:
+                transparent;
 
             color:
                 var(--text-secondary);
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             transition:
                 border-color var(--transition),
@@ -522,32 +634,42 @@
             background:
                 var(--surface-soft);
 
-            color: var(--text);
+            color:
+                var(--text);
         }
 
 
         .cv-btn {
 
-            min-height: 40px;
+            min-height:
+                40px;
 
-            display: inline-flex;
+            display:
+                inline-flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
             padding:
                 8px 15px;
 
-            border-radius: 8px;
+            border-radius:
+                8px;
 
-            background: var(--text);
+            background:
+                var(--text);
 
-            color: var(--bg);
+            color:
+                var(--bg);
 
-            font-size: 0.82rem;
+            font-size:
+                0.82rem;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
             transition:
                 background-color var(--transition),
@@ -563,42 +685,58 @@
             background:
                 var(--accent);
 
-            color: #FFFFFF;
+            color:
+                #FFFFFF;
         }
 
 
         .menu-btn {
 
-            display: none;
+            display:
+                none;
 
-            width: 40px;
-            height: 40px;
+            width:
+                40px;
 
-            align-items: center;
+            height:
+                40px;
 
-            justify-content: center;
+            align-items:
+                center;
 
-            flex-direction: column;
+            justify-content:
+                center;
 
-            gap: 5px;
+            flex-direction:
+                column;
 
-            border-radius: 8px;
+            gap:
+                5px;
 
-            background: transparent;
+            border-radius:
+                8px;
 
-            cursor: pointer;
+            background:
+                transparent;
+
+            cursor:
+                pointer;
         }
 
 
         .menu-btn span {
 
-            width: 21px;
+            width:
+                21px;
 
-            height: 2px;
+            height:
+                2px;
 
-            border-radius: 2px;
+            border-radius:
+                2px;
 
-            background: var(--text);
+            background:
+                var(--text);
 
             transition:
                 transform var(--transition),
@@ -616,7 +754,8 @@
 
         .menu-btn.open span:nth-child(2) {
 
-            opacity: 0;
+            opacity:
+                0;
         }
 
 
@@ -635,28 +774,36 @@
         .page-intro {
 
             padding:
-                82px 0 44px;
+                82px 0 42px;
         }
 
 
         .page-intro-inner {
 
-            max-width: 850px;
+            max-width:
+                850px;
         }
 
 
         .eyebrow {
 
-            margin-bottom: 8px;
+            margin-bottom:
+                8px;
 
             color:
                 var(--accent-dark);
 
-            font-size: 0.72rem;
+            font-family:
+                var(--font-en);
 
-            font-weight: 700;
+            font-size:
+                0.72rem;
 
-            letter-spacing: 0.12em;
+            font-weight:
+                700;
+
+            letter-spacing:
+                0.12em;
         }
 
 
@@ -669,27 +816,33 @@
                     4rem
                 );
 
-            line-height: 1.2;
+            line-height:
+                1.2;
 
             letter-spacing:
                 -0.045em;
 
-            font-weight: 800;
+            font-weight:
+                800;
         }
 
 
         .page-description {
 
-            max-width: 700px;
+            max-width:
+                700px;
 
-            margin-top: 12px;
+            margin-top:
+                12px;
 
             color:
                 var(--text-secondary);
 
-            font-size: 0.98rem;
+            font-size:
+                0.98rem;
 
-            line-height: 2;
+            line-height:
+                2;
         }
 
 
@@ -699,36 +852,43 @@
 
         .portfolio-toolbar {
 
-            padding-bottom: 30px;
+            padding-bottom:
+                30px;
         }
 
 
         .toolbar {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 minmax(0, 1fr)
                 auto
                 auto;
 
-            gap: 12px;
+            gap:
+                12px;
 
-            align-items: center;
+            align-items:
+                center;
         }
 
 
         .search-box {
 
-            position: relative;
+            position:
+                relative;
         }
 
 
         .search-box input {
 
-            width: 100%;
+            width:
+                100%;
 
-            height: 44px;
+            height:
+                44px;
 
             padding:
                 0 42px 0 14px;
@@ -736,7 +896,8 @@
             border:
                 1px solid var(--border);
 
-            border-radius: 9px;
+            border-radius:
+                9px;
 
             background:
                 var(--surface);
@@ -744,13 +905,22 @@
             color:
                 var(--text);
 
-            font-size: 0.84rem;
+            font-size:
+                0.84rem;
 
-            outline: none;
+            outline:
+                none;
 
             transition:
                 border-color var(--transition),
                 box-shadow var(--transition);
+        }
+
+
+        .search-box input::placeholder {
+
+            color:
+                var(--text-muted);
         }
 
 
@@ -766,11 +936,14 @@
 
         .search-icon {
 
-            position: absolute;
+            position:
+                absolute;
 
-            top: 50%;
+            top:
+                50%;
 
-            right: 15px;
+            right:
+                15px;
 
             transform:
                 translateY(-50%);
@@ -778,28 +951,34 @@
             color:
                 var(--text-muted);
 
-            pointer-events: none;
-
             font-family:
                 var(--font-en);
 
-            font-size: 1.1rem;
+            font-size:
+                1.1rem;
+
+            pointer-events:
+                none;
         }
 
 
         .filter-group {
 
-            display: flex;
+            display:
+                flex;
 
-            flex-wrap: wrap;
+            flex-wrap:
+                wrap;
 
-            gap: 6px;
+            gap:
+                6px;
         }
 
 
         .filter-btn {
 
-            height: 44px;
+            height:
+                44px;
 
             padding:
                 0 13px;
@@ -807,7 +986,8 @@
             border:
                 1px solid var(--border);
 
-            border-radius: 9px;
+            border-radius:
+                9px;
 
             background:
                 var(--surface);
@@ -815,13 +995,17 @@
             color:
                 var(--text-secondary);
 
-            font-size: 0.78rem;
+            font-size:
+                0.78rem;
 
-            font-weight: 500;
+            font-weight:
+                500;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
-            white-space: nowrap;
+            white-space:
+                nowrap;
 
             transition:
                 background-color var(--transition),
@@ -835,7 +1019,8 @@
             border-color:
                 var(--accent);
 
-            color: var(--text);
+            color:
+                var(--text);
         }
 
 
@@ -850,7 +1035,8 @@
             color:
                 var(--bg);
 
-            font-weight: 600;
+            font-weight:
+                600;
         }
 
 
@@ -870,9 +1056,11 @@
 
         .sort-select {
 
-            height: 44px;
+            min-width:
+                170px;
 
-            min-width: 170px;
+            height:
+                44px;
 
             padding:
                 0 13px;
@@ -880,7 +1068,8 @@
             border:
                 1px solid var(--border);
 
-            border-radius: 9px;
+            border-radius:
+                9px;
 
             background:
                 var(--surface);
@@ -888,46 +1077,57 @@
             color:
                 var(--text);
 
-            font-size: 0.78rem;
+            font-size:
+                0.78rem;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
-            outline: none;
+            outline:
+                none;
         }
 
 
         .toolbar-status {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
-            gap: 12px;
+            gap:
+                12px;
 
-            margin-top: 14px;
+            margin-top:
+                14px;
 
             color:
                 var(--text-muted);
 
-            font-size: 0.76rem;
+            font-size:
+                0.76rem;
         }
 
 
         /* =========================================================
-           PROJECT GRID
+           PROJECTS GRID
            ========================================================= */
 
         .projects-section {
 
-            padding-bottom: 95px;
+            padding-bottom:
+                95px;
         }
 
 
         .projects-grid {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(
@@ -935,15 +1135,18 @@
                     minmax(0, 1fr)
                 );
 
-            gap: 20px;
+            gap:
+                20px;
         }
 
 
         .project-card {
 
-            min-width: 0;
+            min-width:
+                0;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
             border:
                 1px solid var(--border);
@@ -974,21 +1177,57 @@
         }
 
 
-        .project-link {
+        .project-card:focus-within {
 
-            display: block;
+            border-color:
+                var(--accent);
 
-            height: 100%;
+            box-shadow:
+                var(--focus-ring);
+        }
+
+
+        .project-open-btn {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            display:
+                block;
+
+            padding:
+                0;
+
+            border:
+                0;
+
+            background:
+                transparent;
+
+            color:
+                inherit;
+
+            text-align:
+                right;
+
+            cursor:
+                pointer;
         }
 
 
         .project-image-wrap {
 
-            position: relative;
+            position:
+                relative;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
-            aspect-ratio: 4 / 3;
+            aspect-ratio:
+                4 / 3;
 
             background:
                 var(--surface-soft);
@@ -997,10 +1236,14 @@
 
         .project-image {
 
-            width: 100%;
-            height: 100%;
+            width:
+                100%;
 
-            object-fit: cover;
+            height:
+                100%;
+
+            object-fit:
+                cover;
 
             transition:
                 transform 0.5s ease;
@@ -1017,14 +1260,20 @@
 
         .project-fallback {
 
-            width: 100%;
-            height: 100%;
+            width:
+                100%;
 
-            display: grid;
+            height:
+                100%;
 
-            place-items: center;
+            display:
+                grid;
 
-            padding: 20px;
+            place-items:
+                center;
+
+            padding:
+                20px;
 
             background:
                 linear-gradient(
@@ -1039,47 +1288,63 @@
             font-family:
                 var(--font-en);
 
-            font-size: 1.7rem;
+            font-size:
+                1.7rem;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
-            letter-spacing: -0.04em;
+            letter-spacing:
+                -0.04em;
 
-            text-align: center;
+            text-align:
+                center;
         }
 
 
         .project-badges {
 
-            position: absolute;
+            position:
+                absolute;
 
-            top: 12px;
+            top:
+                12px;
 
-            right: 12px;
+            right:
+                12px;
 
-            display: flex;
+            display:
+                flex;
 
-            flex-wrap: wrap;
+            flex-wrap:
+                wrap;
 
-            gap: 6px;
+            gap:
+                6px;
 
             max-width:
-                calc(100% - 24px);
+                calc(
+                    100% - 24px
+                );
+
+            pointer-events:
+                none;
         }
 
 
         .badge {
 
-            display: inline-flex;
+            display:
+                inline-flex;
 
-            align-items: center;
-
-            max-width: 100%;
+            align-items:
+                center;
 
             padding:
                 4px 9px;
 
-            border-radius: 6px;
+            border-radius:
+                6px;
 
             background:
                 rgba(
@@ -1089,13 +1354,17 @@
                     0.76
                 );
 
-            color: #FFFFFF;
+            color:
+                #FFFFFF;
 
-            font-size: 0.65rem;
+            font-size:
+                0.65rem;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
-            line-height: 1.4;
+            line-height:
+                1.4;
 
             backdrop-filter:
                 blur(8px);
@@ -1114,30 +1383,37 @@
 
         .project-title-row {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: flex-start;
+            align-items:
+                flex-start;
 
             justify-content:
                 space-between;
 
-            gap: 12px;
+            gap:
+                12px;
         }
 
 
         .project-title {
 
-            font-size: 1.05rem;
+            font-size:
+                1.05rem;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
-            line-height: 1.5;
+            line-height:
+                1.5;
         }
 
 
         .project-year {
 
-            flex-shrink: 0;
+            flex-shrink:
+                0;
 
             color:
                 var(--text-muted);
@@ -1145,45 +1421,56 @@
             font-family:
                 var(--font-en);
 
-            font-size: 0.68rem;
+            font-size:
+                0.68rem;
         }
 
 
         .project-type {
 
-            margin-top: 3px;
+            margin-top:
+                3px;
 
             color:
                 var(--accent-dark);
 
-            font-size: 0.75rem;
+            font-size:
+                0.75rem;
 
-            font-weight: 600;
+            font-weight:
+                600;
         }
 
 
         .project-description {
 
-            margin-top: 7px;
+            margin-top:
+                7px;
 
             color:
                 var(--text-secondary);
 
-            font-size: 0.8rem;
+            font-size:
+                0.8rem;
 
-            line-height: 1.85;
+            line-height:
+                1.85;
         }
 
 
         .project-tools {
 
-            display: flex;
+            display:
+                flex;
 
-            flex-wrap: wrap;
+            flex-wrap:
+                wrap;
 
-            gap: 6px;
+            gap:
+                6px;
 
-            margin-top: 12px;
+            margin-top:
+                12px;
         }
 
 
@@ -1195,7 +1482,8 @@
             border:
                 1px solid var(--border);
 
-            border-radius: 5px;
+            border-radius:
+                5px;
 
             background:
                 var(--surface-soft);
@@ -1206,7 +1494,8 @@
             font-family:
                 var(--font-en);
 
-            font-size: 0.63rem;
+            font-size:
+                0.63rem;
         }
 
 
@@ -1216,7 +1505,8 @@
 
         .empty-state {
 
-            display: none;
+            display:
+                none;
 
             padding:
                 75px 20px;
@@ -1228,19 +1518,22 @@
             border-radius:
                 var(--radius-md);
 
-            text-align: center;
+            text-align:
+                center;
         }
 
 
         .empty-state.visible {
 
-            display: block;
+            display:
+                block;
         }
 
 
         .empty-icon {
 
-            margin-bottom: 10px;
+            margin-bottom:
+                10px;
 
             color:
                 var(--accent);
@@ -1248,41 +1541,50 @@
             font-family:
                 var(--font-en);
 
-            font-size: 2rem;
+            font-size:
+                2rem;
 
-            font-weight: 700;
+            font-weight:
+                700;
         }
 
 
-        .empty-state h3 {
+        .empty-state h2 {
 
-            font-size: 1rem;
+            font-size:
+                1rem;
 
-            font-weight: 700;
+            font-weight:
+                700;
         }
 
 
         .empty-state p {
 
-            margin-top: 5px;
+            margin-top:
+                5px;
 
             color:
                 var(--text-secondary);
 
-            font-size: 0.8rem;
+            font-size:
+                0.8rem;
         }
 
 
         .reset-search-btn {
 
-            margin-top: 16px;
+            margin-top:
+                16px;
 
-            min-height: 42px;
+            min-height:
+                42px;
 
             padding:
                 8px 15px;
 
-            border-radius: 8px;
+            border-radius:
+                8px;
 
             background:
                 var(--text);
@@ -1290,11 +1592,14 @@
             color:
                 var(--bg);
 
-            font-size: 0.77rem;
+            font-size:
+                0.77rem;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             transition:
                 background-color var(--transition);
@@ -1317,39 +1622,51 @@
 
         .pagination {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            flex-wrap: wrap;
+            flex-wrap:
+                wrap;
 
-            gap: 6px;
+            gap:
+                6px;
 
-            margin-top: 38px;
+            margin-top:
+                38px;
         }
 
 
         .page-btn {
 
-            min-width: 40px;
+            min-width:
+                40px;
 
-            height: 40px;
+            height:
+                40px;
 
             padding:
                 0 10px;
 
-            display: inline-flex;
+            display:
+                inline-flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 8px;
+            border-radius:
+                8px;
 
             background:
                 var(--surface);
@@ -1357,11 +1674,14 @@
             color:
                 var(--text-secondary);
 
-            font-size: 0.75rem;
+            font-size:
+                0.75rem;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             transition:
                 color var(--transition),
@@ -1409,9 +1729,11 @@
 
         .page-btn:disabled {
 
-            opacity: 0.4;
+            opacity:
+                0.4;
 
-            cursor: not-allowed;
+            cursor:
+                not-allowed;
         }
 
 
@@ -1420,7 +1742,697 @@
             font-family:
                 var(--font-en);
 
-            font-size: 0.95rem;
+            font-size:
+                0.95rem;
+        }
+
+
+        /* =========================================================
+           MODAL
+           ========================================================= */
+
+        .modal {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                2000;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                24px;
+
+            background:
+                var(--overlay);
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            pointer-events:
+                none;
+
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease;
+        }
+
+
+        .modal.is-open {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+            pointer-events:
+                auto;
+        }
+
+
+        .modal-dialog {
+
+            position:
+                relative;
+
+            width:
+                min(
+                    1180px,
+                    100%
+                );
+
+            max-height:
+                calc(
+                    100vh - 48px
+                );
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1.55fr)
+                minmax(300px, 0.8fr);
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius-lg);
+
+            background:
+                var(--surface);
+
+            box-shadow:
+                var(--shadow-lg);
+
+            transform:
+                translateY(12px)
+                scale(0.985);
+
+            transition:
+                transform 0.28s ease;
+        }
+
+
+        .modal.is-open
+        .modal-dialog {
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+
+        .modal-visual {
+
+            min-width:
+                0;
+
+            min-height:
+                0;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                auto;
+
+            background:
+                #0F0F0D;
+
+            scrollbar-width:
+                thin;
+        }
+
+
+        .modal-visual img {
+
+            width:
+                100%;
+
+            max-width:
+                100%;
+
+            height:
+                auto;
+
+            max-height:
+                calc(
+                    100vh - 48px
+                );
+
+            object-fit:
+                contain;
+        }
+
+
+        .modal-info {
+
+            min-width:
+                0;
+
+            overflow:
+                auto;
+
+            padding:
+                34px 30px 30px;
+
+            background:
+                var(--surface);
+
+            scrollbar-width:
+                thin;
+        }
+
+
+        .modal-close {
+
+            position:
+                absolute;
+
+            top:
+                14px;
+
+            left:
+                14px;
+
+            z-index:
+                5;
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.15
+                );
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(
+                    18,
+                    18,
+                    16,
+                    0.74
+                );
+
+            color:
+                #FFFFFF;
+
+            font-family:
+                var(--font-en);
+
+            font-size:
+                1.25rem;
+
+            line-height:
+                1;
+
+            cursor:
+                pointer;
+
+            backdrop-filter:
+                blur(10px);
+
+            -webkit-backdrop-filter:
+                blur(10px);
+
+            transition:
+                background-color var(--transition),
+                transform var(--transition);
+        }
+
+
+        .modal-close:hover {
+
+            transform:
+                rotate(90deg);
+
+            background:
+                rgba(
+                    18,
+                    18,
+                    16,
+                    0.92
+                );
+        }
+
+
+        .modal-eyebrow {
+
+            margin-bottom:
+                8px;
+
+            color:
+                var(--accent-dark);
+
+            font-family:
+                var(--font-en);
+
+            font-size:
+                0.68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                0.12em;
+        }
+
+
+        .modal-title-row {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            justify-content:
+                space-between;
+
+            gap:
+                16px;
+        }
+
+
+        .modal-title {
+
+            font-size:
+                clamp(
+                    1.7rem,
+                    3vw,
+                    2.5rem
+                );
+
+            line-height:
+                1.25;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                -0.035em;
+        }
+
+
+        .modal-year {
+
+            flex-shrink:
+                0;
+
+            color:
+                var(--text-muted);
+
+            font-family:
+                var(--font-en);
+
+            font-size:
+                0.72rem;
+
+            padding-top:
+                7px;
+        }
+
+
+        .modal-meta {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                7px;
+
+            margin-top:
+                14px;
+        }
+
+
+        .modal-meta-tag {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            min-height:
+                31px;
+
+            padding:
+                4px 10px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                7px;
+
+            background:
+                var(--surface-soft);
+
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                600;
+        }
+
+
+        .modal-description {
+
+            margin-top:
+                22px;
+
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.84rem;
+
+            line-height:
+                2;
+        }
+
+
+        .modal-section {
+
+            margin-top:
+                25px;
+
+            padding-top:
+                20px;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .modal-section-title {
+
+            margin-bottom:
+                10px;
+
+            font-size:
+                0.8rem;
+
+            font-weight:
+                800;
+        }
+
+
+        .modal-tools {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                7px;
+        }
+
+
+        .modal-tool {
+
+            padding:
+                5px 9px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                6px;
+
+            background:
+                var(--surface-soft);
+
+            color:
+                var(--text-secondary);
+
+            font-family:
+                var(--font-en);
+
+            font-size:
+                0.66rem;
+        }
+
+
+        .modal-services {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                7px;
+
+            padding:
+                0;
+
+            list-style:
+                none;
+        }
+
+
+        .modal-services li {
+
+            position:
+                relative;
+
+            padding-right:
+                18px;
+
+            color:
+                var(--text-secondary);
+
+            font-size:
+                0.76rem;
+        }
+
+
+        .modal-services li::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            top:
+                0.8em;
+
+            right:
+                0;
+
+            width:
+                6px;
+
+            height:
+                6px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--accent);
+        }
+
+
+        .modal-actions {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                9px;
+
+            margin-top:
+                28px;
+        }
+
+
+        .modal-action {
+
+            min-height:
+                42px;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                8px 14px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                8px;
+
+            background:
+                var(--surface);
+
+            color:
+                var(--text);
+
+            font-size:
+                0.74rem;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            transition:
+                background-color var(--transition),
+                border-color var(--transition),
+                color var(--transition);
+        }
+
+
+        .modal-action:hover {
+
+            border-color:
+                var(--accent);
+
+            background:
+                var(--surface-soft);
+
+        }
+
+
+        .modal-action.primary {
+
+            border-color:
+                var(--text);
+
+            background:
+                var(--text);
+
+            color:
+                var(--bg);
+        }
+
+
+        .modal-action.primary:hover {
+
+            border-color:
+                var(--accent);
+
+            background:
+                var(--accent);
+
+            color:
+                #FFFFFF;
+        }
+
+
+        /* =========================================================
+           MODAL IMAGE ERROR
+           ========================================================= */
+
+        .modal-image-fallback {
+
+            padding:
+                40px;
+
+            color:
+                #FFFFFF;
+
+            text-align:
+                center;
+        }
+
+
+        .modal-image-fallback strong {
+
+            display:
+                block;
+
+            font-family:
+                var(--font-en);
+
+            font-size:
+                1.5rem;
+        }
+
+
+        .modal-image-fallback span {
+
+            display:
+                block;
+
+            margin-top:
+                7px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.66
+                );
+
+            font-size:
+                0.75rem;
         }
 
 
@@ -1440,16 +2452,20 @@
 
         .footer-inner {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
             justify-content:
                 space-between;
 
-            flex-wrap: wrap;
+            flex-wrap:
+                wrap;
 
-            gap: 18px;
+            gap:
+                18px;
         }
 
 
@@ -1458,17 +2474,21 @@
             color:
                 var(--text-muted);
 
-            font-size: 0.72rem;
+            font-size:
+                0.72rem;
         }
 
 
         .footer-links {
 
-            display: flex;
+            display:
+                flex;
 
-            flex-wrap: wrap;
+            flex-wrap:
+                wrap;
 
-            gap: 15px;
+            gap:
+                15px;
         }
 
 
@@ -1477,7 +2497,8 @@
             color:
                 var(--text-secondary);
 
-            font-size: 0.74rem;
+            font-size:
+                0.74rem;
         }
 
 
@@ -1498,22 +2519,25 @@
 
                 grid-template-columns:
                     1fr;
-
             }
+
 
             .filter-group {
 
-                order: 2;
-
+                order:
+                    2;
             }
+
 
             .sort-select {
 
-                width: 100%;
+                width:
+                    100%;
 
-                order: 3;
-
+                order:
+                    3;
             }
+
 
             .projects-grid {
 
@@ -1522,7 +2546,14 @@
                         2,
                         minmax(0, 1fr)
                     );
+            }
 
+
+            .modal-dialog {
+
+                grid-template-columns:
+                    minmax(0, 1.3fr)
+                    minmax(280px, 0.8fr);
             }
 
         }
@@ -1536,8 +2567,8 @@
 
             :root {
 
-                --header-height: 64px;
-
+                --header-height:
+                    64px;
             }
 
 
@@ -1545,30 +2576,37 @@
 
                 width:
                     min(
-                        100% - 32px,
+                        calc(100% - 32px),
                         var(--container)
                     );
-
             }
 
 
             .main-nav {
 
-                position: fixed;
+                position:
+                    fixed;
 
-                top: var(--header-height);
+                top:
+                    var(--header-height);
 
-                right: 0;
+                right:
+                    0;
 
-                left: 0;
+                left:
+                    0;
 
-                display: flex;
+                display:
+                    flex;
 
-                flex-direction: column;
+                flex-direction:
+                    column;
 
-                align-items: stretch;
+                align-items:
+                    stretch;
 
-                gap: 0;
+                gap:
+                    0;
 
                 padding:
                     10px 16px 16px;
@@ -1605,32 +2643,36 @@
                 border-bottom:
                     1px solid var(--border);
 
-                border-radius: 7px;
+                border-radius:
+                    7px;
             }
 
 
             .main-nav a:last-child {
 
-                border-bottom: 0;
+                border-bottom:
+                    0;
             }
 
 
             .main-nav a.active::after {
 
-                display: none;
+                display:
+                    none;
             }
 
 
-            .header-actions
-            .cv-btn {
+            .header-actions .cv-btn {
 
-                display: none;
+                display:
+                    none;
             }
 
 
             .menu-btn {
 
-                display: flex;
+                display:
+                    flex;
             }
 
 
@@ -1641,14 +2683,59 @@
             }
 
 
-            .projects-grid {
+            .modal {
 
-                grid-template-columns:
-                    repeat(
-                        2,
-                        minmax(0, 1fr)
+                padding:
+                    12px;
+            }
+
+
+            .modal-dialog {
+
+                width:
+                    100%;
+
+                max-height:
+                    calc(
+                        100vh - 24px
                     );
 
+                grid-template-columns:
+                    1fr;
+
+                grid-template-rows:
+                    auto 1fr;
+            }
+
+
+            .modal-visual {
+
+                max-height:
+                    48vh;
+            }
+
+
+            .modal-visual img {
+
+                max-height:
+                    48vh;
+            }
+
+
+            .modal-info {
+
+                padding:
+                    25px 20px 22px;
+            }
+
+
+            .modal-close {
+
+                top:
+                    10px;
+
+                left:
+                    10px;
             }
 
         }
@@ -1683,19 +2770,24 @@
 
             .filter-group {
 
-                overflow-x: auto;
+                overflow-x:
+                    auto;
 
-                flex-wrap: nowrap;
+                flex-wrap:
+                    nowrap;
 
-                padding-bottom: 4px;
+                padding-bottom:
+                    4px;
 
-                scrollbar-width: none;
+                scrollbar-width:
+                    none;
             }
 
 
             .filter-group::-webkit-scrollbar {
 
-                display: none;
+                display:
+                    none;
             }
 
 
@@ -1708,40 +2800,116 @@
 
             .projects-grid {
 
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
 
-                gap: 16px;
+                gap:
+                    16px;
             }
 
 
             .project-body {
 
-                padding: 16px;
+                padding:
+                    16px;
             }
 
 
             .toolbar-status {
 
-                flex-direction: column;
+                flex-direction:
+                    column;
 
-                align-items: flex-start;
+                align-items:
+                    flex-start;
 
-                gap: 4px;
+                gap:
+                    4px;
             }
 
 
             .footer-inner {
 
-                flex-direction: column;
+                flex-direction:
+                    column;
 
-                align-items: flex-start;
+                align-items:
+                    flex-start;
+            }
+
+
+            .modal {
+
+                padding:
+                    8px;
+            }
+
+
+            .modal-dialog {
+
+                max-height:
+                    calc(
+                        100vh - 16px
+                    );
+
+                border-radius:
+                    16px;
+            }
+
+
+            .modal-visual {
+
+                max-height:
+                    38vh;
+            }
+
+
+            .modal-visual img {
+
+                max-height:
+                    38vh;
+            }
+
+
+            .modal-title {
+
+                font-size:
+                    1.65rem;
+            }
+
+
+            .modal-title-row {
+
+                gap:
+                    8px;
+            }
+
+
+            .modal-info {
+
+                padding:
+                    22px 16px 18px;
+            }
+
+
+            .modal-actions {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .modal-action {
+
+                width:
+                    100%;
             }
 
         }
 
 
         /* =========================================================
-           ACCESSIBILITY — REDUCED MOTION
+           REDUCED MOTION
            ========================================================= */
 
         @media (
@@ -1750,7 +2918,8 @@
 
             html {
 
-                scroll-behavior: auto;
+                scroll-behavior:
+                    auto;
             }
 
 
@@ -1771,6 +2940,7 @@
         }
 
     </style>
+
 </head>
 
 
@@ -1785,8 +2955,6 @@
 
         <div class="container site-header-inner">
 
-
-            <!-- BRAND -->
 
             <a
                 href="index.html"
@@ -1804,8 +2972,6 @@
 
             </a>
 
-
-            <!-- NAVIGATION -->
 
             <nav
                 class="main-nav"
@@ -1844,8 +3010,6 @@
             </nav>
 
 
-            <!-- HEADER ACTIONS -->
-
             <div class="header-actions">
 
 
@@ -1856,20 +3020,24 @@
                     aria-label="تغییر حالت نمایش"
                     title="تغییر حالت نمایش"
                 >
+
                     <span
                         id="themeIcon"
                         aria-hidden="true"
                     >
                         ☾
                     </span>
+
                 </button>
 
 
                 <a
-                    href="resume.html"
+                    href="cv.pdf"
                     class="cv-btn"
+                    target="_blank"
+                    rel="noopener"
                 >
-                    دانلود رزومه
+                    مشاهده رزومه
                 </a>
 
 
@@ -1943,7 +3111,7 @@
 
         <section
             class="portfolio-toolbar"
-            aria-label="ابزارهای جست‌وجو و فیلتر"
+            aria-label="جست‌وجو و فیلتر پروژه‌ها"
         >
 
             <div class="container">
@@ -1951,8 +3119,6 @@
 
                 <div class="toolbar">
 
-
-                    <!-- SEARCH -->
 
                     <div class="search-box">
 
@@ -1983,8 +3149,6 @@
                     </div>
 
 
-
-                    <!-- FILTER -->
 
                     <div
                         class="filter-group"
@@ -2063,12 +3227,9 @@
                             ادیتوریال
                         </button>
 
-
                     </div>
 
 
-
-                    <!-- SORT -->
 
                     <label
                         for="sortProjects"
@@ -2109,8 +3270,6 @@
 
 
 
-                <!-- STATUS -->
-
                 <div class="toolbar-status">
 
                     <span id="resultCount">
@@ -2139,8 +3298,6 @@
             <div class="container">
 
 
-                <!-- PROJECT GRID -->
-
                 <div
                     class="projects-grid"
                     id="projectsGrid"
@@ -2148,8 +3305,6 @@
                 ></div>
 
 
-
-                <!-- EMPTY STATE -->
 
                 <div
                     class="empty-state"
@@ -2187,8 +3342,6 @@
 
 
 
-                <!-- PAGINATION -->
-
                 <nav
                     class="pagination"
                     id="pagination"
@@ -2200,6 +3353,160 @@
         </section>
 
     </main>
+
+
+
+    <!-- =========================================================
+         PROJECT MODAL
+         ========================================================= -->
+
+    <div
+        class="modal"
+        id="projectModal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+
+
+        <div
+            class="modal-dialog"
+            id="modalDialog"
+            role="document"
+        >
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose"
+                aria-label="بستن پیش‌نمایش"
+                title="بستن"
+            >
+                ×
+            </button>
+
+
+
+            <div
+                class="modal-visual"
+                id="modalVisual"
+            >
+
+                <img
+                    id="modalImage"
+                    src=""
+                    alt=""
+                >
+
+            </div>
+
+
+
+            <div class="modal-info">
+
+
+                <p
+                    class="modal-eyebrow"
+                    id="modalEyebrow"
+                >
+                    PROJECT
+                </p>
+
+
+                <div class="modal-title-row">
+
+                    <h2
+                        class="modal-title"
+                        id="modalTitle"
+                    >
+                    </h2>
+
+
+                    <span
+                        class="modal-year"
+                        id="modalYear"
+                    >
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="modal-meta"
+                    id="modalMeta"
+                ></div>
+
+
+                <p
+                    class="modal-description"
+                    id="modalDescription"
+                ></p>
+
+
+                <section
+                    class="modal-section"
+                    id="modalToolsSection"
+                >
+
+                    <h3 class="modal-section-title">
+                        ابزارها
+                    </h3>
+
+
+                    <div
+                        class="modal-tools"
+                        id="modalTools"
+                    ></div>
+
+                </section>
+
+
+                <section
+                    class="modal-section"
+                    id="modalServicesSection"
+                >
+
+                    <h3 class="modal-section-title">
+                        حوزه‌های کار
+                    </h3>
+
+
+                    <ul
+                        class="modal-services"
+                        id="modalServices"
+                    ></ul>
+
+                </section>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="modal-action primary"
+                        id="viewFullImageBtn"
+                    >
+                        مشاهده تصویر کامل
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="modal-action"
+                        id="closeModalSecondary"
+                    >
+                        بستن
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
 
@@ -2232,7 +3539,11 @@
                         درباره من
                     </a>
 
-                    <a href="resume.html">
+                    <a
+                        href="cv.pdf"
+                        target="_blank"
+                        rel="noopener"
+                    >
                         رزومه
                     </a>
 
@@ -2251,8 +3562,7 @@
 
 
     <!-- =========================================================
-         IMPORTANT:
-         LOAD CENTRAL PROJECT DATABASE FIRST
+         CENTRAL PROJECT DATABASE
          ========================================================= -->
 
     <script src="js/projects-data.js"></script>
@@ -2260,7 +3570,7 @@
 
 
     <!-- =========================================================
-         PROJECTS PAGE APPLICATION
+         APPLICATION
          ========================================================= -->
 
     <script>
@@ -2277,7 +3587,7 @@
 
 
         /* =========================================================
-           APPLICATION STATE
+           STATE
            ========================================================= */
 
         const state = {
@@ -2293,9 +3603,12 @@
         };
 
 
+        let currentProject = null;
+
+
 
         /* =========================================================
-           DOM REFERENCES
+           DOM
            ========================================================= */
 
         const projectsGrid =
@@ -2376,14 +3689,108 @@
             );
 
 
+        const projectModal =
+            document.getElementById(
+                "projectModal"
+            );
+
+
+        const modalClose =
+            document.getElementById(
+                "modalClose"
+            );
+
+
+        const modalImage =
+            document.getElementById(
+                "modalImage"
+            );
+
+
+        const modalVisual =
+            document.getElementById(
+                "modalVisual"
+            );
+
+
+        const modalEyebrow =
+            document.getElementById(
+                "modalEyebrow"
+            );
+
+
+        const modalTitle =
+            document.getElementById(
+                "modalTitle"
+            );
+
+
+        const modalYear =
+            document.getElementById(
+                "modalYear"
+            );
+
+
+        const modalMeta =
+            document.getElementById(
+                "modalMeta"
+            );
+
+
+        const modalDescription =
+            document.getElementById(
+                "modalDescription"
+            );
+
+
+        const modalTools =
+            document.getElementById(
+                "modalTools"
+            );
+
+
+        const modalToolsSection =
+            document.getElementById(
+                "modalToolsSection"
+            );
+
+
+        const modalServices =
+            document.getElementById(
+                "modalServices"
+            );
+
+
+        const modalServicesSection =
+            document.getElementById(
+                "modalServicesSection"
+            );
+
+
+        const viewFullImageBtn =
+            document.getElementById(
+                "viewFullImageBtn"
+            );
+
+
+        const closeModalSecondary =
+            document.getElementById(
+                "closeModalSecondary"
+            );
+
+
 
         /* =========================================================
-           SAFE HTML ESCAPING
+           HTML ESCAPE
            ========================================================= */
 
-        function escapeHtml(value) {
+        function escapeHtml(
+            value
+        ) {
 
-            return String(value ?? "")
+            return String(
+                value ?? ""
+            )
 
                 .replace(
                     /&/g,
@@ -2415,10 +3822,30 @@
 
 
         /* =========================================================
+           NUMBER FORMAT
+           ========================================================= */
+
+        function formatNumber(
+            value
+        ) {
+
+            return Number(
+                value
+            ).toLocaleString(
+                "fa-IR"
+            );
+
+        }
+
+
+
+        /* =========================================================
            NORMALIZE SEARCH
            ========================================================= */
 
-        function normalizeSearch(value) {
+        function normalizeSearch(
+            value
+        ) {
 
             return String(
                 value ?? ""
@@ -2431,14 +3858,14 @@
 
 
         /* =========================================================
-           GET PROJECTS
+           PROJECT DATABASE
            ========================================================= */
 
         function getAvailableProjects() {
 
             if (
-                typeof PROJECTS === "undefined" ||
-                !Array.isArray(PROJECTS)
+                typeof PROJECTS ===
+                "undefined"
             ) {
 
                 console.error(
@@ -2449,10 +3876,27 @@
 
             }
 
+
+            if (
+                !Array.isArray(
+                    PROJECTS
+                )
+            ) {
+
+                console.error(
+                    "PROJECTS is not an array."
+                );
+
+                return [];
+
+            }
+
+
             return PROJECTS.filter(
                 project =>
                     project &&
-                    typeof project === "object" &&
+                    typeof project ===
+                        "object" &&
                     project.id &&
                     project.title
             );
@@ -2462,7 +3906,7 @@
 
 
         /* =========================================================
-           FILTER PROJECTS
+           FILTER + SEARCH + SORT
            ========================================================= */
 
         function getFilteredProjects() {
@@ -2471,7 +3915,7 @@
                 getAvailableProjects();
 
 
-            const normalizedSearch =
+            const search =
                 normalizeSearch(
                     state.search
                 );
@@ -2482,26 +3926,23 @@
                     project => {
 
 
-                        /* CATEGORY */
-
                         const categoryMatch =
-                            state.category === "all" ||
+                            state.category ===
+                                "all" ||
                             project.category ===
                                 state.category;
 
 
-                        if (!categoryMatch) {
+                        if (
+                            !categoryMatch
+                        ) {
 
                             return false;
 
                         }
 
 
-                        /* SEARCH */
-
-                        if (
-                            !normalizedSearch
-                        ) {
+                        if (!search) {
 
                             return true;
 
@@ -2524,12 +3965,16 @@
 
                             project.description,
 
-                            ...(Array.isArray(project.tools)
+                            ...(Array.isArray(
+                                project.tools
+                            )
                                 ? project.tools
                                 : []
                             ),
 
-                            ...(Array.isArray(project.services)
+                            ...(Array.isArray(
+                                project.services
+                            )
                                 ? project.services
                                 : []
                             )
@@ -2547,116 +3992,19 @@
 
 
                         return searchableText.includes(
-                            normalizedSearch
+                            search
                         );
 
                     }
                 );
 
 
-
-            /* =====================================================
-               SORT
-               ===================================================== */
-
             filtered.sort(
-                (a, b) => {
+                (
+                    a,
+                    b
+                ) => {
 
-
-                    /* FEATURED */
-
-                    if (
-                        state.sort ===
-                        "featured"
-                    ) {
-
-                        if (
-                            a.featured !==
-                            b.featured
-                        ) {
-
-                            return a.featured
-                                ? -1
-                                : 1;
-
-                        }
-
-
-                        const yearA =
-                            parseInt(
-                                a.year || "0",
-                                10
-                            );
-
-
-                        const yearB =
-                            parseInt(
-                                b.year || "0",
-                                10
-                            );
-
-
-                        return yearB - yearA;
-
-                    }
-
-
-
-                    /* NEWEST */
-
-                    if (
-                        state.sort ===
-                        "newest"
-                    ) {
-
-                        const yearA =
-                            parseInt(
-                                a.year || "0",
-                                10
-                            );
-
-
-                        const yearB =
-                            parseInt(
-                                b.year || "0",
-                                10
-                            );
-
-
-                        return yearB - yearA;
-
-                    }
-
-
-
-                    /* OLDEST */
-
-                    if (
-                        state.sort ===
-                        "oldest"
-                    ) {
-
-                        const yearA =
-                            parseInt(
-                                a.year || "0",
-                                10
-                            );
-
-
-                        const yearB =
-                            parseInt(
-                                b.year || "0",
-                                10
-                            );
-
-
-                        return yearA - yearB;
-
-                    }
-
-
-
-                    /* A → Z */
 
                     if (
                         state.sort ===
@@ -2666,15 +4014,14 @@
                         return String(
                             a.title
                         ).localeCompare(
-                            String(b.title),
+                            String(
+                                b.title
+                            ),
                             "fa"
                         );
 
                     }
 
-
-
-                    /* Z → A */
 
                     if (
                         state.sort ===
@@ -2684,14 +4031,83 @@
                         return String(
                             b.title
                         ).localeCompare(
-                            String(a.title),
+                            String(
+                                a.title
+                            ),
                             "fa"
                         );
 
                     }
 
 
-                    return 0;
+                    const yearA =
+                        parseInt(
+                            a.year ||
+                            "0",
+                            10
+                        );
+
+
+                    const yearB =
+                        parseInt(
+                            b.year ||
+                            "0",
+                            10
+                        );
+
+
+                    if (
+                        state.sort ===
+                        "newest"
+                    ) {
+
+                        return (
+                            yearB -
+                            yearA
+                        );
+
+                    }
+
+
+                    if (
+                        state.sort ===
+                        "oldest"
+                    ) {
+
+                        return (
+                            yearA -
+                            yearB
+                        );
+
+                    }
+
+
+                    /*
+                     * Featured:
+                     * featured projects first,
+                     * then newest first.
+                     */
+
+                    if (
+                        Boolean(
+                            a.featured
+                        ) !==
+                        Boolean(
+                            b.featured
+                        )
+                    ) {
+
+                        return a.featured
+                            ? -1
+                            : 1;
+
+                    }
+
+
+                    return (
+                        yearB -
+                        yearA
+                    );
 
                 }
             );
@@ -2704,26 +4120,10 @@
 
 
         /* =========================================================
-           NUMBER FORMAT
+           IMAGE FALLBACK FOR CARD
            ========================================================= */
 
-        function formatNumber(value) {
-
-            return Number(
-                value
-            ).toLocaleString(
-                "fa-IR"
-            );
-
-        }
-
-
-
-        /* =========================================================
-           PROJECT IMAGE FALLBACK
-           ========================================================= */
-
-        function attachImageFallback(
+        function attachCardImageFallback(
             image,
             title
         ) {
@@ -2737,7 +4137,7 @@
 
             image.addEventListener(
                 "error",
-                function handleImageError() {
+                () => {
 
 
                     const wrapper =
@@ -2768,12 +4168,6 @@
 
                     fallback.textContent =
                         title;
-
-
-                    fallback.setAttribute(
-                        "aria-label",
-                        title
-                    );
 
 
                     wrapper.prepend(
@@ -2808,12 +4202,6 @@
                 "project-card";
 
 
-            const projectId =
-                encodeURIComponent(
-                    project.id
-                );
-
-
             const title =
                 escapeHtml(
                     project.title
@@ -2822,7 +4210,8 @@
 
             const cover =
                 escapeHtml(
-                    project.cover || ""
+                    project.cover ||
+                    ""
                 );
 
 
@@ -2841,7 +4230,7 @@
                 );
 
 
-            const shortDescription =
+            const description =
                 escapeHtml(
                     project.shortDescription ||
                     project.description ||
@@ -2851,7 +4240,8 @@
 
             const year =
                 escapeHtml(
-                    project.year || ""
+                    project.year ||
+                    ""
                 );
 
 
@@ -2879,10 +4269,11 @@
 
             card.innerHTML = `
 
-                <a
-                    class="project-link"
-                    href="project.html?id=${projectId}"
-                    aria-label="مشاهده پروژه ${title}"
+                <button
+                    type="button"
+                    class="project-open-btn"
+                    data-project-id="${escapeHtml(project.id)}"
+                    aria-label="باز کردن پیش‌نمایش پروژه ${title}"
                 >
 
                     <div class="project-image-wrap">
@@ -2895,6 +4286,7 @@
                             decoding="async"
                         >
 
+
                         <div class="project-badges">
 
                             ${
@@ -2906,6 +4298,7 @@
                                       `
                                     : ""
                             }
+
 
                             ${
                                 typeLabel
@@ -2929,6 +4322,7 @@
                             <h2 class="project-title">
                                 ${title}
                             </h2>
+
 
                             ${
                                 year
@@ -2955,10 +4349,10 @@
 
 
                         ${
-                            shortDescription
+                            description
                                 ? `
                                     <p class="project-description">
-                                        ${shortDescription}
+                                        ${description}
                                     </p>
                                   `
                                 : ""
@@ -2977,7 +4371,7 @@
 
                     </div>
 
-                </a>
+                </button>
             `;
 
 
@@ -2987,11 +4381,29 @@
                 );
 
 
-            attachImageFallback(
+            attachCardImageFallback(
                 image,
                 String(
                     project.title
                 )
+            );
+
+
+            const button =
+                card.querySelector(
+                    ".project-open-btn"
+                );
+
+
+            button?.addEventListener(
+                "click",
+                () => {
+
+                    openProjectModal(
+                        project.id
+                    );
+
+                }
             );
 
 
@@ -3038,7 +4450,8 @@
 
             const start =
                 (
-                    state.page - 1
+                    state.page -
+                    1
                 ) *
                 ITEMS_PER_PAGE;
 
@@ -3065,21 +4478,15 @@
             );
 
 
-
-            /* =====================================================
-               RESULT COUNT
-               ===================================================== */
-
             resultCount.textContent =
-                `${formatNumber(total)} پروژه`;
+                `${formatNumber(
+                    total
+                )} پروژه`;
 
 
-
-            /* =====================================================
-               EMPTY RESULT
-               ===================================================== */
-
-            if (total === 0) {
+            if (
+                total === 0
+            ) {
 
                 pagination.innerHTML =
                     "";
@@ -3092,31 +4499,18 @@
             }
 
 
-
-            /* =====================================================
-               RENDER VISIBLE CARDS
-               ===================================================== */
-
             visible.forEach(
                 project => {
 
-                    const card =
+                    projectsGrid.appendChild(
                         createProjectCard(
                             project
-                        );
-
-                    projectsGrid.appendChild(
-                        card
+                        )
                     );
 
                 }
             );
 
-
-
-            /* =====================================================
-               PAGINATION
-               ===================================================== */
 
             renderPagination(
                 totalPages
@@ -3155,9 +4549,6 @@
             }
 
 
-
-            /* PREVIOUS */
-
             const previous =
                 document.createElement(
                     "button"
@@ -3183,19 +4574,21 @@
 
 
             previous.disabled =
-                state.page === 1;
+                state.page ===
+                1;
 
 
             previous.addEventListener(
                 "click",
                 () => {
 
-
                     if (
-                        state.page > 1
+                        state.page >
+                        1
                     ) {
 
-                        state.page -= 1;
+                        state.page -=
+                            1;
 
                         renderProjects();
 
@@ -3211,9 +4604,6 @@
                 previous
             );
 
-
-
-            /* PAGE NUMBERS */
 
             const pages =
                 getVisiblePageNumbers(
@@ -3263,7 +4653,6 @@
                         return;
 
                     }
-
 
 
                     const button =
@@ -3335,9 +4724,6 @@
             );
 
 
-
-            /* NEXT */
-
             const next =
                 document.createElement(
                     "button"
@@ -3371,13 +4757,13 @@
                 "click",
                 () => {
 
-
                     if (
                         state.page <
                         totalPages
                     ) {
 
-                        state.page += 1;
+                        state.page +=
+                            1;
 
                         renderProjects();
 
@@ -3398,7 +4784,7 @@
 
 
         /* =========================================================
-           VISIBLE PAGE NUMBERS
+           PAGE NUMBER RANGE
            ========================================================= */
 
         function getVisiblePageNumbers(
@@ -3412,9 +4798,13 @@
 
                 return Array.from(
                     {
-                        length: total
+                        length:
+                            total
                     },
-                    (_, index) =>
+                    (
+                        _,
+                        index
+                    ) =>
                         index + 1
                 );
 
@@ -3463,7 +4853,8 @@
 
 
             if (
-                current < total - 3
+                current <
+                total - 3
             ) {
 
                 pages.push(
@@ -3496,21 +4887,439 @@
                 );
 
 
-            if (!section) {
+            section?.scrollIntoView(
+                {
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "start"
+                }
+            );
+
+        }
+
+
+
+        /* =========================================================
+           OPEN MODAL
+           ========================================================= */
+
+        function openProjectModal(
+            projectId
+        ) {
+
+            const project =
+                getAvailableProjects()
+                    .find(
+                        item =>
+                            String(
+                                item.id
+                            ) ===
+                            String(
+                                projectId
+                            )
+                    );
+
+
+            if (!project) {
+
+                console.error(
+                    "Project not found:",
+                    projectId
+                );
 
                 return;
 
             }
 
 
-            section.scrollIntoView(
-                {
-                    behavior: "smooth",
-                    block: "start"
+            currentProject =
+                project;
+
+
+            /* =====================================================
+               BASIC INFORMATION
+               ===================================================== */
+
+            modalEyebrow.textContent =
+                project.type ===
+                "concept"
+                    ? "CONCEPT PROJECT"
+                    : "PROJECT";
+
+
+            modalTitle.textContent =
+                project.title ||
+                "";
+
+
+            modalYear.textContent =
+                project.year ||
+                "";
+
+
+            modalDescription.textContent =
+                project.description ||
+                project.shortDescription ||
+                "";
+
+
+
+            /* =====================================================
+               META
+               ===================================================== */
+
+            modalMeta.innerHTML =
+                "";
+
+
+            const metaItems = [
+
+                project.categoryLabel,
+
+                project.typeLabel
+
+            ]
+                .filter(Boolean);
+
+
+            metaItems.forEach(
+                item => {
+
+                    const tag =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    tag.className =
+                        "modal-meta-tag";
+
+
+                    tag.textContent =
+                        item;
+
+
+                    modalMeta.appendChild(
+                        tag
+                    );
+
                 }
             );
 
+
+
+            /* =====================================================
+               TOOLS
+               ===================================================== */
+
+            modalTools.innerHTML =
+                "";
+
+
+            const tools =
+                Array.isArray(
+                    project.tools
+                )
+                    ? project.tools
+                    : [];
+
+
+            tools.forEach(
+                tool => {
+
+                    if (!tool) {
+
+                        return;
+
+                    }
+
+
+                    const tag =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    tag.className =
+                        "modal-tool";
+
+
+                    tag.textContent =
+                        tool;
+
+
+                    modalTools.appendChild(
+                        tag
+                    );
+
+                }
+            );
+
+
+            modalToolsSection.style.display =
+                tools.length
+                    ? ""
+                    : "none";
+
+
+
+            /* =====================================================
+               SERVICES
+               ===================================================== */
+
+            modalServices.innerHTML =
+                "";
+
+
+            const services =
+                Array.isArray(
+                    project.services
+                )
+                    ? project.services
+                    : [];
+
+
+            services.forEach(
+                service => {
+
+                    if (!service) {
+
+                        return;
+
+                    }
+
+
+                    const li =
+                        document.createElement(
+                            "li"
+                        );
+
+
+                    li.textContent =
+                        service;
+
+
+                    modalServices.appendChild(
+                        li
+                    );
+
+                }
+            );
+
+
+            modalServicesSection.style.display =
+                services.length
+                    ? ""
+                    : "none";
+
+
+
+            /* =====================================================
+               IMAGE
+               ===================================================== */
+
+            modalImage.style.display =
+                "block";
+
+
+            modalImage.alt =
+                `${project.title || ""} — ${
+                    project.categoryLabel || ""
+                }`;
+
+
+            modalImage.src =
+                project.cover ||
+                "";
+
+
+            modalImage.onerror =
+                function() {
+
+                    modalImage.style.display =
+                        "none";
+
+
+                    modalVisual.innerHTML = `
+
+                        <div class="modal-image-fallback">
+
+                            <strong>
+                                ${escapeHtml(
+                                    project.title
+                                )}
+                            </strong>
+
+                            <span>
+                                تصویر این پروژه پیدا نشد.
+                            </span>
+
+                        </div>
+
+                    `;
+
+                };
+
+
+            /*
+             * Restore image element if a previous project
+             * produced an error fallback.
+             */
+
+            if (
+                !modalVisual.contains(
+                    modalImage
+                )
+            ) {
+
+                modalVisual.innerHTML =
+                    "";
+
+                modalVisual.appendChild(
+                    modalImage
+                );
+
+            }
+
+
+
+            /* =====================================================
+               OPEN
+               ===================================================== */
+
+            projectModal.classList.add(
+                "is-open"
+            );
+
+
+            projectModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+
+            modalClose.focus();
+
         }
+
+
+
+        /* =========================================================
+           CLOSE MODAL
+           ========================================================= */
+
+        function closeProjectModal() {
+
+            projectModal.classList.remove(
+                "is-open"
+            );
+
+
+            projectModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+
+            currentProject =
+                null;
+
+        }
+
+
+
+        /* =========================================================
+           MODAL — CLOSE EVENTS
+           ========================================================= */
+
+        modalClose.addEventListener(
+            "click",
+            closeProjectModal
+        );
+
+
+        closeModalSecondary.addEventListener(
+            "click",
+            closeProjectModal
+        );
+
+
+        projectModal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target ===
+                    projectModal
+                ) {
+
+                    closeProjectModal();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key ===
+                    "Escape" &&
+                    projectModal.classList.contains(
+                        "is-open"
+                    )
+                ) {
+
+                    closeProjectModal();
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================================
+           VIEW FULL IMAGE
+           ========================================================= */
+
+        viewFullImageBtn.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    !currentProject ||
+                    !currentProject.cover
+                ) {
+
+                    return;
+
+                }
+
+
+                window.open(
+                    currentProject.cover,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            }
+        );
 
 
 
@@ -3542,11 +5351,9 @@
         filterButtons.forEach(
             button => {
 
-
                 button.addEventListener(
                     "click",
                     () => {
-
 
                         const filter =
                             button.dataset.filter ||
@@ -3564,21 +5371,21 @@
                         filterButtons.forEach(
                             item => {
 
-                                const isActive =
+                                const active =
                                     item ===
                                     button;
 
 
                                 item.classList.toggle(
                                     "active",
-                                    isActive
+                                    active
                                 );
 
 
                                 item.setAttribute(
                                     "aria-pressed",
                                     String(
-                                        isActive
+                                        active
                                     )
                                 );
 
@@ -3618,7 +5425,7 @@
 
 
         /* =========================================================
-           RESET
+           RESET FILTERS
            ========================================================= */
 
         resetSearchBtn.addEventListener(
@@ -3649,21 +5456,21 @@
                 filterButtons.forEach(
                     button => {
 
-                        const isActive =
+                        const active =
                             button.dataset.filter ===
                             "all";
 
 
                         button.classList.toggle(
                             "active",
-                            isActive
+                            active
                         );
 
 
                         button.setAttribute(
                             "aria-pressed",
                             String(
-                                isActive
+                                active
                             )
                         );
 
@@ -3686,8 +5493,7 @@
             "click",
             () => {
 
-
-                const isOpen =
+                const open =
                     mainNav.classList.toggle(
                         "open"
                     );
@@ -3695,14 +5501,14 @@
 
                 menuBtn.classList.toggle(
                     "open",
-                    isOpen
+                    open
                 );
 
 
                 menuBtn.setAttribute(
                     "aria-expanded",
                     String(
-                        isOpen
+                        open
                     )
                 );
 
@@ -3710,15 +5516,10 @@
         );
 
 
-
-        /* CLOSE MOBILE MENU
-           WHEN NAV LINK IS CLICKED */
-
         mainNav
             ?.querySelectorAll("a")
             .forEach(
                 link => {
-
 
                     link.addEventListener(
                         "click",
@@ -3759,10 +5560,11 @@
                 theme === "dark"
             ) {
 
-                document.documentElement.setAttribute(
-                    "data-theme",
-                    "dark"
-                );
+                document.documentElement
+                    .setAttribute(
+                        "data-theme",
+                        "dark"
+                    );
 
 
                 if (themeIcon) {
@@ -3774,9 +5576,10 @@
 
             } else {
 
-                document.documentElement.removeAttribute(
-                    "data-theme"
-                );
+                document.documentElement
+                    .removeAttribute(
+                        "data-theme"
+                    );
 
 
                 if (themeIcon) {
@@ -3800,7 +5603,10 @@
                 );
 
 
-            if (savedTheme === "dark") {
+            if (
+                savedTheme ===
+                "dark"
+            ) {
 
                 applyTheme(
                     "dark"
@@ -3811,7 +5617,10 @@
             }
 
 
-            if (savedTheme === "light") {
+            if (
+                savedTheme ===
+                "light"
+            ) {
 
                 applyTheme(
                     "light"
@@ -3838,32 +5647,32 @@
         }
 
 
-
         themeToggle?.addEventListener(
             "click",
             () => {
 
-                const currentTheme =
+                const current =
                     document.documentElement
                         .getAttribute(
                             "data-theme"
                         );
 
 
-                const nextTheme =
-                    currentTheme === "dark"
+                const next =
+                    current ===
+                    "dark"
                         ? "light"
                         : "dark";
 
 
                 localStorage.setItem(
                     "portfolio-theme",
-                    nextTheme
+                    next
                 );
 
 
                 applyTheme(
-                    nextTheme
+                    next
                 );
 
             }
@@ -3882,4 +5691,5 @@
     </script>
 
 </body>
+
 </html>
