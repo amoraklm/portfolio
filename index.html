@@ -2754,28 +2754,24 @@
         grid;
 
     /*
-     * ستون تصویر تا حد امکان بر اساس
-     * اندازه واقعی Artwork شکل می‌گیرد.
+     * ستون تصویر:
+     * فضای باقی‌مانده را می‌گیرد.
+     *
+     * ستون اطلاعات:
+     * عرض کاملاً ثابت 340px.
      */
     grid-template-columns:
         minmax(
             0,
-            max-content
+            1fr
         )
-        minmax(
-            300px,
-            0.8fr
-        );
+        340px;
 
     align-items:
         stretch;
 
     overflow:
         hidden;
-
-    border:
-        1px solid
-        var(--border);
 
     border-radius:
         var(--radius-lg);
@@ -2804,6 +2800,7 @@
 
 
 
+
 /* =====================================================
    MODAL VISUAL
    ===================================================== */
@@ -2816,9 +2813,6 @@
         0;
 
     width:
-        fit-content;
-
-    max-width:
         100%;
 
     display:
@@ -2875,16 +2869,43 @@
 
 
 
-        .modal-info {
-            overflow:
-                auto;
 
-            padding:
-                34px 29px;
+/* =====================================================
+   MODAL INFO — FIXED WIDTH
+   ===================================================== */
 
-            text-align:
-                right;
-        }
+.modal-info {
+    width:
+        340px;
+
+    min-width:
+        340px;
+
+    max-width:
+        340px;
+
+    min-height:
+        0;
+
+    overflow-y:
+        auto;
+
+    overflow-x:
+        hidden;
+
+    padding:
+        34px 29px;
+
+    text-align:
+        right;
+
+    background:
+        var(--surface);
+
+    scrollbar-width:
+        thin;
+}
+
 
 
         .modal-close {
