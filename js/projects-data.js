@@ -401,6 +401,48 @@ const PROJECTS = [
             "Art Direction",
             "Visual Design"
         ]
-    }
+    },
+
+       /* =====================================================
+       11 — VEIL
+       ===================================================== */
+
+    {
+        id: 11,
+
+        title: "VEIL",
+
+        category: "advertising",
+        categoryLabel: "Advertising",
+
+        type: "concept",
+        typeLabel: "Concept Project",
+
+        year: 2026,
+
+        featured: false,
+
+        cover:
+            "images/011.webp",
+
+        shortDescription:
+            "طراحی Key Visual مفهومی برای معرفی یک عطر نیش با تمرکز بر مفهوم ماندگاری و حضور.",
+
+        description:
+            "VEIL یک کمپین مفهومی برای یک برند عطر نیش فرضی است. ایده اصلی پروژه بر انتقال مفهوم «رایحه‌ای که دیده نمی‌شود، اما می‌ماند» از طریق یک استعاره بصری مینیمال و کنترل‌شده شکل گرفته است.",
+
+        tools: [
+            "Photoshop",
+            "Illustrator",
+            "AI-assisted"
+        ],
+
+        services: [
+            "Art Direction",
+            "Key Visual",
+            "Campaign Concept",
+            "Advertising Design"
+        ]
+    },
 
 ];
