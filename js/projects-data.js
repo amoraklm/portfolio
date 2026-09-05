@@ -265,6 +265,44 @@ const PROJECTS = [
         "Art Direction",
         "Visual Design"
     ]
+},
+
+   {
+    id: 7,
+
+    title: "پوشاک آریا",
+
+    category: "advertising",
+
+    categoryLabel: "Advertising",
+
+    type: "concept",
+
+    typeLabel: "Concept Project",
+
+    year: 2026,
+
+    featured: true,
+
+    cover: "images/007.webp",
+
+    shortDescription:
+        "طراحی بیلبورد تبلیغاتی برای کمپین حراج پایان فصل یک فروشگاه پوشاک.",
+
+    description:
+        "طراحی یک بیلبورد تبلیغاتی با تمرکز بر خوانایی از فاصله دور، برجسته‌سازی پیشنهاد فروش و ایجاد هویت بصری منسجم برای یک فروشگاه پوشاک.",
+
+    tools: [
+        "Photoshop",
+        "Illustrator"
+    ],
+
+    services: [
+        "Advertising Design",
+        "Outdoor Advertising",
+        "Art Direction",
+        "Visual Design"
+    ]
 }
 
 ];
