@@ -303,51 +303,44 @@ const PROJECTS = [
         "Art Direction",
         "Visual Design"
     ]
+},
+
+   {
+    id: 8,
+
+    title: "خانه‌نو",
+
+    category: "digital",
+
+    categoryLabel: "Digital Design",
+
+    type: "concept",
+
+    typeLabel: "Concept Project",
+
+    year: 2026,
+
+    featured: true,
+
+    cover: "images/008.webp",
+
+    shortDescription:
+        "طراحی پست تبلیغاتی برای معرفی محصول یک فروشگاه آنلاین لوازم دکور خانه.",
+
+    description:
+        "طراحی یک پست اینستاگرامی با تمرکز بر معرفی محصول، نمایش قیمت و ایجاد سلسله‌مراتب بصری مناسب برای یک فروشگاه آنلاین.",
+
+    tools: [
+        "Photoshop",
+        "Illustrator"
+    ],
+
+    services: [
+        "Social Media Design",
+        "Advertising Design",
+        "Art Direction",
+        "Visual Design"
+    ]
 }
 
 ];
-
-/*
-=========================================================
-   آینده:
-   پروژه‌های جدید فقط به انتهای آرایه PROJECTS اضافه شوند.
-   
-   نمونه:
-
-   {
-       id: "new-project",
-
-       title: "NEW PROJECT",
-
-       category: "advertising",
-       categoryLabel: "تبلیغات",
-
-       type: "concept",
-       typeLabel: "پروژه مفهومی",
-
-       year: "2026",
-
-       featured: true,
-
-       shortDescription:
-           "توضیح کوتاه پروژه.",
-
-       description:
-           "توضیح کامل پروژه.",
-
-       cover:
-           "images/projects/new-project/cover.webp",
-
-       tools: [
-           "Photoshop",
-           "AI-assisted"
-       ],
-
-       services: [
-           "Art Direction",
-           "Advertising Design"
-       ]
-   }
-
-=========================================================
-*/
