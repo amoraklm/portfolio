@@ -444,4 +444,45 @@ const PROJECTS = [
         ]
     },
 
+       /* =====================================================
+       13 — ۵ اشتباه که گوشی‌تو خراب می‌کنه
+       ===================================================== */
+
+    {
+        id: 13,
+
+        title: "۵ اشتباه که گوشی‌تو خراب می‌کنه",
+
+        category: "digital",
+        categoryLabel: "Digital Design",
+
+        type: "concept",
+        typeLabel: "Concept Project",
+
+        year: 2026,
+
+        featured: false,
+
+        cover:
+            "images/013.webp",
+
+        shortDescription:
+            "طراحی Thumbnail حرفه‌ای یوتیوب با تمرکز بر توجه، کنجکاوی و سلسله‌مراتب بصری.",
+
+        description:
+            "طراحی یک Thumbnail مفهومی برای کانال تکنولوژی با تمرکز بر Visual Hierarchy، ترکیب‌بندی مبتنی بر واکنش چهره، هدایت نگاه، کنتراست و تکنیک‌های افزایش توجه در ابعاد کوچک.",
+
+        tools: [
+            "Photoshop",
+            "AI-assisted"
+        ],
+
+        services: [
+            "YouTube Thumbnail",
+            "Visual Composition",
+            "Photo Manipulation",
+            "Creative Direction"
+        ]
+    },
+
 ];
