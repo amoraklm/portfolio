@@ -132,8 +132,7 @@ const PROJECTS = [
             "images/003.webp",
 
         tools: [
-            "Photoshop",
-            "AI-assisted"
+            "Photoshop"
         ],
 
         services: [
@@ -174,9 +173,8 @@ const PROJECTS = [
             "images/004.webp",
 
         tools: [
-            "Photoshop",
             "Figma",
-            "AI-assisted"
+            "Photoshop"
         ],
 
         services: [
@@ -355,7 +353,7 @@ const PROJECTS = [
   cover: "images/009.webp",
   shortDescription: "طراحی پست تبلیغاتی برای کمپین تخفیف یک فروشگاه لوازم دیجیتال.",
   description: "طراحی یک پست تبلیغاتی با تمرکز بر معرفی پیشنهاد فروش، ایجاد سلسله‌مراتب بصری و برجسته‌سازی محصول اصلی برای یک کمپین فروش دیجیتال.",
-  tools: ["Photoshop", "Illustrator"],
+  tools: ["Photoshop"],
   services: [
     "Social Media Design",
     "Advertising Design",
