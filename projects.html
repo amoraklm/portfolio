@@ -4719,28 +4719,21 @@ html[data-theme="dark"]
 
 
             if (
-                isLoading
-            ) {
+    shown >= total
+) {
 
-                infiniteScrollStatus.className =
-                    "infinite-scroll-status visible";
+    infiniteScrollStatus.className =
+        "infinite-scroll-status done";
 
-                infiniteScrollStatus.innerHTML = `
+    infiniteScrollStatus.textContent =
+        "";
 
-                    <span>
-                        در حال بارگذاری پروژه‌های بیشتر
-                    </span>
+    infiniteScrollStatus.innerHTML =
+        "";
 
-                    <span
-                        class="infinite-scroll-loader"
-                        aria-hidden="true"
-                    ></span>
+    return;
 
-                `;
-
-                return;
-
-            }
+}
 
 
             infiniteScrollStatus.className =
