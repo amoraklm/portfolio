@@ -362,6 +362,47 @@ const PROJECTS = [
     "Art Direction",
     "Visual Design"
   ]
-}
+},
+
+       /* =====================================================
+       10 — فودینو
+       ===================================================== */
+
+    {
+        id: 10,
+
+        title: "فودینو",
+
+        category: "advertising",
+        categoryLabel: "Advertising",
+
+        type: "concept",
+        typeLabel: "Concept Project",
+
+        year: 2026,
+
+        featured: true,
+
+        cover:
+            "images/010.webp",
+
+        shortDescription:
+            "طراحی پست تبلیغاتی برای معرفی برگر ویژه یک رستوران.",
+
+        description:
+            "طراحی یک پست تبلیغاتی برای کمپین فروش یک رستوران با تمرکز بر تصویرسازی غذا، ایجاد سلسله‌مراتب بصری و برجسته‌سازی پیشنهاد فروش.",
+
+        tools: [
+            "Photoshop",
+            "Illustrator"
+        ],
+
+        services: [
+            "Food Advertising",
+            "Social Media Design",
+            "Art Direction",
+            "Visual Design"
+        ]
+    }
 
 ];
