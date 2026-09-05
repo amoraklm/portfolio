@@ -227,7 +227,45 @@ const PROJECTS = [
             "Packaging Visual",
             "Campaign Design"
         ]
-    }
+    },
+
+   {
+    id: 6,
+
+    title: "موبایل مرکزی",
+
+    category: "advertising",
+
+    categoryLabel: "Advertising",
+
+    type: "concept",
+
+    typeLabel: "Concept Project",
+
+    year: 2026,
+
+    featured: true,
+
+    cover: "images/006.webp",
+
+    shortDescription:
+        "طراحی تبلیغاتی برای کمپین فروش ویژه یک فروشگاه موبایل و لوازم دیجیتال.",
+
+    description:
+        "طراحی یک پست تبلیغاتی با تمرکز بر معرفی محصول، برجسته‌سازی پیشنهاد فروش و ایجاد سلسله‌مراتب بصری مناسب برای مخاطب دیجیتال.",
+
+    tools: [
+        "Photoshop",
+        "Illustrator"
+    ],
+
+    services: [
+        "Advertising Design",
+        "Social Media",
+        "Art Direction",
+        "Visual Design"
+    ]
+}
 
 ];
 
