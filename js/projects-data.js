@@ -341,6 +341,27 @@ const PROJECTS = [
         "Art Direction",
         "Visual Design"
     ]
+},
+
+   {
+  id: 9,
+  title: "آخر هفته، وقتشه ارتقا بدی.",
+  category: "advertising",
+  categoryLabel: "Advertising",
+  type: "concept",
+  typeLabel: "Concept Project",
+  year: 2026,
+  featured: true,
+  cover: "images/009.webp",
+  shortDescription: "طراحی پست تبلیغاتی برای کمپین تخفیف یک فروشگاه لوازم دیجیتال.",
+  description: "طراحی یک پست تبلیغاتی با تمرکز بر معرفی پیشنهاد فروش، ایجاد سلسله‌مراتب بصری و برجسته‌سازی محصول اصلی برای یک کمپین فروش دیجیتال.",
+  tools: ["Photoshop", "Illustrator"],
+  services: [
+    "Social Media Design",
+    "Advertising Design",
+    "Art Direction",
+    "Visual Design"
+  ]
 }
 
 ];
