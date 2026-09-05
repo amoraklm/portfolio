@@ -555,4 +555,36 @@ const PROJECTS = [
     ]
 },
 
+   {
+    id: 16,
+    title: "DAYTONA — TIME IS RACING",
+    category: "advertising",
+    categoryLabel: "Advertising",
+    type: "concept",
+    typeLabel: "Concept Project",
+    year: 2026,
+    featured: false,
+    cover: "images/016.webp",
+
+    shortDescription:
+        "طراحی پوستر تبلیغاتی مفهومی برای Rolex Daytona Ref. 6239 با تمرکز بر مفهوم زمان، سرعت و مسابقه.",
+
+    description:
+        "یک کانسپت تبلیغاتی برای Rolex Cosmograph Daytona Ref. 6239 با الهام از ارتباط تاریخی Daytona با دنیای مسابقات. ایده اصلی پروژه بر ترکیب بصری زمان و سرعت شکل گرفته و با استفاده از ساعت به‌عنوان عنصر اصلی، مسیر مسابقه و خطوط حرکت را به ساختار کرونوگراف متصل می‌کند.",
+
+    tools: [
+        "Photoshop",
+        "Illustrator",
+        "AI-assisted"
+    ],
+
+    services: [
+        "Advertising Design",
+        "Art Direction",
+        "Product Visual",
+        "Photo Compositing",
+        "Concept Development"
+    ]
+},
+
 ];
