@@ -527,4 +527,32 @@ const PROJECTS = [
         ]
     },
 
+   {
+    id: 15,
+    title: "ARCEN",
+    category: "branding",
+    categoryLabel: "Branding",
+    type: "concept",
+    typeLabel: "Concept Project",
+    year: 2026,
+    featured: false,
+    cover: "images/015.webp",
+
+    shortDescription:
+        "طراحی لوگوی مینیمال و هندسی برای یک برند مفهومی مدرن.",
+
+    description:
+        "طراحی یک لوگوی مفهومی برای برند ARCEN با تمرکز بر فرم هندسی، تعادل بصری، فضای منفی و ساخت یک نشانه ساده و ماندگار.",
+
+    tools: [
+        "Illustrator"
+    ],
+
+    services: [
+        "Logo Design",
+        "Branding",
+        "Visual Identity"
+    ]
+},
+
 ];
