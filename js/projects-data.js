@@ -485,4 +485,46 @@ const PROJECTS = [
         ]
     },
 
+       /* =====================================================
+       14 — AIR JORDAN 1
+       ===================================================== */
+
+    {
+        id: 14,
+
+        title: "AIR JORDAN 1",
+
+        category: "advertising",
+        categoryLabel: "Advertising",
+
+        type: "concept",
+        typeLabel: "Concept Project",
+
+        year: 2026,
+
+        featured: false,
+
+        cover:
+            "images/014.webp",
+
+        shortDescription:
+            "طراحی پوستر تبلیغاتی مفهومی برای کمپین Nike Air Jordan 1 با تمرکز بر تصویرسازی محصول و Art Direction.",
+
+        description:
+            "یک کانسپت تبلیغاتی برای Air Jordan 1 با تمرکز بر عکاسی تجاری محصول، ترکیب‌بندی پویا، نورپردازی کنترل‌شده و تایپوگرافی مینیمال. پروژه به‌صورت یک طراحی مفهومی و غیررسمی برای نمایش توانایی در Advertising Design و Compositing اجرا شده است.",
+
+        tools: [
+            "Photoshop",
+            "Illustrator",
+            "AI-assisted"
+        ],
+
+        services: [
+            "Advertising Design",
+            "Art Direction",
+            "Product Visual",
+            "Photo Compositing"
+        ]
+    },
+
 ];
