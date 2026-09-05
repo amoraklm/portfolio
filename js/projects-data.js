@@ -433,7 +433,6 @@ const PROJECTS = [
 
         tools: [
             "Photoshop",
-            "Illustrator",
             "AI-assisted"
         ],
 
