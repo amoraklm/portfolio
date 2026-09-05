@@ -174,7 +174,6 @@ const PROJECTS = [
 
         tools: [
             "Figma",
-            "Photoshop"
         ],
 
         services: [
