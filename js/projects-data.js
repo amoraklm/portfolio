@@ -394,7 +394,8 @@ const PROJECTS = [
 
         tools: [
             "Photoshop",
-            "Illustrator"
+            "Illustrator",
+            "AI-assisted"
         ],
 
         services: [
