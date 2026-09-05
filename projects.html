@@ -1415,6 +1415,97 @@ html[data-theme="dark"]
 
 
 /* =========================================================
+   INFINITE SCROLL
+   ========================================================= */
+
+.infinite-scroll-sentinel {
+    width:
+        100%;
+
+    min-height:
+        1px;
+
+    margin-top:
+        28px;
+}
+
+.infinite-scroll-status {
+    min-height:
+        34px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.72rem;
+
+    opacity:
+        0;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+.infinite-scroll-status.visible {
+    opacity:
+        1;
+}
+
+.infinite-scroll-status.done {
+    opacity:
+        1;
+}
+
+.infinite-scroll-loader {
+    width:
+        18px;
+
+    height:
+        18px;
+
+    margin-inline:
+        8px;
+
+    border:
+        2px solid
+        var(--border);
+
+    border-top-color:
+        var(--accent);
+
+    border-radius:
+        50%;
+
+    animation:
+        infiniteSpin 0.8s
+        linear infinite;
+}
+
+@keyframes infiniteSpin {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
    EMPTY STATE
    ========================================================= */
 
@@ -1515,125 +1606,6 @@ html[data-theme="dark"]
 
     color:
         #FFFFFF;
-}
-
-
-/* =========================================================
-   PAGINATION
-   ========================================================= */
-
-.pagination {
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        6px;
-
-    margin-top:
-        38px;
-}
-
-.page-btn {
-    min-width:
-        40px;
-
-    height:
-        40px;
-
-    padding:
-        0 10px;
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        8px;
-
-    background:
-        var(--surface);
-
-    color:
-        var(--text-secondary);
-
-    font-size:
-        0.75rem;
-
-    font-weight:
-        600;
-
-    cursor:
-        pointer;
-
-    transition:
-        color var(--transition),
-        background-color var(--transition),
-        border-color var(--transition);
-}
-
-.page-btn:hover:not(:disabled) {
-    border-color:
-        var(--accent);
-
-    color:
-        var(--text);
-}
-
-.page-btn.active {
-    border-color:
-        var(--text);
-
-    background:
-        var(--text);
-
-    color:
-        var(--bg);
-}
-
-html[data-theme="dark"]
-.page-btn.active {
-    border-color:
-        var(--accent);
-
-    background:
-        var(--accent);
-
-    color:
-        #161613;
-}
-
-.page-btn:disabled {
-    opacity:
-        0.4;
-
-    cursor:
-        not-allowed;
-}
-
-.page-btn.arrow {
-    font-family:
-        var(--font-en);
-
-    font-size:
-        0.95rem;
 }
 
 
@@ -3203,6 +3175,7 @@ html[data-theme="dark"]
         transition-duration:
             0.01ms !important;
     }
+
 }
 
 </style>
@@ -3545,7 +3518,7 @@ html[data-theme="dark"]
 
 
                     <span id="pageStatus">
-                        صفحه ۱
+                        نمایش ۰ پروژه
                     </span>
 
                 </div>
@@ -3609,11 +3582,22 @@ html[data-theme="dark"]
 
 
 
-                <nav
-                    class="pagination"
-                    id="pagination"
-                    aria-label="صفحه‌بندی پروژه‌ها"
-                ></nav>
+                <!-- =================================================
+                     INFINITE SCROLL SENTINEL
+                     ================================================= -->
+
+                <div
+                    class="infinite-scroll-sentinel"
+                    id="infiniteScrollSentinel"
+                    aria-hidden="true"
+                >
+
+                    <div
+                        class="infinite-scroll-status"
+                        id="infiniteScrollStatus"
+                    ></div>
+
+                </div>
 
             </div>
 
@@ -3849,7 +3833,11 @@ html[data-theme="dark"]
            CONFIGURATION
            ========================================================= */
 
-        const ITEMS_PER_PAGE = 12;
+        const INITIAL_PROJECTS = 12;
+
+        const LOAD_INCREMENT = 6;
+
+        const LOAD_AHEAD_PX = 700;
 
 
 
@@ -3865,7 +3853,11 @@ html[data-theme="dark"]
 
             sort: "featured",
 
-            page: 1
+            visibleCount:
+                INITIAL_PROJECTS,
+
+            loading:
+                false
 
         };
 
@@ -3926,9 +3918,15 @@ html[data-theme="dark"]
             );
 
 
-        const pagination =
+        const infiniteScrollSentinel =
             document.getElementById(
-                "pagination"
+                "infiniteScrollSentinel"
+            );
+
+
+        const infiniteScrollStatus =
+            document.getElementById(
+                "infiniteScrollStatus"
             );
 
 
@@ -4681,10 +4679,87 @@ html[data-theme="dark"]
 
 
         /* =========================================================
+           INFINITE SCROLL STATUS
+           ========================================================= */
+
+        function updateInfiniteScrollStatus(
+            shown,
+            total,
+            isLoading = false
+        ) {
+
+            if (
+                total === 0
+            ) {
+
+                infiniteScrollStatus.className =
+                    "infinite-scroll-status";
+
+                infiniteScrollStatus.innerHTML =
+                    "";
+
+                return;
+
+            }
+
+
+            if (
+                shown >= total
+            ) {
+
+                infiniteScrollStatus.className =
+                    "infinite-scroll-status done";
+
+                infiniteScrollStatus.textContent =
+                    "همه پروژه‌ها نمایش داده شدند.";
+
+                return;
+
+            }
+
+
+            if (
+                isLoading
+            ) {
+
+                infiniteScrollStatus.className =
+                    "infinite-scroll-status visible";
+
+                infiniteScrollStatus.innerHTML = `
+
+                    <span>
+                        در حال بارگذاری پروژه‌های بیشتر
+                    </span>
+
+                    <span
+                        class="infinite-scroll-loader"
+                        aria-hidden="true"
+                    ></span>
+
+                `;
+
+                return;
+
+            }
+
+
+            infiniteScrollStatus.className =
+                "infinite-scroll-status";
+
+            infiniteScrollStatus.innerHTML =
+                "";
+
+        }
+
+
+
+        /* =========================================================
            RENDER PROJECTS
            ========================================================= */
 
-        function renderProjects() {
+        function renderProjects(
+            reset = true
+        ) {
 
             const filtered =
                 getFilteredProjects();
@@ -4694,49 +4769,71 @@ html[data-theme="dark"]
                 filtered.length;
 
 
-            const totalPages =
-                Math.max(
-                    1,
-                    Math.ceil(
-                        total /
-                        ITEMS_PER_PAGE
-                    )
-                );
-
-
             if (
-                state.page >
-                totalPages
+                reset
             ) {
 
-                state.page =
-                    totalPages;
+                state.visibleCount =
+                    Math.min(
+                        INITIAL_PROJECTS,
+                        total
+                    );
+
+                projectsGrid.innerHTML =
+                    "";
 
             }
 
 
-            const start =
-                (
-                    state.page -
-                    1
-                ) *
-                ITEMS_PER_PAGE;
-
-
-            const end =
-                start +
-                ITEMS_PER_PAGE;
-
-
             const visible =
                 filtered.slice(
-                    start,
-                    end
+                    0,
+                    state.visibleCount
                 );
 
 
-            projectsGrid.innerHTML =
-                "";
+            if (
+                reset
+            ) {
+
+                visible.forEach(
+                    project => {
+
+                        projectsGrid.appendChild(
+                            createProjectCard(
+                                project
+                            )
+                        );
+
+                    }
+                );
+
+            } else {
+
+                const currentlyRendered =
+                    projectsGrid.children.length;
+
+
+                const nextProjects =
+                    filtered.slice(
+                        currentlyRendered,
+                        state.visibleCount
+                    );
+
+
+                nextProjects.forEach(
+                    project => {
+
+                        projectsGrid.appendChild(
+                            createProjectCard(
+                                project
+                            )
+                        );
+
+                    }
+                );
+
+            }
 
 
             emptyState.classList.toggle(
@@ -4751,64 +4848,39 @@ html[data-theme="dark"]
                 )} پروژه`;
 
 
-            if (
-                total === 0
-            ) {
-
-                pagination.innerHTML =
-                    "";
-
-                pageStatus.textContent =
-                    "بدون نتیجه";
-
-                return;
-
-            }
-
-
-            visible.forEach(
-                project => {
-
-                    projectsGrid.appendChild(
-                        createProjectCard(
-                            project
-                        )
-                    );
-
-                }
-            );
-
-
-            renderPagination(
-                totalPages
-            );
+            const shown =
+                Math.min(
+                    state.visibleCount,
+                    total
+                );
 
 
             pageStatus.textContent =
-                `صفحه ${formatNumber(
-                    state.page
+                `نمایش ${formatNumber(
+                    shown
                 )} از ${formatNumber(
-                    totalPages
-                )}`;
+                    total
+                )} پروژه`;
+
+
+            updateInfiniteScrollStatus(
+                shown,
+                total,
+                false
+            );
 
         }
 
 
 
         /* =========================================================
-           PAGINATION
+           LOAD MORE PROJECTS
            ========================================================= */
 
-        function renderPagination(
-            totalPages
-        ) {
-
-            pagination.innerHTML =
-                "";
-
+        function loadMoreProjects() {
 
             if (
-                totalPages <= 1
+                state.loading
             ) {
 
                 return;
@@ -4816,355 +4888,363 @@ html[data-theme="dark"]
             }
 
 
-            const previous =
-                document.createElement(
-                    "button"
+            const filtered =
+                getFilteredProjects();
+
+
+            const total =
+                filtered.length;
+
+
+            if (
+                state.visibleCount >=
+                total
+            ) {
+
+                updateInfiniteScrollStatus(
+                    total,
+                    total,
+                    false
+                );
+
+                return;
+
+            }
+
+
+            state.loading =
+                true;
+
+
+            const nextCount =
+                Math.min(
+                    state.visibleCount +
+                        LOAD_INCREMENT,
+                    total
                 );
 
 
-            previous.type =
-                "button";
-
-
-            previous.className =
-                "page-btn arrow";
-
-
-            previous.textContent =
-                "→";
-
-
-            previous.setAttribute(
-                "aria-label",
-                "صفحه قبلی"
+            updateInfiniteScrollStatus(
+                state.visibleCount,
+                total,
+                true
             );
 
 
-            previous.disabled =
-                state.page ===
-                1;
+            /*
+             * Small delay prevents sudden rendering bursts
+             * and makes the transition feel natural.
+             */
 
-
-            previous.addEventListener(
-                "click",
+            window.setTimeout(
                 () => {
 
-                    if (
-                        state.page >
-                        1
-                    ) {
-
-                        state.page -=
-                            1;
-
-                        renderProjects();
-
-                        scrollToProjects();
-
-                    }
-
-                }
-            );
+                    state.visibleCount =
+                        nextCount;
 
 
-            pagination.appendChild(
-                previous
-            );
-
-
-            const pages =
-                getVisiblePageNumbers(
-                    state.page,
-                    totalPages
-                );
-
-
-            pages.forEach(
-                pageNumber => {
-
-
-                    if (
-                        pageNumber ===
-                        "ellipsis"
-                    ) {
-
-                        const span =
-                            document.createElement(
-                                "span"
-                            );
-
-
-                        span.className =
-                            "page-btn";
-
-
-                        span.textContent =
-                            "…";
-
-
-                        span.setAttribute(
-                            "aria-hidden",
-                            "true"
-                        );
-
-
-                        span.style.cursor =
-                            "default";
-
-
-                        pagination.appendChild(
-                            span
-                        );
-
-
-                        return;
-
-                    }
-
-
-                    const button =
-                        document.createElement(
-                            "button"
-                        );
-
-
-                    button.type =
-                        "button";
-
-
-                    button.className =
-                        "page-btn";
-
-
-                    button.textContent =
-                        formatNumber(
-                            pageNumber
-                        );
-
-
-                    button.setAttribute(
-                        "aria-label",
-                        `صفحه ${formatNumber(
-                            pageNumber
-                        )}`
+                    renderProjects(
+                        false
                     );
 
 
-                    if (
-                        pageNumber ===
-                        state.page
-                    ) {
+                    state.loading =
+                        false;
 
-                        button.classList.add(
-                            "active"
+
+                    updateInfiniteScrollStatus(
+                        state.visibleCount,
+                        total,
+                        false
+                    );
+
+                },
+                120
+            );
+
+        }
+
+
+
+        /* =========================================================
+           INTERSECTION OBSERVER
+           ========================================================= */
+
+        let infiniteObserver =
+            null;
+
+
+        function initializeInfiniteScroll() {
+
+            if (
+                !infiniteScrollSentinel
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                !("IntersectionObserver" in window)
+            ) {
+
+                /*
+                 * Graceful fallback:
+                 * load more when the user reaches the
+                 * bottom of the document.
+                 */
+
+                window.addEventListener(
+                    "scroll",
+                    handleFallbackScroll,
+                    {
+                        passive: true
+                    }
+                );
+
+                return;
+
+            }
+
+
+            infiniteObserver =
+                new IntersectionObserver(
+                    entries => {
+
+                        const entry =
+                            entries[0];
+
+
+                        if (
+                            !entry ||
+                            !entry.isIntersecting
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        loadMoreProjects();
+
+                    },
+                    {
+                        root:
+                            null,
+
+                        rootMargin:
+                            `${LOAD_AHEAD_PX}px 0px`,
+
+                        threshold:
+                            0
+                    }
+                );
+
+
+            infiniteObserver.observe(
+                infiniteScrollSentinel
+            );
+
+        }
+
+
+
+        /* =========================================================
+           FALLBACK SCROLL
+           ========================================================= */
+
+        function handleFallbackScroll() {
+
+            if (
+                state.loading
+            ) {
+
+                return;
+
+            }
+
+
+            const scrollPosition =
+                window.innerHeight +
+                window.scrollY;
+
+
+            const documentHeight =
+                document.documentElement
+                    .scrollHeight;
+
+
+            if (
+                documentHeight -
+                scrollPosition <=
+                LOAD_AHEAD_PX
+            ) {
+
+                loadMoreProjects();
+
+            }
+
+        }
+
+
+
+        /* =========================================================
+           FILTER BUTTONS
+           ========================================================= */
+
+        filterButtons.forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const filter =
+                            button.dataset.filter ||
+                            "all";
+
+
+                        state.category =
+                            filter;
+
+
+                        filterButtons.forEach(
+                            item => {
+
+                                const active =
+                                    item ===
+                                    button;
+
+
+                                item.classList.toggle(
+                                    "active",
+                                    active
+                                );
+
+
+                                item.setAttribute(
+                                    "aria-pressed",
+                                    String(
+                                        active
+                                    )
+                                );
+
+                            }
+                        );
+
+
+                        renderProjects(
+                            true
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =========================================================
+           SEARCH
+           ========================================================= */
+
+        projectSearch.addEventListener(
+            "input",
+            () => {
+
+                state.search =
+                    projectSearch.value;
+
+
+                renderProjects(
+                    true
+                );
+
+            }
+        );
+
+
+
+        /* =========================================================
+           SORT
+           ========================================================= */
+
+        sortProjects.addEventListener(
+            "change",
+            () => {
+
+                state.sort =
+                    sortProjects.value;
+
+
+                renderProjects(
+                    true
+                );
+
+            }
+        );
+
+
+
+        /* =========================================================
+           RESET FILTERS
+           ========================================================= */
+
+        resetSearchBtn.addEventListener(
+            "click",
+            () => {
+
+                state.search =
+                    "";
+
+                state.category =
+                    "all";
+
+                state.sort =
+                    "featured";
+
+
+                projectSearch.value =
+                    "";
+
+
+                sortProjects.value =
+                    "featured";
+
+
+                filterButtons.forEach(
+                    button => {
+
+                        const active =
+                            button.dataset.filter ===
+                            "all";
+
+
+                        button.classList.toggle(
+                            "active",
+                            active
                         );
 
 
                         button.setAttribute(
-                            "aria-current",
-                            "page"
+                            "aria-pressed",
+                            String(
+                                active
+                            )
                         );
 
                     }
-
-
-                    button.addEventListener(
-                        "click",
-                        () => {
-
-                            state.page =
-                                pageNumber;
-
-                            renderProjects();
-
-                            scrollToProjects();
-
-                        }
-                    );
-
-
-                    pagination.appendChild(
-                        button
-                    );
-
-                }
-            );
-
-
-            const next =
-                document.createElement(
-                    "button"
                 );
 
 
-            next.type =
-                "button";
-
-
-            next.className =
-                "page-btn arrow";
-
-
-            next.textContent =
-                "←";
-
-
-            next.setAttribute(
-                "aria-label",
-                "صفحه بعدی"
-            );
-
-
-            next.disabled =
-                state.page ===
-                totalPages;
-
-
-            next.addEventListener(
-                "click",
-                () => {
-
-                    if (
-                        state.page <
-                        totalPages
-                    ) {
-
-                        state.page +=
-                            1;
-
-                        renderProjects();
-
-                        scrollToProjects();
-
-                    }
-
-                }
-            );
-
-
-            pagination.appendChild(
-                next
-            );
-
-        }
-
-
-
-        /* =========================================================
-           PAGE NUMBER RANGE
-           ========================================================= */
-
-        function getVisiblePageNumbers(
-            current,
-            total
-        ) {
-
-            if (
-                total <= 7
-            ) {
-
-                return Array.from(
-                    {
-                        length:
-                            total
-                    },
-                    (
-                        _,
-                        index
-                    ) =>
-                        index + 1
+                renderProjects(
+                    true
                 );
 
             }
-
-
-            const pages = [1];
-
-
-            if (
-                current > 4
-            ) {
-
-                pages.push(
-                    "ellipsis"
-                );
-
-            }
-
-
-            const start =
-                Math.max(
-                    2,
-                    current - 1
-                );
-
-
-            const end =
-                Math.min(
-                    total - 1,
-                    current + 1
-                );
-
-
-            for (
-                let page = start;
-                page <= end;
-                page++
-            ) {
-
-                pages.push(
-                    page
-                );
-
-            }
-
-
-            if (
-                current <
-                total - 3
-            ) {
-
-                pages.push(
-                    "ellipsis"
-                );
-
-            }
-
-
-            pages.push(
-                total
-            );
-
-
-            return pages;
-
-        }
-
-
-
-        /* =========================================================
-           SCROLL
-           ========================================================= */
-
-        function scrollToProjects() {
-
-            const section =
-                document.querySelector(
-                    ".projects-section"
-                );
-
-
-            section?.scrollIntoView(
-                {
-                    behavior:
-                        "smooth",
-
-                    block:
-                        "start"
-                }
-            );
-
-        }
+        );
 
 
 
@@ -5591,168 +5671,6 @@ html[data-theme="dark"]
 
 
         /* =========================================================
-           SEARCH
-           ========================================================= */
-
-        projectSearch.addEventListener(
-            "input",
-            () => {
-
-                state.search =
-                    projectSearch.value;
-
-                state.page =
-                    1;
-
-                renderProjects();
-
-            }
-        );
-
-
-
-        /* =========================================================
-           FILTER
-           ========================================================= */
-
-        filterButtons.forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        const filter =
-                            button.dataset.filter ||
-                            "all";
-
-
-                        state.category =
-                            filter;
-
-
-                        state.page =
-                            1;
-
-
-                        filterButtons.forEach(
-                            item => {
-
-                                const active =
-                                    item ===
-                                    button;
-
-
-                                item.classList.toggle(
-                                    "active",
-                                    active
-                                );
-
-
-                                item.setAttribute(
-                                    "aria-pressed",
-                                    String(
-                                        active
-                                    )
-                                );
-
-                            }
-                        );
-
-
-                        renderProjects();
-
-                    }
-                );
-
-            }
-        );
-
-
-
-        /* =========================================================
-           SORT
-           ========================================================= */
-
-        sortProjects.addEventListener(
-            "change",
-            () => {
-
-                state.sort =
-                    sortProjects.value;
-
-                state.page =
-                    1;
-
-                renderProjects();
-
-            }
-        );
-
-
-
-        /* =========================================================
-           RESET FILTERS
-           ========================================================= */
-
-        resetSearchBtn.addEventListener(
-            "click",
-            () => {
-
-                state.search =
-                    "";
-
-                state.category =
-                    "all";
-
-                state.sort =
-                    "featured";
-
-                state.page =
-                    1;
-
-
-                projectSearch.value =
-                    "";
-
-
-                sortProjects.value =
-                    "featured";
-
-
-                filterButtons.forEach(
-                    button => {
-
-                        const active =
-                            button.dataset.filter ===
-                            "all";
-
-
-                        button.classList.toggle(
-                            "active",
-                            active
-                        );
-
-
-                        button.setAttribute(
-                            "aria-pressed",
-                            String(
-                                active
-                            )
-                        );
-
-                    }
-                );
-
-
-                renderProjects();
-
-            }
-        );
-
-
-
-        /* =========================================================
            MOBILE MENU
            ========================================================= */
 
@@ -5953,7 +5871,11 @@ html[data-theme="dark"]
 
         initializeTheme();
 
-        renderProjects();
+        renderProjects(
+            true
+        );
+
+        initializeInfiniteScroll();
 
     </script>
 
