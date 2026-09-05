@@ -4703,19 +4703,22 @@ html[data-theme="dark"]
             }
 
 
-            if (
-                shown >= total
-            ) {
+if (
+    shown >= total
+) {
 
-                infiniteScrollStatus.className =
-                    "infinite-scroll-status done";
+    infiniteScrollStatus.className =
+        "infinite-scroll-status done";
 
-                infiniteScrollStatus.textContent =
-                    "همه پروژه‌ها نمایش داده شدند.";
+    infiniteScrollStatus.textContent =
+        "";
 
-                return;
+    infiniteScrollStatus.innerHTML =
+        "";
 
-            }
+    return;
+
+}
 
 
             if (
