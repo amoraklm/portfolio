@@ -587,3 +587,29 @@ const PROJECTS = [
 },
 
 ];
+
+   {
+    id: 17,
+    title: "SF90",
+    category: "poster",
+    categoryLabel: "Poster",
+    type: "concept",
+    typeLabel: "Concept Project",
+    year: 2026,
+    featured: false,
+    cover: "images/017.webp",
+
+    shortDescription:
+        "طراحی پوستر اختصاصی اتوموبیل SF90 برای شرکت FERRARI",
+
+    description:
+        "طراحی پوستر اختصاصی اتوموبیل SF90 برای شرکت FERRARI",
+
+    tools: [
+        "Photoshop"
+    ],
+
+    services: [
+        "Poster",
+    ]
+},
