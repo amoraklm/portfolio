@@ -586,7 +586,6 @@ const PROJECTS = [
     ]
 },
 
-];
 
    {
     id: 17,
@@ -613,3 +612,6 @@ const PROJECTS = [
         "Poster",
     ]
 },
+
+];
+
