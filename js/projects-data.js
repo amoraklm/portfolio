@@ -636,4 +636,29 @@ const PROJECTS = [
   ]
 },
 
+{
+  id: "lamborghini-revuelto",
+  title: "LAMBORGHINI REVUELTO — BEYOND THE LIMIT",
+  category: "advertising",
+  categoryLabel: "تبلیغات خودرو و محصولات لوکس",
+  type: "concept",
+  typeLabel: "کمپین تبلیغاتی مفهومی",
+  year: "2026",
+  featured: true,
+  cover: "images/022.webp",
+  description:
+    "A premium automotive advertising concept for the Lamborghini Revuelto, built around the idea of BEYOND THE LIMIT. Combining cinematic automotive art direction, dramatic architectural lighting, sophisticated product visualization, and refined editorial typography to communicate extreme performance, precision engineering, and Italian luxury.",
+  tools: ["AI-assisted", "Adobe Photoshop", "Adobe Illustrator"],
+  services: [
+    "Creative Direction",
+    "Automotive Art Direction",
+    "Luxury Product Advertising",
+    "Key Visual Design",
+    "Cinematic Composition",
+    "Lighting & Color Grading",
+    "Typography & Layout Design",
+    "Advertising Campaign Concept"
+  ]
+},
+
 ];
