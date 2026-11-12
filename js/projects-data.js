@@ -643,6 +643,29 @@ const PROJECTS = [
             "Advertising Composition",
             "Campaign Concept"
         ]
-    }
+    },
+
+{
+  id: "zenith-neon",
+  title: "ZENITH — HEAR MORE. FEEL MORE.",
+  category: "advertising",
+  categoryLabel: "تبلیغات محصول دیجیتال",
+  type: "concept",
+  typeLabel: "پروژه مفهومی",
+  year: "2026",
+  featured: false,
+  cover: "images/021.webp",
+  description:
+    "A high-impact product advertising concept for ZENITH premium wireless headphones. Combining cinematic product visualization, neon-lime lighting, sculptural motion elements, and a bold dark aesthetic to communicate immersive sound, performance, and modern technology.",
+  tools: ["AI-assisted"],
+  services: [
+    "Product Advertising",
+    "Art Direction",
+    "Key Visual Design",
+    "Product Visualization",
+    "Advertising Composition",
+    "Brand Campaign Concept"
+  ]
+},
 
 ];
