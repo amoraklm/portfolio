@@ -624,7 +624,7 @@ const PROJECTS = [
   featured: false,
   cover: "images/021.webp",
   description:
-    "A high-impact product advertising concept for ZENITH premium wireless headphones. Combining cinematic product visualization, neon-lime lighting, sculptural motion elements, and a bold dark aesthetic to communicate immersive sound, performance, and modern technology.",
+    "یک ایده تبلیغاتی تأثیرگذار برای هدفون‌های بی‌سیم ممتاز ZENITH. ترکیبی از تصویرسازی سینمایی محصول، نورپردازی نئون-لیمویی، عناصر حرکتی مجسمه‌گونه و یک حس زیبایی‌شناسی جسورانه با رنگ تیره برای انتقال صدای فراگیر، عملکرد و فناوری مدرن.",
   tools: ["AI-assisted"],
   services: [
     "Product Advertising",
@@ -647,7 +647,7 @@ const PROJECTS = [
   featured: true,
   cover: "images/022.webp",
   description:
-    "A premium automotive advertising concept for the Lamborghini Revuelto, built around the idea of BEYOND THE LIMIT. Combining cinematic automotive art direction, dramatic architectural lighting, sophisticated product visualization, and refined editorial typography to communicate extreme performance, precision engineering, and Italian luxury.",
+    "یک ایده تبلیغاتی خودرو درجه یک برای لامبورگینی رووئلتو، که حول ایده «فراتر از محدودیت» ساخته شده است. ترکیبی از کارگردانی هنری سینمایی خودرو، نورپردازی معماری چشمگیر، تجسم پیچیده محصول و تایپوگرافی سرمقاله‌ای اصلاح‌شده برای انتقال عملکرد فوق‌العاده، مهندسی دقیق و تجمل ایتالیایی.",
   tools: ["AI-assisted", "Adobe Photoshop", "Adobe Illustrator"],
   services: [
     "Creative Direction",
@@ -663,7 +663,7 @@ const PROJECTS = [
 
 {
   id: "digikala-black-friday",
-  title: "DIGIKALA — THE RED MOMENTUM",
+  title: "دیجی‌کالا - بلک فرایدی",
   category: "advertising",
   categoryLabel: "تبلیغات و تجارت الکترونیک",
   type: "concept",
@@ -672,8 +672,8 @@ const PROJECTS = [
   featured: true,
   cover: "images/023.webp",
   description:
-    "An independent Black Friday advertising campaign concept for Digikala, built around THE RED MOMENTUM creative direction. Combining premium 3D product visualization, distinctive red sculptural elements, refined Persian typography, and a conversion-focused composition to create a cohesive and commercially compelling e-commerce campaign.",
-  tools: ["AI-assisted"],
+    "یک ایده مستقل برای کمپین تبلیغاتی جمعه سیاه برای دیجی‌کالا، که حول محور خلاقیت THE RED MOMENTUM ساخته شده است. ترکیبی از تصویرسازی سه‌بعدی ممتاز محصول، عناصر مجسمه‌سازی قرمز متمایز، تایپوگرافی فارسی اصلاح‌شده و یک ترکیب‌بندی متمرکز بر تبدیل، برای ایجاد یک کمپین تجارت الکترونیک منسجم و از نظر تجاری جذاب.",
+  tools: ["Photoshop"],
   services: [
     "Creative Direction",
     "Advertising Art Direction",
