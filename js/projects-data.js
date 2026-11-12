@@ -687,4 +687,31 @@ const PROJECTS = [
   ]
 },
 
+{
+  id: "nova-finance",
+  title: "NOVA FINANCE — CLARITY IN EVERY TRANSACTION",
+  category: "ui-ux",
+  categoryLabel: "طراحی رابط و تجربه کاربری",
+  type: "concept",
+  typeLabel: "مفهوم طراحی محصول دیجیتال",
+  year: "2026",
+  featured: true,
+  cover: "images/024.webp",
+  description:
+    "یک اپلیکیشن موبایل فین‌تک ممتاز با تمرکز بر ساده‌سازی مدیریت مالی شخصی. دارای رابط کاربری بهبود یافته با حالت تاریک، داشبورد مالی بصری، تجزیه و تحلیل تعاملی هزینه‌ها و یک سیستم بصری منسجم که برای شفاف، قابل دسترس و کاربردی کردن اطلاعات مالی طراحی شده است.",
+  tools: ["AI-assisted", "Figma"],
+  services: [
+    "Product Design",
+    "UI/UX Design",
+    "Mobile App Design",
+    "Dashboard Design",
+    "Financial Data Visualization",
+    "Information Architecture",
+    "Design System",
+    "Interaction Design",
+    "Visual Hierarchy",
+    "High-Fidelity Prototyping"
+  ]
+},
+
 ];
