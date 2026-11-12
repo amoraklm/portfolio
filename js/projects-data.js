@@ -661,4 +661,30 @@ const PROJECTS = [
   ]
 },
 
+{
+  id: "digikala-black-friday",
+  title: "DIGIKALA — THE RED MOMENTUM",
+  category: "advertising",
+  categoryLabel: "تبلیغات و تجارت الکترونیک",
+  type: "concept",
+  typeLabel: "کمپین تبلیغاتی مفهومی",
+  year: "2026",
+  featured: true,
+  cover: "images/023.webp",
+  description:
+    "An independent Black Friday advertising campaign concept for Digikala, built around THE RED MOMENTUM creative direction. Combining premium 3D product visualization, distinctive red sculptural elements, refined Persian typography, and a conversion-focused composition to create a cohesive and commercially compelling e-commerce campaign.",
+  tools: ["AI-assisted"],
+  services: [
+    "Creative Direction",
+    "Advertising Art Direction",
+    "E-commerce Campaign Design",
+    "Key Visual Design",
+    "3D Product Visualization",
+    "Visual Hierarchy",
+    "Persian Typography",
+    "Social Media Advertising",
+    "Campaign Concept Development"
+  ]
+},
+
 ];
