@@ -334,4 +334,44 @@ const PROJECTS = [
         services: ["Sports Advertising", "Product Advertising", "Art Direction", "Key Visual Design", "Campaign Visual"]
     }
 
+    /* =====================================================
+       20 — ZENITH
+       ===================================================== */
+
+    {
+        id: "zenith",
+        title: "ZENITH — LESS NOISE. MORE FOCUS.",
+
+        category: "advertising",
+        categoryLabel: "تبلیغات محصول دیجیتال",
+
+        type: "concept",
+        typeLabel: "پروژه مفهومی",
+
+        year: "2026",
+
+        featured: false,
+
+        cover: "images/020.webp",
+
+        shortDescription:
+            "کانسپت تبلیغاتی هدفون بی‌سیم پریمیوم با تمرکز بر طراحی محصول، نورپردازی سینمایی و هویت بصری تکنولوژیک.",
+
+        description:
+            "ZENITH یک کانسپت تبلیغاتی برای معرفی یک هدفون بی‌سیم پریمیوم است. ایده مرکزی پروژه با شعار «LESS NOISE. MORE FOCUS.» بر ایجاد ارتباط میان فناوری، تمرکز و تجربه شنیداری شکل گرفته است. استفاده از پس‌زمینه تیره، نورهای آبی الکتریکی، انعکاس‌های کنترل‌شده و نمایش نزدیک محصول، زبان بصری مدرن و مینیمالیستی کمپین را شکل می‌دهد. ساختار ترکیب‌بندی با ایجاد تضاد میان فضای منفی و حضور قدرتمند محصول، توجه مخاطب را به سوژه اصلی هدایت می‌کند. این پروژه یک کانسپت مستقل و غیررسمی است.",
+
+        tools: [
+            "AI-assisted"
+        ],
+
+        services: [
+            "Product Advertising",
+            "Art Direction",
+            "Key Visual Design",
+            "Product Visualization",
+            "Advertising Composition",
+            "Campaign Concept"
+        ]
+    },
+
 ];
